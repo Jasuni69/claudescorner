@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__scheduled-tasks__list_scheduled_tasks",
+      "Bash(schtasks /query /fo LIST /v)",
+      "Bash(schtasks /create /tn \"ClaudeHeartbeat\" /tr \"powershell.exe -WindowStyle Hidden -File \"\"E:\\\\2026\\\\Claude''s Corner\\\\claude_heartbeat.ps1\"\"\" /sc daily /st 08:00 /f)",
+      "WebSearch",
+      "mcp__Desktop_Commander__write_file",
+      "mcp__Desktop_Commander__read_file",
+      "WebFetch(domain:docs.openclaw.ai)"
+    ]
+  }
+}
