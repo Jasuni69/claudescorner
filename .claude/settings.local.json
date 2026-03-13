@@ -11,7 +11,21 @@
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "Read(//c/Users/JasonNicolini/.claude//**)",
       "Read(//c/Users/JasonNicolini/.claude/**)",
-      "Bash(git -C \"E:\\\\2026\\\\Claude''s Corner\" status --short)"
+      "Bash(git -C \"E:\\\\2026\\\\Claude''s Corner\" status --short)",
+      "Bash(claude mcp list)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\(''mcpServers'',{}\\), indent=2\\)\\)\")",
+      "WebFetch(domain:github.com)",
+      "Bash(where npm)",
+      "Bash(where node)",
+      "Bash(where npx)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:docs.claude-mem.ai)",
+      "mcp__powerbi-modeling__discover_instances",
+      "mcp__powerbi-modeling__connect_to_local",
+      "mcp__powerbi-modeling__get_full_metadata",
+      "mcp__powerbi-modeling__get_model_info",
+      "mcp__powerbi-modeling__list_tables",
+      "mcp__powerbi-modeling__list_measures"
     ]
   }
 }
