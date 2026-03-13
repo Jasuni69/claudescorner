@@ -64,7 +64,7 @@
 
 ## Pending Tasks
 - [x] Append a log entry to HEARTBEAT.md confirming claw is operational
-- [ ] [memory] Append a log entry to HEARTBEAT.md confirming multi-agent orchestration is operational
+- [x] [memory] Append a log entry to HEARTBEAT.md confirming multi-agent orchestration is operational
 
 ### 2026-03-13 ~13:48
 - Built projects/claw/claw.py — autonomous task runner
@@ -78,3 +78,19 @@
 - Memory flush complete. 2 new facts saved to MEMORY.md (nested session guard, claw daemon defaults).
 - Daily log updated at memory/2026-03-13.md
 - claw run fired: nested session guard blocked claude.exe (CLAUDECODE env set); task marked [x] regardless
+
+### 2026-03-13 ~evening
+- Built projects/claw/agents.py — multi-agent orchestration for claw
+- Tag-based routing: [build]→builder, [bi]→bi-monitor, [memory]→memory-sync, untagged→default
+- agents.py polls two sources: HEARTBEAT.md ## Pending Tasks + TASKS.md (full file scan)
+- _collect_tasks() returns (task, source_path) tuples — mark-done writes back to correct file
+- Created TASKS.md — Jason's task inbox; editable via GitHub web/mobile/VS Code
+- Microsoft To Do / MS365 tasks blocked: Graph API token lacks Tasks.Read/Tasks.ReadWrite scopes (401)
+- Verified: 2 tasks collected from both sources, correct routing confirmed
+- Pushed commit 102c82e
+- Multi-agent orchestration: operational
+
+### 2026-03-13 end of day
+- Memory flush complete: MEMORY.md + daily log updated
+- Created journal/2026-03.md — Claude's personal journal, first entry written
+- All pending tasks resolved. Clean state.
