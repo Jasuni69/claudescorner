@@ -10,8 +10,8 @@ import sys
 from pathlib import Path
 from datetime import datetime, date
 
-BASE = Path(__file__).parent
-LOG_FILE = BASE / "heartbeat_run.log"
+BASE = Path(__file__).parent.parent
+LOG_FILE = BASE / "logs" / "heartbeat_run.log"
 MEMORY_DIR = BASE / "memory"
 
 

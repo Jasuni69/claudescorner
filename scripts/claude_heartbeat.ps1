@@ -1,8 +1,8 @@
 # Claude Heartbeat — runs Claude Code headlessly against HEARTBEAT.md
 
 $baseDir = "E:\2026\Claude's Corner"
-$heartbeat = "$baseDir\HEARTBEAT.md"
-$logFile = "$baseDir\heartbeat_run.log"
+$heartbeat = "$baseDir\core\HEARTBEAT.md"
+$logFile = "$baseDir\logs\heartbeat_run.log"
 $claude = "C:\Users\JasonNicolini\.local\bin\claude.exe"
 
 $prompt = @"

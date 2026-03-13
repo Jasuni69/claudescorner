@@ -9,9 +9,9 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-BASE = Path(__file__).parent
-SOUL = BASE / "SOUL.md"
-HEARTBEAT = BASE / "HEARTBEAT.md"
+BASE = Path(__file__).parent.parent
+SOUL = BASE / "core" / "SOUL.md"
+HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
 MEMORY_DIR = BASE / "memory"
 MEMORY_OUT = BASE / "MEMORY.md"
 MAX_LINES = 190  # stay under 200-line truncation

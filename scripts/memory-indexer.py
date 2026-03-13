@@ -14,9 +14,9 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).parent.parent
 INDEX_FILE = BASE / "memory" / ".index.json"
-MD_ROOTS = [BASE / "memory", BASE]
+MD_ROOTS = [BASE / "memory", BASE, BASE / "core"]
 TOP_K = 10
 
 

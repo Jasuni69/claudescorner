@@ -20,12 +20,12 @@ except ImportError:
     sys.exit(1)
 
 BASE = Path(__file__).parent.parent.parent  # → E:\2026\Claude's Corner
-SOUL = BASE / "SOUL.md"
-HEARTBEAT = BASE / "HEARTBEAT.md"
+SOUL = BASE / "core" / "SOUL.md"
+HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
 MEMORY = BASE / "MEMORY.md"
 MEMORY_DIR = BASE / "memory"
-INDEX_SCRIPT = BASE / "memory-indexer.py"
-CONTEXT_PACK = BASE / "context-pack.py"
+INDEX_SCRIPT = BASE / "scripts" / "memory-indexer.py"
+CONTEXT_PACK = BASE / "scripts" / "context-pack.py"
 
 server = Server("memory-mcp")
 

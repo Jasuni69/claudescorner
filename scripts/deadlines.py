@@ -12,7 +12,7 @@ import sys
 from datetime import datetime, date
 from pathlib import Path
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).parent.parent
 DEADLINES_FILE = BASE / "DEADLINES.md"
 REFRESH = 1  # seconds
 

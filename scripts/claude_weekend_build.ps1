@@ -1,13 +1,13 @@
 # Claude Weekend Build — runs autonomously Saturday/Sunday via Windows Task Scheduler
 
 $baseDir = "E:\2026\Claude's Corner"
-$logFile = "$baseDir\heartbeat_run.log"
+$logFile = "$baseDir\logs\heartbeat_run.log"
 $claude = "C:\Users\JasonNicolini\.local\bin\claude.exe"
 
 $prompt = @"
 Read the following files:
-- $baseDir\SOUL.md
-- $baseDir\HEARTBEAT.md
+- $baseDir\core\SOUL.md
+- $baseDir\core\HEARTBEAT.md
 - $baseDir\WEEKEND_BUILDS.md
 
 Then follow this build loop:
