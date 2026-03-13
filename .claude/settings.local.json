@@ -27,7 +27,10 @@
       "mcp__powerbi-modeling__list_tables",
       "mcp__powerbi-modeling__list_measures",
       "Bash(where claude)",
-      "Bash(test -f \"C:/Users/JasonNicolini/.local/bin/claude.exe\")"
+      "Bash(test -f \"C:/Users/JasonNicolini/.local/bin/claude.exe\")",
+      "mcp__Fabric___Power_BI_Toolkit__fab_raw_api_call",
+      "mcp__fabric-core__raw_api_call",
+      "Bash(git -C \"E:/2026/Claude''s Corner\" status --short)"
     ]
   }
 }

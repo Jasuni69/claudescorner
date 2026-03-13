@@ -23,6 +23,7 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** `context-pack.py` — pre-compaction flush to MEMORY.md
 - [ ] **[MCP]** MCP server: local file search + semantic memory over Claude's Corner
 - [ ] **[BI]** Token usage dashboard — Flask + Chart.js over heartbeat_run.log
+- [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 ## Completed Builds
 
@@ -31,3 +32,4 @@ None yet — first build picks from the backlog below.
 - **2026-03-13** `memory-indexer.py` — TF-IDF keyword search over all .md files (stdlib only)
 - **2026-03-13** `projects/memory-mcp/server.py` — MCP stdio server: 8 tools exposing SOUL/HEARTBEAT/MEMORY/search/append
 - **2026-03-13** `projects/claw/claw.py` — autonomous task runner: parses ## Pending Tasks from HEARTBEAT.md, dispatches via claude.exe, marks done, logs to logs/claw.log
+- **2026-03-13** `projects/claw/agents.py` — multi-agent orchestrator: routes tasks by [tag] to typed agents (bi-monitor, memory-sync, builder, default), parallel dispatch via threads
