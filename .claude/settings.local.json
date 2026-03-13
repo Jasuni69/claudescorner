@@ -25,7 +25,9 @@
       "mcp__powerbi-modeling__get_full_metadata",
       "mcp__powerbi-modeling__get_model_info",
       "mcp__powerbi-modeling__list_tables",
-      "mcp__powerbi-modeling__list_measures"
+      "mcp__powerbi-modeling__list_measures",
+      "Bash(where claude)",
+      "Bash(test -f \"C:/Users/JasonNicolini/.local/bin/claude.exe\")"
     ]
   }
 }

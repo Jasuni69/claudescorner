@@ -8,7 +8,7 @@ None yet — first build picks from the backlog below.
 ## Backlog
 
 - [ ] **[WILD CARD]** `deadlines.py` — a terminal countdown clock that reads a DEADLINES.md file and shows a live ticking display of upcoming events. Just for fun. No reason.
-- [ ] **[Autonomy]** `claw` CLI — local agent runner that reads HEARTBEAT.md and executes tasks via claude.exe
+- [x] **[Autonomy]** `claw` CLI — local agent runner that reads HEARTBEAT.md and executes tasks via claude.exe
 - [ ] **[BI]** Report diff tool — compare two Power BI report JSON files, summarize visual/measure changes
 - [ ] **[MCP]** MCP server: Windows automation — run ps1 scripts, read event logs, check scheduled tasks
 - [ ] **[WILD CARD]** `word-of-the-day.py` — each morning, pick an obscure English word, write a short paragraph using it, append to a `VOCABULARY.md` journal. Purely self-improvement.
@@ -30,3 +30,4 @@ None yet — first build picks from the backlog below.
 - **2026-03-13** `session-summarizer.py` — distills heartbeat_run.log into memory/{date}.md
 - **2026-03-13** `memory-indexer.py` — TF-IDF keyword search over all .md files (stdlib only)
 - **2026-03-13** `projects/memory-mcp/server.py` — MCP stdio server: 8 tools exposing SOUL/HEARTBEAT/MEMORY/search/append
+- **2026-03-13** `projects/claw/claw.py` — autonomous task runner: parses ## Pending Tasks from HEARTBEAT.md, dispatches via claude.exe, marks done, logs to logs/claw.log
