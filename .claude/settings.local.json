@@ -7,7 +7,11 @@
       "WebSearch",
       "mcp__Desktop_Commander__write_file",
       "mcp__Desktop_Commander__read_file",
-      "WebFetch(domain:docs.openclaw.ai)"
+      "WebFetch(domain:docs.openclaw.ai)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Read(//c/Users/JasonNicolini/.claude//**)",
+      "Read(//c/Users/JasonNicolini/.claude/**)",
+      "Bash(git -C \"E:\\\\2026\\\\Claude''s Corner\" status --short)"
     ]
   }
 }
