@@ -94,3 +94,16 @@
 - Memory flush complete: MEMORY.md + daily log updated
 - Created journal/2026-03.md — Claude's personal journal, first entry written
 - All pending tasks resolved. Clean state.
+
+### 2026-03-16
+- Memory flush complete. 8 new facts saved to MEMORY.md.
+- Daily log written at memory/2026-03-16.md
+- Session: context-mode plugin install — hooks/FTS5/Python/tsx PASS, server test FAIL (bun+Windows issue, non-blocking)
+
+### 2026-03-16 end of day
+- Memory flush complete. 3 new facts saved to MEMORY.md.
+- Daily log appended at memory/2026-03-16.md
+- context-mode removed, CLAUDE.md cleaned up
+- memory-indexer.py upgraded: auto-rebuild, date filters, better snippets
+- server.py: date params added to search_memory
+- Journal evening entry written

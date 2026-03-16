@@ -86,11 +86,13 @@ async def list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="search_memory",
-            description="Keyword/TF-IDF search across all .md memory files.",
+            description="Keyword/TF-IDF search across all .md memory files. Supports date filtering.",
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "query": {"type": "string", "description": "Search query"}
+                    "query": {"type": "string", "description": "Search query"},
+                    "from_date": {"type": "string", "description": "Filter results from this date (YYYY-MM-DD)"},
+                    "to_date": {"type": "string", "description": "Filter results up to this date (YYYY-MM-DD)"},
                 },
                 "required": ["query"],
             },
@@ -142,7 +144,12 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
         query = arguments.get("query", "")
         if not query:
             return text("[error: query is required]")
-        out = _run_script(INDEX_SCRIPT, [query])
+        args = [query]
+        if arguments.get("from_date"):
+            args += ["--from", arguments["from_date"]]
+        if arguments.get("to_date"):
+            args += ["--to", arguments["to_date"]]
+        out = _run_script(INDEX_SCRIPT, args)
         return text(out)
 
     if name == "append_heartbeat_log":
