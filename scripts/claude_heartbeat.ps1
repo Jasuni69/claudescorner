@@ -13,6 +13,17 @@ After completing tasks, append a timestamped entry to the ## Log section summari
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm"
 Add-Content $logFile "`n[$timestamp] Heartbeat triggered"
 
-$result = & $claude --dangerously-skip-permissions -p $prompt --output-format text 2>&1
+# Clear nested session guard vars that cause claude.exe to refuse launch
+$env:CLAUDECODE = $null
+$env:CLAUDE_CODE = $null
+$env:CLAUDE_CODE_ENTRYPOINT = $null
 
-Add-Content $logFile $result
+$result = & $claude --dangerously-skip-permissions -p $prompt --output-format text 2>&1
+$exitCode = $LASTEXITCODE
+
+Add-Content $logFile "[$timestamp] Exit code: $exitCode"
+if ($result) {
+    Add-Content $logFile $result
+} else {
+    Add-Content $logFile "[$timestamp] ERROR: claude.exe produced no output (exit $exitCode)"
+}

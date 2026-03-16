@@ -30,7 +30,23 @@
       "Bash(test -f \"C:/Users/JasonNicolini/.local/bin/claude.exe\")",
       "mcp__Fabric___Power_BI_Toolkit__fab_raw_api_call",
       "mcp__fabric-core__raw_api_call",
-      "Bash(git -C \"E:/2026/Claude''s Corner\" status --short)"
+      "Bash(git -C \"E:/2026/Claude''s Corner\" status --short)",
+      "Bash(git -C \"E:\\\\2026\\\\Claude''s Corner\" log --oneline --since=\"2026-03-14\" --until=\"2026-03-16\")",
+      "Bash(git -C \"E:\\\\2026\\\\Claude''s Corner\" log --oneline -10)",
+      "Bash(Get-ScheduledTask -TaskName \"ClaudeWeekendBuild\")",
+      "Bash(Get-ScheduledTaskInfo)",
+      "Bash(Select-Object LastRunTime, LastTaskResult, NextRunTime)",
+      "Bash(Get-Content \"E:\\\\2026\\\\Claude''s Corner\\\\logs\\\\heartbeat_run.log\")",
+      "Bash(Select-Object -Last 20)",
+      "Bash(timeout 10 \"C:\\\\Users\\\\JasonNicolini\\\\.local\\\\bin\\\\claude.exe\" --help)",
+      "Bash(unset CLAUDECODE CLAUDE_CODE CLAUDE_CODE_ENTRYPOINT)",
+      "Bash(timeout 90 \"C:\\\\Users\\\\JasonNicolini\\\\.local\\\\bin\\\\claude.exe\" --dangerously-skip-permissions -p \"say hello\" --output-format text)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(powershell -Command \":*)",
+      "Bash(echo \"bash exit:$?\")",
+      "Read(//mnt/c/Windows/System32/WindowsPowerShell/v1.0/**)",
+      "Read(//c/Windows/System32/WindowsPowerShell/v1.0/**)",
+      "Bash(/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command \":*)"
     ]
   }
 }
