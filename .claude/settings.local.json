@@ -90,7 +90,9 @@
       "Bash(cmd.exe /c \"dir C:\\\\temp\\\\nskills-ca.crt 2>&1\")",
       "WebFetch(domain:api.github.com)",
       "Bash(ls -lh \"E:/2026/Claude''s Corner/memory/\"*.md \"E:/2026/Claude''s Corner/core/\"*.md \"E:/2026/Claude''s Corner/core/\"*.json \"E:/2026/Claude''s Corner/scripts/\"*.py \"E:/2026/Claude''s Corner/scripts/\"*.ps1)",
-      "Bash(ls -lh \"E:/2026/Claude''s Corner/memory\"/*.md \"E:/2026/Claude''s Corner/core\"/*.md)"
+      "Bash(ls -lh \"E:/2026/Claude''s Corner/memory\"/*.md \"E:/2026/Claude''s Corner/core\"/*.md)",
+      "mcp__Fabric___Power_BI_Toolkit__fab_graph_user",
+      "mcp__Fabric___Power_BI_Toolkit__fab_list_workspaces"
     ]
   }
 }
