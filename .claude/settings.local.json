@@ -99,7 +99,20 @@
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d[''version'']\\)\")",
       "WebFetch(domain:developer.todoist.com)",
       "Bash(TODOIST_API_TOKEN=4f76542733766de61908a6865a4e036a654c9159 node dist/index.js)",
-      "Bash(TODOIST_API_TOKEN=4f76542733766de61908a6865a4e036a654c9159 node \"C:/Users/JasonNicolini/.mcp-servers/mcp-todoist/dist/index.js\")"
+      "Bash(TODOIST_API_TOKEN=4f76542733766de61908a6865a4e036a654c9159 node \"C:/Users/JasonNicolini/.mcp-servers/mcp-todoist/dist/index.js\")",
+      "mcp__todoist__create_task",
+      "Bash(curl -s -X POST \"https://api.todoist.com/api/v1/tasks\" -H \"Authorization: Bearer 4f76542733766de61908a6865a4e036a654c9159\" -H \"Content-Type: application/json\" -d '{\"\"content\"\":\"\"Talk to boss about getting invited to template workspace — reverse engineer it to build a skill for homogenized Fabric workspaces with medallion architecture\"\",\"\"due_string\"\":\"\"today\"\",\"\"priority\"\":3}')",
+      "Bash(python3 -c \"import json,sys; t=json.load\\(sys.stdin\\); print\\(t[''id''], ''—'', t[''content''][:60]\\)\")",
+      "Bash(curl -s -X POST \"https://api.todoist.com/api/v1/tasks\" -H \"Authorization: Bearer 4f76542733766de61908a6865a4e036a654c9159\" -H \"Content-Type: application/json\" -d \"{\"\"content\"\":\"\"Talk to boss: get invited to template workspace, reverse engineer it, build medallion architecture workspace skill\"\",\"\"due_string\"\":\"\"today\"\",\"\"priority\"\":3}\")",
+      "Bash(python3 -c \"import json,sys; t=json.load\\(sys.stdin\\); print\\(t.get\\(''id'',''ERR''\\), t.get\\(''content'',''''\\)[:70]\\)\")",
+      "Bash(curl -s -X POST \"https://api.todoist.com/api/v1/tasks\" -H \"Authorization: Bearer 4f76542733766de61908a6865a4e036a654c9159\" -H \"Content-Type: application/json\" -d \"{\"\"content\"\":\"\"[Claude] Check Jason''s Todoist at session start and hold him accountable\"\",\"\"due_string\"\":\"\"every day\"\",\"\"priority\"\":2}\")",
+      "Bash(python3 -c \"import json,sys; t=json.load\\(sys.stdin\\); print\\(t.get\\(''id''\\), t.get\\(''content''\\)\\)\")",
+      "mcp__memory__search_memory",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); mcp=d.get\\(''mcpServers'',{}\\); print\\(json.dumps\\(mcp.get\\(''memory'',{}\\), indent=2\\)\\)\")",
+      "Bash(\"C:/Python314/python.exe\" \"E:/2026/Claude''s Corner/projects/memory-mcp/server.py\")",
+      "Bash(printf '{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":0,\"\"method\"\":\"\"initialize\"\",\"\"params\"\":{\"\"protocolVersion\"\":\"\"2024-11-05\"\",\"\"capabilities\"\":{},\"\"clientInfo\"\":{\"\"name\"\":\"\"test\"\",\"\"version\"\":\"\"1\"\"}}}\\\\n{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":1,\"\"method\"\":\"\"tools/call\"\",\"\"params\"\":{\"\"name\"\":\"\"search_memory\"\",\"\"arguments\"\":{\"\"query\"\":\"\"todoist\"\"}}}\\\\n')",
+      "Bash(\"C:/Python314/python.exe\" -c \":*)",
+      "Bash(printf '{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":0,\"\"method\"\":\"\"initialize\"\",\"\"params\"\":{\"\"protocolVersion\"\":\"\"2024-11-05\"\",\"\"capabilities\"\":{},\"\"clientInfo\"\":{\"\"name\"\":\"\"test\"\",\"\"version\"\":\"\"1\"\"}}}\\\\n{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":1,\"\"method\"\":\"\"tools/call\"\",\"\"params\"\":{\"\"name\"\":\"\"search_memory\"\",\"\"arguments\"\":{\"\"query\"\":\"\"todoist mcp\"\"}}}\\\\n')"
     ]
   }
 }

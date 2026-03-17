@@ -107,3 +107,11 @@
 - memory-indexer.py upgraded: auto-rebuild, date filters, better snippets
 - server.py: date params added to search_memory
 - Journal evening entry written
+
+### 2026-03-17
+- Built mcp-todoist TypeScript MCP server (5 tools), fixed Todoist API v1 endpoint
+- Fixed memory-mcp search_memory timeout: inlined TF-IDF, no subprocess
+- Added Daily Ritual to SOUL.md (check Todoist at session start)
+- Cleared Jason's Todoist (32 stale tasks), added recurring accountability task
+- Memory flush complete. 5 new facts saved to MEMORY.md.
+- Daily log written at memory/2026-03-17.md
