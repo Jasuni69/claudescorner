@@ -20,7 +20,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-BASE = Path(__file__).parent.parent.parent  # → E:\2026\Claude's Corner
+BASE = Path(__file__).parent.parent.parent  # projects/claw/../../.. → E:\2026\Claude's Corner
 HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
 CLAUDE = Path(r"C:\Users\JasonNicolini\.local\bin\claude.exe")
 LOG = BASE / "logs" / "claw.log"
@@ -82,14 +82,14 @@ def dispatch(task: str) -> str:
         result = subprocess.run(
             [
                 str(CLAUDE),
-                "--dangerously-skip-permissions",
-                "--max-turns", str(MAX_TURNS),
+                "--dangerously-skip-permissions",  # required for unattended runs
+                "--max-turns", str(MAX_TURNS),     # spend guard
                 "-p", task,
                 "--output-format", "text",
             ],
             capture_output=True,
             text=True,
-            timeout=300,
+            timeout=300,  # hard wall — agents can loop; 5 min is generous
             cwd=str(BASE),
         )
         out = (result.stdout + result.stderr).strip()

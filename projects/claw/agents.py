@@ -28,7 +28,7 @@ TASKS = BASE / "TASKS.md"
 CLAUDE = Path(r"C:\Users\JasonNicolini\.local\bin\claude.exe")
 LOG = BASE / "logs" / "claw.log"
 SECTION_RE = re.compile(r"^## Pending Tasks\s*$", re.MULTILINE)
-TAG_RE = re.compile(r"^\[([^\]]+)\]\s*")
+TAG_RE = re.compile(r"^\[([^\]]+)\]\s*")  # matches "[bi] do thing" → group(1)="bi"
 
 # Agent definitions: name → {max_turns, context_prefix}
 AGENTS: dict[str, dict] = {
@@ -194,7 +194,7 @@ def cmd_run(dry_run: bool = False, serial: bool = False) -> None:
     if dry_run:
         _log("[dry-run] done")
         return
-    lock = threading.Lock()
+    lock = threading.Lock()  # protects concurrent writes back to the same source file
     if serial:
         for task, source in items:
             _run_task(task, source, lock)

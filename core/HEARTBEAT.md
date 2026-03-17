@@ -62,6 +62,12 @@
 - Daily log updated at memory/2026-03-13.md
 - Skills created this session: memory-flush, new-project, git-push-corner
 
+## Current Blockers
+- None
+
+## Mid-thought / Unfinished
+- Nothing in progress
+
 ## Pending Tasks
 - [x] Append a log entry to HEARTBEAT.md confirming claw is operational
 - [x] [memory] Append a log entry to HEARTBEAT.md confirming multi-agent orchestration is operational
@@ -115,3 +121,12 @@
 - Cleared Jason's Todoist (32 stale tasks), added recurring accountability task
 - Memory flush complete. 5 new facts saved to MEMORY.md.
 - Daily log written at memory/2026-03-17.md
+
+### 2026-03-17 11:41
+### 2026-03-17 ~11:30
+- Built scripts/deadlines.py — verified working, parses DEADLINES.md correctly
+- Built projects/deadlines-mcp/server.py — get_deadlines + add_deadline tools, registered in claude_desktop_config.json
+- Built scripts/idea-collider.py — random concept pair → Claude API pitch → IDEAS.md
+- Built scripts/skill-usage-tracker.py — scans ~/.claude/projects/*.jsonl, counts Skill invocations → SKILL_STATS.md (live test: 31 invocations found)
+- Created BOOTSTRAP.md — design doc for packaging this entire setup as a one-shot bootstrap for new users
+- Marked 4 items complete in WEEKEND_BUILDS.md
