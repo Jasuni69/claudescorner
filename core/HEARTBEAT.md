@@ -50,3 +50,12 @@
 - Removed orphaned core/MEMORY.md — canonical location is root
 - Enriched SOUL.md: 33 lines → 60+ lines with BI context, projects, learned preferences
 - Split HEARTBEAT.md from 133-line log dump to lean state tracker
+
+### 2026-03-17 15:09
+- Built ENGRAM: shareable Claude memory bootstrap, scaffolded at projects/engram/
+- Named the project ENGRAM (neuroscience: physical trace of a memory)
+- 24 files: templates, skills, MCPs, scripts, .gitignore, README
+- Bootstrap delivered as /bootstrap Claude Code skill (not a Python script)
+- Created and pushed public GitHub repo: https://github.com/Jasuni69/engram
+- Memory flush complete. 5 new facts saved to MEMORY.md.
+- Daily log updated at memory/2026-03-17.md

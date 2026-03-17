@@ -5,13 +5,23 @@ $heartbeat = "$baseDir\core\HEARTBEAT.md"
 $logFile = "$baseDir\logs\heartbeat_run.log"
 $claude = "C:\Users\JasonNicolini\.local\bin\claude.exe"
 
+$redditBrief = "$baseDir\memory\reddit-brief.md"
+
 $prompt = @"
 Read $heartbeat and act on any pending tasks.
+
+Then read $redditBrief. For each post that is relevant to Jason's work (Microsoft Fabric, Power BI, DAX, AI agents, Claude, MCP, autonomous systems), evaluate if it warrants action:
+- If it describes a new tool, feature, or technique worth exploring -> create a Todoist task via the Todoist MCP
+- If it's just interesting context -> note it in the HEARTBEAT log
+
 After completing tasks, append a timestamped entry to the ## Log section summarizing what was done.
 "@
 
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm"
 Add-Content $logFile "`n[$timestamp] Heartbeat triggered"
+
+# Refresh Reddit brief
+& C:\Python314\python.exe "$baseDir\scripts\reddit_brief.py" | Out-Null
 
 # Clear nested session guard vars that cause claude.exe to refuse launch
 $env:CLAUDECODE = $null
