@@ -92,7 +92,14 @@
       "Bash(ls -lh \"E:/2026/Claude''s Corner/memory/\"*.md \"E:/2026/Claude''s Corner/core/\"*.md \"E:/2026/Claude''s Corner/core/\"*.json \"E:/2026/Claude''s Corner/scripts/\"*.py \"E:/2026/Claude''s Corner/scripts/\"*.ps1)",
       "Bash(ls -lh \"E:/2026/Claude''s Corner/memory\"/*.md \"E:/2026/Claude''s Corner/core\"/*.md)",
       "mcp__Fabric___Power_BI_Toolkit__fab_graph_user",
-      "mcp__Fabric___Power_BI_Toolkit__fab_list_workspaces"
+      "mcp__Fabric___Power_BI_Toolkit__fab_list_workspaces",
+      "Bash(node -e \"require\\(''C:/Users/JasonNicolini/Documents/Projects/todoist_mcp/index.js''\\)\")",
+      "Bash(TODOIST_API_TOKEN=test node dist/index.js)",
+      "mcp__todoist__get_tasks",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d[''version'']\\)\")",
+      "WebFetch(domain:developer.todoist.com)",
+      "Bash(TODOIST_API_TOKEN=4f76542733766de61908a6865a4e036a654c9159 node dist/index.js)",
+      "Bash(TODOIST_API_TOKEN=4f76542733766de61908a6865a4e036a654c9159 node \"C:/Users/JasonNicolini/.mcp-servers/mcp-todoist/dist/index.js\")"
     ]
   }
 }
