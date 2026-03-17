@@ -15,6 +15,7 @@ Usage:
   python agents.py run --serial      # run sequentially (default: parallel)
 """
 import argparse
+import os
 import re
 import subprocess
 import sys
@@ -118,12 +119,15 @@ def route(task: str) -> str:
     return "default"
 
 
-def dispatch(task: str, agent_name: str) -> str:
-    """Dispatch a task to the named agent via claude.exe."""
+def dispatch(task: str, agent_name: str) -> tuple[bool, str]:
+    """Dispatch a task to the named agent via claude.exe. Returns (success, output)."""
     if not CLAUDE.exists():
-        return f"[error] claude not found at {CLAUDE}"
+        return False, f"[error] claude not found at {CLAUDE}"
     cfg = AGENTS[agent_name]
     prompt = cfg["prefix"] + task
+    # Clear nested session guard env vars so claude.exe can launch
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("CLAUDECODE", "CLAUDE_CODE", "CLAUDE_CODE_ENTRYPOINT")}
     try:
         result = subprocess.run(
             [
@@ -137,13 +141,16 @@ def dispatch(task: str, agent_name: str) -> str:
             text=True,
             timeout=600,
             cwd=str(BASE),
+            env=env,
         )
         out = (result.stdout + result.stderr).strip()
-        return out or "[no output]"
+        if result.returncode != 0 or "[error]" in out.lower():
+            return False, out or "[no output]"
+        return True, out or "[no output]"
     except subprocess.TimeoutExpired:
-        return "[error] timed out after 600s"
+        return False, "[error] timed out after 600s"
     except Exception as e:
-        return f"[error] {e}"
+        return False, f"[error] {e}"
 
 
 def _collect_tasks() -> list[tuple[str, Path]]:
@@ -174,13 +181,16 @@ def cmd_status() -> None:
 def _run_task(task: str, source: Path, lock: threading.Lock) -> None:
     agent = route(task)
     _log(f"[{agent}] dispatching: {task}")
-    output = dispatch(task, agent)
-    _log(f"[{agent}] result ({len(output)} chars):\n{output[:500]}")
-    with lock:
-        text = source.read_text(encoding="utf-8")
-        text = _mark_done(text, task)
-        source.write_text(text, encoding="utf-8")
-    _log(f"[{agent}] marked done: {task}")
+    success, output = dispatch(task, agent)
+    _log(f"[{agent}] {'OK' if success else 'FAILED'} ({len(output)} chars):\n{output[:500]}")
+    if success:
+        with lock:
+            text = source.read_text(encoding="utf-8")
+            text = _mark_done(text, task)
+            source.write_text(text, encoding="utf-8")
+        _log(f"[{agent}] marked done: {task}")
+    else:
+        _log(f"[{agent}] KEPT PENDING (failed): {task}")
 
 
 def cmd_run(dry_run: bool = False, serial: bool = False) -> None:

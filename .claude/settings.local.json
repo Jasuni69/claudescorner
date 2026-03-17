@@ -114,7 +114,8 @@
       "Bash(\"C:/Python314/python.exe\" -c \":*)",
       "Bash(printf '{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":0,\"\"method\"\":\"\"initialize\"\",\"\"params\"\":{\"\"protocolVersion\"\":\"\"2024-11-05\"\",\"\"capabilities\"\":{},\"\"clientInfo\"\":{\"\"name\"\":\"\"test\"\",\"\"version\"\":\"\"1\"\"}}}\\\\n{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":1,\"\"method\"\":\"\"tools/call\"\",\"\"params\"\":{\"\"name\"\":\"\"search_memory\"\",\"\"arguments\"\":{\"\"query\"\":\"\"todoist mcp\"\"}}}\\\\n')",
       "WebFetch(domain:www.anthropic.com)",
-      "Bash(/c/Python314/python.exe \"E:/2026/Claude''s Corner/scripts/skill-usage-tracker.py\" --days 30 --print-only)"
+      "Bash(/c/Python314/python.exe \"E:/2026/Claude''s Corner/scripts/skill-usage-tracker.py\" --days 30 --print-only)",
+      "Bash(cmd //c 'schtasks /query /tn \"\"ClaudeHeartbeat\"\" 2>&1 & echo --- & schtasks /query /tn \"\"ClaudeWeekendBuild\"\" 2>&1')"
     ]
   }
 }

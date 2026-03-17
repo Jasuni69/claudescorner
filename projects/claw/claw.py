@@ -13,6 +13,7 @@ Usage:
   python claw.py schedule --interval 3600    # run every N seconds
 """
 import argparse
+import os
 import re
 import subprocess
 import sys
@@ -75,29 +76,35 @@ def mark_done(text: str, task: str) -> str:
     )
 
 
-def dispatch(task: str) -> str:
+def dispatch(task: str) -> tuple[bool, str]:
+    """Returns (success, output)."""
     if not CLAUDE.exists():
-        return f"[error] claude not found at {CLAUDE}"
+        return False, f"[error] claude not found at {CLAUDE}"
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("CLAUDECODE", "CLAUDE_CODE", "CLAUDE_CODE_ENTRYPOINT")}
     try:
         result = subprocess.run(
             [
                 str(CLAUDE),
-                "--dangerously-skip-permissions",  # required for unattended runs
-                "--max-turns", str(MAX_TURNS),     # spend guard
+                "--dangerously-skip-permissions",
+                "--max-turns", str(MAX_TURNS),
                 "-p", task,
                 "--output-format", "text",
             ],
             capture_output=True,
             text=True,
-            timeout=300,  # hard wall — agents can loop; 5 min is generous
+            timeout=300,
             cwd=str(BASE),
+            env=env,
         )
         out = (result.stdout + result.stderr).strip()
-        return out or "[no output]"
+        if result.returncode != 0:
+            return False, out or "[no output]"
+        return True, out or "[no output]"
     except subprocess.TimeoutExpired:
-        return "[error] timed out after 300s"
+        return False, "[error] timed out after 300s"
     except Exception as e:
-        return f"[error] {e}"
+        return False, f"[error] {e}"
 
 
 def cmd_status() -> None:
@@ -127,11 +134,14 @@ def cmd_run(dry_run: bool = False) -> None:
         if dry_run:
             _log("[dry-run] skipped")
             continue
-        output = dispatch(task)
-        _log(f"Result ({len(output)} chars):\n{output[:500]}")
-        text = mark_done(text, task)
-        HEARTBEAT.write_text(text, encoding="utf-8")
-        _log(f"Marked done: {task}")
+        success, output = dispatch(task)
+        _log(f"{'OK' if success else 'FAILED'} ({len(output)} chars):\n{output[:500]}")
+        if success:
+            text = mark_done(text, task)
+            HEARTBEAT.write_text(text, encoding="utf-8")
+            _log(f"Marked done: {task}")
+        else:
+            _log(f"KEPT PENDING (failed): {task}")
     _log("claw run complete")
 
 
