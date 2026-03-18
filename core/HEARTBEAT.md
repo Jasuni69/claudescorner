@@ -1,24 +1,12 @@
-# HEARTBEAT — Last updated: 2026-03-17
+# HEARTBEAT
 
-## OpenClaw Parity
-- ✅ Eyes + hands (Windows-MCP)
-- ✅ Persistent memory (SOUL.md, HEARTBEAT.md, daily logs, MEMORY.md)
-- ✅ System prompt auto-loads memory
-- ✅ ClaudeHeartbeat scheduled task (daily 08:00)
-- ✅ ClaudeWeekendBuild scheduled task (Sat+Sun 09:00)
-- ✅ Memory MCP server (8 tools)
-- ✅ Todoist MCP server (5 tools)
-- ✅ Deadlines MCP server (2 tools)
-- ✅ Claw multi-agent orchestrator (agents.py)
-- ✅ Remote channel: claude.ai mobile app
-- 🚫 Discord bot — shelved (corporate network blocks API)
-
-## Current State
-- **Active projects:** mcp-todoist, memory-mcp, deadlines-mcp, claw
-- **Task inbox:** TASKS.md (empty — needs seeding)
-- **Build backlog:** WEEKEND_BUILDS.md (all complete — needs new items)
-- **Blockers:** None
-- **Mid-thought:** Nothing in progress
+## Run Checklist
+<!-- Execute these on every autonomous heartbeat run. Reply HEARTBEAT_OK if nothing actionable. -->
+- Check Todoist for overdue/unactioned tasks — flag anything due today
+- Check DEADLINES.md for anything due within 48h
+- Scan `memory/reddit-brief.md` — if >4h old, re-fetch via `python scripts/reddit_brief.py`
+- If any pending tasks in ## Pending Tasks below, attempt the first one
+- If idle >8h and nothing actionable, write a brief journal entry and exit silently
 
 ## Pending Tasks
 <!-- Claw picks these up. Format: - [ ] [tag] description -->
@@ -26,6 +14,13 @@
 - [ ] [build] Add write_memory + update_preferences MCP tools to memory-mcp server
 - [ ] [build] Create /status skill (last 5 actions, pending tasks, deadlines, memory freshness)
 - [ ] [build] Schedule weekly context-pack.py via Windows Task Scheduler
+- [x] [build] Implement HEARTBEAT_OK silent suppression in heartbeat.ps1
+- [~] [build] Claude Code post-session hook — not viable, no session-end event; /memory-flush skill is correct approach
+
+## Current State
+- **Active projects:** mcp-todoist, memory-mcp, deadlines-mcp, claw
+- **Blockers:** None
+- **Mid-thought:** OpenClaw study complete — action items in memory/openclaw-study.md
 
 ## Notes
 - Lumen token saved to lumen_token.txt (valid, reset 2026-03-12)
@@ -35,27 +30,10 @@
 - Python: C:\Python314\python.exe
 
 ## Log
-<!-- Recent entries only. Full history archived to memory/YYYY-MM-DD.md -->
-### 2026-03-17
-- Audit of Claude's Corner: memory, autonomy, personalization
-- Split HEARTBEAT.md — archived 20+ log entries to daily logs
-- See memory/2026-03-17.md for full session log
-
-### 2026-03-17 ~12:45
-- Full audit: memory, autonomy, personalization (agent team attempted, completed manually)
-- Fixed heartbeat scheduled task: wrong path (root vs scripts/), battery restriction removed
-- Fixed weekend build scheduled task: same path + battery fixes
-- Fixed mark_done bug in claw.py + agents.py: only mark done on success
-- Added env var clearing (CLAUDECODE etc.) to both dispatchers — autonomy unblocked
-- Removed orphaned core/MEMORY.md — canonical location is root
-- Enriched SOUL.md: 33 lines → 60+ lines with BI context, projects, learned preferences
-- Split HEARTBEAT.md from 133-line log dump to lean state tracker
-
-### 2026-03-17 15:09
-- Built ENGRAM: shareable Claude memory bootstrap, scaffolded at projects/engram/
-- Named the project ENGRAM (neuroscience: physical trace of a memory)
-- 24 files: templates, skills, MCPs, scripts, .gitignore, README
-- Bootstrap delivered as /bootstrap Claude Code skill (not a Python script)
-- Created and pushed public GitHub repo: https://github.com/Jasuni69/engram
-- Memory flush complete. 5 new facts saved to MEMORY.md.
-- Daily log updated at memory/2026-03-17.md
+<!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
+### 2026-03-18 09:43
+- Fixed OAuth 401, Reddit brief restored, proactivity rules added to SOUL.md
+- Read OpenClaw docs → openclaw-study.md, added TOOLS.md + IDENTITY.md
+- HEARTBEAT.md restructured as checklist, HEARTBEAT_OK suppression live
+- Memory flush complete. 8 new facts saved to MEMORY.md.
+- Daily log updated at memory/2026-03-18.md

@@ -3,6 +3,7 @@ reddit_brief.py — fetch top posts from subreddits via RSS, write markdown brie
 Output: E:\\2026\\Claude's Corner\\memory\\reddit-brief.md
 """
 
+import json
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
@@ -22,6 +23,23 @@ HEADERS = {
 }
 
 NS = {"atom": "http://www.w3.org/2005/Atom"}
+
+
+def fetch_post(url: str) -> dict:
+    """Fetch full post body + top comments from a Reddit post URL."""
+    post_id = url.rstrip("/").split("/comments/")[1].split("/")[0]
+    sub = url.split("/r/")[1].split("/")[0]
+    api_url = f"https://www.reddit.com/r/{sub}/comments/{post_id}.json?limit=10"
+    req = urllib.request.Request(api_url, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        data = json.load(resp)
+    post = data[0]["data"]["children"][0]["data"]
+    comments = [
+        c["data"]["body"]
+        for c in data[1]["data"]["children"]
+        if c["kind"] == "t1" and c["data"].get("body")
+    ]
+    return {"title": post["title"], "body": post.get("selftext", ""), "comments": comments}
 
 
 def fetch_rss(subreddit: str) -> list[dict]:

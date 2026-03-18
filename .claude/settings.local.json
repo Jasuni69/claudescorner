@@ -126,7 +126,16 @@
       "WebFetch(domain:developers.figma.com)",
       "Bash(xargs grep -l \"figma\")",
       "mcp__todoist__delete_task",
-      "Bash(gh auth status)"
+      "Bash(gh auth status)",
+      "Bash(schtasks /query /tn \"ClaudeHeartbeat\" /fo LIST)",
+      "Bash(schtasks /query /fo LIST)",
+      "Bash(powershell -Command \"Get-ScheduledTask | Where-Object { $_.TaskName -like ''*Claude*'' } | Select-Object TaskName, State, @{N=''LastRun'';E={$_.LastRunTime}}, @{N=''NextRun'';E={$_.NextRunTime}} | Format-List\")",
+      "Bash(powershell -Command \"Get-ScheduledTask | Where-Object TaskName -like ''*Claude*'' | Select-Object TaskName, State, @{N=''LastRun'';E={$_LastRunTime}}, @{N=''NextRun'';E={$_NextRunTime}} | Format-List\")",
+      "Bash(powershell -Command \"Get-ScheduledTask -TaskName ''ClaudeHeartbeat'' | Get-ScheduledTaskInfo | Format-List\")",
+      "Bash(powershell -Command \"\\(Get-ScheduledTask -TaskName ''ClaudeHeartbeat''\\).Triggers | Format-List\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\(''C:/Users/JasonNicolini/.claude/config.json''\\)\\); print\\([k for k in d.keys\\(\\)]\\)\")",
+      "Bash(python -c \":*)",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(data[0][''text'']\\)\")"
     ]
   }
 }

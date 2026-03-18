@@ -32,7 +32,9 @@ $result = & $claude --dangerously-skip-permissions -p $prompt --output-format te
 $exitCode = $LASTEXITCODE
 
 Add-Content $logFile "[$timestamp] Exit code: $exitCode"
-if ($result) {
+if ($result -match "HEARTBEAT_OK") {
+    Add-Content $logFile "[$timestamp] HEARTBEAT_OK — nothing actionable, silent exit"
+} elseif ($result) {
     Add-Content $logFile $result
 } else {
     Add-Content $logFile "[$timestamp] ERROR: claude.exe produced no output (exit $exitCode)"
