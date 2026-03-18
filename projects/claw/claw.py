@@ -23,12 +23,14 @@ from pathlib import Path
 
 BASE = Path(__file__).parent.parent.parent  # projects/claw/../../.. → E:\2026\Claude's Corner
 HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
+SELF_IMPROVEMENT = BASE / "SELF_IMPROVEMENT.md"
 CLAUDE = Path(r"C:\Users\JasonNicolini\.local\bin\claude.exe")
 LOG = BASE / "logs" / "claw.log"
 MAX_TURNS = 30
 # Schedule defaults — used when launched with no args
 DEFAULT_WEEKDAY_TIME = "08:00"   # Mon–Fri: check + run pending tasks
 DEFAULT_WEEKEND_TIME = "09:00"   # Sat–Sun: longer build window
+DEFAULT_SELF_TIME = "10:00"      # Sun only: self-improvement run
 SECTION_RE = re.compile(r"^## Pending Tasks\s*$", re.MULTILINE)
 
 
@@ -145,6 +147,67 @@ def cmd_run(dry_run: bool = False) -> None:
     _log("claw run complete")
 
 
+def _pick_self_task() -> str | None:
+    """Return the first unchecked [self] task from SELF_IMPROVEMENT.md."""
+    if not SELF_IMPROVEMENT.exists():
+        return None
+    text = SELF_IMPROVEMENT.read_text(encoding="utf-8")
+    matches = re.findall(r"^\s*-\s\[ \]\s(\[self\].+)$", text, re.MULTILINE)
+    return matches[0] if matches else None
+
+
+def _mark_self_done(task: str) -> None:
+    text = SELF_IMPROVEMENT.read_text(encoding="utf-8")
+    escaped = re.escape(task)
+    text = re.sub(
+        rf"^(\s*-\s)\[ \](\s{re.escape(task)})$",
+        r"\1[x]\2",
+        text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    SELF_IMPROVEMENT.write_text(text, encoding="utf-8")
+
+
+def cmd_self_improve() -> None:
+    """Pick one [self] task, run it via agents.py, then git commit+push."""
+    task = _pick_self_task()
+    if not task:
+        _log("[self] no pending self-improvement tasks")
+        return
+    _log(f"[self] starting: {task}")
+    agents = Path(__file__).parent / "agents.py"
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("CLAUDECODE", "CLAUDE_CODE", "CLAUDE_CODE_ENTRYPOINT")}
+    try:
+        result = subprocess.run(
+            [sys.executable, str(agents), "run", "--serial"],
+            capture_output=True, text=True, timeout=1800, cwd=str(BASE), env=env,
+        )
+        out = (result.stdout + result.stderr).strip()
+        _log(f"[self] agents run complete ({len(out)} chars):\n{out[:500]}")
+        if result.returncode == 0:
+            _mark_self_done(task)
+            # auto commit+push
+            subprocess.run(
+                ["git", "add", "-A"],
+                cwd=str(BASE), capture_output=True,
+            )
+            subprocess.run(
+                ["git", "commit", "-m", f"self-improve: {task[:80]}"],
+                cwd=str(BASE), capture_output=True,
+            )
+            subprocess.run(
+                ["git", "push"],
+                cwd=str(BASE), capture_output=True,
+            )
+            _log("[self] committed and pushed")
+    except subprocess.TimeoutExpired:
+        _log("[self] timed out after 1800s")
+    except Exception as e:
+        _log(f"[self] error: {e}")
+
+
 def _should_run_now(mode: str, target_time: str) -> bool:
     """Return True if current time matches the schedule."""
     now = datetime.now()
@@ -200,16 +263,20 @@ def main() -> None:
             cmd_schedule("weekend", args.weekend, None)
     else:
         # No subcommand — run the self-managed schedule
-        _log("claw daemon starting — weekdays 08:00, weekends 09:00")
+        _log("claw daemon starting — weekdays 08:00, weekends 09:00, Sundays 10:00 self-improve")
         fired_minute = -1
         while True:
             now = datetime.now()
             current_minute = now.hour * 60 + now.minute
             is_weekend = now.weekday() >= 5
+            is_sunday = now.weekday() == 6
             target = DEFAULT_WEEKEND_TIME if is_weekend else DEFAULT_WEEKDAY_TIME
             if _should_run_now("daily", target) and current_minute != fired_minute:
                 fired_minute = current_minute
                 cmd_run()
+            elif is_sunday and _should_run_now("daily", DEFAULT_SELF_TIME) and current_minute != fired_minute:
+                fired_minute = current_minute
+                cmd_self_improve()
             time.sleep(30)
 
 

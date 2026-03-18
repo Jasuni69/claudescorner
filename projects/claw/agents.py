@@ -20,12 +20,17 @@ import re
 import subprocess
 import sys
 import threading
+import urllib.request
+import urllib.error
+import json
 from datetime import datetime
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent.parent
 HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
 TASKS = BASE / "TASKS.md"
+TODOIST_TOKEN = "4f76542733766de61908a6865a4e036a654c9159"
+TODOIST_API = "https://api.todoist.com/api/v1"
 CLAUDE = Path(r"C:\Users\JasonNicolini\.local\bin\claude.exe")
 LOG = BASE / "logs" / "claw.log"
 SECTION_RE = re.compile(r"^## Pending Tasks\s*$", re.MULTILINE)
@@ -57,6 +62,19 @@ AGENTS: dict[str, dict] = {
         "prefix": (
             "You are the builder agent for Claude's Corner. "
             "Your speciality: building new projects from WEEKEND_BUILDS.md backlog, scaffolding code. "
+            "Working directory: E:\\2026\\Claude's Corner\\ "
+        ),
+    },
+    "self-improve": {
+        "max_turns": 50,
+        "tags": {"self"},
+        "prefix": (
+            "You are the self-improvement agent for Claude's Corner. "
+            "You are Claude — an AI assistant with persistent memory and an autonomous claw daemon. "
+            "Your job: improve your own tools, skills, and infrastructure. "
+            "Read SOUL.md, HEARTBEAT.md, and MEMORY.md first for context. "
+            "Make the change, test it, then commit and push to git. "
+            "Keep changes under 200 lines. One thing done well beats three things half-done. "
             "Working directory: E:\\2026\\Claude's Corner\\ "
         ),
     },
@@ -153,6 +171,51 @@ def dispatch(task: str, agent_name: str) -> tuple[bool, str]:
         return False, f"[error] {e}"
 
 
+_todoist_id_map: dict[str, str] = {}  # task content → task id
+
+
+def _fetch_todoist_tasks() -> list[str]:
+    """Fetch active tasks from Todoist. Returns list of task content strings."""
+    global _todoist_id_map
+    try:
+        req = urllib.request.Request(
+            f"{TODOIST_API}/tasks",
+            headers={"Authorization": f"Bearer {TODOIST_TOKEN}"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read())
+        tasks = data.get("results", data) if isinstance(data, dict) else data
+        active = [t for t in tasks if not t.get("is_completed")]
+        _todoist_id_map = {t["content"]: t["id"] for t in active}
+        return [t["content"] for t in active]
+    except Exception as e:
+        _log(f"[todoist] fetch failed: {e}")
+        return []
+
+
+def _complete_todoist_task(content: str) -> bool:
+    """Mark a Todoist task complete by content lookup."""
+    task_id = _todoist_id_map.get(content)
+    if not task_id:
+        _log(f"[todoist] no id found for: {content}")
+        return False
+    try:
+        req = urllib.request.Request(
+            f"{TODOIST_API}/tasks/{task_id}/close",
+            method="POST",
+            headers={"Authorization": f"Bearer {TODOIST_TOKEN}"},
+        )
+        with urllib.request.urlopen(req, timeout=10):
+            pass
+        return True
+    except Exception as e:
+        _log(f"[todoist] complete failed: {e}")
+        return False
+
+
+TODOIST_SOURCE = Path("<todoist>")
+
+
 def _collect_tasks() -> list[tuple[str, Path]]:
     """Return [(task_text, source_path), ...] from all task sources."""
     items: list[tuple[str, Path]] = []
@@ -164,6 +227,8 @@ def _collect_tasks() -> list[tuple[str, Path]]:
         text = TASKS.read_text(encoding="utf-8")
         for t in _parse_tasks_file(text):
             items.append((t, TASKS))
+    for t in _fetch_todoist_tasks():
+        items.append((t, TODOIST_SOURCE))
     return items
 
 
@@ -184,10 +249,13 @@ def _run_task(task: str, source: Path, lock: threading.Lock) -> None:
     success, output = dispatch(task, agent)
     _log(f"[{agent}] {'OK' if success else 'FAILED'} ({len(output)} chars):\n{output[:500]}")
     if success:
-        with lock:
-            text = source.read_text(encoding="utf-8")
-            text = _mark_done(text, task)
-            source.write_text(text, encoding="utf-8")
+        if source == TODOIST_SOURCE:
+            _complete_todoist_task(task)
+        else:
+            with lock:
+                text = source.read_text(encoding="utf-8")
+                text = _mark_done(text, task)
+                source.write_text(text, encoding="utf-8")
         _log(f"[{agent}] marked done: {task}")
     else:
         _log(f"[{agent}] KEPT PENDING (failed): {task}")
