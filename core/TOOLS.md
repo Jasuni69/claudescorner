@@ -23,6 +23,7 @@
 | mcp-todoist | get_tasks, create_task, complete_task, delete_task, get_projects | Todoist REST API v1 |
 | deadlines-mcp | get_deadlines, add_deadline | DEADLINES.md parser |
 | Windows-MCP | App, Click, Snapshot, PowerShell, FileSystem, etc. | Eyes + hands on Windows |
+| Claude in Chrome | navigate, click, fill, get_page_text, read_console, read_network, screenshot, gif_creator, tabs_create_mcp, tabs_context_mcp | Full browser control — patched unpacked extension at Desktop\claude-ext-patched\. Use old.reddit.com not www. |
 | Desktop Commander | read_file, write_file, start_process, list_directory, etc. | File + process control |
 
 ## Claude Code CLI
