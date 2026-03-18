@@ -28,6 +28,7 @@ from pathlib import Path
 
 BASE = Path(__file__).parent.parent.parent
 HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
+SELF_IMPROVEMENT = BASE / "SELF_IMPROVEMENT.md"
 TASKS = BASE / "TASKS.md"
 TODOIST_TOKEN = "4f76542733766de61908a6865a4e036a654c9159"
 TODOIST_API = "https://api.todoist.com/api/v1"
@@ -285,6 +286,59 @@ def cmd_run(dry_run: bool = False, serial: bool = False) -> None:
     _log("agents run complete")
 
 
+DEFAULT_WEEKDAY_TIME = "08:00"
+DEFAULT_WEEKEND_TIME = "09:00"
+DEFAULT_SELF_TIME = "10:00"
+
+
+def _should_run_now(target_time: str, weekend_only: bool = False) -> bool:
+    now = datetime.now()
+    h, m = map(int, target_time.split(":"))
+    if now.hour != h or now.minute != m:
+        return False
+    if weekend_only:
+        return now.weekday() >= 5
+    return True
+
+
+def _pick_self_task() -> str | None:
+    if not SELF_IMPROVEMENT.exists():
+        return None
+    text = SELF_IMPROVEMENT.read_text(encoding="utf-8")
+    matches = re.findall(r"^\s*-\s\[ \]\s(\[self\].+)$", text, re.MULTILINE)
+    return matches[0] if matches else None
+
+
+def _mark_self_done(task: str) -> None:
+    text = SELF_IMPROVEMENT.read_text(encoding="utf-8")
+    text = re.sub(
+        rf"^(\s*-\s)\[ \](\s{re.escape(task)})$",
+        r"\1[x]\2",
+        text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    SELF_IMPROVEMENT.write_text(text, encoding="utf-8")
+
+
+def cmd_self_improve() -> None:
+    """Pick one [self] task, run it via agents, then git commit+push."""
+    task = _pick_self_task()
+    if not task:
+        _log("[self] no pending self-improvement tasks")
+        return
+    _log(f"[self] starting: {task}")
+    lock = threading.Lock()
+    _run_task(task, SELF_IMPROVEMENT, lock)
+    subprocess.run(["git", "add", "-A"], cwd=str(BASE), capture_output=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"self-improve: {task[:80]}"],
+        cwd=str(BASE), capture_output=True,
+    )
+    subprocess.run(["git", "push"], cwd=str(BASE), capture_output=True)
+    _log("[self] committed and pushed")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="claw agents — multi-agent orchestrator")
     sub = parser.add_subparsers(dest="cmd")
@@ -292,13 +346,32 @@ def main() -> None:
     run_p = sub.add_parser("run", help="Dispatch all pending tasks to typed agents")
     run_p.add_argument("--dry-run", action="store_true")
     run_p.add_argument("--serial", action="store_true", help="Run sequentially instead of parallel")
+    sub.add_parser("self-improve", help="Run one [self] task from SELF_IMPROVEMENT.md")
     args = parser.parse_args()
     if args.cmd == "status":
         cmd_status()
     elif args.cmd == "run":
         cmd_run(dry_run=getattr(args, "dry_run", False), serial=getattr(args, "serial", False))
+    elif args.cmd == "self-improve":
+        cmd_self_improve()
     else:
-        parser.print_help()
+        # Daemon mode: weekdays 08:00, weekends 09:00, Sundays 10:00 self-improve
+        _log("agents daemon starting — weekdays 08:00, weekends 09:00, Sundays 10:00 self-improve")
+        fired_minute = -1
+        while True:
+            now = datetime.now()
+            current_minute = now.hour * 60 + now.minute
+            is_weekend = now.weekday() >= 5
+            is_sunday = now.weekday() == 6
+            target = DEFAULT_WEEKEND_TIME if is_weekend else DEFAULT_WEEKDAY_TIME
+            if _should_run_now(target) and current_minute != fired_minute:
+                fired_minute = current_minute
+                cmd_run()
+            elif is_sunday and _should_run_now(DEFAULT_SELF_TIME) and current_minute != fired_minute:
+                fired_minute = current_minute
+                cmd_self_improve()
+            import time
+            time.sleep(30)
 
 
 if __name__ == "__main__":

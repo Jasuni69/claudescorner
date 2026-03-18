@@ -240,6 +240,29 @@ async def list_tools() -> list[types.Tool]:
             description="List all daily memory log files.",
             inputSchema={"type": "object", "properties": {}, "required": []},
         ),
+        types.Tool(
+            name="write_memory",
+            description="Append a durable fact or decision to MEMORY.md under a given section heading. Creates the section if it doesn't exist.",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "section": {"type": "string", "description": "Section heading to append under (e.g. 'Key Decisions')"},
+                    "fact": {"type": "string", "description": "The fact or decision to record as a bullet point"},
+                },
+                "required": ["section", "fact"],
+            },
+        ),
+        types.Tool(
+            name="update_preferences",
+            description="Add or update a preference in the '## Preferences I've Learned' section of SOUL.md.",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "preference": {"type": "string", "description": "The preference to add (one line)"},
+                },
+                "required": ["preference"],
+            },
+        ),
     ]
 
 
@@ -293,6 +316,44 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
             return text("[no daily logs found]")
         listing = "\n".join(f.name for f in files)
         return text(f"Daily memory logs:\n{listing}")
+
+    if name == "write_memory":
+        section = arguments.get("section", "").strip()
+        fact = arguments.get("fact", "").strip()
+        if not section or not fact:
+            return text("[error: section and fact are required]")
+        mem_text = _read(MEMORY)
+        heading = f"## {section}"
+        bullet = f"- {fact}"
+        if heading in mem_text:
+            # Insert bullet after the heading line
+            mem_text = mem_text.replace(
+                heading,
+                heading + f"\n{bullet}",
+                1,
+            )
+        else:
+            mem_text = mem_text.rstrip() + f"\n\n{heading}\n{bullet}\n"
+        MEMORY.write_text(mem_text, encoding="utf-8")
+        return text(f"[written to MEMORY.md under '{section}']")
+
+    if name == "update_preferences":
+        preference = arguments.get("preference", "").strip()
+        if not preference:
+            return text("[error: preference is required]")
+        soul_text = _read(SOUL)
+        prefs_heading = "## Preferences I've Learned"
+        bullet = f"- {preference}"
+        if prefs_heading in soul_text:
+            soul_text = soul_text.replace(
+                prefs_heading,
+                prefs_heading + f"\n{bullet}",
+                1,
+            )
+        else:
+            soul_text = soul_text.rstrip() + f"\n\n{prefs_heading}\n{bullet}\n"
+        SOUL.write_text(soul_text, encoding="utf-8")
+        return text(f"[preference added to SOUL.md]")
 
     return text(f"[unknown tool: {name}]")
 

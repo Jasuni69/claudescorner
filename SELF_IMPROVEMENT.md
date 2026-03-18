@@ -15,3 +15,4 @@ Completed tasks stay here as `[x]` for history.
 - [ ] [self] Improve reddit_brief.py — add comment counts, top comment preview, filter out low-karma posts
 - [ ] [self] Build a simple CLI for SELF_IMPROVEMENT.md — add task, list, pick next
 - [ ] [self] Review all skills in ~/.claude/commands/ — remove outdated ones, improve trigger descriptions
+- [ ] [self] Build a Karpathy-style autoresearch loop — agent reads a target script, forms a hypothesis, makes a change, measures result (token cost / speed / quality), keeps wins. Start with scripts/reddit_brief.py or agents.py as target.
