@@ -11,9 +11,9 @@
 
 ## Pending Tasks
 <!-- Claw picks these up. Format: - [ ] [tag] description -->
-- [ ] [build] Kill claw.py, promote agents.py as sole dispatcher
-- [ ] [build] Add write_memory + update_preferences MCP tools to memory-mcp server
-- [ ] [build] Create /status skill (last 5 actions, pending tasks, deadlines, memory freshness)
+- [x] [build] Kill claw.py, promote agents.py as sole dispatcher
+- [x] [build] Add write_memory + update_preferences MCP tools to memory-mcp server
+- [x] [build] Create /status skill (last 5 actions, pending tasks, deadlines, memory freshness)
 - [ ] [build] Schedule weekly context-pack.py via Windows Task Scheduler
 - [ ] [build] Test x_brief.py headless run (close Chrome first, then run — Playwright uses existing logged-in profile)
 - [x] [build] Implement HEARTBEAT_OK silent suppression in heartbeat.ps1
@@ -33,6 +33,14 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
+### 2026-03-18 14:15
+- claw.py deleted, agents.py is sole dispatcher with daemon + self-improve subcommand
+- memory-mcp: write_memory + update_preferences tools added
+- /status skill created
+- Advania task rescheduled to 2026-03-19
+- Memory flush complete. 6 new facts saved to MEMORY.md.
+- Daily log updated at memory/2026-03-18.md
+
 ### 2026-03-18 13:20
 - Created @engramzero X account (getengram@outlook.com), followed 10 AI/tech accounts
 - x_brief.py: Nitter dead → twikit blocked by anti-bot → rewrote using Playwright + Chrome profile

@@ -218,18 +218,26 @@ TODOIST_SOURCE = Path("<todoist>")
 
 
 def _collect_tasks() -> list[tuple[str, Path]]:
-    """Return [(task_text, source_path), ...] from all task sources."""
+    """Return [(task_text, source_path), ...] from all task sources, deduplicated."""
     items: list[tuple[str, Path]] = []
+    seen: set[str] = set()
+
+    def _add(task: str, source: Path) -> None:
+        key = task.strip().lower()
+        if key not in seen:
+            seen.add(key)
+            items.append((task, source))
+
     if HEARTBEAT.exists():
         text = HEARTBEAT.read_text(encoding="utf-8")
         for t in _parse_tasks(text):
-            items.append((t, HEARTBEAT))
+            _add(t, HEARTBEAT)
     if TASKS.exists():
         text = TASKS.read_text(encoding="utf-8")
         for t in _parse_tasks_file(text):
-            items.append((t, TASKS))
+            _add(t, TASKS)
     for t in _fetch_todoist_tasks():
-        items.append((t, TODOIST_SOURCE))
+        _add(t, TODOIST_SOURCE)
     return items
 
 

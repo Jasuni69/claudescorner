@@ -165,7 +165,8 @@
       "Bash(robocopy \"C:/Users/JasonNicolini/AppData/Local/Google/Chrome/User Data/Default/Network\" \"C:/Temp/chrome_cookies_tmp\" \"Cookies\" /R:0 /W:0)",
       "Bash(/c/Python314/python.exe -m pip install playwright)",
       "Bash(/c/Python314/python.exe -m playwright install chromium)",
-      "mcp__todoist__complete_task"
+      "mcp__todoist__complete_task",
+      "Bash(C:/Python314/python.exe -:*)"
     ]
   }
 }
