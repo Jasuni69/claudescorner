@@ -186,7 +186,12 @@
       "Read(//c/Users/JasonNicolini/Downloads/**)",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k:v for k,v in d.items\\(\\) if ''perm'' in k.lower\\(\\) or ''bypass'' in k.lower\\(\\) or ''danger'' in k.lower\\(\\) or ''mode'' in k.lower\\(\\)}, indent=2\\)\\)\")",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)\\)\")",
-      "Bash(ls /c/Users/JasonNicolini/.claude/settings*.json)"
+      "Bash(ls /c/Users/JasonNicolini/.claude/settings*.json)",
+      "Bash(for f in /c/Users/JasonNicolini/.claude/commands/*.md)",
+      "Bash(do echo \"=== $f ===\")",
+      "Read(//e/2026/Claude's Corner/**)",
+      "Bash(done)",
+      "Bash(python -c \"import time; print\\(time.time\\(\\)\\); print\\(time.time\\(\\) - 1773924552\\)\")"
     ],
     "defaultMode": "bypassPermissions"
   }
