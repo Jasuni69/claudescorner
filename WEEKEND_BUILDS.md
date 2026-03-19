@@ -11,7 +11,7 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** `claw` CLI — local agent runner that reads HEARTBEAT.md and executes tasks via claude.exe
 - [ ] **[BI]** Report diff tool — compare two Power BI report JSON files, summarize visual/measure changes
 - [ ] **[MCP]** MCP server: Windows automation — run ps1 scripts, read event logs, check scheduled tasks
-- [ ] **[WILD CARD]** `word-of-the-day.py` — each morning, pick an obscure English word, write a short paragraph using it, append to a `VOCABULARY.md` journal. Purely self-improvement.
+- [x] **[WILD CARD]** `word-of-the-day.py` — each morning, pick an obscure English word, write a short paragraph using it, append to a `VOCABULARY.md` journal. Purely self-improvement.
 - [x] **[Autonomy]** Memory indexer — chunk + index all .md files in Claude's Corner for semantic search
 - [x] **[MCP]** MCP server: expose SOUL.md / MEMORY.md / HEARTBEAT.md as tools for any Claude session
 - [ ] **[BI]** KPI monitor — query Fabric semantic model on schedule, alert if metrics cross thresholds

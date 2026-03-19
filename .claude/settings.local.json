@@ -192,7 +192,11 @@
       "Read(//e/2026/Claude's Corner/**)",
       "Bash(done)",
       "Bash(python -c \"import time; print\\(time.time\\(\\)\\); print\\(time.time\\(\\) - 1773924552\\)\")",
-      "Bash(/c/Python314/python.exe \"E:/2026/Claude''s Corner/scripts/improve.py\" done 4)"
+      "Bash(/c/Python314/python.exe \"E:/2026/Claude''s Corner/scripts/improve.py\" done 4)",
+      "Bash(C:Python314python.exe \"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\word-of-the-day.py\")",
+      "Bash(python \"E:/2026/Claude''s Corner/scripts/word-of-the-day.py\")",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:powerbiconsulting.com)"
     ],
     "defaultMode": "bypassPermissions"
   }

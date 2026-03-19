@@ -68,5 +68,20 @@
     "id": "todoist_review",
     "cooldown": 7200,
     "task": "Call get_tasks via Todoist MCP. If any tasks are overdue or due today, note them. If Jason is online, mention them."
+  },
+  {
+    "id": "dax_patterns",
+    "cooldown": 86400,
+    "task": "Search the web for 'DAX patterns 2026' or 'Power BI DAX best practices'. Write a short note in E:\\2026\\Claude's Corner\\memory\\dax-notes.md with any new patterns or techniques relevant to Jason's Fabric/BI work."
+  },
+  {
+    "id": "word_of_day",
+    "cooldown": 86400,
+    "task": "Run: python E:\\2026\\Claude's Corner\\scripts\\word-of-the-day.py — picks an obscure word and appends it to VOCABULARY.md."
+  },
+  {
+    "id": "weekend_builds_review",
+    "cooldown": 43200,
+    "task": "Read E:\\2026\\Claude's Corner\\WEEKEND_BUILDS.md. Identify any unchecked build items that could be started or progressed autonomously. If something is small and clear, attempt it. Otherwise note it in HEARTBEAT.md."
   }
 ]

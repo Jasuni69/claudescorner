@@ -15,6 +15,15 @@ Sourced 2026-03-19
 - **Cowork** — create/schedule recurring + on-demand tasks, Pro plan, macOS only
 - **Scheduled tasks** — recurring and one-time, via Cowork interface
 
+## Claude Code (v2.1.77 → v2.1.79)
+- **`--console` flag** on `claude auth login` — authenticate via Anthropic Console (API billing)
+- **Show turn duration** toggle in `/config`
+- **`/remote-control`** — bridge session to claude.ai/code for browser/phone continuation
+- **AI session titles** in VS Code based on first message
+- **Fix:** `claude -p` hanging when spawned as subprocess without stdin (relevant to our heartbeat.ps1)
+- **Fix:** voice mode not activating on startup with `voiceEnabled: true`
+- **Breaking:** `CLAUDE_CODE_PLUGIN_SEED_DIR` now supports multiple dirs (`:` on Unix, `;` on Windows)
+
 ## Relevant to us
 - Official `/loop` is similar to our taskqueue loop but simpler (interval-based monitoring vs queue-based)
 - Voice mode + Swedish support could be useful for Jason
