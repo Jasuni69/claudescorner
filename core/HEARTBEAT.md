@@ -11,7 +11,6 @@
 
 ## Pending Tasks
 <!-- Claw picks these up. Format: - [ ] [tag] description -->
-- [ ] [deadline] **Q1 sprint review — TOMORROW 2026-03-20**
 - [x] [build] Kill claw.py, promote agents.py as sole dispatcher
 - [x] [build] Add write_memory + update_preferences MCP tools to memory-mcp server
 - [x] [build] Create /status skill (last 5 actions, pending tasks, deadlines, memory freshness)

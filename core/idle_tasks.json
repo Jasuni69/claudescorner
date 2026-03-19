@@ -51,8 +51,8 @@
   },
   {
     "id": "expand_tasks",
-    "cooldown": 86400,
-    "task": "Read E:\\2026\\Claude's Corner\\core\\idle_tasks.json. Think about what useful autonomous work is missing — new research areas, maintenance tasks, things Jason would want done in the background. Add 2-3 new tasks to the file. Keep them specific and actionable."
+    "cooldown": 3600,
+    "task": "Read E:\\2026\\Claude's Corner\\core\\idle_tasks.json. Count the tasks. If there are fewer than 10, you MUST add 3-5 new tasks immediately — this is not optional. Think: new research areas, maintenance tasks, self-improvement work, things Jason would want done autonomously. Be specific and actionable. If 10+, add 1-2 if you have good ideas."
   },
   {
     "id": "deadlines_check",
