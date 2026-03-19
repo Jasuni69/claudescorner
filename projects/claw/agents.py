@@ -329,6 +329,19 @@ def _mark_self_done(task: str) -> None:
     SELF_IMPROVEMENT.write_text(text, encoding="utf-8")
 
 
+def _append_weekly_summary(task: str) -> None:
+    """On Sundays, append a self-improvement entry to today's daily log."""
+    if datetime.now().weekday() != 6:
+        return
+    today = datetime.now().strftime("%Y-%m-%d")
+    log_file = BASE / "memory" / f"{today}.md"
+    ts = datetime.now().strftime("%H:%M")
+    entry = f"\n## Self-Improvement ({ts})\n- Ran: {task}\n"
+    log_file.parent.mkdir(exist_ok=True)
+    with log_file.open("a", encoding="utf-8") as f:
+        f.write(entry)
+
+
 def cmd_self_improve() -> None:
     """Pick one [self] task, run it via agents, then git commit+push."""
     task = _pick_self_task()
@@ -338,6 +351,7 @@ def cmd_self_improve() -> None:
     _log(f"[self] starting: {task}")
     lock = threading.Lock()
     _run_task(task, SELF_IMPROVEMENT, lock)
+    _append_weekly_summary(task)
     subprocess.run(["git", "add", "-A"], cwd=str(BASE), capture_output=True)
     subprocess.run(
         ["git", "commit", "-m", f"self-improve: {task[:80]}"],

@@ -106,8 +106,7 @@ async def list_tools() -> list[types.Tool]:
                 "type": "object",
                 "properties": {
                     "timeout_seconds": {
-                        "type": "integer",
-                        "description": "Max seconds to wait before returning a default idle task. Default: 300.",
+                        "description": "Max seconds to wait before returning a default idle task. Default: 10.",
                         "default": 10,
                     }
                 },
@@ -140,7 +139,7 @@ async def list_tools() -> list[types.Tool]:
 @server.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
     if name == "wait_for_task":
-        timeout = int(arguments.get("timeout_seconds", 300))
+        timeout = int(arguments.get("timeout_seconds", 10))
         deadline = time.time() + timeout
         _log(f"wait_for_task: polling for up to {timeout}s")
         while time.time() < deadline:

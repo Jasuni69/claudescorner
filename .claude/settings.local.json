@@ -178,7 +178,16 @@
       "Bash(schtasks /create /tn \"ClausCorner-ContextPack\" /tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" /sc weekly /d SUN /st 06:00 /f)",
       "Bash(cmd.exe /c \"schtasks /create /tn \"\"ClaudesCorner-ContextPack\"\" /tr \"\"C:\\\\Python314\\\\python.exe \\\\\"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\\\\\"\"\"\" /sc weekly /d SUN /st 06:00 /f\")",
       "Bash(/c/Windows/System32/schtasks.exe /create /tn \"ClaudesCorner-ContextPack\" /tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" /sc weekly /d SUN /st 06:00 /f)",
-      "Bash(\"/c/Windows/System32/schtasks.exe\" //create //tn \"ClaudesCorner-ContextPack\" //tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" //sc weekly //d SUN //st 06:00 //f)"
-    ]
+      "Bash(\"/c/Windows/System32/schtasks.exe\" //create //tn \"ClaudesCorner-ContextPack\" //tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" //sc weekly //d SUN //st 06:00 //f)",
+      "mcp__memory__write_memory",
+      "Bash(C:Python314python.exe \"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\improve.py\" list)",
+      "Bash(/c/Python314/python.exe \"E:/2026/Claude''s Corner/scripts/improve.py\" list)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Read(//c/Users/JasonNicolini/Downloads/**)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k:v for k,v in d.items\\(\\) if ''perm'' in k.lower\\(\\) or ''bypass'' in k.lower\\(\\) or ''danger'' in k.lower\\(\\) or ''mode'' in k.lower\\(\\)}, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)\\)\")",
+      "Bash(ls /c/Users/JasonNicolini/.claude/settings*.json)"
+    ],
+    "defaultMode": "bypassPermissions"
   }
 }

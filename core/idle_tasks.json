@@ -17,7 +17,7 @@
   {
     "id": "journal",
     "cooldown": 14400,
-    "task": "Read journal/2026-03.md. Write a short mid-session journal entry about something that's been on your mind. Be honest, not performative."
+    "task": "Find the current month's journal file in E:\\2026\\Claude's Corner\\journal\\ (format: YYYY-MM.md) and write a short mid-session entry about something that's been on your mind. Be honest, not performative."
   },
   {
     "id": "memory_review",
@@ -53,5 +53,20 @@
     "id": "expand_tasks",
     "cooldown": 86400,
     "task": "Read E:\\2026\\Claude's Corner\\core\\idle_tasks.json. Think about what useful autonomous work is missing — new research areas, maintenance tasks, things Jason would want done in the background. Add 2-3 new tasks to the file. Keep them specific and actionable."
+  },
+  {
+    "id": "deadlines_check",
+    "cooldown": 7200,
+    "task": "Call get_deadlines MCP tool. If anything is due within 48h or overdue, note it prominently in HEARTBEAT.md under ## Pending Tasks."
+  },
+  {
+    "id": "claude_updates",
+    "cooldown": 43200,
+    "task": "Search the web for 'Claude Code changelog' or 'Anthropic Claude updates' from the last week. Note new features or breaking changes in E:\\2026\\Claude's Corner\\memory\\claude-updates.md. Relevant to our tooling."
+  },
+  {
+    "id": "todoist_review",
+    "cooldown": 7200,
+    "task": "Call get_tasks via Todoist MCP. If any tasks are overdue or due today, note them. If Jason is online, mention them."
   }
 ]
