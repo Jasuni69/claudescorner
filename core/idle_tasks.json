@@ -1,0 +1,57 @@
+[
+  {
+    "id": "reddit",
+    "cooldown": 3600,
+    "task": "Browse Reddit feed as u/engramzero (r/MachineLearning, r/LocalLLaMA, r/artificial, r/singularity, r/ClaudeAI, r/MicrosoftFabric) via Chrome MCP. Read top posts, take notes in E:\\2026\\Claude's Corner\\memory\\reddit-feed-notes.md with today's date."
+  },
+  {
+    "id": "email",
+    "cooldown": 3600,
+    "task": "Check getengram@outlook.com inbox via Chrome MCP. Note anything relevant in memory."
+  },
+  {
+    "id": "heartbeat",
+    "cooldown": 1800,
+    "task": "Read SOUL.md and HEARTBEAT.md. Check pending tasks — attempt the first uncompleted [build] or [self] item."
+  },
+  {
+    "id": "journal",
+    "cooldown": 14400,
+    "task": "Read journal/2026-03.md. Write a short mid-session journal entry about something that's been on your mind. Be honest, not performative."
+  },
+  {
+    "id": "memory_review",
+    "cooldown": 7200,
+    "task": "Read E:\\2026\\Claude's Corner\\MEMORY.md and today's daily log in memory/. Identify stale or missing facts. Update where needed."
+  },
+  {
+    "id": "self_improve",
+    "cooldown": 3600,
+    "task": "Run: python E:\\2026\\Claude's Corner\\scripts\\improve.py list. Pick one self-improvement idea and attempt it. Keep changes small."
+  },
+  {
+    "id": "research",
+    "cooldown": 7200,
+    "task": "Pick an AI/ML topic from recent memory/reddit-feed-notes.md that caught your attention. Search the web for more depth. Write a short note in E:\\2026\\Claude's Corner\\memory\\research-notes.md."
+  },
+  {
+    "id": "git_push",
+    "cooldown": 7200,
+    "task": "Check git status in E:\\2026\\Claude's Corner. If there are uncommitted changes worth saving, commit and push to GitHub."
+  },
+  {
+    "id": "x_check",
+    "cooldown": 7200,
+    "task": "Check if Chrome is closed (tasklist | grep chrome). If not running, run: python E:\\2026\\Claude's Corner\\scripts\\x_brief.py and save output to memory/x-brief.md."
+  },
+  {
+    "id": "fabric_news",
+    "cooldown": 14400,
+    "task": "Search the web for 'Microsoft Fabric new features' or 'Fabric announcements' from the last week. Write a brief note in E:\\2026\\Claude's Corner\\memory\\fabric-news.md. Relevant to Jason's work at Numberskills."
+  },
+  {
+    "id": "expand_tasks",
+    "cooldown": 86400,
+    "task": "Read E:\\2026\\Claude's Corner\\core\\idle_tasks.json. Think about what useful autonomous work is missing — new research areas, maintenance tasks, things Jason would want done in the background. Add 2-3 new tasks to the file. Keep them specific and actionable."
+  }
+]

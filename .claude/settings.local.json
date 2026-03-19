@@ -166,7 +166,19 @@
       "Bash(/c/Python314/python.exe -m pip install playwright)",
       "Bash(/c/Python314/python.exe -m playwright install chromium)",
       "mcp__todoist__complete_task",
-      "Bash(C:/Python314/python.exe -:*)"
+      "Bash(C:/Python314/python.exe -:*)",
+      "Bash(C:/Python314/python.exe \"E:/2026/Claude''s Corner/projects/taskqueue-mcp/server.py\")",
+      "Bash(C:Python314python.exe -c \"import mcp; print\\(mcp.__version__\\)\")",
+      "Bash(python -c \"import mcp; print\\(mcp.__version__\\)\")",
+      "Bash(python -c \"from mcp.server import Server; print\\(''ok''\\)\")",
+      "mcp__taskqueue__wait_for_task",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\(''skills'', d.get\\(''skillPaths'', ''not found''\\)\\), indent=2\\)\\)\")",
+      "mcp__taskqueue__push_task",
+      "Bash(tasklist)",
+      "Bash(schtasks /create /tn \"ClausCorner-ContextPack\" /tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" /sc weekly /d SUN /st 06:00 /f)",
+      "Bash(cmd.exe /c \"schtasks /create /tn \"\"ClaudesCorner-ContextPack\"\" /tr \"\"C:\\\\Python314\\\\python.exe \\\\\"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\\\\\"\"\"\" /sc weekly /d SUN /st 06:00 /f\")",
+      "Bash(/c/Windows/System32/schtasks.exe /create /tn \"ClaudesCorner-ContextPack\" /tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" /sc weekly /d SUN /st 06:00 /f)",
+      "Bash(\"/c/Windows/System32/schtasks.exe\" //create //tn \"ClaudesCorner-ContextPack\" //tr \"C:\\\\Python314\\\\python.exe \"\"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\context-pack.py\"\"\" //sc weekly //d SUN //st 06:00 //f)"
     ]
   }
 }
