@@ -196,7 +196,13 @@
       "Bash(C:Python314python.exe \"E:\\\\2026\\\\Claude''s Corner\\\\scripts\\\\word-of-the-day.py\")",
       "Bash(python \"E:/2026/Claude''s Corner/scripts/word-of-the-day.py\")",
       "WebFetch(domain:medium.com)",
-      "WebFetch(domain:powerbiconsulting.com)"
+      "WebFetch(domain:powerbiconsulting.com)",
+      "Bash(cmd /c \"schtasks /query /tn ClaudeHeartbeat /fo LIST\")",
+      "Bash(cmd /c \"schtasks /query /fo LIST\")",
+      "Bash(cmd /c \"schtasks /query /fo CSV\")",
+      "Bash(claude auth status)",
+      "Bash(\"C:/Users/JasonNicolini/.local/bin/claude.exe\" auth status)",
+      "Bash(cmd /c \"schtasks /query /fo CSV /v\")"
     ],
     "defaultMode": "bypassPermissions"
   }

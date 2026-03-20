@@ -34,6 +34,11 @@ $exitCode = $LASTEXITCODE
 Add-Content $logFile "[$timestamp] Exit code: $exitCode"
 if ($result -match "HEARTBEAT_OK") {
     Add-Content $logFile "[$timestamp] HEARTBEAT_OK — nothing actionable, silent exit"
+} elseif ($result -match "401|authentication_error|OAuth token has expired") {
+    Add-Content $logFile "[$timestamp] AUTH FAILURE — creating Todoist task"
+    $todoistToken = (Get-Content "$baseDir\.env" | Where-Object { $_ -match "^TODOIST_API_TOKEN=" }) -replace "^TODOIST_API_TOKEN=",""
+    $body = @{ content = "[Heartbeat] Claude auth expired — reauth needed (claude auth login)"; due_string = "today"; priority = 4 } | ConvertTo-Json
+    Invoke-RestMethod -Uri "https://api.todoist.com/rest/v2/tasks" -Method Post -Headers @{ Authorization = "Bearer $todoistToken"; "Content-Type" = "application/json" } -Body $body | Out-Null
 } elseif ($result) {
     Add-Content $logFile $result
 } else {
