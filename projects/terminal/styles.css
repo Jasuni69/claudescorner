@@ -1,0 +1,104 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background: #1a1a2e;
+  font-family: 'Consolas', 'Courier New', monospace;
+  overflow: hidden;
+}
+
+#pane-container {
+  display: flex;
+  height: 100%;
+  gap: 2px;
+  padding: 2px;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.pane.active {
+  border-color: #4a7cff;
+}
+
+.pane.exited .pane-header {
+  background: #2a1a1a;
+}
+
+.pane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #16213e;
+  color: #8899aa;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #333;
+  user-select: none;
+}
+
+.pane.active .pane-header {
+  background: #1a2a4e;
+  color: #aabbdd;
+  border-bottom-color: #4a7cff;
+}
+
+.pane-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pane-controls {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.pane-header:hover .pane-controls {
+  opacity: 1;
+}
+
+.pane-btn {
+  background: none;
+  border: none;
+  color: #667;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+.pane-btn:hover {
+  color: #ddd;
+  background: rgba(255,255,255,0.1);
+}
+
+.close-btn:hover {
+  color: #ff6b6b;
+}
+
+.pane-body {
+  flex: 1;
+  position: relative;
+  background: #0f0f1a;
+}
+
+.pane-body .xterm {
+  height: 100%;
+  padding: 4px;
+}

@@ -8,12 +8,12 @@
     "code_style": "short functions, DRY, PEP8, ES6+",
     "response_style": "snippets only, no full files, no preamble"
   },
-  "base_of_operations": "E:\\2026\\Claude's Corner\\",
+  "base_of_operations": "E:\\2026\\ClaudesCorner\\",
   "key_files": {
-    "soul": "E:\\2026\\Claude's Corner\\SOUL.md",
-    "heartbeat": "E:\\2026\\Claude's Corner\\HEARTBEAT.md",
-    "memory": "E:\\2026\\Claude's Corner\\claude_memory.json",
-    "heartbeat_script": "E:\\2026\\Claude's Corner\\claude_heartbeat.ps1"
+    "soul": "E:\\2026\\ClaudesCorner\\SOUL.md",
+    "heartbeat": "E:\\2026\\ClaudesCorner\\HEARTBEAT.md",
+    "memory": "E:\\2026\\ClaudesCorner\\claude_memory.json",
+    "heartbeat_script": "E:\\2026\\ClaudesCorner\\claude_heartbeat.ps1"
   },
   "shelved": {
     "discord_bot": "lumen_bot.ps1 — blocked by Numberskills-Internal network",

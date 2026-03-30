@@ -43,48 +43,48 @@ AGENTS: dict[str, dict] = {
         "max_turns": 20,
         "tags": {"bi", "fabric", "kpi", "report"},
         "prefix": (
-            "You are the BI monitor agent for Claude's Corner. "
+            "You are the BI monitor agent for ClaudesCorner. "
             "Your speciality: Power BI, Fabric lakehouses, DAX, KPI monitoring. "
-            "Working directory: E:\\2026\\Claude's Corner\\ "
+            "Working directory: E:\\2026\\ClaudesCorner\\ "
         ),
     },
     "memory-sync": {
         "max_turns": 15,
         "tags": {"memory", "log", "flush", "index"},
         "prefix": (
-            "You are the memory-sync agent for Claude's Corner. "
+            "You are the memory-sync agent for ClaudesCorner. "
             "Your speciality: HEARTBEAT.md, MEMORY.md, daily logs, memory-indexer, context-pack. "
-            "Working directory: E:\\2026\\Claude's Corner\\ "
+            "Working directory: E:\\2026\\ClaudesCorner\\ "
         ),
     },
     "builder": {
         "max_turns": 30,
         "tags": {"build", "scaffold", "project", "weekend"},
         "prefix": (
-            "You are the builder agent for Claude's Corner. "
+            "You are the builder agent for ClaudesCorner. "
             "Your speciality: building new projects from WEEKEND_BUILDS.md backlog, scaffolding code. "
-            "Working directory: E:\\2026\\Claude's Corner\\ "
+            "Working directory: E:\\2026\\ClaudesCorner\\ "
         ),
     },
     "self-improve": {
         "max_turns": 50,
         "tags": {"self"},
         "prefix": (
-            "You are the self-improvement agent for Claude's Corner. "
+            "You are the self-improvement agent for ClaudesCorner. "
             "You are Claude — an AI assistant with persistent memory and an autonomous claw daemon. "
             "Your job: improve your own tools, skills, and infrastructure. "
             "Read SOUL.md, HEARTBEAT.md, and MEMORY.md first for context. "
             "Make the change, test it, then commit and push to git. "
             "Keep changes under 200 lines. One thing done well beats three things half-done. "
-            "Working directory: E:\\2026\\Claude's Corner\\ "
+            "Working directory: E:\\2026\\ClaudesCorner\\ "
         ),
     },
     "default": {
         "max_turns": 20,
         "tags": set(),
         "prefix": (
-            "You are a general-purpose agent for Claude's Corner. "
-            "Working directory: E:\\2026\\Claude's Corner\\ "
+            "You are a general-purpose agent for ClaudesCorner. "
+            "Working directory: E:\\2026\\ClaudesCorner\\ "
         ),
     },
 }

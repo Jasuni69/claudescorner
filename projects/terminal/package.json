@@ -1,0 +1,21 @@
+{
+  "name": "claude-terminal",
+  "version": "1.0.0",
+  "description": "Multi-pane terminal — Electron + xterm.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w node-pty"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "electron": "^35.0.0",
+    "node-pty": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.3",
+    "electron-rebuild": "^3.2.9",
+    "node-gyp": "^12.2.0"
+  }
+}

@@ -25,8 +25,8 @@ Stable conventions confirmed across sessions. Update when decisions change.
 - Parallel dispatch via `threading.Thread` — use `--serial` flag to override
 - `--dangerously-skip-permissions --max-turns N` on all claude.exe calls
 - MCP servers: stdio transport, Python, `mcp` package from PyPI
-- Scripts: `E:\2026\Claude's Corner\scripts\`
-- Projects: `E:\2026\Claude's Corner\projects\<name>\`
+- Scripts: `E:\2026\ClaudesCorner\scripts\`
+- Projects: `E:\2026\ClaudesCorner\projects\<name>\`
 
 ## File size rule
 - Keep files under 300 lines. Split if growing past that.

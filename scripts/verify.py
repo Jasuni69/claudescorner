@@ -10,7 +10,7 @@ import sys
 from datetime import datetime, date
 from pathlib import Path
 
-BASE = Path(r"E:\2026\Claude's Corner")
+BASE = Path(r"E:\2026\ClaudesCorner")
 CLAUDE_EXE = Path(r"C:\Users\JasonNicolini\.local\bin\claude.exe")
 TODAY = date.today().isoformat()
 

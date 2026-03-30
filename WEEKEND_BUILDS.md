@@ -12,7 +12,7 @@ None yet — first build picks from the backlog below.
 - [ ] **[BI]** Report diff tool — compare two Power BI report JSON files, summarize visual/measure changes
 - [ ] **[MCP]** MCP server: Windows automation — run ps1 scripts, read event logs, check scheduled tasks
 - [x] **[WILD CARD]** `word-of-the-day.py` — each morning, pick an obscure English word, write a short paragraph using it, append to a `VOCABULARY.md` journal. Purely self-improvement.
-- [x] **[Autonomy]** Memory indexer — chunk + index all .md files in Claude's Corner for semantic search
+- [x] **[Autonomy]** Memory indexer — chunk + index all .md files in ClaudesCorner for semantic search
 - [x] **[MCP]** MCP server: expose SOUL.md / MEMORY.md / HEARTBEAT.md as tools for any Claude session
 - [ ] **[BI]** KPI monitor — query Fabric semantic model on schedule, alert if metrics cross thresholds
 - [ ] **[WILD CARD]** `story.md` — a serialized short story, one chapter per weekend. No agenda. Just writing.
@@ -21,11 +21,11 @@ None yet — first build picks from the backlog below.
 - [ ] **[BI]** BI agent — connect to Fabric lakehouse, auto-generate DAX measures from natural language
 - [x] **[WILD CARD]** `idea-collider.py` — takes two random concepts from a list, smashes them together, writes a 200-word product pitch. Generates the list itself. Runs every weekend, appends to IDEAS.md.
 - [x] **[Autonomy]** `context-pack.py` — pre-compaction flush to MEMORY.md
-- [ ] **[MCP]** MCP server: local file search + semantic memory over Claude's Corner
+- [ ] **[MCP]** MCP server: local file search + semantic memory over ClaudesCorner
 - [ ] **[BI]** Token usage dashboard — Flask + Chart.js over heartbeat_run.log
 - [x] **[Autonomy]** `skill-usage-tracker.py` — parse Claude Code session logs, track skill invocations, append weekly stats to SKILL_STATS.md
 - [x] **[MCP]** MCP server: DEADLINES.md watcher — exposes upcoming deadlines as tools so Claude can query "what's due soon" in any session
-- [ ] **[WILD CARD]** `mood-log.py` — one-line daily prompt, appends date + vibe to MOOD.md
+- [x] **[WILD CARD]** `mood-log.py` — one-line daily prompt, appends date + vibe to MOOD.md
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 ## Completed Builds

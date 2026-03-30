@@ -1,6 +1,6 @@
 """
 x_brief.py — fetch recent tweets by scraping X profiles via Playwright
-Output: E:\\2026\\Claude's Corner\\memory\\x-brief.md
+Output: E:\\2026\\ClaudesCorner\\memory\\x-brief.md
 
 Uses the existing Chrome user profile (already logged in as @engramzero).
 Chrome must NOT be running when this script runs (profile lock conflict).
@@ -27,7 +27,7 @@ ACCOUNTS = [
     "NASA",
 ]
 
-OUTPUT = Path(r"E:\2026\Claude's Corner\memory\x-brief.md")
+OUTPUT = Path(r"E:\2026\ClaudesCorner\memory\x-brief.md")
 CHROME_PROFILE = Path(r"C:\Users\JasonNicolini\AppData\Local\Google\Chrome\User Data")
 TOP_N = 5
 

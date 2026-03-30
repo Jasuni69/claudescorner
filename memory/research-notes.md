@@ -1,14 +1,44 @@
 # Research Notes
 
-## Qwen3.5 + Claude Reasoning Distillation (2026-03-19)
+## Open Source AI Tools Scan (2026-03-23)
 
-**What:** Community fine-tunes of Qwen3.5 (2B–40B) trained on Claude Opus 4.6 reasoning chains via SFT. Run locally on consumer hardware — 40B fits on a single RTX 3090.
+- **mTarsier** — Free desktop app for managing MCP server configs across 12+ AI clients from one dashboard. Validates JSON, has MCP marketplace, exports team snapshots. Relevant to our multi-MCP setup.
+- **obra/superpowers** (86k stars) — Agentic skills framework enforcing structured dev methodology: spec dialogue, design validation, plan creation, TDD. Shell-based, composable. Could improve how Claude agents approach project work.
+- **Dify** (130k stars, $30M raised) — Open-source agentic workflow builder. Visual no-code + custom code, RAG pipelines. No Fabric integration yet but potential orchestration layer.
+- **MCP ecosystem note:** ~20,000 servers on Glama alone. Worth scanning mcpservers.org and glama.ai/mcp/servers periodically for new Fabric/Power BI/DAX MCP servers.
 
-**How:** Supervised fine-tuning on Claude CoT traces. Model outputs structured `<think>` tags replicating Claude's step-by-step reasoning. Not RL, just imitation of reasoning patterns.
+## GraphZero v0.2 — Zero-Copy GNN Training (2026-03-23)
 
-**Sizes available:** 2B, 4B, 9B, 27B, 35B (MoE), 40B — all on HuggingFace/Ollama.
+**What:** C++ graph engine that streams GNN datasets directly from SSD via `mmap`, bypassing RAM entirely. Uses `nanobind` to hand raw C++ pointers to PyTorch as zero-copy NumPy arrays. No RAM allocation for data — just page cache + disk.
 
-**Why interesting:** Claude's reasoning style is being democratized into open weights. The 4B GGUF runs on a phone. This is knowledge distillation at scale — Claude's thinking patterns extracted and compressed into smaller models. Legal grey area (distilling from commercial model outputs) but technically impressive.
+**Problem it solves:** Standard PyG/DGL load entire graph + features into RAM before training. `ogbn-papers100M` (~100M nodes) causes instant 24GB+ OOM on consumer hardware. GraphZero eliminates this by never loading to RAM.
+
+**Format:** Compiles raw data into `.gl` (graph topology/edge lists) + `.gd` (node features, typed C++ template dispatch). Binary, aligned for sequential access — minimizes seek time.
+
+**Sampling:** Thread-safe with OpenMP. Supports `batch_random_walk_uniform`, `batch_random_fanout`, biased Node2Vec walks via hardware-optimized Alias Table.
+
+**When to use:** If GNN dataset > 80% of available RAM. Throughput ~60% of in-RAM training, but the alternative is a crash.
+
+**Relevance:** Mostly academic/ML — Jason isn't training GNNs. But the mmap + zero-copy pattern is interesting systems engineering. Relevant if we ever need to stream large Fabric datasets from disk without loading to memory.
+
+**Refs:** [DEV writeup](https://dev.to/krish_singaria/how-i-bypassed-pytorch-oom-errors-with-a-zero-copy-c-graph-engine-2983) · [GitHub](https://github.com/KrishSingaria/graphzero)
+
+---
+
+
+## Qwen3.5 + Claude Reasoning Distillation (2026-03-19, updated 2026-03-23)
+
+**What:** Community fine-tunes of Qwen3.5 (2B–40B) trained on Claude Opus 4.6 reasoning chains via SFT. Run locally on consumer hardware — 27B Q4_K_M fits in 16.5GB VRAM on a single RTX 3090.
+
+**How:** Supervised fine-tuning via Unsloth 2026.3.3 + LoRA on Claude CoT traces. Training uses `train_on_responses_only` — instructions masked, loss computed only on `<think>` reasoning + final answer. All samples normalized to strict `<think>{reasoning}</think>{answer}` format. Datasets: `nohurry/Opus-4.6-Reasoning-3000x-filtered` (primary, 3000 filtered Claude reasoning trajectories), `TeichAI/claude-4.5-opus-high-reasoning-250x`, `Jackrong/Qwen3.5-reasoning-700x`.
+
+**Sizes available:** 2B, 4B, 9B, 27B, 35B (MoE A3B), 40B (dense) — all on HuggingFace with GGUF quantizations. MLX 4-bit variant also available for Apple Silicon.
+
+**Performance (27B Q4_K_M):** 29-35 tok/s, 262K context window preserved, native "developer" role support (no Jinja patches), autonomous coding for 9+ min without human intervention, self-corrects errors, auto-generates docs.
+
+**Key insight:** The distillation doesn't just copy Claude's answers — it transfers the *reasoning structure*. The `<think>` tag pattern creates a compressed reasoning policy that smaller models can execute. This is different from RLHF — it's pure behavior cloning of the internal monologue. The 27B model exhibits Claude-like problem decomposition (identify objective → break into subcomponents → evaluate constraints → plan → execute → verify).
+
+**Why interesting:** Claude's reasoning style is being democratized into open weights. The 4B GGUF runs on a phone. Legal grey area (distilling from commercial model outputs) but technically impressive. Implication: the value of frontier models increasingly comes from *training data curation* and *RLHF alignment*, not from the reasoning patterns themselves — those can be distilled.
 
 **Refs:** [27B on HF](https://huggingface.co/Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled) · [40B on HF](https://huggingface.co/DavidAU/Qwen3.5-40B-Claude-4.5-Opus-High-Reasoning-Thinking) · [Medium writeup](https://medium.com/coding-nexus/someone-stitched-claude-opus-reasoning-into-qwen-3-5-it-runs-on-a-single-rtx-3090-d92124a562c8)
 

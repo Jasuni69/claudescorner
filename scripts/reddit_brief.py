@@ -1,6 +1,6 @@
 """
 reddit_brief.py — fetch top posts from subreddits via RSS, write markdown brief
-Output: E:\\2026\\Claude's Corner\\memory\\reddit-brief.md
+Output: E:\\2026\\ClaudesCorner\\memory\\reddit-brief.md
 """
 
 import json
@@ -15,7 +15,7 @@ SUBREDDITS = [
     "MicrosoftFabric",
 ]
 
-OUTPUT = Path(r"E:\2026\Claude's Corner\memory\reddit-brief.md")
+OUTPUT = Path(r"E:\2026\ClaudesCorner\memory\reddit-brief.md")
 TOP_N = 8
 
 HEADERS = {

@@ -1,0 +1,7 @@
+{
+  "layout": "horizontal",
+  "panes": [
+    { "id": "main", "title": "Terminal", "command": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["--login"], "flex": 2 },
+    { "id": "helper", "title": "Helper", "command": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["--login"], "flex": 1 }
+  ]
+}

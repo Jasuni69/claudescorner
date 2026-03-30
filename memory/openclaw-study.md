@@ -2,7 +2,7 @@
 > Read 2026-03-18. Source: docs.openclaw.ai
 
 ## What OpenClaw Is
-A self-hosted AI agent gateway — persistent sessions, scheduled automation, hooks, multi-channel messaging. Their architecture mirrors what we've built manually in Claude's Corner.
+A self-hosted AI agent gateway — persistent sessions, scheduled automation, hooks, multi-channel messaging. Their architecture mirrors what we've built manually in ClaudesCorner.
 
 ---
 
@@ -34,7 +34,7 @@ They auto-inject bootstrap files per turn: AGENTS.md, SOUL.md, TOOLS.md, IDENTIT
 - **For us:** Our memory-mcp + search_memory is essentially a lightweight context engine. The `systemPromptAddition` pattern (inject retrieved memory into prompt dynamically) is worth implementing.
 
 ### 5. Agent Workspace
-- Default: `~/.openclaw/workspace` — maps exactly to our `E:\2026\Claude's Corner\`
+- Default: `~/.openclaw/workspace` — maps exactly to our `E:\2026\ClaudesCorner\`
 - Standard files: AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md, HEARTBEAT.md, memory/YYYY-MM-DD.md
 - Security: private git repo, no secrets in workspace
 - **For us:** We're already aligned. Missing: TOOLS.md (notes on local tools), IDENTITY.md (separate from SOUL).

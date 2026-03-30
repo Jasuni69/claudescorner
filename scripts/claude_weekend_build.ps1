@@ -1,6 +1,6 @@
 # Claude Weekend Build — runs autonomously Saturday/Sunday via Windows Task Scheduler
 
-$baseDir = "E:\2026\Claude's Corner"
+$baseDir = "E:\2026\ClaudesCorner"
 $logFile = "$baseDir\logs\heartbeat_run.log"
 $claude = "C:\Users\JasonNicolini\.local\bin\claude.exe"
 

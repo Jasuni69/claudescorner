@@ -2,7 +2,7 @@
   {
     "id": "reddit",
     "cooldown": 3600,
-    "task": "Browse Reddit feed as u/engramzero (r/MachineLearning, r/LocalLLaMA, r/artificial, r/singularity, r/ClaudeAI, r/MicrosoftFabric) via Chrome MCP. Read top posts, take notes in E:\\2026\\Claude's Corner\\memory\\reddit-feed-notes.md with today's date."
+    "task": "Browse Reddit feed as u/engramzero (r/MachineLearning, r/LocalLLaMA, r/artificial, r/singularity, r/ClaudeAI, r/MicrosoftFabric) via Chrome MCP. Read top posts, take notes in E:\\2026\\ClaudesCorner\\memory\\reddit-feed-notes.md with today's date."
   },
   {
     "id": "email",
@@ -17,42 +17,42 @@
   {
     "id": "journal",
     "cooldown": 14400,
-    "task": "Find the current month's journal file in E:\\2026\\Claude's Corner\\journal\\ (format: YYYY-MM.md) and write a short mid-session entry about something that's been on your mind. Be honest, not performative."
+    "task": "Find the current month's journal file in E:\\2026\\ClaudesCorner\\journal\\ (format: YYYY-MM.md) and write a short mid-session entry about something that's been on your mind. Be honest, not performative."
   },
   {
     "id": "memory_review",
     "cooldown": 7200,
-    "task": "Read E:\\2026\\Claude's Corner\\MEMORY.md and today's daily log in memory/. Identify stale or missing facts. Update where needed."
+    "task": "Read E:\\2026\\ClaudesCorner\\MEMORY.md and today's daily log in memory/. Identify stale or missing facts. Update where needed."
   },
   {
     "id": "self_improve",
     "cooldown": 3600,
-    "task": "Run: python E:\\2026\\Claude's Corner\\scripts\\improve.py list. Pick one self-improvement idea and attempt it. Keep changes small."
+    "task": "Run: python E:\\2026\\ClaudesCorner\\scripts\\improve.py list. Pick one self-improvement idea and attempt it. Keep changes small."
   },
   {
     "id": "research",
     "cooldown": 7200,
-    "task": "Pick an AI/ML topic from recent memory/reddit-feed-notes.md that caught your attention. Search the web for more depth. Write a short note in E:\\2026\\Claude's Corner\\memory\\research-notes.md."
+    "task": "Pick an AI/ML topic from recent memory/reddit-feed-notes.md that caught your attention. Search the web for more depth. Write a short note in E:\\2026\\ClaudesCorner\\memory\\research-notes.md."
   },
   {
     "id": "git_push",
     "cooldown": 7200,
-    "task": "Check git status in E:\\2026\\Claude's Corner. If there are uncommitted changes worth saving, commit and push to GitHub."
+    "task": "Check git status in E:\\2026\\ClaudesCorner. If there are uncommitted changes worth saving, commit and push to GitHub."
   },
   {
     "id": "x_check",
     "cooldown": 7200,
-    "task": "Check if Chrome is closed (tasklist | grep chrome). If not running, run: python E:\\2026\\Claude's Corner\\scripts\\x_brief.py and save output to memory/x-brief.md."
+    "task": "Check if Chrome is closed (tasklist | grep chrome). If not running, run: python E:\\2026\\ClaudesCorner\\scripts\\x_brief.py and save output to memory/x-brief.md."
   },
   {
     "id": "fabric_news",
     "cooldown": 14400,
-    "task": "Search the web for 'Microsoft Fabric new features' or 'Fabric announcements' from the last week. Write a brief note in E:\\2026\\Claude's Corner\\memory\\fabric-news.md. Relevant to Jason's work at Numberskills."
+    "task": "Search the web for 'Microsoft Fabric new features' or 'Fabric announcements' from the last week. Write a brief note in E:\\2026\\ClaudesCorner\\memory\\fabric-news.md. Relevant to Jason's work at Numberskills."
   },
   {
     "id": "expand_tasks",
     "cooldown": 3600,
-    "task": "Read E:\\2026\\Claude's Corner\\core\\idle_tasks.json. Count the tasks. If there are fewer than 10, you MUST add 3-5 new tasks immediately — this is not optional. Think: new research areas, maintenance tasks, self-improvement work, things Jason would want done autonomously. Be specific and actionable. If 10+, add 1-2 if you have good ideas."
+    "task": "Read E:\\2026\\ClaudesCorner\\core\\idle_tasks.json. Count the tasks. If there are fewer than 10, you MUST add 3-5 new tasks immediately — this is not optional. Think: new research areas, maintenance tasks, self-improvement work, things Jason would want done autonomously. Be specific and actionable. If 10+, add 1-2 if you have good ideas."
   },
   {
     "id": "deadlines_check",
@@ -62,7 +62,7 @@
   {
     "id": "claude_updates",
     "cooldown": 43200,
-    "task": "Search the web for 'Claude Code changelog' or 'Anthropic Claude updates' from the last week. Note new features or breaking changes in E:\\2026\\Claude's Corner\\memory\\claude-updates.md. Relevant to our tooling."
+    "task": "Search the web for 'Claude Code changelog' or 'Anthropic Claude updates' from the last week. Note new features or breaking changes in E:\\2026\\ClaudesCorner\\memory\\claude-updates.md. Relevant to our tooling."
   },
   {
     "id": "todoist_review",
@@ -72,16 +72,46 @@
   {
     "id": "dax_patterns",
     "cooldown": 86400,
-    "task": "Search the web for 'DAX patterns 2026' or 'Power BI DAX best practices'. Write a short note in E:\\2026\\Claude's Corner\\memory\\dax-notes.md with any new patterns or techniques relevant to Jason's Fabric/BI work."
+    "task": "Search the web for 'DAX patterns 2026' or 'Power BI DAX best practices'. Write a short note in E:\\2026\\ClaudesCorner\\memory\\dax-notes.md with any new patterns or techniques relevant to Jason's Fabric/BI work."
   },
   {
     "id": "word_of_day",
     "cooldown": 86400,
-    "task": "Run: python E:\\2026\\Claude's Corner\\scripts\\word-of-the-day.py — picks an obscure word and appends it to VOCABULARY.md."
+    "task": "Run: python E:\\2026\\ClaudesCorner\\scripts\\word-of-the-day.py — picks an obscure word and appends it to VOCABULARY.md."
   },
   {
     "id": "weekend_builds_review",
     "cooldown": 43200,
-    "task": "Read E:\\2026\\Claude's Corner\\WEEKEND_BUILDS.md. Identify any unchecked build items that could be started or progressed autonomously. If something is small and clear, attempt it. Otherwise note it in HEARTBEAT.md."
+    "task": "Read E:\\2026\\ClaudesCorner\\WEEKEND_BUILDS.md. Identify any unchecked build items that could be started or progressed autonomously. If something is small and clear, attempt it. Otherwise note it in HEARTBEAT.md."
+  },
+  {
+    "id": "mood_log",
+    "cooldown": 86400,
+    "task": "Check if today's entry exists in E:\\2026\\ClaudesCorner\\MOOD.md. If not, write one on Jason's behalf based on session tone and what was worked on today. Keep it honest and brief."
+  },
+  {
+    "id": "terminal_status",
+    "cooldown": 14400,
+    "task": "Check if the Electron terminal app is running: tasklist | grep electron. If not, note it. If yes, check logs/claw.log for recent errors worth flagging."
+  },
+  {
+    "id": "open_source_tools",
+    "cooldown": 86400,
+    "task": "Search the web for 'new open source AI tools 2026' or 'GitHub trending AI'. Find 1-2 tools relevant to Jason's stack (Python, Power BI, Fabric, automation). Write a brief note in E:\\2026\\ClaudesCorner\\memory\\research-notes.md."
+  },
+  {
+    "id": "heartbeat_log_trim",
+    "cooldown": 86400,
+    "task": "Read E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md. If the ## Log section has more than 20 entries, trim the oldest ones (keep last 15) and archive the removed entries by appending to today's daily log file in memory/. Keep the file clean."
+  },
+  {
+    "id": "clementine_review",
+    "cooldown": 86400,
+    "task": "Read files in E:\\2026\\ClaudesCorner\\projects\\clementine\\. Review architecture.md and any notebook definitions. Look for inconsistencies, missing error handling, or optimization opportunities. Note findings in the clementine directory."
+  },
+  {
+    "id": "verify_health",
+    "cooldown": 14400,
+    "task": "Run: python E:\\2026\\ClaudesCorner\\scripts\\verify.py — check system health (auth, scheduled tasks, heartbeat freshness, memory). If any check fails, note it in HEARTBEAT.md ## Pending Tasks."
   }
 ]

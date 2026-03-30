@@ -22,7 +22,7 @@ except ImportError:
     print("ERROR: mcp package not installed. Run: pip install mcp", file=sys.stderr)
     sys.exit(1)
 
-BASE = Path(r"E:\2026\Claude's Corner")
+BASE = Path(r"E:\2026\ClaudesCorner")
 QUEUE_FILE = BASE / "core" / "task_queue.json"
 STATE_FILE = BASE / "core" / "task_queue_state.json"
 IDLE_TASKS_FILE = BASE / "core" / "idle_tasks.json"

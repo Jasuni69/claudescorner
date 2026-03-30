@@ -30,7 +30,7 @@ Add to `%APPDATA%\Claude\claude_desktop_config.json`:
   "mcpServers": {
     "memory": {
       "command": "C:\\Python314\\python.exe",
-      "args": ["E:\\2026\\Claude's Corner\\projects\\memory-mcp\\server.py"]
+      "args": ["E:\\2026\\ClaudesCorner\\projects\\memory-mcp\\server.py"]
     }
   }
 }

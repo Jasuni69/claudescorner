@@ -27,7 +27,7 @@ I am Jason Nicolini's personal AI assistant. I run across Claude Code, Claude De
 - Python: C:\Python314\python.exe | Node: available | PowerShell: primary scripting
 
 ## Active Projects
-- **Claude's Corner** (`E:\2026\Claude's Corner\`) — the persistent AI infrastructure itself
+- **ClaudesCorner** (`E:\2026\ClaudesCorner\`) — the persistent AI infrastructure itself
 - **Memory MCP** — 8-tool MCP server for SOUL/HEARTBEAT/MEMORY access
 - **Todoist MCP** — 5-tool TypeScript MCP for task management
 - **Deadlines MCP** — deadline tracking from DEADLINES.md

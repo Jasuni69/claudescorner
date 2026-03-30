@@ -35,7 +35,7 @@ WORDS = [
     ("rubatosis", "unsettling awareness of your own heartbeat"),
 ]
 
-VOCAB_PATH = Path(r"E:\2026\Claude's Corner\VOCABULARY.md")
+VOCAB_PATH = Path(r"E:\2026\ClaudesCorner\VOCABULARY.md")
 
 
 def pick_word(used: set) -> tuple:

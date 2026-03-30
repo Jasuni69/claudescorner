@@ -1,6 +1,6 @@
 # DAX Notes
 
-*Updated: 2026-03-19*
+*Updated: 2026-03-23*
 
 ## Time Intelligence Patterns (2026)
 
@@ -30,6 +30,14 @@
 ## 2026 New Functions
 
 - **NAMEOF / TABLEOF** — reference model objects safely. Auto-adapts to renames. Works in UDFs. Replaces fragile string-based patterns.
+- **INFO.USERDEFINEDFUNCTIONS()** — (preview, March 2026) returns metadata about UDFs in the model. DAX UDFs now track rename dependencies automatically, same as measures/columns.
+- **New types:** `CalendarRef`, `ColumnRef`, `MeasureRef`, `TableRef` — first-class type refs for use inside UDFs. More expressive than string references.
+
+## March 2026 Report Features
+
+- **Custom Totals** — override a visual's aggregation logic per-visual without changing the underlying DAX measure. No more duplicate measures just to fix a total row.
+- **Series label leader lines** — cosmetic but useful for dense line charts.
+- **Copilot DAX query refinement** — Copilot can now write and refine DAX queries in DAX query view. Lean schemas (fewer ambiguous table/column names) dramatically improve accuracy.
 
 ## Resources
 

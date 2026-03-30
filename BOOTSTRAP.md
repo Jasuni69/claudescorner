@@ -4,7 +4,7 @@
 
 ## The Idea
 
-Everything Jason and Claude built in Claude's Corner — persistent memory, session continuity,
+Everything Jason and Claude built in ClaudesCorner — persistent memory, session continuity,
 daily ritual, MCP servers, claw autonomy, skill triggers — can be packaged as a **one-shot bootstrap**
 that any user can run to get a memory-aware, context-aware Claude setup from scratch.
 
@@ -73,7 +73,7 @@ A `/bootstrap` skill that:
 
 ## Open Questions
 
-- How opinionated should the base path be? (Currently `E:\2026\Claude's Corner\`)
+- How opinionated should the base path be? (Currently `E:\2026\ClaudesCorner\`)
 - Should we publish to GitHub as a standalone repo, or keep it in claudescorner?
 - Python vs PowerShell for the bootstrap script? (Python is cross-platform)
 - Should `SOUL.md` be versioned in git or gitignored (personal data)?
