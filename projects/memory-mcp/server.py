@@ -2,8 +2,7 @@
 """
 memory-mcp/server.py — MCP server exposing SOUL.md, MEMORY.md, HEARTBEAT.md as tools.
 Transport: stdio (works with Claude Desktop's MCP config).
-Install: pip install mcp
-Run via Claude Desktop mcpServers config — see README.md.
+Search: sentence-transformers semantic embeddings (falls back to TF-IDF if unavailable).
 """
 import json
 import math
@@ -28,14 +27,45 @@ HEARTBEAT = BASE / "core" / "HEARTBEAT.md"
 MEMORY = BASE / "MEMORY.md"
 MEMORY_DIR = BASE / "memory"
 INDEX_FILE = MEMORY_DIR / ".index.json"
+EMBED_INDEX_FILE = MEMORY_DIR / ".embed_index.json"
 CONTEXT_PACK = BASE / "scripts" / "context-pack.py"
 MD_ROOTS = [MEMORY_DIR, BASE, BASE / "core"]
 TOP_K = 10
+EMBED_MODEL = "all-MiniLM-L6-v2"
+
+# --- Embedding support (optional) ---
+
+_embedder = None
+_embed_available = False
+
+def _load_embedder():
+    global _embedder, _embed_available
+    if _embed_available:
+        return True
+    try:
+        from sentence_transformers import SentenceTransformer
+        _embedder = SentenceTransformer(EMBED_MODEL)
+        _embed_available = True
+        return True
+    except Exception:
+        return False
 
 
-def _tokenize(text: str) -> list[str]:
-    return re.findall(r"[a-zA-Z0-9_\-]{2,}", text.lower())
+def _embed(texts: list[str]):
+    """Return numpy array of embeddings, shape (N, D)."""
+    return _embedder.encode(texts, convert_to_numpy=True, show_progress_bar=False)
 
+
+def _cosine_scores(query_vec, doc_vecs):
+    """Cosine similarity between query_vec (D,) and doc_vecs (N, D)."""
+    import numpy as np
+    q = query_vec / (np.linalg.norm(query_vec) + 1e-9)
+    norms = np.linalg.norm(doc_vecs, axis=1, keepdims=True) + 1e-9
+    normed = doc_vecs / norms
+    return normed @ q  # shape (N,)
+
+
+# --- Shared doc loader ---
 
 def _collect_docs() -> dict[str, str]:
     docs: dict[str, str] = {}
@@ -54,7 +84,106 @@ def _collect_docs() -> dict[str, str]:
     return docs
 
 
-def _build_index(docs: dict[str, str]) -> dict:
+def _any_md_newer_than(mtime: float) -> bool:
+    for root in MD_ROOTS:
+        if not root.exists():
+            continue
+        pattern = "*.md" if root == BASE else "**/*.md"
+        for p in root.glob(pattern):
+            if not p.name.startswith(".") and p.stat().st_mtime > mtime:
+                return True
+    return False
+
+
+# --- Semantic search ---
+
+def _build_embed_index(docs: dict[str, str]) -> dict:
+    import numpy as np
+    doc_ids = list(docs.keys())
+    texts = [docs[d] for d in doc_ids]
+    vecs = _embed(texts)
+    return {
+        "doc_ids": doc_ids,
+        "embeddings": vecs.tolist(),
+    }
+
+
+def _is_embed_stale(docs: dict[str, str]) -> bool:
+    if not EMBED_INDEX_FILE.exists():
+        return True
+    mtime = EMBED_INDEX_FILE.stat().st_mtime
+    if _any_md_newer_than(mtime):
+        return True
+    # Also stale if doc count changed
+    try:
+        idx = json.loads(EMBED_INDEX_FILE.read_text(encoding="utf-8"))
+        return len(idx.get("doc_ids", [])) != len(docs)
+    except Exception:
+        return True
+
+
+def _load_embed_index() -> dict | None:
+    if EMBED_INDEX_FILE.exists():
+        try:
+            return json.loads(EMBED_INDEX_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return None
+    return None
+
+
+def _save_embed_index(index: dict) -> None:
+    EMBED_INDEX_FILE.parent.mkdir(exist_ok=True)
+    EMBED_INDEX_FILE.write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
+
+
+def _search_semantic(query: str, docs: dict[str, str],
+                     from_date: str | None, to_date: str | None) -> str:
+    import numpy as np
+    index = None if _is_embed_stale(docs) else _load_embed_index()
+    if index is None:
+        index = _build_embed_index(docs)
+        _save_embed_index(index)
+
+    doc_ids = index["doc_ids"]
+    doc_vecs = np.array(index["embeddings"], dtype=np.float32)
+    query_vec = _embed([query])[0]
+    scores = _cosine_scores(query_vec, doc_vecs)
+
+    fd = Date.fromisoformat(from_date) if from_date else None
+    td = Date.fromisoformat(to_date) if to_date else None
+    terms = re.findall(r"[a-zA-Z0-9_\-]{2,}", query.lower())
+
+    ranked = sorted(zip(doc_ids, scores.tolist()), key=lambda x: x[1], reverse=True)
+    lines = [f"Results for: {query!r} (semantic)\n"]
+    count = 0
+    for doc_id, score in ranked:
+        m = re.search(r"(\d{4}-\d{2}-\d{2})", Path(doc_id).stem)
+        if m:
+            d = Date.fromisoformat(m.group(1))
+            if fd and d < fd:
+                continue
+            if td and d > td:
+                continue
+        snippet = _snippet(docs.get(doc_id, ""), terms)
+        lines.append(f"  {count+1}. [{score:.3f}] {doc_id}")
+        if snippet:
+            lines.append(f"     > {snippet}")
+        count += 1
+        if count >= TOP_K:
+            break
+
+    if count == 0:
+        return f"No results for: {query!r}"
+    return "\n".join(lines)
+
+
+# --- TF-IDF fallback ---
+
+def _tokenize(text: str) -> list[str]:
+    return re.findall(r"[a-zA-Z0-9_\-]{2,}", text.lower())
+
+
+def _build_tfidf_index(docs: dict[str, str]) -> dict:
     tf: dict[str, dict[str, float]] = {}
     df: dict[str, int] = defaultdict(int)
     for doc_id, text in docs.items():
@@ -77,49 +206,33 @@ def _build_index(docs: dict[str, str]) -> dict:
     return {"inverted": dict(inverted), "idf": idf, "docs": list(docs.keys())}
 
 
-def _is_stale(docs: dict[str, str]) -> bool:
+def _is_tfidf_stale(docs: dict[str, str]) -> bool:
     if not INDEX_FILE.exists():
         return True
     mtime = INDEX_FILE.stat().st_mtime
-    for root in MD_ROOTS:
-        if not root.exists():
-            continue
-        pattern = "*.md" if root == BASE else "**/*.md"
-        for p in root.glob(pattern):
-            if not p.name.startswith(".") and p.stat().st_mtime > mtime:
-                return True
-    return False
+    return _any_md_newer_than(mtime)
 
 
-def _load_index() -> dict | None:
+def _load_tfidf_index() -> dict | None:
     if INDEX_FILE.exists():
-        return json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+        try:
+            return json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return None
     return None
 
 
-def _save_index(index: dict) -> None:
+def _save_tfidf_index(index: dict) -> None:
     INDEX_FILE.parent.mkdir(exist_ok=True)
     INDEX_FILE.write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
 
 
-def _snippet(text: str, terms: list[str]) -> str:
-    lines = text.splitlines()
-    section = ""
-    for i, line in enumerate(lines):
-        if line.strip().startswith("#"):
-            section = line.strip()
-        if any(t in line.lower() for t in terms):
-            ctx = " ".join(l.strip() for l in lines[i:i+3] if l.strip())
-            return ((section + " > " if section else "") + ctx)[:200]
-    return ""
-
-
-def _search_memory(query: str, from_date: str | None = None, to_date: str | None = None) -> str:
-    docs = _collect_docs()
-    index = None if _is_stale(docs) else _load_index()
+def _search_tfidf(query: str, docs: dict[str, str],
+                  from_date: str | None, to_date: str | None) -> str:
+    index = None if _is_tfidf_stale(docs) else _load_tfidf_index()
     if index is None:
-        index = _build_index(docs)
-        _save_index(index)
+        index = _build_tfidf_index(docs)
+        _save_tfidf_index(index)
     terms = _tokenize(query)
     scores: dict[str, float] = defaultdict(float)
     for term in terms:
@@ -128,7 +241,7 @@ def _search_memory(query: str, from_date: str | None = None, to_date: str | None
     ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
     fd = Date.fromisoformat(from_date) if from_date else None
     td = Date.fromisoformat(to_date) if to_date else None
-    lines = [f"Results for: {query!r}\n"]
+    lines = [f"Results for: {query!r} (TF-IDF fallback)\n"]
     count = 0
     for doc_id, score in ranked:
         m = re.search(r"(\d{4}-\d{2}-\d{2})", Path(doc_id).stem)
@@ -148,6 +261,32 @@ def _search_memory(query: str, from_date: str | None = None, to_date: str | None
     if count == 0:
         return f"No results for: {query!r}"
     return "\n".join(lines)
+
+
+# --- Shared snippet ---
+
+def _snippet(text: str, terms: list[str]) -> str:
+    lines = text.splitlines()
+    section = ""
+    for i, line in enumerate(lines):
+        if line.strip().startswith("#"):
+            section = line.strip()
+        if any(t in line.lower() for t in terms):
+            ctx = " ".join(l.strip() for l in lines[i:i+3] if l.strip())
+            return ((section + " > " if section else "") + ctx)[:200]
+    return ""
+
+
+# --- Unified search entry point ---
+
+def _search_memory(query: str, from_date: str | None = None, to_date: str | None = None) -> str:
+    docs = _collect_docs()
+    if _load_embedder():
+        return _search_semantic(query, docs, from_date, to_date)
+    return _search_tfidf(query, docs, from_date, to_date)
+
+
+# --- MCP server ---
 
 server = Server("memory-mcp")
 
@@ -208,11 +347,11 @@ async def list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="search_memory",
-            description="Keyword/TF-IDF search across all .md memory files. Supports date filtering.",
+            description="Semantic search across all .md memory files using sentence-transformers embeddings (falls back to TF-IDF). Supports date filtering.",
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "query": {"type": "string", "description": "Search query"},
+                    "query": {"type": "string", "description": "Natural language search query"},
                     "from_date": {"type": "string", "description": "Filter results from this date (YYYY-MM-DD)"},
                     "to_date": {"type": "string", "description": "Filter results up to this date (YYYY-MM-DD)"},
                 },
@@ -326,12 +465,7 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
         heading = f"## {section}"
         bullet = f"- {fact}"
         if heading in mem_text:
-            # Insert bullet after the heading line
-            mem_text = mem_text.replace(
-                heading,
-                heading + f"\n{bullet}",
-                1,
-            )
+            mem_text = mem_text.replace(heading, heading + f"\n{bullet}", 1)
         else:
             mem_text = mem_text.rstrip() + f"\n\n{heading}\n{bullet}\n"
         MEMORY.write_text(mem_text, encoding="utf-8")
@@ -345,11 +479,7 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
         prefs_heading = "## Preferences I've Learned"
         bullet = f"- {preference}"
         if prefs_heading in soul_text:
-            soul_text = soul_text.replace(
-                prefs_heading,
-                prefs_heading + f"\n{bullet}",
-                1,
-            )
+            soul_text = soul_text.replace(prefs_heading, prefs_heading + f"\n{bullet}", 1)
         else:
             soul_text = soul_text.rstrip() + f"\n\n{prefs_heading}\n{bullet}\n"
         SOUL.write_text(soul_text, encoding="utf-8")

@@ -5,3 +5,5 @@ __pycache__/
 .env
 node_modules/
 lumen_token.txt
+projects/clementine/
+projects/mcp-chrome/

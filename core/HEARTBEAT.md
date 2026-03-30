@@ -146,3 +146,8 @@
 - Never test in prod
 - Environment approach chosen over continued %run optimization
 - Variable Library deferred until package is proven stable
+
+### 2026-03-30 11:10
+- Memory flush complete. 2 new facts saved to MEMORY.md.
+- Daily log written to memory/2026-03-30.md
+- Session: fixed Task Scheduler broken paths (Claude's Corner → ClaudesCorner), added skill nudge to CLAUDE.md, upgraded search_memory to semantic embeddings (sentence-transformers all-MiniLM-L6-v2)
