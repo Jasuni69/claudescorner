@@ -112,3 +112,9 @@
 - verify.py run: 2 issues found:
   - !! heartbeat_log: OAuth token expired (last run 2026-03-18 08:00, 401 error). Scheduled heartbeat dead since then. Fix: Jason needs to run `claude auth login` in terminal.
   - !! memory_today: memory/2026-03-31.md not yet written (pending session end flush)
+- Harness build complete (autoresearch + meta-harness patterns):
+  - taskqueue-mcp/server.py: context snapshot injection, stall detection, output truncation
+  - ~/.claude/commands/experiment.md: new /experiment skill (git-checkpoint loop + TSV)
+  - core/idle_tasks.json: completion_gate task added
+  - memory-flush.md: completion gate checklist added
+  - core/HARNESS_BUILD.md: interrupt-safe build log

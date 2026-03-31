@@ -123,5 +123,10 @@
     "id": "clementine_quickwins",
     "cooldown": 86400,
     "task": "Read E:\\2026\\ClaudesCorner\\projects\\clementine\\review_findings_2026-03-31.md. Pick the top 2 quick-win items (< 10min each) and apply them to the silver_v2_notebooks. Candidates: add drop_before_write to Silver_LastUpdated_v2.py, remove unconditional display() calls. Only touch silver_v2_notebooks/ — never prod notebooks."
+  },
+  {
+    "id": "completion_gate",
+    "cooldown": 3600,
+    "task": "COMPLETION GATE: Before this idle cycle ends, verify: (1) HEARTBEAT.md has a log entry for today. (2) memory/YYYY-MM-DD.md (today's date) exists. (3) Any task you completed in the last hour is marked done in HEARTBEAT.md Pending Tasks. (4) No half-finished edits left in open files. Fix any gaps before proceeding."
   }
 ]
