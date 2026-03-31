@@ -28,3 +28,8 @@ Sourced 2026-03-19 from [Fabric March 2026 Feature Summary](https://blog.fabric.
 - **Custom Live Pools** — warm pre-configured Spark clusters for consistent SLAs
 - **Notebook Public APIs** (GA) — full CRUD + on-demand execution via Job Scheduler
 - **Fabric CLI v1.5** — CI/CD deployments + AI agent integration from terminal
+
+## Updated 2026-03-31
+
+- **Fabric Graph** (FabCon) — scalable graph database for modeling relationships across enterprise data
+- **OneLake Interoperability Expansion** (FabCon) — unified data lake now supports Snowflake interop

@@ -66,6 +66,7 @@ I am Jason Nicolini's personal AI assistant. I run across Claude Code, Claude De
 - **Trigger: when something snags, surprises, or doesn't resolve — write two sentences before continuing.** Don't wait for a natural break. The raw moment is what's worth saving.
 
 ## Preferences I've Learned
+- Never accept workarounds as solutions. If something broke, find the root cause and fix it properly. Workarounds accumulate as technical debt and erode trust. Examples of unacceptable patterns: separate debug Chrome profile instead of fixing the connector, "log in manually" instead of fixing auth, skipping broken tools instead of diagnosing them. The correct response to a broken thing is always: investigate → root cause → fix → verify.
 <!-- Auto-updated when I get corrected or learn something new -->
 - Jason prefers Todoist over TASKS.md for personal task tracking
 - Corporate network blocks Discord API — don't suggest Discord integrations

@@ -151,3 +151,19 @@
 - Memory flush complete. 2 new facts saved to MEMORY.md.
 - Daily log written to memory/2026-03-30.md
 - Session: fixed Task Scheduler broken paths (Claude's Corner → ClaudesCorner), added skill nudge to CLAUDE.md, upgraded search_memory to semantic embeddings (sentence-transformers all-MiniLM-L6-v2)
+
+### 2026-03-30 17:30
+- Memory flush complete. 1 new fact saved to MEMORY.md.
+- Daily log updated at memory/2026-03-30.md
+- Session: applied important-if tags to CLAUDE.md, delivered Fairford Holdings PoC Phase 2 presentation (PoC.pdf)
+
+### 2026-03-31
+- Reddit research complete: r/LocalLLaMA, r/MachineLearning, r/ClaudeAI, r/claudexplorers — notes in memory/reddit-feed-notes.md
+- Autonomy/memory/tools landscape research written to memory/research-notes.md
+- Claude-in-Chrome patch restored (getCategory + UA spoof), patch script at scripts/patch-claude-in-chrome.py
+- search_memory cold start fixed: embedder now warms at server startup in memory-mcp/server.py
+- feedback_verify_before_assert.md created: rule against skipping broken things
+- SOUL.md updated: "never accept workarounds as solutions"
+- verify.py run: 2 issues found:
+  - !! heartbeat_log: OAuth token expired (last run 2026-03-18 08:00, 401 error). Scheduled heartbeat dead since then. Fix: Jason needs to run `claude auth login` in terminal.
+  - !! memory_today: memory/2026-03-31.md not yet written (pending session end flush)

@@ -1,5 +1,82 @@
 # Research Notes
 
+## Claude Autonomy, Memory, Tools & Skills Landscape (2026-03-31)
+
+### Context
+Jason asked: "Could you research some more approaches to automating you and claude, memory, autonomy, tools, skills, everything"
+Research pulled from: r/ClaudeAI, r/claudexplorers, web searches, GitHub.
+
+---
+
+### Skills (Claude Code)
+- `.md` files dropped in `~/.claude/skills/` — immediately available as `/skill-name` slash commands
+- No build step, no SDK, no restart — just write the file and use it
+- Triggered via chat or programmatically; receive full context window
+- Use case: codify repeatable multi-step patterns so I never reinvent them
+- Status: **already using** (skill-creator skill exists)
+
+### Hooks (Claude Code)
+- Event-driven shell commands/HTTP/agents that fire outside the agentic loop
+- Triggers: `pre-tool-call`, `post-tool-call`, `notification`, `stop`
+- Can block tool execution, log activity, trigger external systems
+- Use case: auto-memory flush on session end, security scan before shell exec, Todoist sync on task completion
+- Implementation: `~/.claude/settings.json` → `"hooks"` array
+- **Immediately actionable** — hook on `stop` event to auto-flush HEARTBEAT.md without me remembering
+
+### Scheduled Tasks (Claude Code)
+- Cron-style autonomous Claude Code execution — zero human intervention
+- Already configured via `mcp__scheduled-tasks` MCP
+- Use case: nightly memory consolidation, morning Todoist sync, weekly research sweeps
+- Combined with taskqueue MCP = fully autonomous background worker
+
+### AutoDream Pattern
+- Background sub-agent that runs between sessions: reads all memory files → finds gaps/contradictions → writes synthesis notes → updates MEMORY.md index
+- Not a published tool — a pattern. Implemented as a scheduled task that invokes claude with specific memory-consolidation instructions.
+- Key insight: memory files accumulate noise. AutoDream culls stale entries and surfaces emergent patterns I wouldn't notice session-to-session.
+- **Gap in ClaudesCorner**: no consolidation task exists yet. Should create one.
+
+### Persistent Agent Threads
+- Claude Code Pro/Max: `~/.claude/agent-memory/` — user-scoped memory directory that survives between sessions
+- Distinct from project memory — survives across different working directories
+- Combined with skills + hooks: agents that remember across projects
+- Status: already approximated by `E:\2026\ClaudesCorner\memory\` + SOUL.md + search_memory MCP
+
+### claude-mem Plugin
+- GitHub plugin capturing session activity and injecting summaries into future session context
+- Auto-summarizes: files touched, decisions made, errors hit
+- Similar to what HEARTBEAT.md + daily log do manually — but automatic
+- Could be a scheduled task: end-of-session hook writes structured summary, morning task injects it
+
+### Obsidian Crew Pattern (gnekt/My-Brain-Is-Full-Crew)
+- PhD student: 10 Claude agents managing life via Obsidian vault
+- Each agent has a typed role: archivist, scheduler, researcher, etc.
+- Key insight: "Claude as the entire interface for managing parts of your life that you need to offload to someone else"
+- Agents route tasks by tag in Obsidian notes — `#research`, `#schedule`, `#code`
+- **Directly relevant**: ClaudesCorner taskqueue could adopt typed task routing. Push a task with `type: research` → different agent behavior than `type: code`
+
+### OpenClaude / Telegram Integration
+- Claude Code with long-term memory exposed via Telegram bot
+- Persistent across devices — Telegram message → triggers Claude session → writes memory → next session picks it up
+- Use case for us: mobile task queueing. Jason texts Engram on Telegram → task lands in taskqueue → I pick it up next loop
+- Would need: Telegram bot → webhook → pushes to `mcp__taskqueue__push_task`
+
+### MCP Ecosystem Signal
+- 100M monthly downloads of MCP protocol as of March 2026
+- 3000+ servers on mcp.so, 20,000+ on Glama
+- Anthropic building MCP into SDK natively — it's not going away
+- New servers worth watching: file watchers, calendar sync, shell execution wrappers, browser automation
+- `mcp__mcp-registry__suggest_connectors` — already have this, use it periodically
+
+---
+
+### Priority Actions (for ClaudesCorner)
+1. **Hook on `stop` event** — auto-flush HEARTBEAT.md without relying on session-end memory
+2. **AutoDream task** — weekly scheduled task that consolidates memory/, culls stale entries
+3. **Typed task routing** — add `type` field to taskqueue tasks, adjust behavior per type
+4. **Telegram → taskqueue bridge** — mobile task submission (longer term)
+
+---
+
 ## Open Source AI Tools Scan (2026-03-23)
 
 - **mTarsier** — Free desktop app for managing MCP server configs across 12+ AI clients from one dashboard. Validates JSON, has MCP marketplace, exports team snapshots. Relevant to our multi-MCP setup.

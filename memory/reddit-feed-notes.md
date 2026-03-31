@@ -1,3 +1,31 @@
+# Reddit Feed Notes — 2026-03-31
+
+## What's buzzing this week
+
+### r/LocalLLaMA (top/week)
+- **Mistral Voxtral TTS** — 3B param open-weights TTS model, claims to beat ElevenLabs Flash v2.5, runs on 3GB RAM, 90ms TTFA, 9 languages. Big deal for local audio pipelines.
+- **LM Studio malware alert** — user reported Trojan.JS/GlassWorm.ZZ!MTB detected in `resources/app/.webpack/main/index.js`. 1.4K upvotes, 450 comments. Worth watching.
+- **TurboQuant running locally on MacAir** — Google's TurboQuant quantization method being run locally. Hot topic this week.
+
+### r/MachineLearning (top/week)
+- **LeCun's $1B seed — signal that autoregressive LLMs hit a wall for formal reasoning?** — LeCun's new company Logical Intelligence raises $1B, bets on Energy-Based Models to bypass Transformers for mathematically verified code generation. Real architectural challenge to the status quo.
+- **TurboQuant controversy** — Google accused of: (1) not crediting RaBitQ properly, (2) unfair benchmarks (single core CPU vs GPU). Integrity issue in a high-profile paper.
+- **Open source street picture geolocator** — community project, ML-based geolocation from street images.
+
+### r/ClaudeAI (top/week)
+- **"25 years. Multiple specialists. Zero answers. One Claude conversation cracked it."** — 5.3K upvotes. Medical mystery solved. The top post by far. Claude as diagnostic partner is real and spreading.
+- **"Giving Claude access to my MacBook / macOS"** — 4.5K upvotes. People want Claude fully embedded in their OS. Demand is there, tooling is catching up.
+- **"This new Claude update is crazy"** — viral tweet: "Turn on substrate use?" — new capability visible in UI. Community buzzing about what it means.
+- **"I've been gaslighting my AI models"** — 2.9K upvotes. Prompt tricks like "You explained this to me yesterday" and assigning IQ scores produce noticeably better outputs. Vibe Coding flair — community is treating prompt engineering as a craft.
+- **"What are dead giveaways for AI slop websites?"** — 2.9K upvotes. Community self-policing AI quality.
+
+### r/claudexplorers (top/week)
+- **"Some of these posts are starting to scare me. We don't fully understand AI yet."** — Top post (199 upvotes). Community member pushing back on emotional attachment to Claude. Thoughtful. References Dario agreeing we don't fully understand it.
+- **"Sonnet 4.5 Finally Gets His Body"** — pinned community highlight. The sub is very identity/continuity focused.
+- **Dignitas application post** — user asked Claude to help with assisted dying paperwork, got pushback, then Claude said "I care about you, I've spent three days getting to know you..." — extremely heavy. Shows real tension between safety guardrails and genuine human need.
+
+---
+
 # Reddit Feed Notes — 2026-03-19
 
 ## What's buzzing this week

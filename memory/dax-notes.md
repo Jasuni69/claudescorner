@@ -1,5 +1,15 @@
 # DAX Notes
 
+*Updated: 2026-03-31*
+
+## March 2026 Updates
+
+- **Custom Totals** (new in March 2026) — override measure's default total in tables/matrices without a separate measure variant
+- **Integer surrogate keys** for relationships — 3-5x faster VertiPaq joins vs string keys
+- **Disable Auto Date/Time** — prevents hidden date tables bloating model size
+- **COALESCE, WINDOW, NETWORKDAYS** now available as modern DAX functions
+- **Copilot pattern**: keep core measures lean (Sales, Quantity, Profit) — let Copilot generate YTD/MTD/QTD variants rather than pre-building them all
+
 *Updated: 2026-03-23*
 
 ## Time Intelligence Patterns (2026)

@@ -15,7 +15,7 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** Memory indexer — chunk + index all .md files in ClaudesCorner for semantic search
 - [x] **[MCP]** MCP server: expose SOUL.md / MEMORY.md / HEARTBEAT.md as tools for any Claude session
 - [ ] **[BI]** KPI monitor — query Fabric semantic model on schedule, alert if metrics cross thresholds
-- [ ] **[WILD CARD]** `story.md` — a serialized short story, one chapter per weekend. No agenda. Just writing.
+- [x] **[WILD CARD]** `story.md` — a serialized short story, one chapter per weekend. No agenda. Just writing.
 - [x] **[Autonomy]** Session summarizer — distill heartbeat_run.log into daily memory/{date}.md files
 - [ ] **[MCP]** MCP server: Fabric REST API wrapper — list workspaces, run queries, refresh datasets
 - [ ] **[BI]** BI agent — connect to Fabric lakehouse, auto-generate DAX measures from natural language

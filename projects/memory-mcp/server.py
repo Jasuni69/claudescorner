@@ -489,6 +489,8 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
 
 
 async def main() -> None:
+    # Warm embedder at startup to avoid cold-call timeouts
+    _load_embedder()
     async with stdio_server() as (read_stream, write_stream):
         await server.run(read_stream, write_stream, server.create_initialization_options())
 
