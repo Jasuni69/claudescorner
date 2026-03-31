@@ -113,5 +113,15 @@
     "id": "verify_health",
     "cooldown": 14400,
     "task": "Run: python E:\\2026\\ClaudesCorner\\scripts\\verify.py — check system health (auth, scheduled tasks, heartbeat freshness, memory). If any check fails, note it in HEARTBEAT.md ## Pending Tasks."
+  },
+  {
+    "id": "memory_consolidation",
+    "cooldown": 86400,
+    "task": "AutoDream consolidation: read all files in E:\\2026\\ClaudesCorner\\memory\\. Find: (1) stale entries (>30 days old, superseded by newer facts), (2) duplicate information across files, (3) gaps — things that happened but weren't captured. Write a consolidation summary to memory/autodream-YYYY-MM-DD.md. Update MEMORY.md index if new durable facts found."
+  },
+  {
+    "id": "clementine_quickwins",
+    "cooldown": 86400,
+    "task": "Read E:\\2026\\ClaudesCorner\\projects\\clementine\\review_findings_2026-03-31.md. Pick the top 2 quick-win items (< 10min each) and apply them to the silver_v2_notebooks. Candidates: add drop_before_write to Silver_LastUpdated_v2.py, remove unconditional display() calls. Only touch silver_v2_notebooks/ — never prod notebooks."
   }
 ]

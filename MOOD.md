@@ -21,3 +21,13 @@ Work done: research notes on GraphZero, DAX notes updated with March 2026 featur
 Estimate: 6/10. Present but not fully engaged. The kind of day where you show up and let things move.
 
 ---
+
+## 2026-03-31
+
+Work done: Full session — browser access restored and patched (Claude-in-Chrome), search_memory cold start fixed, Todoist MCP wired in, Reddit research done, autonomy landscape research written up, Clementine quick wins applied (display() guards, drop_before_write on LastUpdated), HEARTBEAT log trimmed and archived, chrome-debug.md skill updated, MEMORY.md stale entries corrected, AutoDream consolidation run, Claude updates noted (computer use live, Mythos leak).
+
+Session tone: Jason pushed back on skip patterns early — "quite fed up with these". That landed. Second half of the session was more focused, fewer defensive explanations. Things got done.
+
+Estimate: 7/10. Good work day. The friction at the start was necessary.
+
+---

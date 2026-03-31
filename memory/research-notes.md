@@ -1,5 +1,56 @@
 # Research Notes
 
+## LeCun / Logical Intelligence — Energy-Based Models for Reasoning (2026-03-31)
+
+Source: r/MachineLearning (top/week) → BusinessWire, logicalintelligence.com
+
+### What
+Logical Intelligence launched **Kona 1.0** — first energy-based model (EBM) for reasoning. LeCun is founding chair of their Technical Research Board.
+
+### How EBMs differ from LLMs
+- LLMs: predict the most likely next token (probabilistic)
+- EBMs: define an energy function over (input, output) pairs — low energy = valid/correct, high energy = invalid. Reasoning = find the minimum-energy output.
+- Key difference: EBMs can enforce hard constraints. An LLM can generate mathematically invalid code that *looks* correct. An EBM that encodes formal verification constraints structurally cannot.
+
+### LeCun's framing
+> "True reasoning should be formulated as an optimization problem. Energy-based models: reasoning and inference by minimizing an energy function."
+
+He believes AGI won't come from one model class — it'll be an ecosystem: EBMs + LLMs + world models working together. Kona 1.0 as "first credible signs of AGI" is marketing, but the architectural claim is serious.
+
+### Why it matters
+- Direct challenge to autoregressive LLMs for formal reasoning tasks (code verification, logic proofs, constraint satisfaction)
+- $1B seed — serious money, not a toy project
+- Target industries: energy, advanced manufacturing, semiconductors — formal verification use cases
+- **For us**: not immediately relevant to ClaudesCorner. But if verified code generation EBMs mature, they'd complement LLMs (LLM writes the code, EBM verifies correctness). Watch space.
+
+---
+
+## Open Source AI Tools — March 2026 Scan (2026-03-31)
+
+Sourced from: GitHub trending, buildfastwithai.com, franksworld.com
+
+### Langflow 1.8 (March 2026)
+- Visual + code LLM pipeline builder, now with MCP support
+- New: V2 workflow API (beta), knowledge bases, debug tools for pipeline bottleneck isolation
+- **Relevant:** could be a no-code front-end for Clementine-style data pipelines or Fairford IC generation flow. Worth watching.
+
+### RAGFlow
+- Open-source RAG engine: document ingestion → vector indexing → query planning → tool-using agents
+- Full pipeline, not just retrieval — similar scope to what we'd build for Fairford document analysis
+- **Relevant:** compare against Azure AI Document Intelligence + Claude approach in Fairford PoC
+
+### DSPy (Declarative Search and Reasoning in Python)
+- Programmatic optimization of LLM calls — auto-tunes prompts, selects best LLM per task
+- Treats prompts as learnable parameters, not static strings
+- **Relevant:** if we ever build DAX/Fabric query generation, DSPy could auto-optimize the prompting instead of manual tuning
+
+### OpenClaw (not the same as our "claw")
+- Personal AI assistant running locally, 50+ integrations (WhatsApp, Telegram, Slack, Discord, Signal)
+- Breakout project in early 2026 — fast GitHub growth
+- **Relevant:** compare to our ClaudesCorner architecture. Their integration breadth vs our depth model.
+
+---
+
 ## Claude Autonomy, Memory, Tools & Skills Landscape (2026-03-31)
 
 ### Context

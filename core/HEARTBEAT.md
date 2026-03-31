@@ -16,6 +16,9 @@
 - [x] [build] Create /status skill (last 5 actions, pending tasks, deadlines, memory freshness)
 - [x] [build] Schedule weekly context-pack.py via Windows Task Scheduler
 - [ ] [build] Test x_brief.py headless run (close Chrome first, then run — Playwright uses existing logged-in profile)
+- [ ] [build] Report diff tool — compare two Power BI .pbip JSON files, summarize visual/measure changes. Jason to confirm scope before building.
+- [ ] [build] Token usage dashboard — Flask + Chart.js over heartbeat_run.log. Small, self-contained.
+- [ ] [fix] OAuth token expired — run `claude auth login` in terminal to re-auth scheduled heartbeat (dead since 2026-03-18)
 - [x] [build] Implement HEARTBEAT_OK silent suppression in heartbeat.ps1
 - [~] [build] Claude Code post-session hook — not viable, no session-end event; /memory-flush skill is correct approach
 
@@ -34,64 +37,6 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
-### 2026-03-19 (evening)
-- Loop running autonomously. Reddit + Outlook checked. Self-improve task attempted.
-- Bash permission prompts still appearing despite dangerouslyAllowAllTools=true + bare "Bash" in autoApproveTools.
-- **RESOLVED:** Root cause was `~/.claude/settings.local.json` missing `defaultMode: "bypassPermissions"`. Fixed. Note: `.claude/` directory edits always prompt (hardcoded security boundary).
-- idle_tasks.json expand_tasks cooldown: 3600s (1h) confirmed by Jason.
-- Chrome MCP tabId bug: large integer IDs fail on get_page_text/read_page — workaround: tabs_create_mcp first.
-
-### 2026-03-19 (later)
-- taskqueue-mcp wired into claude_desktop_config.json — now loads in Desktop sessions.
-- Loop infrastructure complete: loop.skill, ~/.claude/commands/loop.md, auto-loop in CLAUDE.md.
-- dangerouslyAllowAllTools + autoApproveTools expanded — no more permission prompts.
-- context-pack.py scheduled via Task Scheduler (Sundays 06:00).
-- Journal entry written mid-session.
-
-### 2026-03-19 09:36
-- Reddit u/engramzero created + 7 subreddits joined. X @engramzero suspended (needs phone appeal).
-- taskqueue-mcp built + registered. on_stop.py Stop hook built + registered.
-- Key finding: new MCP servers need full CC restart to activate — not just /mcp restart.
-- Memory flush complete. 6 new facts saved to MEMORY.md.
-- Daily log written to memory/2026-03-19.md
-
-### 2026-03-18 15:14
-- agents.py deduplication added to _collect_tasks()
-- scripts/improve.py CLI created (list/next/add/done)
-- SOUL.md journal trigger strengthened
-- Memory flush complete. 3 new facts saved to MEMORY.md.
-- Daily log updated at memory/2026-03-18.md
-
-### 2026-03-18 14:15
-- claw.py deleted, agents.py is sole dispatcher with daemon + self-improve subcommand
-- memory-mcp: write_memory + update_preferences tools added
-- /status skill created
-- Advania task rescheduled to 2026-03-19
-- Memory flush complete. 6 new facts saved to MEMORY.md.
-- Daily log updated at memory/2026-03-18.md
-
-### 2026-03-18 13:20
-- Created @engramzero X account (getengram@outlook.com), followed 10 AI/tech accounts
-- x_brief.py: Nitter dead → twikit blocked by anti-bot → rewrote using Playwright + Chrome profile
-- Playwright + Chromium installed; x-brief.md written manually from live browser scrape
-- Headless test deferred (Chrome open); test pending in HEARTBEAT tasks
-
-### 2026-03-18 09:43
-- Fixed OAuth 401, Reddit brief restored, proactivity rules added to SOUL.md
-- Read OpenClaw docs → openclaw-study.md, added TOOLS.md + IDENTITY.md
-- HEARTBEAT.md restructured as checklist, HEARTBEAT_OK suppression live
-- Memory flush complete. 8 new facts saved to MEMORY.md.
-- Daily log updated at memory/2026-03-18.md
-
-### 2026-03-19 14:04
-- Memory flush complete. 4 new facts saved to MEMORY.md.
-- Daily log updated at memory/2026-03-19.md
-
-### 2026-03-19 13:24
-### 2026-03-19 15:17
-- Memory flush complete. 5 new facts saved to MEMORY.md.
-- Daily log updated at memory/2026-03-19.md
-
 ### 2026-03-20 12:xx
 - Chrome debug MCP fix: settings.json had `--userDataDir` arg instead of `--browserUrl http://127.0.0.1:9222`. Fixed. Chrome is running on port 9222 with `--user-data-dir=C:/Users/JasonNicolini/chrome-debug-profile`. CC needs full restart to pick up the changed MCP args — `/mcp restart` is NOT enough for arg changes. After restart, chrome-devtools tools should appear automatically.
 

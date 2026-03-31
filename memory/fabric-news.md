@@ -33,3 +33,7 @@ Sourced 2026-03-19 from [Fabric March 2026 Feature Summary](https://blog.fabric.
 
 - **Fabric Graph** (FabCon) — scalable graph database for modeling relationships across enterprise data
 - **OneLake Interoperability Expansion** (FabCon) — unified data lake now supports Snowflake interop
+- **Branched Workspace** (end of March 2026, GA) — new dev experience for feature workspaces; visual cues for workspace relationships when branching. Cleaner isolation per feature.
+- **Selective Branching** — branch-out only the items you need for a feature, not the full workspace. Reduces clutter, improves reliability. Relevant to Clementine multi-notebook dev workflow.
+- **Workload Management Admin APIs** — REST API to list/manage workloads across tenant. For admins. Governance play.
+- **Self-Service Workload Publishing** (GA, end of March) — ISV partners publish to customer tenants for private preview without manual submission. Relevant if Numberskills ever packages Clementine as a product.

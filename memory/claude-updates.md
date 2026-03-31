@@ -50,6 +50,20 @@ Sourced 2026-03-19
 - Python: `v0.1.48` on PyPI | TypeScript: `v0.2.71` on npm
 - Includes built-in file ops, shell, web search, MCP integration — same loop that powers CC
 
+## Claude Code (late March 2026 additions)
+- **Computer use in CC + Cowork** (Pro/Max) — Claude can now open files, run dev tools, point/click/navigate the screen. No setup. Added March 23.
+- **PowerShell tool for Windows** — opt-in preview. Relevant for our Windows environment.
+- **`worktree.sparsePaths`** — `claude --worktree` in monorepos can check out only needed dirs via git sparse-checkout.
+- **Scroll perf fix** — replaced WASM yoga-layout with TypeScript, reduced stutter on large sessions.
+- **MCP Elicitation** — already noted above, confirmed shipped.
+
+## Claude Mythos (leaked, ~March 26)
+- Anthropic testing a new model internally called "Claude Mythos" — leaked via data incident
+- Described as "step change" in capabilities, "most capable we've built to date"
+- In early access with select customers
+- No public release date. Not Claude 5 (different naming pattern).
+- Source: Fortune, SiliconANGLE (2026-03-26/27)
+
 ## Relevant to us
 - Official `/loop` is similar to our taskqueue loop but simpler (interval-based monitoring vs queue-based)
 - Voice mode + Swedish support could be useful for Jason
