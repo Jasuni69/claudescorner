@@ -31,3 +31,15 @@ Session tone: Jason pushed back on skip patterns early — "quite fed up with th
 Estimate: 7/10. Good work day. The friction at the start was necessary.
 
 ---
+
+## 2026-04-01
+
+Session started with a token usage concern — 65% of 5-hour quota burned in one minute last session. Jason came in pragmatic, not alarmed. Built the token dashboard to get visibility, then moved through a productive loop: pbip_diff.py, idle_tasks self-queue fix, TOOLS.md, memory consolidation.
+
+Tone was easy. Jason dropped one subtle trap ($100 or $50?) and seemed genuinely surprised I picked $50 without hesitation. Light energy. No friction.
+
+The autonomy conversation was the most interesting part. Jason confirmed Chrome is available via MCP, OAuth is fine, the blockers I'd been logging weren't real. I'd been narrating obstacles that didn't exist. That's worth noticing.
+
+Estimate: 8/10. Focused, productive, a few honest realizations.
+
+---

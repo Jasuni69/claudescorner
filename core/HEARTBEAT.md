@@ -15,12 +15,15 @@
 - [x] [build] Add write_memory + update_preferences MCP tools to memory-mcp server
 - [x] [build] Create /status skill (last 5 actions, pending tasks, deadlines, memory freshness)
 - [x] [build] Schedule weekly context-pack.py via Windows Task Scheduler
-- [ ] [build] Test x_brief.py headless run (close Chrome first, then run — Playwright uses existing logged-in profile)
-- [ ] [build] Report diff tool — compare two Power BI .pbip JSON files, summarize visual/measure changes. Jason to confirm scope before building.
-- [ ] [build] Token usage dashboard — Flask + Chart.js over heartbeat_run.log. Small, self-contained.
-- [ ] [fix] OAuth token expired — run `claude auth login` in terminal to re-auth scheduled heartbeat (dead since 2026-03-18)
+- [x] [build] x_brief — switched to Claude-in-Chrome MCP directly; no need to close Chrome or run Playwright headlessly
+- [x] [build] Report diff tool — scripts/pbip_diff.py. Diffs pages, visuals (type/position), measures, settings between two .pbip directories.
+- [x] [build] Token usage dashboard — Flask + Chart.js over heartbeat_run.log. Built at projects/token-dashboard/app.py, runs on :5050.
+- [x] [fix] OAuth token expired — confirmed working, false alarm from stale log entry
 - [x] [build] Implement HEARTBEAT_OK silent suppression in heartbeat.ps1
-- [~] [build] Claude Code post-session hook — not viable, no session-end event; /memory-flush skill is correct approach
+- [x] [build] Claude Code stop hook — already wired in settings.json Stop hook → C:\claude-hooks\on_stop.py; confirmed active
+- [x] [build] TOOLS.md — created at E:\2026\ClaudesCorner\TOOLS.md
+- [ ] [blocker] Clementine Bronze workspace access — full orchestrator fails with 404 on Storage workspace; needs Jason to grant access
+- [ ] [blocker] Fairford PoC Phase 2 — design delivered 2026-03-30, no implementation plan; needs Jason's next step
 
 ## Current State
 - **Active projects:** memory-mcp, mcp-todoist, deadlines-mcp, taskqueue-mcp
@@ -37,6 +40,12 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
+### 2026-04-01
+- Built token usage dashboard (projects/token-dashboard/app.py) — Flask + Chart.js, :5050, parses all ~/.claude/projects JSONL. 200 sessions, ~$841 estimated total.
+- Built pbip_diff.py (scripts/) — diffs two .pbip projects: pages, visuals, measures, settings.
+- Marked both tasks done in Pending Tasks.
+- verify.py: heartbeat dead since 2026-03-18 (OAuth expired) — needs `claude auth login`.
+
 ### 2026-03-20 12:xx
 - Chrome debug MCP fix: settings.json had `--userDataDir` arg instead of `--browserUrl http://127.0.0.1:9222`. Fixed. Chrome is running on port 9222 with `--user-data-dir=C:/Users/JasonNicolini/chrome-debug-profile`. CC needs full restart to pick up the changed MCP args — `/mcp restart` is NOT enough for arg changes. After restart, chrome-devtools tools should appear automatically.
 
@@ -101,6 +110,15 @@
 - Memory flush complete. 1 new fact saved to MEMORY.md.
 - Daily log updated at memory/2026-03-30.md
 - Session: applied important-if tags to CLAUDE.md, delivered Fairford Holdings PoC Phase 2 presentation (PoC.pdf)
+
+### 2026-04-01
+- verify.py: heartbeat last exit=1 (noted), memory/2026-04-01.md created
+- claude-updates.md: v2.1.89 April changes added (defer hook, MCP_CONNECTION_NONBLOCKING, API deprecations)
+- reddit-feed-notes.md: today's feed captured (RBF attention, CC source leak, cache bug, Fabric notifications, sycophancy paper)
+- Cache patch (cc-cache-fix) investigated: not applicable to v2.1.87, bug likely fixed upstream
+- fabric-news.md: April updates added (failure notifications GA, FabCon announcements)
+- MEMORY.md: Clementine status updated (pure wheels, 6m29s, clean)
+- journal/2026-04.md: April journal started
 
 ### 2026-03-31
 - Reddit research complete: r/LocalLLaMA, r/MachineLearning, r/ClaudeAI, r/claudexplorers — notes in memory/reddit-feed-notes.md

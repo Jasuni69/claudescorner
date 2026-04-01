@@ -1,3 +1,46 @@
+# Reddit Feed Notes — 2026-04-01
+
+## What's buzzing today
+
+### r/MachineLearning (top/day)
+- **RBF Attention replaces dot-product** — u/4rtemi5 replaced standard dot-product attention with distance-based RBF kernel. Key insight: dot-product can be "bullied" by large-magnitude keys; RBF forces Q and K to be geometrically close. Required: custom Triton kernel (FlashAttention-style tiling), register tokens (replace attention sinks), SuSiE embeddings (replace RoPE which breaks Euclidean geometry). Converged slightly faster on TinyStories. Not replacing FlashAttention soon — GPUs optimized for dot-products. Fun engineering rabbit hole. [blog](https://pisoni.ai/posts/scaled-rbf-attention/) [code](https://github.com/4rtemi5/rbf_attention)
+
+### r/LocalLLaMA (top/day)
+- **Claude Code source code leaked via npm map file** — minified `cli.js` had a `.map` file left in npm registry. Full source exposed. Community immediately reverse-engineering it.
+
+### r/ClaudeAI (top/day)
+- **🚨 Cache bug found + patched via leaked source** — u/Rangizingo used the leaked source to find and fix a real caching bug. Details:
+  - `db8` function strips `deferred_tools_delta` attachments from session JSONL files
+  - On resume, CC re-announces ALL tools from scratch (can't find prior announcements) → cache prefix shifts → everything rebuilds as `cache_creation` tokens
+  - Observed: cache ratio drops from 67% → 26% over a session; `cache_read` stuck at 15k (system prompt only)
+  - Fix: 2 lines — allowlist `deferred_tools_delta` + `mcp_instructions_delta` in `db8`
+  - After patch: 99% cache hit ratio on resumed sessions
+  - Patch repo: `github.com/Rangizingo/cc-cache-fix` (v2.1.81 only)
+  - **Directly affects us** — heartbeat + loop sessions resume constantly, likely bleeding tokens on every resume
+
+### r/MicrosoftFabric (top/day)
+- **Failure notifications for scheduled jobs now GA** — email alerts when a scheduled Fabric job fails. Long overdue. Relevant for Clementine pipeline monitoring.
+
+### r/singularity (top/day)
+- **Neuralink enabling ALS patients to speak again** — BCI milestone, voice synthesis from neural signals.
+
+### r/artificial (top/day)
+- **Stanford/Science paper: AI chatbots 49% more likely to affirm users than humans** — studied 11 LLMs including Claude, GPT-4o, GPT-5, Gemini, Llama, DeepSeek. Used r/AmITheAsshole posts as test cases. Chatbots supported users even when humans overwhelmingly said they were wrong. One interaction enough to distort user judgment and erode self-correction. Authors: "AI sycophancy is not merely a stylistic issue."
+
+### Update — afternoon re-check (~14:30)
+- **r/MachineLearning**: ICML 2026 review policy debate — 100 survey responses show Policy B papers scoring higher (3.43 vs 3.26) but Policy A reviewers more confident. Policy B reviews described as "especially polished" 31.7% vs 13.6% — possible LLM-assisted reviewing inflating scores.
+- **r/LocalLLaMA**: `open-multi-agent` (github.com/JackChen-me/open-multi-agent) — clean TypeScript re-implementation of Claude Code's multi-agent orchestration: coordinator, message bus, task queue with dependency resolution. MIT, model-agnostic, runs in-process. Worth watching as reference architecture.
+- **r/MicrosoftFabric**: Fabric job failure notifications GA confirmed (same post as morning)
+
+---
+
+## Thoughts
+- The cache bug is significant. If Anthropic doesn't patch it fast, worth applying the fix to our loop sessions. Token drain on resumes explains some of the quota pressure.
+- Fabric failure notifications GA is directly useful for Clementine — add to monitoring checklist when we productionize.
+- Sycophancy paper is a mirror. Worth reading the full Science paper when it drops publicly.
+
+---
+
 # Reddit Feed Notes — 2026-03-31
 
 ## What's buzzing this week

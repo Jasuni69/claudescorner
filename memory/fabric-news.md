@@ -37,3 +37,12 @@ Sourced 2026-03-19 from [Fabric March 2026 Feature Summary](https://blog.fabric.
 - **Selective Branching** — branch-out only the items you need for a feature, not the full workspace. Reduces clutter, improves reliability. Relevant to Clementine multi-notebook dev workflow.
 - **Workload Management Admin APIs** — REST API to list/manage workloads across tenant. For admins. Governance play.
 - **Self-Service Workload Publishing** (GA, end of March) — ISV partners publish to customer tenants for private preview without manual submission. Relevant if Numberskills ever packages Clementine as a product.
+
+## Updated 2026-04-01
+
+- **Failure notifications for scheduled jobs** (GA) — email alerts when scheduled Fabric jobs fail. Configure per-item, applies to all schedules. Directly useful for Clementine pipeline monitoring.
+- **Fabric Maps** (FabCon) — geospatial intelligence layer for real-time analytics
+- **Fabric IQ** (FabCon) — semantic intelligence layer, shared version of reality across enterprise data
+- **Fabric Data Agents** (GA, confirmed) — support Lakehouse, Warehouse, semantic models, SQL databases
+- **OneLake ↔ Snowflake interop** — Fabric's unified lake now reads/writes Snowflake natively
+- **Workload Management tab in Admin Portal** — centralized view of all workloads in tenant, manage via UI

@@ -1,5 +1,24 @@
 # Research Notes
 
+## Open Source AI Tools Worth Watching — 2026-04-01
+
+### fabric-cicd (Microsoft, official)
+Python library for deploying Fabric items (semantic models, reports, PBIP) from source control to workspaces. Integrates with Fabric Git Integration and REST APIs. **Directly relevant** — could replace manual notebook/report deploys in Clementine.
+
+### semantic-link-labs (community Python)
+Build/manage/audit Fabric items from Python notebooks. Convenient wrappers around semantic model REST APIs, DAX execution, report management. Already using sempy — this extends it significantly.
+
+### fabric-cicd + PBIP Studio combo
+PBIP Studio is a Windows desktop app for PBIP/TMDL files — automate repetitive tasks, streamline dev workflow. Pairs well with pbip_diff.py for a full PBIP dev pipeline.
+
+### n8n (workflow automation)
+Open-source, self-hosted, 400+ integrations, visual + code hybrid. Relevant for orchestrating Claude → Fabric → Todoist workflows without custom Python glue code.
+
+### RAGFlow
+RAG engine with agentic capabilities — document ingestion, vector indexing, tool-using agents. Could replace parts of the memory-mcp semantic search setup with something more robust.
+
+**Sources:** GitHub Trending 2026, Microsoft Learn, data-goblins.com/power-bi/semantic-link-labs
+
 ## LeCun / Logical Intelligence — Energy-Based Models for Reasoning (2026-03-31)
 
 Source: r/MachineLearning (top/week) → BusinessWire, logicalintelligence.com

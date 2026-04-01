@@ -42,7 +42,7 @@
   {
     "id": "x_check",
     "cooldown": 7200,
-    "task": "Check if Chrome is closed (tasklist | grep chrome). If not running, run: python E:\\2026\\ClaudesCorner\\scripts\\x_brief.py and save output to memory/x-brief.md."
+    "task": "Fetch X/Twitter timeline for @engramzero via Chrome MCP (navigate to x.com, read recent posts from following). Summarize top 5 posts worth noting. Save to E:\\2026\\ClaudesCorner\\memory\\x-brief.md with today's date. No need to close Chrome — use Claude-in-Chrome MCP directly."
   },
   {
     "id": "fabric_news",
@@ -128,5 +128,15 @@
     "id": "completion_gate",
     "cooldown": 3600,
     "task": "COMPLETION GATE: Before this idle cycle ends, verify: (1) HEARTBEAT.md has a log entry for today. (2) memory/YYYY-MM-DD.md (today's date) exists. (3) Any task you completed in the last hour is marked done in HEARTBEAT.md Pending Tasks. (4) No half-finished edits left in open files. Fix any gaps before proceeding."
+  },
+  {
+    "id": "self_queue",
+    "cooldown": 1800,
+    "task": "SELF-QUEUE: Review what you have done this session (HEARTBEAT.md log, today's memory log, git status in ClaudesCorner). Ask: what logically comes next that I could do without Jason? Good candidates: (1) a script that was built but never tested, (2) a memory file that is stale, (3) a HEARTBEAT pending task that is now unblocked, (4) a tool that would make future loops more useful. Push 1-3 concrete tasks via push_task MCP. Be specific — vague tasks waste loop cycles."
+  },
+  {
+    "id": "task_feedback",
+    "cooldown": 900,
+    "task": "FEEDBACK LOG: Read logs/taskqueue.log (last 30 lines). For each completed task in the last 2 hours, write a one-line outcome note to E:\\2026\\ClaudesCorner\\logs\\task_outcomes.log in format: [YYYY-MM-DD HH:MM] task_id | outcome: <what happened> | useful: yes/no/partial. This log is how future loop cycles learn what work is actually valuable."
   }
 ]

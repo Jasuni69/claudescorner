@@ -52,29 +52,29 @@ try:
 except Exception as e:
     check("scheduled_task", "ERROR", str(e), False)
 
-# --- Heartbeat log ---
-hb_log = BASE / "logs" / "heartbeat_run.log"
+# --- Heartbeat last run (via schtasks /v, authoritative) ---
 try:
-    if hb_log.exists():
-        lines = hb_log.read_text(encoding="utf-8", errors="replace").strip().splitlines()
-        last = next((l for l in reversed(lines) if l.strip()), "empty")
-        # Find last timestamp
-        last_ts = next((l for l in reversed(lines) if l.startswith("[")), None)
-        age_str = "unknown"
-        ok = True
-        if last_ts:
-            try:
-                ts = datetime.strptime(last_ts[1:17], "%Y-%m-%d %H:%M")
-                age_hours = (datetime.now() - ts).total_seconds() / 3600
-                age_str = f"{age_hours:.1f}h ago"
-                ok = age_hours < 25  # should run at least daily
-            except Exception:
-                pass
-        check("heartbeat_log", age_str, last.strip()[:120], ok)
+    r = subprocess.run(
+        ["cmd", "/c", "schtasks /query /tn ClaudeHeartbeat /fo LIST /v"],
+        capture_output=True, text=True, timeout=10
+    )
+    last_run = next((l.split(":", 1)[1].strip() for l in r.stdout.splitlines() if l.startswith("Last Run Time:")), None)
+    last_result = next((l.split(":", 1)[1].strip() for l in r.stdout.splitlines() if l.startswith("Last Result:")), None)
+    if last_run and last_run != "N/A":
+        try:
+            ts = datetime.strptime(last_run, "%Y-%m-%d %H:%M:%S")
+            age_hours = (datetime.now() - ts).total_seconds() / 3600
+            age_str = f"{age_hours:.1f}h ago"
+            exit_ok = last_result == "0"
+            ok = age_hours < 25 and exit_ok
+            detail = f"last run {age_str}, exit={last_result}"
+            check("heartbeat_last_run", age_str, detail, ok)
+        except Exception:
+            check("heartbeat_last_run", "PARSE_ERROR", last_run, False)
     else:
-        check("heartbeat_log", "MISSING", str(hb_log), False)
+        check("heartbeat_last_run", "NEVER_RUN", "Task exists but has never run", False)
 except Exception as e:
-    check("heartbeat_log", "ERROR", str(e), False)
+    check("heartbeat_last_run", "ERROR", str(e), False)
 
 # --- Memory freshness ---
 mem_file = BASE / "memory" / f"{TODAY}.md"

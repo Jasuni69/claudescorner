@@ -1,4 +1,4 @@
-# Claude Updates — March 2026
+# Claude Updates — March/April 2026
 
 Sourced 2026-03-19
 
@@ -64,6 +64,24 @@ Sourced 2026-03-19
 - No public release date. Not Claude 5 (different naming pattern).
 - Source: Fortune, SiliconANGLE (2026-03-26/27)
 
+## Claude Code v2.1.89 (April 1, 2026)
+
+- **`defer` permission in PreToolUse hooks** — headless sessions can pause at tool call, resume with `-p --resume` to re-evaluate
+- **`CLAUDE_CODE_NO_FLICKER=1`** — flicker-free alt-screen rendering with virtualized scrollback
+- **PermissionDenied hook** — fires after auto-mode classifier denials; return `{retry: true}` to let model retry
+- **Named subagents** in @ mention typeahead
+- **`MCP_CONNECTION_NONBLOCKING=true`** for `-p` mode — skip MCP connection wait entirely; max 5s per server (no more blocking on slow servers)
+- **Fix:** collapsed tool summary shows "Listed N directories" for ls/tree/du
+
+## Claude API (April 2026)
+
+- **Breaking: `claude-3-haiku-20240307` deprecated** — retirement April 19, 2026
+- **Breaking: Sonnet 3.7 + Haiku 3.5 retired** — requests now return error; migrate to Sonnet 4.6 / Haiku 4.5
+- **Breaking: 1M context beta retired April 30** — `context-1m-2025-08-07` header will have no effect; requests >200k will error. Sonnet 4.6 + Opus 4.6 support 1M natively without beta header
+- **`output_format` moved** — now `output_config.format` for structured outputs
+- **Models API** — `GET` endpoints now return `max_input_tokens`, `max_tokens`, `capabilities` object
+- **Elevated timeouts March 31–April 1** — Opus 4.6 + Sonnet 4.6 affected; resolved
+
 ## Relevant to us
 - Official `/loop` is similar to our taskqueue loop but simpler (interval-based monitoring vs queue-based)
 - Voice mode + Swedish support could be useful for Jason
@@ -76,3 +94,8 @@ Sourced 2026-03-19
 - **Channels** — if stable, could replace our taskqueue-mcp push model with native channel push. Worth monitoring.
 - **Cowork** — Anthropic's native version of what we built with claw/agents.py + taskqueue. Compare feature set.
 - **Off-peak promotion ends March 27** — after that, normal limits resume
+- **`MCP_CONNECTION_NONBLOCKING=true`** — worth setting in heartbeat.ps1 to speed up `-p` spawns
+- **`defer` PreToolUse hook** — interesting for headless runs that hit permission walls
+- **PermissionDenied hook** — could auto-retry certain blocked tool calls in claw
+- **API: 1M beta header retires April 30** — no action needed (we're on Sonnet 4.6 which has it natively)
+- **API: Haiku 3 retires April 19** — check if any scripts hardcode that model ID
