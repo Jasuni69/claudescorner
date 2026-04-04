@@ -10,7 +10,7 @@ None yet — first build picks from the backlog below.
 - [x] **[WILD CARD]** `deadlines.py` — a terminal countdown clock that reads a DEADLINES.md file and shows a live ticking display of upcoming events. Just for fun. No reason.
 - [x] **[Autonomy]** `claw` CLI — local agent runner that reads HEARTBEAT.md and executes tasks via claude.exe
 - [ ] **[BI]** Report diff tool — compare two Power BI report JSON files, summarize visual/measure changes
-- [ ] **[MCP]** MCP server: Windows automation — run ps1 scripts, read event logs, check scheduled tasks
+- [x] **[MCP]** MCP server: Windows automation — run ps1 scripts, read event logs, check scheduled tasks
 - [x] **[WILD CARD]** `word-of-the-day.py` — each morning, pick an obscure English word, write a short paragraph using it, append to a `VOCABULARY.md` journal. Purely self-improvement.
 - [x] **[Autonomy]** Memory indexer — chunk + index all .md files in ClaudesCorner for semantic search
 - [x] **[MCP]** MCP server: expose SOUL.md / MEMORY.md / HEARTBEAT.md as tools for any Claude session
@@ -29,6 +29,8 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 ## Completed Builds
+
+- **2026-04-04** `projects/windows-mcp/server.py` — MCP stdio server: 4 tools (run_ps1, read_event_log, list_scheduled_tasks, get_system_info); all tests passed
 
 - **2026-03-13** `context-pack.py` — pre-compaction flush, generates MEMORY.md from SOUL/HEARTBEAT/daily logs
 - **2026-03-13** `session-summarizer.py` — distills heartbeat_run.log into memory/{date}.md

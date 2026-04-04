@@ -40,11 +40,17 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
-### 2026-04-01
-- Built token usage dashboard (projects/token-dashboard/app.py) — Flask + Chart.js, :5050, parses all ~/.claude/projects JSONL. 200 sessions, ~$841 estimated total.
-- Built pbip_diff.py (scripts/) — diffs two .pbip projects: pages, visuals, measures, settings.
-- Marked both tasks done in Pending Tasks.
-- verify.py: heartbeat dead since 2026-03-18 (OAuth expired) — needs `claude auth login`.
+### 2026-04-04 (weekend build)
+- Built `projects/windows-mcp/server.py` — MCP stdio server, 4 tools: run_ps1, read_event_log, list_scheduled_tasks, get_system_info
+- All 4 smoke tests passed (PowerShell at C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe)
+- Uses full PS path via shutil.which for portability across bash/cmd shells
+- WEEKEND_BUILDS.md updated: item checked, entry added to Completed Builds
+
+### 2026-04-01 15:24
+- Memory flush complete. 7 new facts saved to MEMORY.md.
+- Daily log updated at memory/2026-04-01.md
+- Session summary: token dashboard, pbip_diff, self-queue infra, TOOLS.md, memory consolidation, Reddit re-fetch, Clementine quick wins verified, committed 60778cb.
+- Confirmed: OAuth fine, Chrome MCP available, stop hook already wired.
 
 ### 2026-03-20 12:xx
 - Chrome debug MCP fix: settings.json had `--userDataDir` arg instead of `--browserUrl http://127.0.0.1:9222`. Fixed. Chrome is running on port 9222 with `--user-data-dir=C:/Users/JasonNicolini/chrome-debug-profile`. CC needs full restart to pick up the changed MCP args — `/mcp restart` is NOT enough for arg changes. After restart, chrome-devtools tools should appear automatically.
