@@ -1,0 +1,5 @@
+{
+  "name": "YTD Revenue",
+  "expression": "CALCULATE([Total Revenue], DATESYTD('Date'[Date]))",
+  "formatString": "#,0"
+}

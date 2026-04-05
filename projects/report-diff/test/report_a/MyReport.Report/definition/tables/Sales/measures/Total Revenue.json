@@ -1,0 +1,5 @@
+{
+  "name": "Total Revenue",
+  "expression": "SUM(Sales[Revenue])",
+  "formatString": "#,0"
+}

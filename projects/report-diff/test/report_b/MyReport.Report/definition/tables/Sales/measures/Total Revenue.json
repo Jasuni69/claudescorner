@@ -1,0 +1,5 @@
+{
+  "name": "Total Revenue",
+  "expression": "SUMX(Sales, Sales[Qty] * Sales[Price])",
+  "formatString": "#,0"
+}

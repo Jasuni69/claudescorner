@@ -1,0 +1,5 @@
+{
+  "name": "Margin %",
+  "expression": "DIVIDE([Gross Profit], [Total Revenue])",
+  "formatString": "0.0%"
+}

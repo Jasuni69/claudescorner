@@ -40,6 +40,12 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
+### 2026-04-05 (weekend build)
+- Built `projects/report-diff/pbip_diff.py` — CLI diff tool for Power BI .pbip directories
+- Diffs pages (add/remove), visuals (type changes, position moves), measures (add/remove/changed expression/format), settings
+- Tests passed: 7 changes correctly detected across sample fixtures (page removed/added, visual type change, visual move, measure removed/added/changed)
+- Entry point: `python pbip_diff.py <dir_a> <dir_b> [--out file.md]`
+
 ### 2026-04-04 (weekend build)
 - Built `projects/windows-mcp/server.py` — MCP stdio server, 4 tools: run_ps1, read_event_log, list_scheduled_tasks, get_system_info
 - All 4 smoke tests passed (PowerShell at C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe)
