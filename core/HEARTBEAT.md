@@ -40,6 +40,15 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
+### 2026-04-11 09:01 (weekend build)
+- Built `projects/kpi-monitor/kpi_monitor.py` — KPI monitor for Fabric semantic models
+- Loads YAML config (kpis: name, dax, threshold, direction, unit)
+- Real mode: MSAL device flow auth → Power BI executeQueries API
+- Dry-run mode: mock values, exercises full alert logic without Fabric
+- Threshold logic: `above` direction alerts if value falls below; `below` alerts if value rises above
+- Test: 4 KPIs checked, 3 alerts correctly fired (Daily Revenue, Open Invoices, Active Customers), 1 OK (Gross Margin %)
+- alerts.md written with timestamped entries; exit code 2 = breaches (expected), 0 = all OK
+- Entry point: `python kpi_monitor.py [--config config.yaml] [--dry-run]`
 ### 2026-04-05 (weekend build)
 - Built `projects/report-diff/pbip_diff.py` — CLI diff tool for Power BI .pbip directories
 - Diffs pages (add/remove), visuals (type changes, position moves), measures (add/remove/changed expression/format), settings

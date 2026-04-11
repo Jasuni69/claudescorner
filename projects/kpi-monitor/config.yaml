@@ -1,0 +1,34 @@
+# KPI Monitor Configuration
+# Each KPI has a name, DAX query, threshold, direction, and optional workspace/dataset info.
+
+workspace_id: "YOUR_WORKSPACE_ID"
+dataset_id: "YOUR_DATASET_ID"
+
+# Optional: MSAL auth (leave blank for interactive/device flow)
+tenant_id: ""
+client_id: ""
+
+kpis:
+  - name: "Daily Revenue"
+    dax: "EVALUATE ROW(\"Value\", [Total Revenue])"
+    threshold: 50000
+    direction: above   # alert if value FALLS below threshold
+    unit: "SEK"
+
+  - name: "Open Invoices"
+    dax: "EVALUATE ROW(\"Value\", COUNTROWS(Invoices))"
+    threshold: 200
+    direction: below   # alert if value RISES above threshold
+    unit: "count"
+
+  - name: "Gross Margin %"
+    dax: "EVALUATE ROW(\"Value\", [Gross Margin %])"
+    threshold: 0.30
+    direction: above   # alert if falls below 30%
+    unit: "%"
+
+  - name: "Active Customers"
+    dax: "EVALUATE ROW(\"Value\", DISTINCTCOUNT(Sales[CustomerID]))"
+    threshold: 100
+    direction: above
+    unit: "count"

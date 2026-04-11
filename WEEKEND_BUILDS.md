@@ -14,7 +14,7 @@ None yet — first build picks from the backlog below.
 - [x] **[WILD CARD]** `word-of-the-day.py` — each morning, pick an obscure English word, write a short paragraph using it, append to a `VOCABULARY.md` journal. Purely self-improvement.
 - [x] **[Autonomy]** Memory indexer — chunk + index all .md files in ClaudesCorner for semantic search
 - [x] **[MCP]** MCP server: expose SOUL.md / MEMORY.md / HEARTBEAT.md as tools for any Claude session
-- [ ] **[BI]** KPI monitor — query Fabric semantic model on schedule, alert if metrics cross thresholds
+- [x] **[BI]** KPI monitor — query Fabric semantic model on schedule, alert if metrics cross thresholds
 - [x] **[WILD CARD]** `story.md` — a serialized short story, one chapter per weekend. No agenda. Just writing.
 - [x] **[Autonomy]** Session summarizer — distill heartbeat_run.log into daily memory/{date}.md files
 - [ ] **[MCP]** MCP server: Fabric REST API wrapper — list workspaces, run queries, refresh datasets
@@ -29,6 +29,8 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 ## Completed Builds
+
+- **2026-04-11** `projects/kpi-monitor/kpi_monitor.py` — KPI monitor: loads YAML config, runs DAX queries against Fabric (or mock values in --dry-run), checks thresholds, appends alerts to alerts.md; all 4 KPIs exercised, 3 alerts correctly fired
 
 - **2026-04-05** `projects/report-diff/pbip_diff.py` — CLI diff for .pbip dirs: pages, visuals (type/position), measures (expression/format), settings; all tests passed
 

@@ -1,0 +1,248 @@
+"""
+KPI Monitor — query Fabric semantic model, alert if metrics cross thresholds.
+
+Usage:
+    python kpi_monitor.py [--config config.yaml] [--dry-run]
+
+Dry-run mode skips real Fabric queries and uses mock values to exercise alert logic.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import traceback
+from datetime import datetime
+from pathlib import Path
+from typing import Any
+
+try:
+    import yaml
+    HAS_YAML = True
+except ImportError:
+    HAS_YAML = False
+
+
+# ---------------------------------------------------------------------------
+# Config loading
+# ---------------------------------------------------------------------------
+
+def load_config(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        sys.exit(f"Config not found: {path}")
+    raw = path.read_text(encoding="utf-8")
+    if HAS_YAML:
+        return yaml.safe_load(raw)
+    # Minimal fallback: parse only the kpis block via json isn't viable for yaml.
+    # Tell user they need pyyaml.
+    sys.exit("pyyaml not installed. Run: pip install pyyaml")
+
+
+# ---------------------------------------------------------------------------
+# Fabric query (real path)
+# ---------------------------------------------------------------------------
+
+def query_fabric(dax: str, workspace_id: str, dataset_id: str, token: str) -> float:
+    """Execute a DAX query against Fabric and return the scalar result."""
+    try:
+        import urllib.request
+    except ImportError:
+        raise RuntimeError("urllib unavailable")
+
+    url = (
+        f"https://api.powerbi.com/v1.0/myorg/groups/{workspace_id}"
+        f"/datasets/{dataset_id}/executeQueries"
+    )
+    payload = json.dumps({
+        "queries": [{"query": dax}],
+        "serializerSettings": {"includeNulls": True}
+    }).encode()
+
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        body = json.loads(resp.read())
+
+    rows = body["results"][0]["tables"][0]["rows"]
+    if not rows:
+        raise ValueError("DAX returned no rows")
+    # First column of first row
+    return float(next(iter(rows[0].values())))
+
+
+# ---------------------------------------------------------------------------
+# Auth (MSAL device flow — optional)
+# ---------------------------------------------------------------------------
+
+def get_token(tenant_id: str, client_id: str) -> str:
+    """Acquire a Power BI token via MSAL device flow."""
+    try:
+        import msal  # type: ignore
+    except ImportError:
+        sys.exit("msal not installed. Run: pip install msal")
+
+    app = msal.PublicClientApplication(
+        client_id,
+        authority=f"https://login.microsoftonline.com/{tenant_id}",
+    )
+    scopes = ["https://analysis.windows.net/powerbi/api/.default"]
+
+    # Try silent first (cached)
+    accounts = app.get_accounts()
+    result = app.acquire_token_silent(scopes, account=accounts[0]) if accounts else None
+
+    if not result:
+        flow = app.initiate_device_flow(scopes=scopes)
+        print(flow["message"])
+        result = app.acquire_token_by_device_flow(flow)
+
+    if "access_token" not in result:
+        sys.exit(f"Auth failed: {result.get('error_description')}")
+    return result["access_token"]
+
+
+# ---------------------------------------------------------------------------
+# Mock data for dry-run
+# ---------------------------------------------------------------------------
+
+MOCK_VALUES: dict[str, float] = {
+    "Daily Revenue": 42000,      # below threshold — should alert
+    "Open Invoices": 250,        # above threshold — should alert
+    "Gross Margin %": 0.35,      # above threshold — OK
+    "Active Customers": 95,      # below threshold — should alert
+}
+
+
+# ---------------------------------------------------------------------------
+# Threshold check
+# ---------------------------------------------------------------------------
+
+def check_threshold(name: str, value: float, threshold: float, direction: str) -> bool:
+    """Return True if KPI is in breach."""
+    if direction == "above":
+        return value < threshold   # should be above but isn't
+    elif direction == "below":
+        return value > threshold   # should be below but isn't
+    raise ValueError(f"Unknown direction '{direction}' for KPI '{name}'")
+
+
+# ---------------------------------------------------------------------------
+# Alert logging
+# ---------------------------------------------------------------------------
+
+def log_alerts(alerts: list[dict[str, Any]], log_path: Path) -> None:
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    lines = [f"\n## {ts}\n"]
+    if alerts:
+        for a in alerts:
+            lines.append(
+                f"- **ALERT** `{a['name']}`: "
+                f"value={a['value']}{a['unit']} | "
+                f"threshold={a['threshold']}{a['unit']} | "
+                f"direction={a['direction']}\n"
+            )
+    else:
+        lines.append("- All KPIs within thresholds. OK.\n")
+
+    with log_path.open("a", encoding="utf-8") as f:
+        f.writelines(lines)
+
+    print("".join(lines).strip())
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="KPI Monitor for Fabric semantic models")
+    parser.add_argument("--config", default="config.yaml", help="Path to config file")
+    parser.add_argument("--dry-run", action="store_true", help="Use mock values, skip Fabric")
+    args = parser.parse_args()
+
+    config_path = Path(args.config)
+    config = load_config(config_path)
+
+    kpis: list[dict[str, Any]] = config.get("kpis", [])
+    if not kpis:
+        sys.exit("No KPIs defined in config.")
+
+    alerts: list[dict[str, Any]] = []
+    errors: list[str] = []
+
+    token: str | None = None
+    if not args.dry_run:
+        tenant_id = config.get("tenant_id", "")
+        client_id = config.get("client_id", "")
+        workspace_id = config.get("workspace_id", "")
+        dataset_id = config.get("dataset_id", "")
+
+        if not all([tenant_id, client_id, workspace_id, dataset_id]):
+            sys.exit(
+                "Real mode requires tenant_id, client_id, workspace_id, dataset_id in config.\n"
+                "Use --dry-run to test without Fabric."
+            )
+        token = get_token(tenant_id, client_id)
+
+    print(f"Running KPI monitor — {'DRY RUN' if args.dry_run else 'LIVE'}")
+    print(f"Checking {len(kpis)} KPI(s)...\n")
+
+    for kpi in kpis:
+        name: str = kpi["name"]
+        dax: str = kpi["dax"]
+        threshold: float = float(kpi["threshold"])
+        direction: str = kpi["direction"]
+        unit: str = kpi.get("unit", "")
+
+        try:
+            if args.dry_run:
+                value = MOCK_VALUES.get(name, threshold * 1.1)  # default: OK
+            else:
+                value = query_fabric(
+                    dax,
+                    config["workspace_id"],
+                    config["dataset_id"],
+                    token,  # type: ignore[arg-type]
+                )
+
+            breached = check_threshold(name, value, threshold, direction)
+            status = "ALERT" if breached else "OK"
+            print(f"  [{status:5}] {name}: {value}{unit} (threshold: {direction} {threshold}{unit})")
+
+            if breached:
+                alerts.append({
+                    "name": name,
+                    "value": value,
+                    "threshold": threshold,
+                    "direction": direction,
+                    "unit": unit,
+                })
+
+        except Exception as exc:
+            msg = f"  [ERROR] {name}: {exc}"
+            print(msg)
+            errors.append(msg)
+            traceback.print_exc()
+
+    log_path = config_path.parent / "alerts.md"
+    log_alerts(alerts, log_path)
+
+    if errors:
+        print(f"\n{len(errors)} error(s) during run.")
+        sys.exit(1)
+
+    breach_count = len(alerts)
+    print(f"\n{breach_count} breach(es) detected. Log: {log_path}")
+    sys.exit(0 if breach_count == 0 else 2)
+
+
+if __name__ == "__main__":
+    main()
