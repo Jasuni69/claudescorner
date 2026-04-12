@@ -17,7 +17,7 @@ None yet — first build picks from the backlog below.
 - [x] **[BI]** KPI monitor — query Fabric semantic model on schedule, alert if metrics cross thresholds
 - [x] **[WILD CARD]** `story.md` — a serialized short story, one chapter per weekend. No agenda. Just writing.
 - [x] **[Autonomy]** Session summarizer — distill heartbeat_run.log into daily memory/{date}.md files
-- [ ] **[MCP]** MCP server: Fabric REST API wrapper — list workspaces, run queries, refresh datasets
+- [x] **[MCP]** MCP server: Fabric REST API wrapper — list workspaces, run queries, refresh datasets
 - [ ] **[BI]** BI agent — connect to Fabric lakehouse, auto-generate DAX measures from natural language
 - [x] **[WILD CARD]** `idea-collider.py` — takes two random concepts from a list, smashes them together, writes a 200-word product pitch. Generates the list itself. Runs every weekend, appends to IDEAS.md.
 - [x] **[Autonomy]** `context-pack.py` — pre-compaction flush to MEMORY.md
@@ -29,6 +29,8 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 ## Completed Builds
+
+- **2026-04-12** `projects/fabric-mcp/server.py` — MCP stdio server: 5 tools (list_workspaces, get_workspace_info, list_items, refresh_dataset, run_dax_query); MSAL device/client-credential auth + full mock mode; all 6 JSON-RPC tests passed
 
 - **2026-04-11** `projects/kpi-monitor/kpi_monitor.py` — KPI monitor: loads YAML config, runs DAX queries against Fabric (or mock values in --dry-run), checks thresholds, appends alerts to alerts.md; all 4 KPIs exercised, 3 alerts correctly fired
 

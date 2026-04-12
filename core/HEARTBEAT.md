@@ -40,6 +40,14 @@
 
 ## Log
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
+### 2026-04-12 (weekend build)
+- Built `projects/fabric-mcp/server.py` — Fabric REST API MCP server
+- 5 tools: list_workspaces, get_workspace_info, list_items, refresh_dataset, run_dax_query
+- Auth: MSAL device flow (no secret) or client credential flow; token cached in memory
+- Full mock mode via FABRIC_MOCK=true env var (no real Fabric creds needed)
+- All 6 MCP protocol tests passed (initialize, tools/list, 4× tools/call)
+- Entry point: `FABRIC_MOCK=true python server.py` (mock) or set FABRIC_TENANT_ID/CLIENT_ID for live
+
 ### 2026-04-11 09:01 (weekend build)
 - Built `projects/kpi-monitor/kpi_monitor.py` — KPI monitor for Fabric semantic models
 - Loads YAML config (kpis: name, dax, threshold, direction, unit)
