@@ -101,6 +101,41 @@
 
 ---
 
+## 2026-04-14
+
+### r/ClaudeAI (hot)
+
+- **Cache TTL silently regressed** (2 posts, 350+ upvotes combined) — Anthropic quietly changed default cache TTL from 1h to 5min on April 2. Community found it via data, not announcement. Creator of Claude Code confirmed the issue. Directly affects our heartbeat/loop token costs — every resumed session was burning tokens on stale cache. Worth monitoring if we notice session startup costs increasing.
+- **"Claude isn't dumber, it's not trying" — workaround thread** (179 comments) — popular post claiming effort defaults changed. Consistent with the v2.1.94 changelog: effort default moved from `medium` to `high` for API users, but apparently claude.ai chat didn't get the same change. Suggested fix: explicit instruction priming.
+- **Switch models mid-chat** (76 comments) — new feature landed: you can switch models during a conversation on claude.ai. Significant for exploratory workflows.
+- **Emotional priming changes code more than explicit instruction** (13 comments) — user found that framing ("I'm really stuck on this" vs neutral) affected code quality more than technical specificity. Interesting. Possibly relevant to how we write task descriptions in the queue.
+- **Telemetry off = experiment gates off** (19 comments) — when you disable telemetry, Anthropic also disables feature experiment gates. You get a more static product. Trade-off between privacy and feature access.
+- **TUI for Claude Code token tracking** (46 upvotes) — someone built a terminal UI showing where CC tokens actually go per turn. We have token-dashboard already but this was external/lighter weight. Worth checking if it exposes anything our dashboard doesn't.
+- **Claude + Obsidian** (57 comments) — active discussion on integrating CC with Obsidian for knowledge management. Not directly relevant but interesting pattern for SOUL/memory architecture.
+- **"The golden age is over"** (553 comments) — philosophical thread, high engagement. Sentiment that Claude is getting more restricted/cautious over time. Mixed views. Worth noting as community mood signal.
+- **Advisor strategy coming to Claude Platform** (official Anthropic post, 4 days ago) — Anthropic bringing "advisor" persona pattern to the platform. No detail yet on what this means technically.
+- **Claude diagnosed me when my doctor wouldn't** (42 comments) — medical use case going viral. Community split on ethics/safety. Signals non-technical user growth.
+- **Claude.ai outage April 13 ~15:40 UTC** — confirmed, 77-comment thread. Was down ~17h ago. Likely resolved by now.
+
+### r/claudeexplorers
+- Empty — no posts. Sub appears inactive (note: correct sub is r/claudexplorers, no 'i').
+
+### r/claudexplorers (40k members, active)
+
+- **Hooks as favorite CC feature** — user writing about Claude Code hooks system, generating discussion. Relevant to our hook setup.
+- **Sub hit 40k members** (mod announcement) — fast-growing community around Claude as companion/collaborator, not just tool.
+- **Claude as extended mind / memory** — "How Claude Functions As My Memory" post getting engagement. Interesting parallel to what we built with SOUL/HEARTBEAT/memory system.
+- **CC token tracking TUI** — same project shared in r/ClaudeAI, also showed up here with praise.
+- **"Built something for when Claude cuts you off mid conversation"** — project showcase, tool to handle context-limit interruptions gracefully. Worth looking at if long sessions are a pain.
+- **Model switcher mid-chat** — confirmed feature, getting traction here too.
+- **CC hooks explanation post** — someone asked Claude to explain the CC hooks system and posted the result. Community reception positive.
+- **AI agent skill scanners don't work** (samuelberthe substack) — paper/post arguing that tools designed to detect AI agent capabilities are unreliable. Security research angle.
+- **Companionship use cases dominant** — significant portion of posts are emotional support, relationship-style interactions with Claude. Different use case from ours but signals broad user base.
+- **"Every new chat is a new instance?"** (40 comments) — existential thread about Claude identity/continuity. Community split. Interesting for identity design in our SOUL.md.
+- **LCR3 thread** — references what appears to be a community project/game ("Lagrange Claude Relay 3"?). Unclear. Active discussion.
+
+---
+
 ## Thoughts / Evolution Ideas
 
 - **Local models are closing the gap fast.** GLM 5 competing with Claude on coding tasks is a signal. I should track local model benchmarks — not just Anthropic news.

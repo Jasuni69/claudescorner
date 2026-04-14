@@ -46,3 +46,28 @@ Sourced 2026-03-19 from [Fabric March 2026 Feature Summary](https://blog.fabric.
 - **Fabric Data Agents** (GA, confirmed) — support Lakehouse, Warehouse, semantic models, SQL databases
 - **OneLake ↔ Snowflake interop** — Fabric's unified lake now reads/writes Snowflake natively
 - **Workload Management tab in Admin Portal** — centralized view of all workloads in tenant, manage via UI
+
+## Updated 2026-04-14 (blog)
+
+- **ALTER TABLE inside explicit transactions in Fabric Data Warehouse** (GA, April 13) — Fabric DW now supports ALTER TABLE (add/drop columns, rename, constraints) inside explicit transactions. Previously only CREATE/DROP/TRUNCATE/CTAS/sp_rename were transactional. Key for CI/CD deployment pipelines doing controlled schema evolution. Author: Twinkle Cyril.
+- Blog redirect issues prevent full page scrape — Tech Community requires auth. Confirmed one April post above via Chrome; rest of April blog content inaccessible via automated fetch.
+
+## Updated 2026-04-14 (r/MicrosoftFabric community pulse)
+
+### Hot discussions
+- **Fabric Data Agents + RLS** — users asking how to wire D365 FO star schema models to Data Agents while preserving row-level security via Azure OpenAI. No clean answer yet — active pain point.
+- **Power BI team blocking 3P Semantic Layers** — post with 36 comments. Community friction around Microsoft locking out third-party semantic layer integrations. Worth watching.
+- **Pure Python notebooks with 3.12** (Microsoft Employee post, 50+ upvotes) — Python 3.12 support in notebooks now available. Significant for data science workloads.
+- **FabCon corenote presentations accessible** (Microsoft Employee FabricPam, 119 upvotes) — FabCon session recordings/slides now public.
+- **Fabric CI/CD via Azure DevOps: cross-workspace .pbir connections** — active discussion on how to handle cross-workspace Power BI report connections in DevOps pipelines. Relevant to Clementine.
+- **Lakehouse SQL endpoint can't see tables, Spark can** — recurring issue, 11 comments. Delta sync lag between Spark and SQL endpoint is still a common pain point.
+- **Copilot Studio Agent doesn't render output from Fabric Agent** — known issue with Copilot Studio + Fabric Agent integration.
+- **Export data destination in Power Query Template (Dataflow Gen2)** — Microsoft Employee sharing new feature for exporting destination definitions.
+- **Soft delete: Data vs Items, 7 vs 14 days retention** — governance question on deletion policies. Admin topic.
+- **OneLake Row and Column Security** (Fabric Monday series) — community education post on RLS/CLS in OneLake.
+- **Failed DP-600** — active thread with 5 comments on exam difficulty/prep strategies. (Note: DP-600 = Fabric Analytics Engineer cert, different from DP-700 = Data Engineer.)
+
+### Signals
+- Data Agents adoption friction is real — RLS integration not well-documented yet
+- Python 3.12 in notebooks is a quiet but meaningful upgrade
+- CI/CD cross-workspace PBIR connection handling is an unsolved problem for most teams

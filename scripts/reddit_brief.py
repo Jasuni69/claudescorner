@@ -65,7 +65,8 @@ def build_brief() -> str:
         try:
             posts = fetch_rss(sub)
             for p in posts:
-                lines.append(f"- [{p['title']}]({p['link']}) — u/{p['author']}")
+                author = p['author'].lstrip("/u/").lstrip("u/")
+                lines.append(f"- [{p['title']}]({p['link']}) - u/{author}")
         except Exception as e:
             lines.append(f"- ERROR: {e}")
         lines.append("")

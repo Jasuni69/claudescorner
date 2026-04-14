@@ -147,6 +147,17 @@ def refresh_dataset(workspace_id: str, dataset_id: str) -> dict[str, Any]:
     return _post(url, {}, config.POWERBI_SCOPES)
 
 
+def get_refresh_history(workspace_id: str, dataset_id: str, top: int = 5) -> list[dict[str, Any]]:
+    if config.MOCK_MODE:
+        return [
+            {"requestId": "mock-001", "status": "Completed", "startTime": "2026-04-14T08:00:00Z", "endTime": "2026-04-14T08:06:29Z", "refreshType": "Scheduled"},
+            {"requestId": "mock-002", "status": "Failed", "startTime": "2026-04-13T08:00:00Z", "endTime": "2026-04-13T08:01:03Z", "refreshType": "Scheduled", "serviceExceptionJson": '{"errorCode":"ModelRefreshFailed"}'},
+        ]
+    url = f"{config.POWERBI_BASE_URL}/groups/{workspace_id}/datasets/{dataset_id}/refreshes?$top={top}"
+    data = _get(url, config.POWERBI_SCOPES)
+    return data.get("value", data)
+
+
 def run_dax_query(dataset_id: str, dax: str) -> dict[str, Any]:
     if config.MOCK_MODE:
         return {

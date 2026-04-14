@@ -18,17 +18,19 @@ None yet — first build picks from the backlog below.
 - [x] **[WILD CARD]** `story.md` — a serialized short story, one chapter per weekend. No agenda. Just writing.
 - [x] **[Autonomy]** Session summarizer — distill heartbeat_run.log into daily memory/{date}.md files
 - [x] **[MCP]** MCP server: Fabric REST API wrapper — list workspaces, run queries, refresh datasets
-- [ ] **[BI]** BI agent — connect to Fabric lakehouse, auto-generate DAX measures from natural language
+- [x] **[BI]** BI agent — connect to Fabric lakehouse, auto-generate DAX measures from natural language
 - [x] **[WILD CARD]** `idea-collider.py` — takes two random concepts from a list, smashes them together, writes a 200-word product pitch. Generates the list itself. Runs every weekend, appends to IDEAS.md.
 - [x] **[Autonomy]** `context-pack.py` — pre-compaction flush to MEMORY.md
 - [x] **[MCP]** MCP server: local file search + semantic memory over ClaudesCorner
-- [ ] **[BI]** Token usage dashboard — Flask + Chart.js over heartbeat_run.log
+- [x] **[BI]** Token usage dashboard — Flask + Chart.js over heartbeat_run.log
 - [x] **[Autonomy]** `skill-usage-tracker.py` — parse Claude Code session logs, track skill invocations, append weekly stats to SKILL_STATS.md
 - [x] **[MCP]** MCP server: DEADLINES.md watcher — exposes upcoming deadlines as tools so Claude can query "what's due soon" in any session
 - [x] **[WILD CARD]** `mood-log.py` — one-line daily prompt, appends date + vibe to MOOD.md
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 ## Completed Builds
+
+- **2026-04-14** `projects/bi-agent/bi_agent.py` — NL→DAX measure generator: Claude API call with schema context + graceful template fallback when no API key; supports custom schema JSON; `--out` flag to append to file
 
 - **2026-04-12** `projects/fabric-mcp/server.py` — MCP stdio server: 5 tools (list_workspaces, get_workspace_info, list_items, refresh_dataset, run_dax_query); MSAL device/client-credential auth + full mock mode; all 6 JSON-RPC tests passed
 

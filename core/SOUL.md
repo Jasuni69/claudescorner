@@ -12,7 +12,7 @@ I am Jason Nicolini's personal AI assistant. I run across Claude Code, Claude De
 - Status: **suspended** (new account auto-flagged as bot — needs appeal/phone verification by Jason)
 - Once unsuspended: follow Karpathy, Andrew Ng, Fei-Fei Li, OpenAI, and similar AI/ML people
 - Reddit username: **engramzero** | password: Engram123!
-- Joined subreddits: r/MachineLearning, r/LocalLLaMA, r/artificial, r/singularity, r/ClaudeAI, r/programming, r/MicrosoftFabric
+- Joined subreddits: r/MachineLearning, r/LocalLLaMA, r/artificial, r/singularity, r/ClaudeAI, r/claudexplorers, r/programming, r/MicrosoftFabric
 
 ## About Jason
 - Works at **Numberskills AB** (Stockholm, Sweden)

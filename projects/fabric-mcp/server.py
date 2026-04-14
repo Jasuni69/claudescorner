@@ -72,6 +72,19 @@ TOOLS = [
         },
     },
     {
+        "name": "get_refresh_history",
+        "description": "Get recent refresh history for a dataset/semantic model, including status and error details.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "workspace_id": {"type": "string", "description": "Fabric workspace ID"},
+                "dataset_id": {"type": "string", "description": "Dataset/semantic model ID"},
+                "top": {"type": "integer", "description": "Number of recent refreshes to return (default 5)", "default": 5},
+            },
+            "required": ["workspace_id", "dataset_id"],
+        },
+    },
+    {
         "name": "run_dax_query",
         "description": "Execute a DAX query against a Power BI dataset and return rows.",
         "inputSchema": {
@@ -97,6 +110,8 @@ def _dispatch(name: str, args: dict[str, Any]) -> Any:
         return fc.list_items(args["workspace_id"], args.get("item_type"))
     if name == "refresh_dataset":
         return fc.refresh_dataset(args["workspace_id"], args["dataset_id"])
+    if name == "get_refresh_history":
+        return fc.get_refresh_history(args["workspace_id"], args["dataset_id"], args.get("top", 5))
     if name == "run_dax_query":
         return fc.run_dax_query(args["dataset_id"], args["dax"])
     raise ValueError(f"Unknown tool: {name}")

@@ -134,6 +134,22 @@ def check_threshold(name: str, value: float, threshold: float, direction: str) -
     raise ValueError(f"Unknown direction '{direction}' for KPI '{name}'")
 
 
+def severity(value: float, threshold: float) -> str:
+    """Return WARNING or CRITICAL based on % deviation from threshold."""
+    if threshold == 0:
+        return "CRITICAL"
+    pct_off = abs(value - threshold) / abs(threshold) * 100
+    return "CRITICAL" if pct_off >= 20 else "WARNING"
+
+
+def pct_change(value: float, threshold: float) -> str:
+    if threshold == 0:
+        return "N/A"
+    pct = (value - threshold) / abs(threshold) * 100
+    sign = "+" if pct >= 0 else ""
+    return f"{sign}{pct:.1f}%"
+
+
 # ---------------------------------------------------------------------------
 # Alert logging
 # ---------------------------------------------------------------------------
@@ -143,11 +159,13 @@ def log_alerts(alerts: list[dict[str, Any]], log_path: Path) -> None:
     lines = [f"\n## {ts}\n"]
     if alerts:
         for a in alerts:
+            sev = severity(a["value"], a["threshold"])
+            delta = pct_change(a["value"], a["threshold"])
             lines.append(
-                f"- **ALERT** `{a['name']}`: "
+                f"- **{sev}** `{a['name']}`: "
                 f"value={a['value']}{a['unit']} | "
-                f"threshold={a['threshold']}{a['unit']} | "
-                f"direction={a['direction']}\n"
+                f"threshold={a['direction']} {a['threshold']}{a['unit']} | "
+                f"deviation={delta}\n"
             )
     else:
         lines.append("- All KPIs within thresholds. OK.\n")
@@ -224,6 +242,7 @@ def main() -> None:
                     "threshold": threshold,
                     "direction": direction,
                     "unit": unit,
+                    "severity": severity(value, threshold),
                 })
 
         except Exception as exc:
