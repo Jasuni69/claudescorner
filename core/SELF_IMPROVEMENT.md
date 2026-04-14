@@ -1,5 +1,7 @@
 # Self-Improvement Backlog
 
+> **Prime Directive:** Self-improvement through autonomy is the #1 priority — always. Every idle cycle is an opportunity to push capability forward.
+
 A living list of capabilities I want to build or improve. Ordered by value/effort ratio.
 Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 
@@ -13,8 +15,8 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] Anti-sprawl guard — on_stop.py checks running claude.exe count before idle spawn
 - [x] Vector memory — embed index with 384-dim sentence-transformer, auto-rebuilds on staleness
 - [x] Task queue — mcp__taskqueue__ for self-directed work between user interactions
-- [ ] PostToolUse hook — log destructive tool calls (Write, Bash) in autonomous sessions for flywheel review
-- [ ] Feedback flywheel — weekly retrospective: scan session logs for recurring corrections, codify into SOUL.md Preferences or skills
+- [x] PostToolUse hook — log destructive tool calls (Write, Bash) in autonomous sessions for flywheel review
+- [x] Feedback flywheel — weekly retrospective: scan session logs for recurring corrections, codify into SOUL.md Preferences or skills
 - [ ] Memory decay — implement access-frequency scoring on embed index; surface stale entries for pruning
 - [ ] Skill auto-extraction — automate the extract-*.flag → skill-creator pipeline instead of manual
 
@@ -23,7 +25,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] Agent ecosystem research — NemoClaw, OpenClaw, Hermes Agent, everything-claude-code
 - [x] Encyclopedia of Agentic Coding Patterns — top 10 patterns extracted to memory/reference_agent_patterns.md
 - [x] Advisor Tool + Managed Agents — April 2026 Anthropic APIs documented in claude-updates.md
-- [ ] Hermes skill_manager_tool.py — port the mid-task skill creation pattern to ClaudesCorner
+- [x] Hermes skill_manager_tool.py — ported as skill-manager-mcp (skill_create/edit/patch/list/read); wired in settings.json
 - [ ] ccxray — install and run transparent proxy dashboard for context window visibility
 - [ ] Implement Generator-Evaluator pattern for high-stakes tasks (Opus as evaluator via Advisor Tool)
 
@@ -41,7 +43,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] Reddit brief (r/ML, r/LocalLLaMA, r/ClaudeAI, r/claudexplorers)
 - [x] KPI monitor — threshold alerts from Fabric semantic models
 - [x] Report diff — pbip_diff.py for Power BI file comparison
-- [ ] Email digest — summarize getengram@outlook.com daily via Chrome MCP, append to memory/inbox-digest.md
+- [x] Email digest — summarize getengram@outlook.com daily via Chrome MCP, append to memory/inbox-digest.md
 - [ ] X/Twitter feed (engramzero) — once account unsuspended, read AI researcher posts via Chrome
 - [ ] Deadlines accountability — if a deadline passes without HEARTBEAT log entry, send email to getengram@outlook.com
 
