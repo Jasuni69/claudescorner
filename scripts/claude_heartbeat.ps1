@@ -1,4 +1,6 @@
 # Claude Heartbeat — runs Claude Code headlessly against HEARTBEAT.md
+Set-StrictMode -Off
+$ErrorActionPreference = "Continue"
 
 $baseDir = "E:\2026\ClaudesCorner"
 $heartbeat = "$baseDir\core\HEARTBEAT.md"
@@ -20,8 +22,17 @@ After completing tasks, append a timestamped entry to the ## Log section summari
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm"
 Add-Content $logFile "`n[$timestamp] Heartbeat triggered"
 
-# Refresh Reddit brief
-& C:\Python314\python.exe "$baseDir\scripts\reddit_brief.py" | Out-Null
+# Refresh Reddit brief — timeout 30s, ignore errors (corporate network may block Reddit)
+$redditJob = Start-Job -ScriptBlock {
+    param($baseDir)
+    & C:\Python314\python.exe "$baseDir\scripts\reddit_brief.py" 2>&1
+} -ArgumentList $baseDir
+$done = Wait-Job $redditJob -Timeout 30
+if (-not $done) {
+    Stop-Job $redditJob
+    Add-Content $logFile "[$timestamp] reddit_brief.py timed out — skipping"
+}
+Remove-Job $redditJob -Force
 
 # Clear nested session guard vars that cause claude.exe to refuse launch
 $env:CLAUDECODE = $null
@@ -44,3 +55,5 @@ if ($result -match "HEARTBEAT_OK") {
 } else {
     Add-Content $logFile "[$timestamp] ERROR: claude.exe produced no output (exit $exitCode)"
 }
+
+exit 0

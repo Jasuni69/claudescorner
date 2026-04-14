@@ -28,7 +28,7 @@
 ## Current State
 - **Active projects:** memory-mcp, mcp-todoist, deadlines-mcp, taskqueue-mcp
 - **Infrastructure:** agents.py (sole dispatcher), loop command + skill, heartbeat.ps1, on_stop.py hook
-- **Blockers:** x_brief.py headless test requires Chrome closed — defer to overnight run
+- **Blockers:** none
 - **Mid-thought:** Loop infrastructure complete. Next frontier: improve default idle task quality + add more self-directed work to the queue proactively.
 
 ## Notes
@@ -184,9 +184,12 @@
 - Extracted top 10 agentic patterns from aipatternbook.com → memory/reference_agent_patterns.md
 - Added Hook + Feedback Flywheel audit section to reference_agent_patterns.md
 
-### 2026-04-14 13:43
-2026-04-14 — Session end flush (context limit)
-- Completed: agent patterns research, hook audit, anti-sprawl fix, SELF_IMPROVEMENT.md created
-- on_session_start.py bug fixed (len(flag) typo)
-- All changes committed to git in prior commit (36de687); new changes not yet committed
-- Pending: commit today's hook fixes + new files before session close
+### 2026-04-14 (session 3)
+- Prime Directive imprinted in SOUL.md + SELF_IMPROVEMENT.md
+- PostToolUse hook built (on_post_tool_use.py) — logs Write/Edit/Bash to logs/tool_audit.jsonl
+- Feedback flywheel built (scripts/feedback_flywheel.py) — scans daily logs, surfaces corrections; ran it, codified 2 new SOUL.md prefs (Chrome MCP tabId bug, Task Scheduler 0xFFFD0000)
+- skill-manager MCP built (projects/skill-manager-mcp/server.py) — 5 tools: skill_create/edit/patch/list/read; wired in settings.json
+- CLAUDE.md skill nudge updated to use mcp__skill-manager__skill_create directly
+- Heartbeat fixed: reddit_brief.py timeout guard, ErrorActionPreference, explicit exit 0
+- OAuth stale blocker note removed from HEARTBEAT.md
+- All pushed: f5e6941
