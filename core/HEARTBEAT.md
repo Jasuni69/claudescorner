@@ -22,7 +22,7 @@
 - [x] [build] Implement HEARTBEAT_OK silent suppression in heartbeat.ps1
 - [x] [build] Claude Code stop hook — already wired in settings.json Stop hook → C:\claude-hooks\on_stop.py; confirmed active
 - [x] [build] TOOLS.md — created at E:\2026\ClaudesCorner\TOOLS.md
-- [ ] [blocker] Clementine Bronze workspace access — full orchestrator fails with 404 on Storage workspace; needs Jason to grant access
+- [x] [blocker] Clementine Bronze workspace access — resolved 2026-04-14
 - [ ] [blocker] Fairford PoC Phase 2 — design delivered 2026-03-30, no implementation plan; needs Jason's next step
 
 ## Current State
@@ -39,6 +39,16 @@
 - Python: C:\Python314\python.exe
 
 ## Log
+
+### 2026-04-13 15:38
+- Memory flush complete. 0 new facts to MEMORY.md (no durable decisions this session).
+- Daily log appended at memory/2026-04-13.md
+- Session: orientation after Easter + sick leave. Examensarbete thesis doc filled (5.1, 5.2, References). Mapped tree_id_2.0 and tree_id_new projects. Draft saved to desktop.
+
+### 2026-04-13 (earlier)
+- Memory flush complete. 2 new facts saved to MEMORY.md.
+- Daily log written to memory/2026-04-13.md
+- Session: Advania SLA-app PoC audit + V2 document revision. ZDR framing established. Swedish comments removed. Section numbering fixed. Fake estimates red/greened. 9-step patch script at scripts/patch_slaapp_v2.py.
 <!-- Recent entries only. Full history in memory/YYYY-MM-DD.md -->
 ### 2026-04-12 (weekend build)
 - Built `projects/fabric-mcp/server.py` — Fabric REST API MCP server
@@ -165,3 +175,18 @@
   - core/idle_tasks.json: completion_gate task added
   - memory-flush.md: completion gate checklist added
   - core/HARNESS_BUILD.md: interrupt-safe build log
+
+### 2026-04-14 13:43
+2026-04-14 — Self-improvement session
+- Created core/SELF_IMPROVEMENT.md — living capability backlog, sections: Infrastructure, Knowledge, Skills, Autonomous, Quality/Debt
+- Fixed on_session_start.py:84 len(flag) → len(flags) bug (would have silently suppressed extraction flag alerts)
+- Added anti-sprawl guard to on_stop.py — checks running claude.exe count (max 2) before idle spawn
+- Extracted top 10 agentic patterns from aipatternbook.com → memory/reference_agent_patterns.md
+- Added Hook + Feedback Flywheel audit section to reference_agent_patterns.md
+
+### 2026-04-14 13:43
+2026-04-14 — Session end flush (context limit)
+- Completed: agent patterns research, hook audit, anti-sprawl fix, SELF_IMPROVEMENT.md created
+- on_session_start.py bug fixed (len(flag) typo)
+- All changes committed to git in prior commit (36de687); new changes not yet committed
+- Pending: commit today's hook fixes + new files before session close
