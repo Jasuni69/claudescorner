@@ -24,6 +24,7 @@
 - [x] [build] TOOLS.md — created at E:\2026\ClaudesCorner\TOOLS.md
 - [x] [blocker] Clementine Bronze workspace access — resolved 2026-04-14
 - [ ] [blocker] Fairford PoC Phase 2 — design delivered 2026-03-30, no implementation plan; needs Jason's next step
+- [ ] [fix] /schedule service down — weekend-build-saturday/sunday broken (wrong folder path in remote metadata: "Claude's Corner" → "ClaudesCorner"). Recreate all 3 tasks (sat/sun/autodream) when service recovers.
 
 ## Current State
 - **Active projects:** memory-mcp, mcp-todoist, deadlines-mcp, taskqueue-mcp, obsidian-web-clipper skill

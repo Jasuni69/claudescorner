@@ -45,7 +45,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] Report diff — pbip_diff.py for Power BI file comparison
 - [x] Email digest — summarize getengram@outlook.com daily via Chrome MCP, append to memory/inbox-digest.md
 - [ ] X/Twitter feed (engramzero) — once account unsuspended, read AI researcher posts via Chrome
-- [ ] Deadlines accountability — if a deadline passes without HEARTBEAT log entry, send email to getengram@outlook.com
+- [x] Deadlines accountability — scripts/deadline_alert.py; checks DEADLINES.md for overdue items not in HEARTBEAT log, sends email alert; wired into on_stop.py idle rotation
 
 ## Quality / Debt
 
