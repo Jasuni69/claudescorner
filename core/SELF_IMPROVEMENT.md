@@ -18,7 +18,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] PostToolUse hook — log destructive tool calls (Write, Bash) in autonomous sessions for flywheel review
 - [x] Feedback flywheel — weekly retrospective: scan session logs for recurring corrections, codify into SOUL.md Preferences or skills
 - [x] Memory decay — access-frequency scoring on embed index; _record_hits() on search results; get_stale_docs MCP tool exposes files with low hits for AutoDream pruning
-- [ ] Skill auto-extraction — automate the extract-*.flag → skill-creator pipeline instead of manual
+- [x] Skill auto-extraction — on_stop.py now spawns skill extraction directly on substantive sessions (≥12 msgs); no manual flag pipeline needed
 
 ## Knowledge & Context
 
