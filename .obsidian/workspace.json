@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "08fe3ba1999f9a90",
+    "type": "split",
+    "children": [
+      {
+        "id": "e7fd6a7ca17fa68e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "13479f831b7a5fc2",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cac50bc1c32c8896",
+    "type": "split",
+    "children": [
+      {
+        "id": "3598876f031ecae6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f5de52fec8f18417",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6d3ec1207194593c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7ade939b45926534",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "bd7171277a6f603e",
+    "type": "split",
+    "children": [
+      {
+        "id": "4508fd52d798f478",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77f7429a7198a52b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "bd9edb1d7fabfa0c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "423449f5df19cbe0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "69253ed928b9e1f0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "629c24d6b37786bf",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "13479f831b7a5fc2",
+  "lastOpenFiles": [
+    "core/HEARTBEAT.md.tmp.37060.1776240153146",
+    "memory/2026-04-15.md",
+    "memory/2026-04-15.md.tmp.37060.1776240146697",
+    "core/SOUL.md.tmp.37060.1776240077055",
+    "inbox/The Information Anthropic Preps Opus 4.7 Model, could be released as soon as this week.md",
+    "projects/alignment-tax/index.html.tmp.37060.1776239882649",
+    "projects/alignment-tax/DESIGN.md",
+    "projects/alignment-tax/DESIGN.md.tmp.37060.1776239570611",
+    "projects/alignment-tax/index.html",
+    "projects/alignment-tax/index.html.tmp.37060.1776239444984",
+    "projects/alignment-tax",
+    "research/2026-04-15-reddit-digest.md",
+    "core/SOUL.md.tmp.37060.1776238794895",
+    "research/Anthropic appoints Vas Narasimhan to Long-Term Benefit Trust Board.md",
+    "research/My OpenClaw bot died on April 4 - I got it back inside Claude Code.md",
+    "inbox/Most of your AI requests don't need a frontier model. Here's how I cut my spend.md",
+    "VOCABULARY.md",
+    "inbox/Anthropic's Claude Code gets automated 'routines' and a desktop makeover.md",
+    "VOCABULARY.md.tmp.37060.1776237195024",
+    "inbox/Is Hermes agent a new hype or is it genuinely worth migrating it over from Openclaw.md",
+    "inbox/What actually makes AI agents reliable on long projects Mine keep getting stuck halfway through execution.md",
+    "inbox/every openclaw 4.x update breakage and fix in one place because i'm tired of debugging the same things everyone else is.md",
+    "research/agent-reliability-long-projects.md",
+    "projects/clementine/review_findings_2026-03-25.md",
+    "research/sources.md",
+    "core/TOOLS.md",
+    "inbox/Example Domain.md",
+    "research/ai/Multi-agentic Software Development is a Distributed Systems Problem (AGI can't save you from it).md",
+    "memory/2026-04-14.md",
+    "digested/2026-04-14-multi-agentic-distributed-systems.md",
+    "core/OBSIDIAN_WORKFLOW.md",
+    "inbox/Multi-agentic Software Development is a Distributed Systems Problem (AGI can't save you from it).md",
+    "Clippings/Multi-agentic Software Development is a Distributed Systems Problem (AGI can't save you from it).md",
+    "Clippings",
+    "inbox/2026-04-14-mxn-tool-calling-problem.md",
+    "inbox/2026-04-14-multi-agentic-distributed-systems.md"
+  ]
+}

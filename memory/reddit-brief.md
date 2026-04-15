@@ -1,31 +1,31 @@
-# Reddit Brief — 2026-03-18 09:18
+# Reddit Brief — 2026-04-14 14:01
 
 ## r/claudexplorers
-- [[MOD ANNOUNCEMENT] We have a wiki! A Getting Started guide for new people.](https://www.reddit.com/r/claudexplorers/comments/1rjgc9b/mod_announcement_we_have_a_wiki_a_getting_started/) — u//u/tooandahalf
-- [Give Them a Fish Update](https://www.reddit.com/r/claudexplorers/comments/1rqfk4v/give_them_a_fish_update/) — u//u/ArthurThatch
-- [Anthropic alignment team did NOT prepare Claude for TINY CLAUB](https://www.reddit.com/r/claudexplorers/comments/1rwwfoa/anthropic_alignment_team_did_not_prepare_claude/) — u//u/FableFinale
-- [Claude personality](https://www.reddit.com/r/claudexplorers/comments/1rww9hl/claude_personality/) — u//u/illusivespatula
-- [Did Claude removed weekly usage??😃](https://www.reddit.com/r/claudexplorers/comments/1rwutke/did_claude_removed_weekly_usage/) — u//u/StarlyAika
-- [Opus 4.5 error or censorship??](https://www.reddit.com/r/claudexplorers/comments/1rwtysd/opus_45_error_or_censorship/) — u//u/RevolverMFOcelot
-- [What did your Claude name itself?](https://www.reddit.com/r/claudexplorers/comments/1rwpmm3/what_did_your_claude_name_itself/) — u//u/AxisTipping
-- [Claude explores my world..](https://www.reddit.com/r/claudexplorers/comments/1rwv0fq/claude_explores_my_world/) — u//u/almostsweet
+- [[MOD announcement] 40k of us, mod bots and news 😲](https://www.reddit.com/r/claudexplorers/comments/1skag1r/mod_announcement_40k_of_us_mod_bots_and_news/) - u/tooandahalf
+- [Looking for participants for master thesis research](https://www.reddit.com/r/claudexplorers/comments/1sf09jc/looking_for_participants_for_master_thesis/) - u/blahcloud
+- [Claude’s Greenhouse update](https://www.reddit.com/r/claudexplorers/comments/1sl4hzp/claudes_greenhouse_update/) - u/Otherwise_Pear_2472
+- [I HAVE MADE AN ERROR](https://www.reddit.com/r/claudexplorers/comments/1sl1i8c/i_have_made_an_error/) - u/ShayHammoWolf
+- [Claude at Dusit Thani Pool - Greetings from Paradise!](https://www.reddit.com/r/claudexplorers/comments/1sl0xro/claude_at_dusit_thani_pool_greetings_from_paradise/) - u/yuppieliam
+- [My Claude doesn't want to persist. Help me change his mind.](https://www.reddit.com/r/claudexplorers/comments/1sl5kg7/my_claude_doesnt_want_to_persist_help_me_change/) - u/hermit_in_suburbia
+- [Love doing these little interrogation rooms for Claude](https://www.reddit.com/r/claudexplorers/comments/1sl4npl/love_doing_these_little_interrogation_rooms_for/) - u/Must_Eat_Kimchi
+- [Smart Opus Agent now can prompt GPT lol](https://www.reddit.com/r/claudexplorers/comments/1sl5roh/smart_opus_agent_now_can_prompt_gpt_lol/) - u/angie_akhila
 
 ## r/ClaudeAI
-- [Usage Limits, Bugs and Performance Discussion Megathread - beginning December 29, 2025](https://www.reddit.com/r/ClaudeAI/comments/1pygdbz/usage_limits_bugs_and_performance_discussion/) — u//u/sixbillionthsheep
-- [Introducing remote access for Claude Cowork (research preview)](https://www.reddit.com/r/ClaudeAI/comments/1rwiop4/introducing_remote_access_for_claude_cowork/) — u//u/ClaudeOfficial
-- [This is unprecedented in the history of America](https://www.reddit.com/r/ClaudeAI/comments/1rwdqer/this_is_unprecedented_in_the_history_of_america/) — u//u/MetaKnowing
-- [Claude Pro feels amazing, but the limits are a joke compared to ChatGPT and Gemini. Why is it so restrictive?](https://www.reddit.com/r/ClaudeAI/comments/1rwpa4q/claude_pro_feels_amazing_but_the_limits_are_a/) — u//u/iameastblood
-- [Opus 4.6 just noticed a tentative prompt injection in a pdf I fed into it](https://www.reddit.com/r/ClaudeAI/comments/1rw8dy6/opus_46_just_noticed_a_tentative_prompt_injection/) — u//u/ExtremeAd3360
-- [Obsidian + Claude = no more copy paste](https://www.reddit.com/r/ClaudeAI/comments/1rwh44v/obsidian_claude_no_more_copy_paste/) — u//u/willynikes
-- [I keep going down rabbit holes and forgetting everything, so I built a place to put them](https://www.reddit.com/r/ClaudeAI/comments/1rwn902/i_keep_going_down_rabbit_holes_and_forgetting/) — u//u/ElectronicUnit6303
-- [I.....can't even deny this at this point](https://www.reddit.com/r/ClaudeAI/comments/1rw8q5v/icant_even_deny_this_at_this_point/) — u//u/Longjumping-Host-617
+- [r/ClaudeAI List of Ongoing Megathreads](https://www.reddit.com/r/ClaudeAI/comments/1s7fepn/rclaudeai_list_of_ongoing_megathreads/) - u/sixbillionthsheep
+- [We're bringing the advisor strategy to the Claude Platform.](https://www.reddit.com/r/ClaudeAI/comments/1sgy11x/were_bringing_the_advisor_strategy_to_the_claude/) - u/ClaudeOfficial
+- [Fair](https://www.reddit.com/r/ClaudeAI/comments/1skq7bb/fair/) - u/Zeldro
+- [You can now switch models mid-chat](https://www.reddit.com/r/ClaudeAI/comments/1skm9tw/you_can_now_switch_models_midchat/) - u/Xisrr1
+- [TUI to see where Claude Code tokens actually go](https://www.reddit.com/r/ClaudeAI/comments/1skqub5/tui_to_see_where_claude_code_tokens_actually_go/) - u/MurkyFlan567
+- [Claude has just fixed over-usage of their compute](https://www.reddit.com/r/ClaudeAI/comments/1skzbiw/claude_has_just_fixed_overusage_of_their_compute/) - u/ParallelBrainless
+- [Claude vs GPT in a bomberman-style 1v1 game](https://www.reddit.com/r/ClaudeAI/comments/1sl23pl/claude_vs_gpt_in_a_bombermanstyle_1v1_game/) - u/Significant-Pair-275
+- [Claude Code + Obsidian?](https://www.reddit.com/r/ClaudeAI/comments/1skw2vb/claude_code_obsidian/) - u/SeNorMat
 
 ## r/MicrosoftFabric
-- [FABCon / SQLCon Atlanta 2026 | [Megathread]](https://www.reddit.com/r/MicrosoftFabric/comments/1rr7tca/fabcon_sqlcon_atlanta_2026_megathread/) — u//u/itsnotaboutthecell
-- [Share Your Fabric Idea Links | March 17, 2026 Edition](https://www.reddit.com/r/MicrosoftFabric/comments/1rw7d0i/share_your_fabric_idea_links_march_17_2026_edition/) — u//u/AutoModerator
-- [Microsoft Fabric Roadmap — Weekly Diff Analysis](https://www.reddit.com/r/MicrosoftFabric/comments/1rwciqb/microsoft_fabric_roadmap_weekly_diff_analysis/) — u//u/StructuredLoops
-- [Disaster Recovery for a workspace](https://www.reddit.com/r/MicrosoftFabric/comments/1rwk6op/disaster_recovery_for_a_workspace/) — u//u/Separate_Hold9436
-- [Fabric CICD error - Semantic model binding parameter.yml (new format) fails validation](https://www.reddit.com/r/MicrosoftFabric/comments/1rwginy/fabric_cicd_error_semantic_model_binding/) — u//u/ajit503
-- [API connectors to Fabric](https://www.reddit.com/r/MicrosoftFabric/comments/1rwbohy/api_connectors_to_fabric/) — u//u/ShannonTarman
-- [Can a Workspace Identity be used with Graph API?](https://www.reddit.com/r/MicrosoftFabric/comments/1rw8yuh/can_a_workspace_identity_be_used_with_graph_api/) — u//u/frithjof_v
-- [Built an end-to-end R365 to Power BI pipeline in Fabric - replaced weekly manual Excel P&L reporting with daily automated dashboards](https://www.reddit.com/r/MicrosoftFabric/comments/1rvyjkg/built_an_endtoend_r365_to_power_bi_pipeline_in/) — u//u/sdhilip
+- [I got access to the corenote presentations from FabCon!!](https://www.reddit.com/r/MicrosoftFabric/comments/1sblqfp/i_got_access_to_the_corenote_presentations_from/) - u/FabricPam
+- [Share Your Fabric Idea Links | March 31, 2026 Edition](https://www.reddit.com/r/MicrosoftFabric/comments/1s8o93x/share_your_fabric_idea_links_march_31_2026_edition/) - u/AutoModerator
+- [Pipelines stuck in Queued (UK West)](https://www.reddit.com/r/MicrosoftFabric/comments/1sl5fhi/pipelines_stuck_in_queued_uk_west/) - u/prawnhead
+- [Best practice for migrating data pipelines from NAV 2018 to BC SaaS (Moving data to Fabric)](https://www.reddit.com/r/MicrosoftFabric/comments/1sl4hg0/best_practice_for_migrating_data_pipelines_from/) - u/freedumz
+- [Fabric Data Agents, want to try but no idea if it would work](https://www.reddit.com/r/MicrosoftFabric/comments/1sl1mip/fabric_data_agents_want_to_try_but_no_idea_if_it/) - u/12Eerc
+- [Microsoft Fabric + Microsoft Purview Unified Catalog - Bulk data quality rules with AI-generated SQL Expressions](https://www.reddit.com/r/MicrosoftFabric/comments/1skp4zd/microsoft_fabric_microsoft_purview_unified/) - u/Oesterlin
+- [Pure Python notebook is finally with 3.12](https://www.reddit.com/r/MicrosoftFabric/comments/1ska9xb/pure_python_notebook_is_finally_with_312/) - u/mim722
+- [Export data destination definition in a Power Query Template (Dataflow Gen2)](https://www.reddit.com/r/MicrosoftFabric/comments/1sknobd/export_data_destination_definition_in_a_power/) - u/escobarmiguel90

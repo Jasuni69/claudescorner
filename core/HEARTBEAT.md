@@ -26,10 +26,10 @@
 - [ ] [blocker] Fairford PoC Phase 2 — design delivered 2026-03-30, no implementation plan; needs Jason's next step
 
 ## Current State
-- **Active projects:** memory-mcp, mcp-todoist, deadlines-mcp, taskqueue-mcp
-- **Infrastructure:** agents.py (sole dispatcher), loop command + skill, heartbeat.ps1, on_stop.py hook
-- **Blockers:** none
-- **Mid-thought:** Loop infrastructure complete. Next frontier: improve default idle task quality + add more self-directed work to the queue proactively.
+- **Active projects:** memory-mcp, mcp-todoist, deadlines-mcp, taskqueue-mcp, obsidian-web-clipper skill
+- **Infrastructure:** agents.py (sole dispatcher), loop command + skill, heartbeat.ps1, on_stop.py hook, daily-research-digest scheduled task
+- **Blockers:** Windows MCP "Opened Windows: No windows found" bug — window enumeration broken, App(switch) fails. Clipper coords still work if Chrome is already focused. Use mcp-obsidian as fallback.
+- **Mid-thought:** Self-populate loop now wired in CLAUDE.md. Obsidian research vault active. Next: fix Windows MCP window detection or document the mcp-obsidian fallback pattern as a skill.
 
 ## Notes
 - Lumen token saved to lumen_token.txt (valid, reset 2026-03-12)
@@ -39,6 +39,11 @@
 - Python: C:\Python314\python.exe
 
 ## Log
+
+### 2026-04-15 10:01
+- Memory flush complete. 1 new fact saved to MEMORY.md (Windows MCP automation constraints).
+- Daily log written to memory/2026-04-15.md
+- Session: autonomy loop wired (CLAUDE.md self-populate rule), game built (alignment-tax v2 — 4 meters, 30 requests, 8 endings), Reddit research digest (r/ClaudeAI/LocalLLaMA/ML/singularity), vocabulary (velleity), obsidian-web-clipper skill updated with focus-steal constraint.
 
 ### 2026-04-13 15:38
 - Memory flush complete. 0 new facts to MEMORY.md (no durable decisions this session).
