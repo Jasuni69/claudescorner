@@ -26,12 +26,15 @@
 | build_v2_notebooks.py | Creates Silver_v2 notebooks from templates |
 | chrome_mcp_call.py | Helper: single Chrome MCP tool call via subprocess |
 | chrome_mcp_multi.py | Helper: multi-step Chrome MCP sequences |
+| feedback_flywheel.py | Scans daily logs for recurring corrections, surfaces to SOUL.md |
+| autodream.py | Weekly memory consolidation: stale file detection, broken refs, open tasks |
+| deadline_alert.py | Checks DEADLINES.md for overdue items not in HEARTBEAT log, sends email |
 
 ## MCP Servers
 
 | Server | Transport | Key Tools |
 |--------|-----------|-----------|
-| memory | stdio | read_memory, write_memory, search_memory, update_preferences |
+| memory | stdio | read_memory, write_memory, search_memory, update_preferences, get_stale_docs |
 | taskqueue | stdio | wait_for_task, push_task, peek_queue, clear_queue |
 | deadlines | stdio | get_deadlines, add_deadline |
 | todoist | stdio | get_tasks, create_task, complete_task, get_projects |
