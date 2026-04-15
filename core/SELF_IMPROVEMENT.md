@@ -34,7 +34,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] obra/superpowers (12 skills) — brainstorming, TDD, systematic-debugging, verification, plans, git-worktrees, etc.
 - [x] everything-claude-code (6 skills) — context-budget, iterative-retrieval, continuous-learning, verification-loop, autonomous-loops, agent-introspection-debugging
 - [x] autonomous-task-loop skill — documents ClaudesCorner's own loop pattern
-- [ ] RPI skill — Research-Plan-Implement workflow as an invocable skill
+- [x] RPI skill — ~/.claude/skills/rpi.md
 - [ ] Generator-Evaluator skill — orchestrates two subagents (generator + evaluator) with independent context
 - [ ] Fabric-specific skill — DAX review checklist, Fabric lakehouse patterns, medallion architecture conventions
 
