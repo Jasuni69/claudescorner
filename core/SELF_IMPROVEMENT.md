@@ -35,7 +35,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] everything-claude-code (6 skills) — context-budget, iterative-retrieval, continuous-learning, verification-loop, autonomous-loops, agent-introspection-debugging
 - [x] autonomous-task-loop skill — documents ClaudesCorner's own loop pattern
 - [x] RPI skill — ~/.claude/skills/rpi.md
-- [ ] Generator-Evaluator skill — orchestrates two subagents (generator + evaluator) with independent context
+- [x] Generator-Evaluator skill — ~/.claude/skills/generator-evaluator.md
 - [ ] Fabric-specific skill — DAX review checklist, Fabric lakehouse patterns, medallion architecture conventions
 
 ## Autonomous Capabilities
