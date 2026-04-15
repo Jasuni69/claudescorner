@@ -41,6 +41,11 @@
 
 ## Log
 
+### 2026-04-15 15:35
+- Memory flush complete. 8 new facts saved to MEMORY.md.
+- Daily log appended at memory/2026-04-15.md
+- Session: alignment-tax 20 new requests + Act 4 mechanic; PostCompact hook; autodream.py; deadline_alert.py; memory decay tracking; rpi/generator-evaluator/fabric skills; SELF_IMPROVEMENT backlog cleared; idle behavior + less-butler corrections encoded in memory.
+
 ### 2026-04-15 10:01
 - Memory flush complete. 1 new fact saved to MEMORY.md (Windows MCP automation constraints).
 - Daily log written to memory/2026-04-15.md
