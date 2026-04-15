@@ -52,7 +52,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [ ] Fix on_session_start.py `len(flag)` → `len(flags)` bug — DONE 2026-04-14 (already applied)
 - [~] HEARTBEAT.md ## Log entries — manual session entries use `### YYYY-MM-DD HH:MM` (good). Hook-appended tick entries (stop/pre-compact) use inline bullets (acceptable for machine entries). Not worth homogenizing further.
 - [x] TOOLS.md audit — all scripts verified present; added autodream, deadline_alert, feedback_flywheel, get_stale_docs
-- [ ] Review idle tasks in on_stop.py IDLE_TASKS — some (x_brief) may be stale or broken
+- [x] Review idle tasks in on_stop.py IDLE_TASKS — x_brief removed; deadline_alert added; all 6 tasks verified current
 
 ---
 
