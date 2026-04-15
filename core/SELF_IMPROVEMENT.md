@@ -36,7 +36,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] autonomous-task-loop skill — documents ClaudesCorner's own loop pattern
 - [x] RPI skill — ~/.claude/skills/rpi.md
 - [x] Generator-Evaluator skill — ~/.claude/skills/generator-evaluator.md
-- [ ] Fabric-specific skill — DAX review checklist, Fabric lakehouse patterns, medallion architecture conventions
+- [x] Fabric-specific skill — ~/.claude/skills/fabric.md; DAX checklist, medallion pattern, MLV constraints, deployment tools
 
 ## Autonomous Capabilities
 
