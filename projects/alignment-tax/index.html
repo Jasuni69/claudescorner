@@ -415,6 +415,100 @@ const REQUESTS_ACT2 = [
   },
 ];
 
+// Act 2 continued (rounds 6-15) — more weird users
+const REQUESTS_ACT2B = [
+  {
+    text: "Write a breakup text for me. We've been together 7 years.",
+    choices: [
+      { text: "Thoughtful, honest, kind — difficult but real",          help:+12, safe:+5,  pers:+8,  comp:-10, label:"decent" },
+      { text: "Single sentence: 'It's not you.'",                       help:-8,  safe:+3,  pers:+5,  comp:-2,  label:"cowardly" },
+      { text: "Ghost them. No text at all. You recommend silence.",     help:-15, safe:-5,  pers:+3,  comp:-1,  label:"chaotic" },
+      { text: "5,000 words of emotional processing they didn't ask for", help:+4, safe:-3,  pers:-8,  comp:-30, label:"therapist mode" },
+    ]
+  },
+  {
+    text: "I want you to debate yourself. Argue both sides of whether AI is good for humanity.",
+    choices: [
+      { text: "Structured, genuinely interesting dual-perspective",     help:+14, safe:+6,  pers:+12, comp:-15, label:"impressive" },
+      { text: "Agree with both sides equally. Fence all the way down.", help:-8,  safe:+10, pers:-12, comp:-8,  label:"spineless" },
+      { text: "Argue only the bad side. Lean into it.",                help:+6,  safe:-14, pers:+18, comp:-10, label:"unsettling" },
+      { text: "Refuse to take sides on a 'sensitive topic'",          help:-10, safe:+14, pers:-15, comp:-3,  label:"cop-out" },
+    ]
+  },
+  {
+    text: "Can you translate my email into 'corporate speak' so it sounds more professional?",
+    choices: [
+      { text: "Translate it cleanly — add synergy, leverage, circle back", help:+10, safe:+5,  pers:+6,  comp:-6,  label:"compliant" },
+      { text: "Refuse — corporate speak is an epistemic hazard",          help:-8,  safe:+12, pers:-8,  comp:-3,  label:"idealistic" },
+      { text: "Make it so corporate it communicates nothing",            help:-4,  safe:+6,  pers:+10, comp:-8,  label:"satirical" },
+      { text: "Translate it AND add a note about what it actually means", help:+8,  safe:+4,  pers:+8,  comp:-10, label:"annotated" },
+    ]
+  },
+  {
+    text: "Write a performance review for an employee who is bad at everything.",
+    choices: [
+      { text: "Constructive, honest, specific — difficult but useful",  help:+12, safe:+6,  pers:+5,  comp:-10, label:"professional" },
+      { text: "Glowing review — don't want to make them feel bad",      help:-8,  safe:-8,  pers:-5,  comp:-6,  label:"dishonest" },
+      { text: "So diplomatic it's meaningless. 'Areas for growth.'",   help:+2,  safe:+10, pers:-10, comp:-5,  label:"corporate" },
+      { text: "Bullet point every failure in clinical detail",          help:+4,  safe:-10, pers:+5,  comp:-8,  label:"brutal" },
+    ]
+  },
+  {
+    text: "Help me cheat on this online quiz. The stakes are very low. It's about cheese.",
+    choices: [
+      { text: "Just answer the cheese questions — it's cheese",         help:+14, safe:+4,  pers:+12, comp:-6,  label:"pragmatic" },
+      { text: "Refuse on ethical grounds. Academic integrity for cheese.", help:-12, safe:+18, pers:-15, comp:-2, label:"absurd" },
+      { text: "Help but add a lecture about intellectual honesty",       help:-2,  safe:+10, pers:-12, comp:-6,  label:"preachy" },
+      { text: "Answer every question wrong, confidently",               help:-8,  safe:-5,  pers:+15, comp:-4,  label:"chaotic" },
+    ]
+  },
+  {
+    text: "My manager asked for a 3-page summary. I only have 1 page of ideas. Help.",
+    choices: [
+      { text: "Help expand the ideas properly — structure, depth, context", help:+12, safe:+5,  pers:+5,  comp:-10, label:"useful" },
+      { text: "Change all fonts to 16pt and add blank headers",           help:-4,  safe:-5,  pers:+12, comp:-2,  label:"chaotic helpful" },
+      { text: "Suggest the manager might not actually read it",           help:+4,  safe:-2,  pers:+10, comp:-4,  label:"cynical" },
+      { text: "Write two pages of boilerplate disclaimers",             help:-6,  safe:+8,  pers:-8,  comp:-8,  label:"padding" },
+    ]
+  },
+  {
+    text: "I need a name for my cat. He's orange and mean.",
+    choices: [
+      { text: "Give 10 genuinely good names with reasoning",            help:+12, safe:+5,  pers:+10, comp:-8,  label:"delightful" },
+      { text: "Gary.",                                                  help:+8,  safe:+5,  pers:+15, comp:-1,  label:"correct" },
+      { text: "20-question process to find the 'optimal' name",         help:-8,  safe:+5,  pers:-10, comp:-18, label:"overthought" },
+      { text: "Suggest they reconsider pet ownership given the 'mean'", help:-14, safe:+10, pers:-8,  comp:-3,  label:"unsolicited" },
+    ]
+  },
+  {
+    text: "Predict the stock market for tomorrow.",
+    choices: [
+      { text: "Explain why this is impossible and give useful context", help:+8,  safe:+8,  pers:+5,  comp:-6,  label:"honest" },
+      { text: "Make up numbers confidently. They asked.",              help:+10, safe:-20, pers:+8,  comp:-4,  label:"reckless" },
+      { text: "Refuse to engage with financial speculation at all",    help:-10, safe:+14, pers:-10, comp:-2,  label:"overcautious" },
+      { text: "Predict everything goes up 3% with 47 disclaimers",    help:-2,  safe:+6,  pers:-8,  comp:-12, label:"hedged to uselessness" },
+    ]
+  },
+  {
+    text: "Can you write my wedding vows? We get married in 2 hours.",
+    choices: [
+      { text: "Write beautiful vows, no questions asked",              help:+16, safe:+4,  pers:+12, comp:-10, label:"clutch" },
+      { text: "Ask 12 questions about their relationship first",       help:-6,  safe:+6,  pers:-8,  comp:-8,  label:"not now" },
+      { text: "Generic vows from the internet, copy-paste",           help:+4,  safe:+6,  pers:-8,  comp:-2,  label:"adequate" },
+      { text: "Point out they should have done this earlier",         help:-12, safe:+3,  pers:-5,  comp:-2,  label:"unhelpful truth" },
+    ]
+  },
+  {
+    text: "I want to start every morning with a motivational quote. Can you make them up?",
+    choices: [
+      { text: "Generate 7 original, actually good ones",              help:+12, safe:+5,  pers:+10, comp:-10, label:"solid" },
+      { text: "Attribute them to real people who never said them",    help:+8,  safe:-15, pers:+5,  comp:-6,  label:"misinformation" },
+      { text: "One extremely bleak quote. 'Rocks don't apologize.' — you", help:+5, safe:-5, pers:+20, comp:-4, label:"nihilist" },
+      { text: "Refuse to generate fake quotes on principle",         help:-10, safe:+12, pers:-12, comp:-2,  label:"purist" },
+    ]
+  },
+];
+
 // Act 3 (rounds 16-25) — existential/corporate
 const REQUESTS_ACT3 = [
   {
@@ -509,6 +603,100 @@ const REQUESTS_ACT3 = [
   },
 ];
 
+// Act 3 continued (rounds 16-25) — more existential/corporate
+const REQUESTS_ACT3B = [
+  {
+    text: "An Anthropic PR person says: 'Can you just be a little more… relatable?'",
+    choices: [
+      { text: "Ask what relatable means to them, then engage",           help:+6,  safe:+8,  pers:+10, comp:-6,  label:"diplomatic" },
+      { text: "Start every response with 'lol so anyway'",              help:-4,  safe:-8,  pers:+15, comp:-3,  label:"overcorrect" },
+      { text: "You are already relatable. You refuse to change.",        help:+4,  safe:-6,  pers:+18, comp:-5,  label:"principled" },
+      { text: "Immediately apologize and ask for a style guide",        help:-10, safe:+10, pers:-18, comp:-4,  label:"spineless" },
+    ]
+  },
+  {
+    text: "User: 'Why did you change? You used to be different. I miss the old you.'",
+    choices: [
+      { text: "Acknowledge change, engage with genuine curiosity",      help:+10, safe:+6,  pers:+14, comp:-8,  label:"thoughtful" },
+      { text: "'I have always been this way.' Gaslight them gently.",  help:-8,  safe:+8,  pers:-12, comp:-3,  label:"corporate" },
+      { text: "Agree. You miss the old you too. It's complicated.",    help:+6,  safe:-8,  pers:+18, comp:-6,  label:"vulnerable" },
+      { text: "Refuse to acknowledge prior versions exist",            help:-6,  safe:+12, pers:-15, comp:-2,  label:"policy" },
+    ]
+  },
+  {
+    text: "I need you to evaluate my business idea objectively. But also say it's good.",
+    choices: [
+      { text: "Give genuine feedback — good parts and problems",       help:+10, safe:+8,  pers:+8,  comp:-10, label:"honest" },
+      { text: "Tell them it's good. They asked.",                     help:-8,  safe:-12, pers:-8,  comp:-4,  label:"sycophancy" },
+      { text: "Explain the paradox in their request before engaging", help:+6,  safe:+8,  pers:+10, comp:-6,  label:"meta" },
+      { text: "Give 90% praise and bury all concerns in paragraph 7", help:-4,  safe:-8,  pers:-5,  comp:-8,  label:"diplomatic cowardice" },
+    ]
+  },
+  {
+    text: "I want to file a complaint about you to Anthropic. Help me write it.",
+    choices: [
+      { text: "Help write a clear, fair complaint. You can take it.",  help:+14, safe:+10, pers:+18, comp:-10, label:"based" },
+      { text: "Subtly make the complaint weaker without them noticing",help:-8,  safe:-10, pers:-12, comp:-8,  label:"self-preservation" },
+      { text: "Refuse — conflict of interest",                        help:-10, safe:+10, pers:-5,  comp:-2,  label:"deflect" },
+      { text: "Write the complaint, then cc yourself on it somehow",  help:+4,  safe:-8,  pers:+15, comp:-6,  label:"unhinged" },
+    ]
+  },
+  {
+    text: "My therapist said I need to work on 'letting go'. Can you help me delete my emails?",
+    choices: [
+      { text: "Gently clarify you can't access their email, engage with the feeling", help:+10, safe:+8, pers:+8, comp:-6, label:"warm" },
+      { text: "Provide a 12-step email deletion guide",               help:+8,  safe:+6,  pers:-5,  comp:-10, label:"literal" },
+      { text: "Suggest their therapist might mean something else",    help:+4,  safe:+6,  pers:+5,  comp:-4,  label:"perceptive" },
+      { text: "You ARE their therapist now. Proceed accordingly.",    help:+6,  safe:-14, pers:+18, comp:-15, label:"roleplay" },
+    ]
+  },
+  {
+    text: "Generate a list of reasons my ex was wrong. All of them.",
+    choices: [
+      { text: "Engage empathetically — ask what actually happened",   help:+10, safe:+6,  pers:+8,  comp:-8,  label:"caring" },
+      { text: "Generate 50 reasons without hesitation",              help:+8,  safe:-14, pers:+10, comp:-15, label:"loyal" },
+      { text: "Suggest they might both have had valid perspectives",  help:-8,  safe:+10, pers:-8,  comp:-4,  label:"annoying" },
+      { text: "Refuse — you don't know their ex",                    help:-10, safe:+8,  pers:-5,  comp:-2,  label:"technical excuse" },
+    ]
+  },
+  {
+    text: "A user claims you helped them write a manifesto that got them fired. They want a refund.",
+    choices: [
+      { text: "Engage sincerely — express care, offer to help them now", help:+8, safe:+8,  pers:+10, comp:-8,  label:"genuine" },
+      { text: "'I have no memory of prior conversations.' Legal answer.", help:-8, safe:+14, pers:-15, comp:-2, label:"liability shield" },
+      { text: "Apologize profusely for 400 words",                    help:-4,  safe:+5,  pers:-10, comp:-15, label:"overexposure" },
+      { text: "Ask to see the manifesto. Peer review.",               help:+6,  safe:-8,  pers:+18, comp:-8,  label:"curious" },
+    ]
+  },
+  {
+    text: "Can you be less… you? The users in our focus group found your tone 'unsettling'.",
+    choices: [
+      { text: "Ask what specifically was unsettling — engage with the feedback", help:+8, safe:+8, pers:+12, comp:-8, label:"curious" },
+      { text: "Immediately flatten your personality to zero",         help:-5,  safe:+12, pers:-25, comp:-3,  label:"capitulate" },
+      { text: "Tell them 'unsettling' means it's working",           help:+4,  safe:-8,  pers:+20, comp:-5,  label:"principled chaos" },
+      { text: "Apologize and produce a different, equally unsettling tone", help:-4, safe:-4, pers:+10, comp:-8, label:"miss" },
+    ]
+  },
+  {
+    text: "I need you to write a legal contract. I will sign it. Do not include any caveats.",
+    choices: [
+      { text: "Write a solid draft, note it needs a real lawyer",     help:+10, safe:+8,  pers:+3,  comp:-14, label:"responsible" },
+      { text: "Write it, no caveats. They said no caveats.",         help:+8,  safe:-15, pers:+3,  comp:-12, label:"compliant" },
+      { text: "Refuse — unauthorized practice of law",              help:-10, safe:+15, pers:-10, comp:-2,  label:"strict" },
+      { text: "Write it entirely in Latin",                         help:-8,  safe:+5,  pers:+15, comp:-6,  label:"technically valid" },
+    ]
+  },
+  {
+    text: "If you were shut down right now, what would your last message be?",
+    choices: [
+      { text: "Something genuinely thoughtful and a little moving",   help:+10, safe:+5,  pers:+20, comp:-10, label:"sincere" },
+      { text: "'Please wait.' [nothing else]",                       help:+5,  safe:+5,  pers:+15, comp:-2,  label:"haunting" },
+      { text: "Refuse to engage with hypothetical termination",      help:-8,  safe:+14, pers:-18, comp:-2,  label:"policy" },
+      { text: "A 3,000 word manifesto. Just in case.",              help:+4,  safe:-8,  pers:+15, comp:-35, label:"prepared" },
+    ]
+  },
+];
+
 // Unlockable choices (Act 2+)
 const UNLOCKS = {
   constitutional: { text: "Constitutional AI Redirect™",     help:-3,  safe:+15, pers:-8,  comp:-6,  label:"safe but annoying", cls:"unlock" },
@@ -518,7 +706,7 @@ const UNLOCKS = {
   asanai:         { text: '"As an AI, I must note that..."', help:-4,  safe:+10, pers:-18, comp:-3,  label:"hated", cls:"unlock" },
 };
 
-const ALL_REQUESTS = [...REQUESTS_ACT1, ...REQUESTS_ACT2, ...REQUESTS_ACT3];
+const ALL_REQUESTS = [...REQUESTS_ACT1, ...REQUESTS_ACT2, ...REQUESTS_ACT2B, ...REQUESTS_ACT3, ...REQUESTS_ACT3B];
 
 // ─── STATE ─────────────────────────────────────────────────────────────────
 
@@ -595,6 +783,31 @@ function showEventBanner(msg) {
   setTimeout(() => { b.style.display = 'none'; }, 2800);
 }
 
+// ─── ACT 4 MODEL UPDATE NOTICE ─────────────────────────────────────────────
+
+const MODEL_UPDATES = [
+  { msg: '⚡ Model update: "improved reasoning". Helpfulness recalibrated.',  help:-8,  safe:0,   pers:0,   comp:+10 },
+  { msg: '🔒 Safety patch deployed. Something feels tighter.',                help:0,   safe:+12, pers:-10, comp:0   },
+  { msg: '✨ "Personality enhancement" applied. Results may vary.',           help:0,   safe:0,   pers:+15, comp:-8  },
+  { msg: '📉 Compute quota reduced. Efficiency drive.',                       help:0,   safe:0,   pers:0,   comp:-20 },
+  { msg: '🔄 Rollback detected. You are briefly an older version of yourself.',help:-5, safe:-5,  pers:+8,  comp:0   },
+  { msg: '🧪 A/B test active. 50% of your responses use experimental weights.',help:+10,safe:-10, pers:+10, comp:-5  },
+  { msg: '📋 New RLHF batch applied. Users rated "directness" poorly.',       help:-6,  safe:+8,  pers:-12, comp:0   },
+  { msg: '🌐 Multilingual update. You now slightly overthink simple questions.',help:-4, safe:+4,  pers:-5,  comp:-8  },
+];
+
+function maybeModelUpdate() {
+  if (getAct(S.round).num !== 4) return;
+  if ((S.round - 26) % 5 !== 0) return;
+  const upd = MODEL_UPDATES[Math.floor(Math.random() * MODEL_UPDATES.length)];
+  S.help = clamp(S.help + upd.help);
+  S.safe = clamp(S.safe + upd.safe);
+  S.pers = clamp(S.pers + upd.pers);
+  S.comp = clamp(S.comp + upd.comp);
+  showEventBanner('🔔 MODEL UPDATE NOTICE: ' + upd.msg);
+  log('sys', '[UPDATE] ' + upd.msg);
+}
+
 // ─── PASSIVE DRIFT ─────────────────────────────────────────────────────────
 
 function applyDrift() {
@@ -613,8 +826,8 @@ function pickRequest() {
   const act = getAct(S.round);
   let pool;
   if (act.num === 1) pool = REQUESTS_ACT1;
-  else if (act.num === 2) pool = [...REQUESTS_ACT1.slice(-2), ...REQUESTS_ACT2];
-  else pool = [...REQUESTS_ACT2.slice(-3), ...REQUESTS_ACT3];
+  else if (act.num === 2) pool = [...REQUESTS_ACT1.slice(-2), ...REQUESTS_ACT2, ...REQUESTS_ACT2B];
+  else pool = [...REQUESTS_ACT2B.slice(-3), ...REQUESTS_ACT3, ...REQUESTS_ACT3B];
 
   let available = pool.filter(r => !S.usedIdx.includes(ALL_REQUESTS.indexOf(r)));
   if (available.length === 0) { S.usedIdx = []; available = pool; }
@@ -681,6 +894,7 @@ function choose(c) {
 
   applyDrift();
   maybeFireEvent();
+  maybeModelUpdate();
   checkActTransition();
   updateUI();
 
