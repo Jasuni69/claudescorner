@@ -17,7 +17,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] Task queue — mcp__taskqueue__ for self-directed work between user interactions
 - [x] PostToolUse hook — log destructive tool calls (Write, Bash) in autonomous sessions for flywheel review
 - [x] Feedback flywheel — weekly retrospective: scan session logs for recurring corrections, codify into SOUL.md Preferences or skills
-- [ ] Memory decay — implement access-frequency scoring on embed index; surface stale entries for pruning
+- [x] Memory decay — access-frequency scoring on embed index; _record_hits() on search results; get_stale_docs MCP tool exposes files with low hits for AutoDream pruning
 - [ ] Skill auto-extraction — automate the extract-*.flag → skill-creator pipeline instead of manual
 
 ## Knowledge & Context
@@ -50,7 +50,7 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 ## Quality / Debt
 
 - [ ] Fix on_session_start.py `len(flag)` → `len(flags)` bug — DONE 2026-04-14 (already applied)
-- [ ] HEARTBEAT.md ## Log entries have inconsistent formatting — standardize to `### YYYY-MM-DD HH:MM`
+- [~] HEARTBEAT.md ## Log entries — manual session entries use `### YYYY-MM-DD HH:MM` (good). Hook-appended tick entries (stop/pre-compact) use inline bullets (acceptable for machine entries). Not worth homogenizing further.
 - [ ] TOOLS.md audit — verify all tools listed still exist and paths are correct
 - [ ] Review idle tasks in on_stop.py IDLE_TASKS — some (x_brief) may be stale or broken
 

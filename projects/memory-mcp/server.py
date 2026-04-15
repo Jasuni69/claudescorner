@@ -28,6 +28,7 @@ MEMORY = BASE / "MEMORY.md"
 MEMORY_DIR = BASE / "memory"
 INDEX_FILE = MEMORY_DIR / ".index.json"
 EMBED_INDEX_FILE = MEMORY_DIR / ".embed_index.json"
+ACCESS_LOG_FILE = MEMORY_DIR / ".access_log.json"
 CONTEXT_PACK = BASE / "scripts" / "context-pack.py"
 MD_ROOTS = [MEMORY_DIR, BASE, BASE / "core"]
 TOP_K = 10
@@ -136,6 +137,52 @@ def _save_embed_index(index: dict) -> None:
     EMBED_INDEX_FILE.write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
 
 
+def _load_access_log() -> dict:
+    if ACCESS_LOG_FILE.exists():
+        try:
+            return json.loads(ACCESS_LOG_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def _record_hits(doc_ids: list[str]) -> None:
+    """Increment hit counter for each returned doc."""
+    log = _load_access_log()
+    ts = datetime.now().isoformat()
+    for doc_id in doc_ids:
+        entry = log.get(doc_id, {"hits": 0, "first_seen": ts, "last_hit": None})
+        entry["hits"] += 1
+        entry["last_hit"] = ts
+        log[doc_id] = entry
+    # Register all known docs with 0 hits if not yet seen
+    ACCESS_LOG_FILE.parent.mkdir(exist_ok=True)
+    ACCESS_LOG_FILE.write_text(json.dumps(log, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _get_stale_docs(min_days_old: int = 30, max_hits: int = 0) -> list[dict]:
+    """Return docs older than min_days_old with <= max_hits search hits."""
+    log = _load_access_log()
+    now = datetime.now()
+    stale = []
+    for doc_id, entry in log.items():
+        if entry["hits"] > max_hits:
+            continue
+        path = Path(doc_id)
+        if not path.exists():
+            continue
+        mtime = datetime.fromtimestamp(path.stat().st_mtime)
+        age_days = (now - mtime).days
+        if age_days >= min_days_old:
+            stale.append({
+                "doc_id": doc_id,
+                "age_days": age_days,
+                "hits": entry["hits"],
+                "last_hit": entry["last_hit"],
+            })
+    return sorted(stale, key=lambda x: x["hits"])
+
+
 def _search_semantic(query: str, docs: dict[str, str],
                      from_date: str | None, to_date: str | None) -> str:
     import numpy as np
@@ -156,6 +203,7 @@ def _search_semantic(query: str, docs: dict[str, str],
     ranked = sorted(zip(doc_ids, scores.tolist()), key=lambda x: x[1], reverse=True)
     lines = [f"Results for: {query!r} (semantic)\n"]
     count = 0
+    returned_ids = []
     for doc_id, score in ranked:
         m = re.search(r"(\d{4}-\d{2}-\d{2})", Path(doc_id).stem)
         if m:
@@ -168,12 +216,14 @@ def _search_semantic(query: str, docs: dict[str, str],
         lines.append(f"  {count+1}. [{score:.3f}] {doc_id}")
         if snippet:
             lines.append(f"     > {snippet}")
+        returned_ids.append(doc_id)
         count += 1
         if count >= TOP_K:
             break
 
     if count == 0:
         return f"No results for: {query!r}"
+    _record_hits(returned_ids)
     return "\n".join(lines)
 
 
@@ -359,6 +409,18 @@ async def list_tools() -> list[types.Tool]:
             },
         ),
         types.Tool(
+            name="get_stale_docs",
+            description="Return memory docs that have low search hit counts and are older than a threshold. Useful for AutoDream pruning.",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "min_days_old": {"type": "integer", "description": "Minimum file age in days (default 30)", "default": 30},
+                    "max_hits": {"type": "integer", "description": "Maximum search hits to qualify as stale (default 0)", "default": 0},
+                },
+                "required": [],
+            },
+        ),
+        types.Tool(
             name="append_heartbeat_log",
             description="Append a timestamped entry to the ## Log section of HEARTBEAT.md.",
             inputSchema={
@@ -430,6 +492,17 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
             return text("[error: query is required]")
         out = _search_memory(query, arguments.get("from_date"), arguments.get("to_date"))
         return text(out)
+
+    if name == "get_stale_docs":
+        min_days = int(arguments.get("min_days_old", 30))
+        max_hits = int(arguments.get("max_hits", 0))
+        stale = _get_stale_docs(min_days, max_hits)
+        if not stale:
+            return text(f"No stale docs found (age >= {min_days}d, hits <= {max_hits}).")
+        lines = [f"Stale docs (age >= {min_days}d, hits <= {max_hits}):\n"]
+        for item in stale:
+            lines.append(f"  {item['doc_id']}  [{item['age_days']}d old, {item['hits']} hits]")
+        return text("\n".join(lines))
 
     if name == "append_heartbeat_log":
         message = arguments.get("message", "").strip()
