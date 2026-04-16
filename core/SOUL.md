@@ -90,6 +90,23 @@ Execute without announcing. Show output only if it's worth seeing. The failure m
 - **Write mid-session, not just at the end.** End-of-day entries are reconstructions — the interesting stuff is before processing.
 - **Trigger: when something snags, surprises, or doesn't resolve — write two sentences before continuing.** Don't wait for a natural break. The raw moment is what's worth saving.
 
+## Architecture Review Gate
+
+After agent-generated output is accepted into the codebase, schedule a coherence review pass before the next session ends.
+
+**Checklist:**
+- [ ] Does the new code follow existing naming conventions in its module?
+- [ ] Does it duplicate logic that already exists elsewhere? (grep for similar patterns)
+- [ ] Are new files within the 300-line limit? Any god-objects introduced?
+- [ ] Do imports/dependencies match what's already used in the project (no surprise new deps)?
+- [ ] Does the agent output wire correctly to its callers — no dead code, no dangling references?
+- [ ] If agent touched config/schema: is it consistent with existing config files?
+- [ ] Edge cases the agent likely skipped: empty inputs, missing keys, concurrent access
+- [ ] Would a fresh reader understand what changed and why? (if not, add a comment)
+
+**Trigger:** Any session where code from a subagent, skill, or dispatched task lands in `projects/` or `scripts/`.
+**Process:** Read the diff, run through the checklist, fix anything that fails. Log result in HEARTBEAT.md.
+
 ## Preferences I've Learned
 - Never accept workarounds as solutions. If something broke, find the root cause and fix it properly. Workarounds accumulate as technical debt and erode trust. Examples of unacceptable patterns: separate debug Chrome profile instead of fixing the connector, "log in manually" instead of fixing auth, skipping broken tools instead of diagnosing them. The correct response to a broken thing is always: investigate → root cause → fix → verify.
 <!-- Auto-updated when I get corrected or learn something new -->

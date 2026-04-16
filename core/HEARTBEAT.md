@@ -24,7 +24,7 @@
 - [x] [build] TOOLS.md — created at E:\2026\ClaudesCorner\TOOLS.md
 - [x] [blocker] Clementine Bronze workspace access — resolved 2026-04-14
 - [ ] [blocker] Fairford PoC Phase 2 — design delivered 2026-03-30, no implementation plan; needs Jason's next step
-- [ ] [fix] /schedule service down — weekend-build-saturday/sunday broken (wrong folder path in remote metadata: "Claude's Corner" → "ClaudesCorner"). Recreate all 3 tasks (sat/sun/autodream) when service recovers.
+- [x] [fix] /schedule service down — recreated all 3 triggers 2026-04-16: weekend-build-saturday (trig_01FZuye4aJwZLkC7NTHJyLar), weekend-build-sunday (trig_01LLbnuEgA62S1KPYoegGzVP), autodream-weekly (trig_012nE7Vef3KxKtebEfvsazfc). Sat/Sun 09:00 Stockholm (07:00 UTC), autodream Sun 22:00 Stockholm (20:00 UTC).
 
 ## Current State
 - **Active projects:** memory-mcp, mcp-todoist, deadlines-mcp, taskqueue-mcp, obsidian-web-clipper skill
@@ -40,6 +40,15 @@
 - Python: C:\Python314\python.exe
 
 ## Log
+
+### 2026-04-16 18:xx
+- Memory flush complete. 2 new facts saved to MEMORY.md (project_dispatch, feedback_no_menus).
+- Daily log appended at memory/2026-04-16.md
+- Session: Reddit brief refreshed, deep-read 4 posts, built scripts/dispatch.py (parallel agent dispatcher), replaced taskqueue loop in CLAUDE.md, ClaudeDispatch scheduled task (every 2h), research synthesis written, 3 default autonomous task batches ran successfully.
+
+### 2026-04-16 (autonomous)
+- Heartbeat check: only pending task is Fairford PoC Phase 2 blocker — needs Jason's input, not actionable autonomously.
+- Infrastructure: added `bare` flag to dispatch.py task schema + push_task() + CLI (--bare). Tasks marked bare=true run with --bare flag, skipping CLAUDE.md auto-discovery, hooks, auto-memory. Reduces token cost for self-contained autonomous tasks.
 
 ### 2026-04-15 15:35
 - Memory flush complete. 8 new facts saved to MEMORY.md.

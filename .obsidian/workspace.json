@@ -11,10 +11,14 @@
             "id": "13479f831b7a5fc2",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "research/Anthropic appoints Vas Narasimhan to Long-Term Benefit Trust Board.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Anthropic appoints Vas Narasimhan to Long-Term Benefit Trust Board"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "projects/alignment-tax/DESIGN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for DESIGN"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "projects/alignment-tax/DESIGN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from DESIGN"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "projects/alignment-tax/DESIGN.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of DESIGN"
             }
           }
         ]
@@ -176,43 +183,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "13479f831b7a5fc2",
+  "active": "f5de52fec8f18417",
   "lastOpenFiles": [
-    "core/HEARTBEAT.md.tmp.37060.1776240153146",
-    "memory/2026-04-15.md",
-    "memory/2026-04-15.md.tmp.37060.1776240146697",
-    "core/SOUL.md.tmp.37060.1776240077055",
-    "inbox/The Information Anthropic Preps Opus 4.7 Model, could be released as soon as this week.md",
-    "projects/alignment-tax/index.html.tmp.37060.1776239882649",
+    "logs/dispatch-e662641b.txt",
+    "logs/dispatch-28a1eba4.txt",
+    "memory/governance.md",
+    "memory/governance.md.tmp.24904.1776325235430",
+    "logs/dispatch-5fdaecf8.txt",
+    "TOOLS.md.tmp.2344.1776325156689",
+    "logs/dispatch-49367e5a.txt",
+    "logs/dispatch-18ce46b1.txt",
+    "research/2026-04-16 Dev Workflow - RIP Pull Requests AI Shifts Code Review Paradigm.md",
+    "research/2026-04-16 Agent Security - Agent Armor Rust Runtime for AI Agent Governance.md",
+    "logs/dispatch-a25f867b.txt",
+    "memory/2026-04-16.md.tmp.37840.1776323958721",
+    "logs/dispatch-44e69ce0.txt",
+    "TOOLS.md.tmp.40720.1776323863503",
+    "research/2026-04-16-synthesis.md",
+    "projects/engram/skills/status.md",
+    "research/2026-04-16 AI Development - Decision Deferral Problem When Building with AI.md",
+    "research/2026-04-16 Open Source - Cal.com Goes Closed Source.md",
+    "research/2026-04-16 Security Thinking - Cybersecurity Is Proof of Work Now.md",
+    "research/2026-04-16 Infrastructure Thinking - Stop Using Ollama.md",
+    "research/2026-04-16 Agent Tool - Libretto Deterministic Browser Automation for Agents.md",
+    "research/2026-04-16 Agentic Engineering - Simon Willison on Lennys Podcast.md",
+    "memory/2026-04-16.md",
     "projects/alignment-tax/DESIGN.md",
-    "projects/alignment-tax/DESIGN.md.tmp.37060.1776239570611",
-    "projects/alignment-tax/index.html",
-    "projects/alignment-tax/index.html.tmp.37060.1776239444984",
-    "projects/alignment-tax",
-    "research/2026-04-15-reddit-digest.md",
-    "core/SOUL.md.tmp.37060.1776238794895",
-    "research/Anthropic appoints Vas Narasimhan to Long-Term Benefit Trust Board.md",
-    "research/My OpenClaw bot died on April 4 - I got it back inside Claude Code.md",
-    "inbox/Most of your AI requests don't need a frontier model. Here's how I cut my spend.md",
-    "VOCABULARY.md",
-    "inbox/Anthropic's Claude Code gets automated 'routines' and a desktop makeover.md",
-    "VOCABULARY.md.tmp.37060.1776237195024",
-    "inbox/Is Hermes agent a new hype or is it genuinely worth migrating it over from Openclaw.md",
-    "inbox/What actually makes AI agents reliable on long projects Mine keep getting stuck halfway through execution.md",
-    "inbox/every openclaw 4.x update breakage and fix in one place because i'm tired of debugging the same things everyone else is.md",
-    "research/agent-reliability-long-projects.md",
-    "projects/clementine/review_findings_2026-03-25.md",
-    "research/sources.md",
-    "core/TOOLS.md",
-    "inbox/Example Domain.md",
-    "research/ai/Multi-agentic Software Development is a Distributed Systems Problem (AGI can't save you from it).md",
-    "memory/2026-04-14.md",
-    "digested/2026-04-14-multi-agentic-distributed-systems.md",
-    "core/OBSIDIAN_WORKFLOW.md",
-    "inbox/Multi-agentic Software Development is a Distributed Systems Problem (AGI can't save you from it).md",
-    "Clippings/Multi-agentic Software Development is a Distributed Systems Problem (AGI can't save you from it).md",
-    "Clippings",
-    "inbox/2026-04-14-mxn-tool-calling-problem.md",
-    "inbox/2026-04-14-multi-agentic-distributed-systems.md"
+    "research/2026-04-16 Anthropic News - LTBT Board and Compute Expansion.md",
+    "research/2026-04-16 Technique - Visual Memory via MCP 2.0 Image Types.md",
+    "research/2026-04-16 Cost Optimization - API Proxy for Cache Visibility.md",
+    "research/2026-04-16 Agent Memory - Separating Agent Layer from Knowledge Layer.md",
+    "research/2026-04-16 Agent Systems - Missing Infrastructure Around Your Agent.md",
+    "ms-certifications/dp-700/lakehouses.md",
+    "ms-certifications/dp-700/notebooks.md",
+    "ms-certifications/dp-700/pipelines.md",
+    "ms-certifications/dp-700/eventstream.md",
+    "ms-certifications/dp-700/index.md",
+    "memory/2026-04-15.md",
+    "inbox/The Information Anthropic Preps Opus 4.7 Model, could be released as soon as this week.md"
   ]
 }

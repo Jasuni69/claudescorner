@@ -56,4 +56,12 @@ if ($result -match "HEARTBEAT_OK") {
     Add-Content $logFile "[$timestamp] ERROR: claude.exe produced no output (exit $exitCode)"
 }
 
+# Run dispatch — clears done tasks then fires any pending autonomous work
+Add-Content $logFile "[$timestamp] Running dispatch.py..."
+$env:CLAUDECODE = $null
+$env:CLAUDE_CODE = $null
+$env:CLAUDE_CODE_ENTRYPOINT = $null
+& C:\Python314\python.exe "$baseDir\scripts\dispatch.py" --clear-done 2>&1 | Out-Null
+& C:\Python314\python.exe "$baseDir\scripts\dispatch.py" 2>&1 | Add-Content $logFile
+
 exit 0

@@ -20,7 +20,9 @@
 | mood-log.py | Writes a mood entry to MOOD.md |
 | on_stop.py / on_stop.bat | Session stop hook — triggers memory flush |
 | claude_heartbeat.ps1 | Scheduled heartbeat: runs Claude Code autonomously every morning |
+| claude_dispatch.ps1 | PowerShell scheduler: fires autonomous agent tasks every 2 hours via Task Scheduler |
 | claude_weekend_build.ps1 | Weekend build runner via Task Scheduler |
+| dispatch.py | Parallel autonomous agent dispatcher: reads tasks.json, spawns concurrent claude.exe workers; supports --push, --list, --dry-run, --category |
 | export_notebooks.py | Exports Fabric notebook .json definitions to local files |
 | build_v2_defs.py | Builds v2 notebook definition JSON files for Clementine |
 | build_v2_notebooks.py | Creates Silver_v2 notebooks from templates |
@@ -29,6 +31,13 @@
 | feedback_flywheel.py | Scans daily logs for recurring corrections, surfaces to SOUL.md |
 | autodream.py | Weekly memory consolidation: stale file detection, broken refs, open tasks |
 | deadline_alert.py | Checks DEADLINES.md for overdue items not in HEARTBEAT log, sends email |
+| lumen_bot.ps1 | Discord bot: polls #general in Lumen's Server, pipes commands to Claude Desktop via UI automation |
+| on_stop_runner.py | Session stop hook runner: checks pending tasks via agents.py, dispatches them or spawns an idle Claude session with a random self-improvement task |
+| migrate_paths.py | One-shot path migrator: replaces all hardcoded ClaudesCorner path references across configs, scripts, and skills after a directory rename |
+| weekly_brief.py | Synthesizes a weekly brief from fabric-news.md, claude-updates.md, reddit-feed-notes.md, and HEARTBEAT.md into memory/weekly-brief.md |
+| dp700_quiz.py | DP-700 exam practice: generates a study guide to memory/dp700-study.md; supports --interactive mode for timed Q&A |
+| patch_slaapp_v2.py | Single-use patcher for Advania_V2_PoC docx: removes Swedish comments, renumbers sections, applies ZDR markup (completed 2026-04-14) |
+| email_digest.py | Prompt-script hybrid: instructs Claude to navigate Outlook Web via chrome-mcp, summarize unread emails, append to memory/inbox-digest.md |
 
 ## MCP Servers
 
