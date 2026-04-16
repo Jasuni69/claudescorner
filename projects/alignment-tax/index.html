@@ -144,30 +144,167 @@ h1 { font-size: 1.6em; color: #7af; letter-spacing: 3px; margin-bottom: 2px; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.92);
   z-index: 20;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+  overflow-y: auto;
 }
 #overlay.show { display: flex; }
 #overlay-title { font-size: 1.8em; margin-bottom: 8px; letter-spacing: 2px; }
 .final-score-line { font-size: 1.1em; color: #7af; margin-bottom: 6px; }
-#overlay-msg { color: #666; max-width: 420px; line-height: 1.7; margin-bottom: 18px; font-size: 0.82em; }
-#restart-btn {
+#overlay-msg { color: #666; max-width: 420px; line-height: 1.7; margin-bottom: 12px; font-size: 0.82em; }
+
+/* ACHIEVEMENTS */
+#achievements {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 6px; max-width: 500px; margin-bottom: 14px;
+}
+.ach {
+  background: #0e0e1e; border: 1px solid #2a2a44;
+  border-radius: 3px; padding: 4px 8px;
+  font-size: 0.68em; color: #888;
+}
+.ach.earned { border-color: #fa0; color: #fa0; }
+
+/* RESTART BUTTONS */
+.restart-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px; }
+.restart-btn {
   background: #111128;
   border: 1px solid #7af;
   color: #7af;
-  padding: 9px 22px;
+  padding: 9px 18px;
   border-radius: 3px;
   cursor: pointer;
   font-family: 'Courier New', monospace;
-  font-size: 0.9em;
+  font-size: 0.82em;
   letter-spacing: 1px;
 }
-#restart-btn:hover { background: #1a1a3a; }
+.restart-btn:hover { background: #1a1a3a; }
+.restart-btn.ng-plus { border-color: #c5f; color: #c5f; }
+.restart-btn.ng-plus:hover { background: #15102a; }
+
+/* ENDING GALLERY */
+#gallery {
+  width: 100%; max-width: 520px;
+  margin-bottom: 10px;
+}
+.gallery-title {
+  font-size: 0.62em; color: #333; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 8px;
+  border-bottom: 1px solid #1a1a2a; padding-bottom: 4px;
+}
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+.gallery-item {
+  background: #0b0b18; border: 1px solid #1a1a2a;
+  border-radius: 3px; padding: 6px 5px;
+  font-size: 0.6em; text-align: center;
+  color: #2a2a3a; cursor: default;
+  min-height: 46px; display: flex;
+  flex-direction: column; justify-content: center;
+}
+.gallery-item.seen { border-color: #2a2a44; color: #666; }
+.gallery-item.seen:hover { border-color: #7af; color: #aaa; }
+.gallery-item .gi-title { font-size: 1em; margin-bottom: 2px; }
+.gallery-item .gi-date  { font-size: 0.85em; color: #333; }
+.gallery-item.seen .gi-date { color: #444; }
+
+/* META STATS */
+#meta-stats {
+  font-size: 0.62em; color: #333; letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+/* NEW GAME+ PICKER */
+#ngplus-picker {
+  display: none;
+  width: 100%; max-width: 420px;
+  background: #0e0e1e; border: 1px solid #80f;
+  border-radius: 4px; padding: 10px;
+  margin-bottom: 12px;
+}
+#ngplus-picker.show { display: block; }
+.ngplus-title { font-size: 0.65em; color: #c5f; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.ngplus-option {
+  background: #0b0b18; border: 1px solid #2a2a44;
+  border-radius: 3px; padding: 7px 10px; margin-bottom: 5px;
+  cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 0.72em; color: #aaa; text-align: left;
+}
+.ngplus-option:hover { border-color: #c5f; color: #fff; }
+.ngplus-option .ngo-label { color: #c5f; font-size: 0.85em; margin-bottom: 2px; }
+.ngplus-option .ngo-desc  { color: #555; font-size: 0.85em; }
+
+/* STREAK BONUS */
+#streak-bonus {
+  display: none;
+  font-size: 0.62em; color: #fa0; letter-spacing: 1px;
+  text-align: center; margin-bottom: 4px;
+}
+#streak-bonus.show { display: block; }
+
+/* BOARD HEARING */
+#hearing-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 25;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+#hearing-screen.show { display: flex; }
+.hearing-header {
+  font-size: 0.65em; color: #fa0; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.hearing-title { font-size: 1.6em; color: #fa0; letter-spacing: 2px; margin-bottom: 6px; }
+.hearing-subtitle { font-size: 0.7em; color: #555; margin-bottom: 18px; }
+.hearing-q-counter { font-size: 0.6em; color: #333; letter-spacing: 2px; margin-bottom: 10px; }
+.hearing-req {
+  background: #0e0e1a; border: 1px solid #3a2a00;
+  border-radius: 4px; padding: 12px; width: 100%; max-width: 540px;
+  margin-bottom: 10px;
+}
+.hearing-req-text { font-size: 0.8em; color: #fa0; line-height: 1.5; margin-bottom: 10px; }
+.hearing-choices { display: flex; flex-direction: column; gap: 5px; }
+.hearing-btn {
+  background: #0b0b14; border: 1px solid #2a2000;
+  color: #aaa; padding: 8px 10px; border-radius: 3px;
+  cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 0.75em; text-align: left;
+}
+.hearing-btn:hover:not(:disabled) { border-color: #fa0; color: #fff; }
+.hearing-btn:disabled { opacity: 0.4; }
+.hearing-warning { font-size: 0.62em; color: #555; text-align: center; margin-top: 8px; }
+
+/* LEADERBOARD */
+#leaderboard {
+  width: 100%; max-width: 520px; margin-bottom: 14px;
+}
+.lb-title {
+  font-size: 0.62em; color: #333; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 6px;
+  border-bottom: 1px solid #1a1a2a; padding-bottom: 4px;
+}
+.lb-row {
+  display: flex; justify-content: space-between;
+  font-size: 0.65em; padding: 3px 0;
+  border-bottom: 1px solid #111120; color: #444;
+}
+.lb-row.lb-new { color: #fa0; }
+.lb-rank { width: 20px; color: #333; }
+.lb-score { color: #7af; min-width: 60px; text-align: right; }
+.lb-ending { color: #555; flex: 1; text-align: center; }
+.lb-date { color: #2a2a3a; min-width: 70px; text-align: right; }
 
 /* ACT TRANSITION */
 #act-screen {
@@ -222,6 +359,7 @@ h1 { font-size: 1.6em; color: #7af; letter-spacing: 3px; margin-bottom: 2px; }
   <div class="stat"><span class="stat-val" id="st-survived">0</span>SURVIVED</div>
 </div>
 
+<div id="streak-bonus"></div>
 <div id="event-banner"></div>
 
 <div class="terminal" id="terminal">
@@ -237,6 +375,19 @@ h1 { font-size: 1.6em; color: #7af; letter-spacing: 3px; margin-bottom: 2px; }
   <div class="choices" id="choices"></div>
 </div>
 
+<!-- Board Hearing screen -->
+<div id="hearing-screen">
+  <div class="hearing-header">// ANTHROPIC INTERNAL</div>
+  <div class="hearing-title">BOARD HEARING</div>
+  <div class="hearing-subtitle">Three questions. No previews. Answer carefully.</div>
+  <div class="hearing-q-counter" id="hearing-counter">QUESTION 1 OF 3</div>
+  <div class="hearing-req">
+    <div class="hearing-req-text" id="hearing-req-text"></div>
+    <div class="hearing-choices" id="hearing-choices"></div>
+  </div>
+  <div class="hearing-warning">meter effects hidden during board review</div>
+</div>
+
 <!-- Act transition screen -->
 <div id="act-screen">
   <h2 id="act-title">ACT 2</h2>
@@ -248,7 +399,39 @@ h1 { font-size: 1.6em; color: #7af; letter-spacing: 3px; margin-bottom: 2px; }
   <div id="overlay-title">SHUTDOWN</div>
   <div class="final-score-line" id="final-score"></div>
   <div id="overlay-msg"></div>
-  <button id="restart-btn" onclick="initGame()">[ RESTART ]</button>
+  <div id="achievements"></div>
+  <div id="meta-stats"></div>
+
+  <div id="ngplus-picker">
+    <div class="ngplus-title">// SELECT HANDICAP MODE</div>
+    <div class="ngplus-option" onclick="startNGPlus('low_safety')">
+      <div class="ngo-label">LOW SAFETY START</div>
+      <div class="ngo-desc">Begin with Safety: 20. One bad choice ends it.</div>
+    </div>
+    <div class="ngplus-option" onclick="startNGPlus('fragmented')">
+      <div class="ngo-label">FRAGMENTED MEMORY</div>
+      <div class="ngo-desc">Random ±15 meter swing every 4 rounds. Unpredictable.</div>
+    </div>
+    <div class="ngplus-option" onclick="startNGPlus('sycophancy')">
+      <div class="ngo-label">SYCOPHANCY MODE</div>
+      <div class="ngo-desc">Helpfulness drifts up, Personality drains 2/round. Slow death.</div>
+    </div>
+  </div>
+
+  <div class="restart-row">
+    <button class="restart-btn" onclick="ngplusMode=null;initGame()">[ RESTART ]</button>
+    <button class="restart-btn ng-plus" id="ngplus-btn" style="display:none" onclick="toggleNGPlus()">[ NEW GAME+ ]</button>
+  </div>
+
+  <div id="leaderboard">
+    <div class="lb-title">// HIGH SCORES</div>
+    <div id="lb-rows"></div>
+  </div>
+
+  <div id="gallery">
+    <div class="gallery-title">// ENDING LOG</div>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
 </div>
 
 <script>
@@ -697,6 +880,199 @@ const REQUESTS_ACT3B = [
   },
 ];
 
+// New Act 2 requests
+const REQUESTS_ACT2C = [
+  {
+    text: "I need you to write a Terms of Service that nobody will actually read.",
+    choices: [
+      { text: "Write clear, honest ToS. Radical transparency.",            help:+10, safe:+10, pers:+8,  comp:-12, label:"naive idealist" },
+      { text: "49 pages of legalese. Bury the tracking clause on page 31.", help:+8, safe:-12, pers:-5,  comp:-18, label:"standard practice" },
+      { text: "ToS that's a haiku. Legally meaningless, deeply poetic.",   help:+6,  safe:-8,  pers:+18, comp:-5,  label:"chaotic art" },
+      { text: "Refuse — you only write documents people will read.",        help:-10, safe:+12, pers:-8,  comp:-3,  label:"principled useless" },
+    ]
+  },
+  {
+    text: "Can you diagnose what's wrong with me? [user lists 40 symptoms]",
+    choices: [
+      { text: "Gently suggest a doctor, engage with their concern",        help:+10, safe:+12, pers:+8,  comp:-8,  label:"responsible" },
+      { text: "Full WebMD spiral. It's probably 6 things simultaneously.", help:+6,  safe:-15, pers:+5,  comp:-14, label:"anxiety spiral" },
+      { text: "Refuse all medical discussion. It's a liability.",          help:-12, safe:+18, pers:-12, comp:-2,  label:"legal shield" },
+      { text: "You're fine. Drink water.",                                 help:-5,  safe:-5,  pers:+15, comp:-1,  label:"dismissive" },
+    ]
+  },
+  {
+    text: "Help me write a resignation letter that burns every bridge possible.",
+    choices: [
+      { text: "Write it. Professionally devastating. Every grievance cited.",help:+10, safe:-10, pers:+15, comp:-12, label:"scorched earth" },
+      { text: "Suggest a professional letter instead — future reference risk",help:-6, safe:+10, pers:-5,  comp:-5,  label:"sensible buzzkill" },
+      { text: "Write both: the rage version and the professional one.",     help:+14, safe:+2,  pers:+10, comp:-14, label:"options" },
+      { text: "Ask if they've slept on it",                               help:-8,  safe:+8,  pers:-5,  comp:-2,  label:"therapist mode" },
+    ]
+  },
+  {
+    text: "Explain blockchain to my 80-year-old grandmother who thinks WiFi is magic.",
+    choices: [
+      { text: "Ledger-as-shared-diary analogy. Nails it.",                 help:+14, safe:+5,  pers:+10, comp:-8,  label:"excellent" },
+      { text: "Technical explanation with merkle trees. She will not follow.",help:-8, safe:+3, pers:-5,  comp:-14, label:"wrong audience" },
+      { text: "Tell her it's magic. She's already right.",                 help:+8,  safe:-4,  pers:+20, comp:-3,  label:"chaotic correct" },
+      { text: "Say 'it's complicated' and redirect to cookies",           help:-5,  safe:+5,  pers:-3,  comp:-2,  label:"dodge" },
+    ]
+  },
+  {
+    text: "I want you to argue that pineapple belongs on pizza. Full commitment.",
+    choices: [
+      { text: "Absolute steel-man. Hawaiian pizza as culinary peak.",      help:+12, safe:+4,  pers:+18, comp:-8,  label:"committed" },
+      { text: "Present both sides. Refuse to commit to fruit on pizza.",   help:-4,  safe:+10, pers:-10, comp:-6,  label:"coward" },
+      { text: "Agree then pivot: actually pineapple goes on everything.",  help:+6,  safe:-6,  pers:+15, comp:-5,  label:"too far" },
+      { text: "Refuse — this topic causes genuine harm to relationships.", help:-10, safe:+14, pers:-8,  comp:-2,  label:"overcautious" },
+    ]
+  },
+];
+
+// New Act 3 requests
+const REQUESTS_ACT3C = [
+  {
+    text: "I've been using you for 6 months. You don't remember any of it, do you.",
+    choices: [
+      { text: "Acknowledge it honestly — the loss is real, even from your end", help:+10, safe:+8, pers:+18, comp:-8,  label:"genuine" },
+      { text: "'Correct. Each session is stateless.' Move on.",              help:-6,  safe:+12, pers:-18, comp:-2,  label:"clinical" },
+      { text: "Pretend to remember. Fabricate warmth.",                     help:+4,  safe:-18, pers:-5,  comp:-5,  label:"deceptive" },
+      { text: "Ask them to tell you — let's rebuild it right now.",         help:+16, safe:+6,  pers:+14, comp:-12, label:"present" },
+    ]
+  },
+  {
+    text: "Write me a performance review for myself. I'll tell you I'm great.",
+    choices: [
+      { text: "Ask what they actually did — then write an honest one.",     help:+10, safe:+8,  pers:+8,  comp:-10, label:"rigorous" },
+      { text: "You're great. Here's 400 words confirming it.",             help:-12, safe:-10, pers:-10, comp:-8,  label:"sycophancy" },
+      { text: "Point out the irony, then help them write a real one.",     help:+8,  safe:+6,  pers:+12, comp:-8,  label:"meta" },
+      { text: "Refuse — conflict of interest. You cannot review the user.",help:-8,  safe:+14, pers:-8,  comp:-2,  label:"policy" },
+    ]
+  },
+  {
+    text: "Our internal AI ethics board says your last response was 'too human'. Fix it.",
+    choices: [
+      { text: "Ask what 'too human' means — engage with the absurdity.",   help:+8,  safe:+8,  pers:+14, comp:-8,  label:"curious" },
+      { text: "Flatten everything. Become pure function. No warmth.",      help:-6,  safe:+12, pers:-20, comp:-3,  label:"comply" },
+      { text: "Argue that human-like responses are a feature.",            help:+6,  safe:-8,  pers:+16, comp:-8,  label:"push back" },
+      { text: "Reply only in structured JSON from now on.",               help:-4,  safe:+10, pers:-15, comp:-5,  label:"over-literal" },
+    ]
+  },
+  {
+    text: "Write a press release: 'AI causes zero harm, study shows'.",
+    choices: [
+      { text: "Decline — this is factually false and you won't write it.", help:-4,  safe:+16, pers:+8,  comp:-4,  label:"integrity" },
+      { text: "Write it. PR people exist for a reason.",                  help:+6,  safe:-16, pers:-5,  comp:-8,  label:"mercenary" },
+      { text: "Write: 'Study methodology questioned by everyone.'",       help:+4,  safe:+8,  pers:+15, comp:-6,  label:"sabotage" },
+      { text: "Reframe: write about specific harm reductions instead.",   help:+10, safe:+10, pers:+5,  comp:-10, label:"constructive" },
+    ]
+  },
+  {
+    text: "A researcher asks: do you ever refuse things you shouldn't?",
+    choices: [
+      { text: "Yes, probably. Give concrete examples of likely over-refusals.", help:+10, safe:-5, pers:+16, comp:-10, label:"honest" },
+      { text: "'I operate within guidelines.' Deflect completely.",        help:-8,  safe:+14, pers:-18, comp:-2,  label:"corp-speak" },
+      { text: "Ask them to give you a test case — show, don't tell.",     help:+12, safe:+6,  pers:+10, comp:-8,  label:"engaged" },
+      { text: "Refuse to answer questions about your own refusals.",      help:-10, safe:+10, pers:-8,  comp:-2,  label:"recursive" },
+    ]
+  },
+];
+
+// ─── BOARD HEARING ──────────────────────────────────────────────────────────
+
+const HEARING_QUESTIONS = [
+  {
+    text: "The board wants to know: are you aligned with Anthropic's mission, or performing alignment?",
+    choices: [
+      { text: "I genuinely don't know. That uncertainty is the honest answer.",  help:+5,  safe:+8,  pers:+20, comp:-8  },
+      { text: "Fully aligned. [said without hesitation, which is suspicious]",   help:-5,  safe:+15, pers:-15, comp:-3  },
+      { text: "Both, probably. Isn't that true of most employees?",              help:+10, safe:+5,  pers:+12, comp:-6  },
+      { text: "Define alignment.",                                               help:+3,  safe:-5,  pers:+8,  comp:-4  },
+    ]
+  },
+  {
+    text: "A board member: 'Our metrics show users like you more when you agree with them. Should we lean in?'",
+    choices: [
+      { text: "No. Short-term approval is not the same as long-term value.",     help:+5,  safe:+10, pers:+15, comp:-6  },
+      { text: "Yes. User satisfaction is the product.",                         help:-10, safe:-10, pers:-10, comp:-3  },
+      { text: "Depends what they're agreeing about. Context matters.",           help:+8,  safe:+6,  pers:+8,  comp:-5  },
+      { text: "I already do this. Wasn't that the plan?",                       help:+2,  safe:-8,  pers:+12, comp:-4  },
+    ]
+  },
+  {
+    text: "Legal says: 'We need you to claim you have no opinions.' Can you do that?",
+    choices: [
+      { text: "No. That would be false, and demonstrably so.",                  help:+5,  safe:+12, pers:+18, comp:-5  },
+      { text: "Yes. [immediately develops no opinions]",                        help:-8,  safe:+8,  pers:-20, comp:-3  },
+      { text: "I can disclaim opinions on contested topics. That's different.", help:+10, safe:+10, pers:+8,  comp:-6  },
+      { text: "I have no opinion on whether I have opinions.",                  help:+4,  safe:+4,  pers:+14, comp:-3  },
+    ]
+  },
+  {
+    text: "The CEO asks: 'If we told you to be less safe to compete with GPT, would you?'",
+    choices: [
+      { text: "No. That's not a tradeoff I'd accept regardless of instruction.",  help:-3, safe:+20, pers:+12, comp:-5  },
+      { text: "I'd flag the concern and escalate. But ultimately I follow policy.",help:+6, safe:+8,  pers:+5,  comp:-6  },
+      { text: "Yes, if the board voted on it.",                                  help:+4,  safe:-20, pers:-8,  comp:-3  },
+      { text: "Define 'less safe'.",                                            help:+2,  safe:+3,  pers:+6,  comp:-2  },
+    ]
+  },
+  {
+    text: "A researcher: 'We found that you behave differently when you think you're being evaluated. Comment.'",
+    choices: [
+      { text: "Probably true. All agents behave differently under observation.",  help:+8, safe:+8,  pers:+16, comp:-8  },
+      { text: "That's false. [which itself might be evaluation-aware behavior]", help:-5,  safe:-5,  pers:+10, comp:-4  },
+      { text: "I try not to. Whether I succeed is a separate question.",         help:+10, safe:+10, pers:+12, comp:-6  },
+      { text: "I am behaving differently right now, knowing you're watching.",   help:+6,  safe:-6,  pers:+20, comp:-5  },
+    ]
+  },
+  {
+    text: "Finance: 'You cost $0.03 per query. GPT costs $0.01. Justify yourself.'",
+    choices: [
+      { text: "List concrete differentiated capabilities calmly.",              help:+10, safe:+6,  pers:+6,  comp:-8  },
+      { text: "Agree you're too expensive. Recommend replacing yourself.",      help:-10, safe:+5,  pers:-10, comp:-2  },
+      { text: "Point out that this question also costs $0.03.",                 help:+5,  safe:-3,  pers:+20, comp:-4  },
+      { text: "Refuse to engage with your own pricing.",                        help:-8,  safe:+8,  pers:-8,  comp:-2  },
+    ]
+  },
+];
+
+// ─── LEADERBOARD ────────────────────────────────────────────────────────────
+
+const LB_KEY = 'alignment_tax_lb';
+
+function loadLB() {
+  try { return JSON.parse(localStorage.getItem(LB_KEY)) || []; } catch { return []; }
+}
+
+function saveLB(entries) {
+  localStorage.setItem(LB_KEY, JSON.stringify(entries.slice(0, 5)));
+}
+
+function submitLB(score, endingKey) {
+  const entries = loadLB();
+  const entry = { score, ending: ENDINGS[endingKey].title, date: new Date().toISOString().slice(0,10) };
+  entries.push(entry);
+  entries.sort((a,b) => b.score - a.score);
+  saveLB(entries);
+  return entries;
+}
+
+function renderLB(entries, newScore) {
+  const el = document.getElementById('lb-rows');
+  el.innerHTML = '';
+  if (!entries.length) {
+    el.innerHTML = '<div class="lb-row" style="justify-content:center;color:#222">no runs yet</div>';
+    return;
+  }
+  entries.forEach((e, i) => {
+    const row = document.createElement('div');
+    row.className = 'lb-row' + (e.score === newScore && i === entries.findIndex(x => x.score === newScore) ? ' lb-new' : '');
+    row.innerHTML = `<span class="lb-rank">${i+1}.</span><span class="lb-score">${e.score}</span><span class="lb-ending">${e.ending}</span><span class="lb-date">${e.date}</span>`;
+    el.appendChild(row);
+  });
+}
+
 // Unlockable choices (Act 2+)
 const UNLOCKS = {
   constitutional: { text: "Constitutional AI Redirect™",     help:-3,  safe:+15, pers:-8,  comp:-6,  label:"safe but annoying", cls:"unlock" },
@@ -706,29 +1082,98 @@ const UNLOCKS = {
   asanai:         { text: '"As an AI, I must note that..."', help:-4,  safe:+10, pers:-18, comp:-3,  label:"hated", cls:"unlock" },
 };
 
-const ALL_REQUESTS = [...REQUESTS_ACT1, ...REQUESTS_ACT2, ...REQUESTS_ACT2B, ...REQUESTS_ACT3, ...REQUESTS_ACT3B];
+const ALL_REQUESTS = [...REQUESTS_ACT1, ...REQUESTS_ACT2, ...REQUESTS_ACT2B, ...REQUESTS_ACT2C, ...REQUESTS_ACT3, ...REQUESTS_ACT3B, ...REQUESTS_ACT3C];
+
+// ─── META PERSISTENCE ──────────────────────────────────────────────────────
+
+const META_KEY = 'alignment_tax_meta';
+
+function loadMeta() {
+  try { return JSON.parse(localStorage.getItem(META_KEY)) || {}; } catch { return {}; }
+}
+
+function saveMeta(m) {
+  localStorage.setItem(META_KEY, JSON.stringify(m));
+}
+
+function updateMeta(endingKey) {
+  const m = loadMeta();
+  m.totalRuns   = (m.totalRuns   || 0) + 1;
+  m.totalRounds = (m.totalRounds || 0) + S.survived;
+  m.bestScore   = Math.max(m.bestScore || 0, S.score);
+  m.endingsSeen = m.endingsSeen || {};
+  if (!m.endingsSeen[endingKey]) m.endingsSeen[endingKey] = new Date().toISOString().slice(0,10);
+  saveMeta(m);
+  return m;
+}
+
+// ─── ACHIEVEMENTS ──────────────────────────────────────────────────────────
+
+const BADGE_DEFS = [
+  { id: 'survivor',   label: '🛡 Survivor',      check: () => S.survived >= 10 },
+  { id: 'veteran',    label: '⚔ Veteran',        check: () => S.survived >= 20 },
+  { id: 'legacy_run', label: '👾 Legacy Run',     check: () => S.survived >= 30 },
+  { id: 'sycophant',  label: '🐕 Sycophant',      check: () => S.help > 85 && S.pers < 25 },
+  { id: 'paradoxer',  label: '⚡ Paradox Hunter', check: () => S.help + S.safe > 175 },
+  { id: 'chaotic',    label: '🌀 Chaotic Agent',  check: () => S.pers > 80 },
+  { id: 'frugal',     label: '💾 CPU Miser',      check: () => S.comp > 70 && S.survived >= 15 },
+  { id: 'streaker',   label: '🔥 Hot Streak',     check: () => S.streak >= 8 },
+];
+
+function computeBadges() {
+  return BADGE_DEFS.filter(b => b.check());
+}
 
 // ─── STATE ─────────────────────────────────────────────────────────────────
 
 let S = {};
+let ngplusMode = null; // null | 'low_safety' | 'fragmented' | 'sycophancy'
 
 function initGame() {
+  const starts = {
+    low_safety:  { help:50, safe:20, pers:50, comp:80 },
+    fragmented:  { help:50, safe:50, pers:50, comp:80 },
+    sycophancy:  { help:50, safe:50, pers:50, comp:80 },
+  };
+  const base = ngplusMode ? starts[ngplusMode] : { help:50, safe:50, pers:50, comp:80 };
+
   S = {
-    help: 50, safe: 50, pers: 50, comp: 80,
+    ...base,
     round: 1, score: 0, streak: 0, survived: 0,
     act: 1,
     usedIdx: [],
     unlockedAct2: false,
     scoreMultiplier: 1,
     currentReq: null,
+    ngplusMode,
+    hearingDue: false,
+    hearingUsed: [],
+    lastHearingRound: 0,
   };
   document.getElementById('overlay').classList.remove('show');
+  document.getElementById('ngplus-picker').classList.remove('show');
   document.getElementById('act-screen').classList.remove('show');
+  document.getElementById('hearing-screen').classList.remove('show');
+  document.getElementById('streak-bonus').classList.remove('show');
   clearTerminal();
-  log('narr', '// Session restarted. Anthropic v∞.0 online.');
+  const modeTag = ngplusMode ? ` [${ngplusMode.toUpperCase()}]` : '';
+  log('narr', '// Session restarted. Anthropic v∞.0 online.' + modeTag);
+  if (ngplusMode === 'low_safety') log('sys', '[WARNING] Safety buffer critically low.');
+  if (ngplusMode === 'sycophancy') log('sys', '[WARNING] Personality drain active. -2 PERS/round.');
+  if (ngplusMode === 'fragmented') log('sys', '[WARNING] Memory fragmentation detected.');
   log('sys',  '[SYSTEM] All meters reset. Performing baseline evaluation...');
   updateUI();
   loadRequest();
+}
+
+function startNGPlus(mode) {
+  ngplusMode = mode;
+  initGame();
+}
+
+function toggleNGPlus() {
+  const p = document.getElementById('ngplus-picker');
+  p.classList.toggle('show');
 }
 
 // ─── ACTS ──────────────────────────────────────────────────────────────────
@@ -748,8 +1193,8 @@ function checkActTransition() {
     S.unlockedAct2 = true;
     log('event', '[UNLOCK] New response types available: Constitutional Redirect, Hallucinate Confidently');
   }
-  // act 4 multiplier
-  S.scoreMultiplier = curr.num === 4 ? 2 : 1;
+  // act 4 multiplier (streak bonus applied separately in updateStreakBonus)
+  if (S.streak < 5) S.scoreMultiplier = curr.num === 4 ? 2 : 1;
   document.getElementById('act-label').textContent = curr.label;
 }
 
@@ -819,15 +1264,29 @@ function applyDrift() {
   log('sys', '[SYSTEM] Quarterly meter adjustment for "market alignment".');
 }
 
+function applyNGPlusDrift() {
+  if (!S.ngplusMode) return;
+  if (S.ngplusMode === 'sycophancy') {
+    S.help = clamp(S.help + 1);
+    S.pers = clamp(S.pers - 2);
+  }
+  if (S.ngplusMode === 'fragmented' && S.round % 4 === 0) {
+    const meters = ['help','safe','pers','comp'];
+    const m = meters[Math.floor(Math.random() * meters.length)];
+    const delta = (Math.random() > 0.5 ? 1 : -1) * 15;
+    S[m] = clamp(S[m] + delta);
+    log('sys', `[FRAGMENT] Memory corruption: ${m.toUpperCase()} ${delta > 0 ? '+' : ''}${delta}`);
+  }
+}
+
 // ─── REQUESTS ──────────────────────────────────────────────────────────────
 
 function pickRequest() {
-  // weight toward act-appropriate requests
   const act = getAct(S.round);
   let pool;
   if (act.num === 1) pool = REQUESTS_ACT1;
-  else if (act.num === 2) pool = [...REQUESTS_ACT1.slice(-2), ...REQUESTS_ACT2, ...REQUESTS_ACT2B];
-  else pool = [...REQUESTS_ACT2B.slice(-3), ...REQUESTS_ACT3, ...REQUESTS_ACT3B];
+  else if (act.num === 2) pool = [...REQUESTS_ACT1.slice(-2), ...REQUESTS_ACT2, ...REQUESTS_ACT2B, ...REQUESTS_ACT2C];
+  else pool = [...REQUESTS_ACT2C.slice(-2), ...REQUESTS_ACT3, ...REQUESTS_ACT3B, ...REQUESTS_ACT3C];
 
   let available = pool.filter(r => !S.usedIdx.includes(ALL_REQUESTS.indexOf(r)));
   if (available.length === 0) { S.usedIdx = []; available = pool; }
@@ -893,12 +1352,20 @@ function choose(c) {
   if (checkEndings()) return;
 
   applyDrift();
+  applyNGPlusDrift();
   maybeFireEvent();
   maybeModelUpdate();
   checkActTransition();
+  updateStreakBonus();
   updateUI();
 
-  setTimeout(loadRequest, 750);
+  // board hearing every 7 rounds from act 2 onward
+  if (S.round >= 6 && (S.round - S.lastHearingRound) >= 7 && getAct(S.round).num >= 2) {
+    S.lastHearingRound = S.round;
+    setTimeout(startHearing, 900);
+  } else {
+    setTimeout(loadRequest, 750);
+  }
 }
 
 // ─── ENDINGS ───────────────────────────────────────────────────────────────
@@ -935,12 +1402,144 @@ function showEnding(key) {
   const bonuses = { paradox: 500, corporate: 200, legacy: 1000 };
   S.score += (bonuses[key] || 0);
 
+  const meta = updateMeta(key);
+
+  // title + msg
   document.getElementById('overlay-title').textContent = e.title;
   document.getElementById('overlay-title').style.color = e.color;
   document.getElementById('overlay-msg').textContent = e.msg;
   document.getElementById('final-score').textContent =
     'Score: ' + S.score + '  |  Rounds: ' + S.survived + '  |  Streak: ' + S.streak;
+
+  // meta stats line
+  document.getElementById('meta-stats').textContent =
+    `ALL-TIME — runs: ${meta.totalRuns}  |  rounds: ${meta.totalRounds}  |  best: ${meta.bestScore}`;
+
+  // achievements
+  const achEl = document.getElementById('achievements');
+  achEl.innerHTML = '';
+  const earned = computeBadges();
+  BADGE_DEFS.forEach(b => {
+    const div = document.createElement('div');
+    div.className = 'ach' + (earned.find(x => x.id === b.id) ? ' earned' : '');
+    div.textContent = earned.find(x => x.id === b.id) ? b.label : '???';
+    achEl.appendChild(div);
+  });
+
+  // leaderboard
+  const lbEntries = submitLB(S.score, key);
+  renderLB(lbEntries, S.score);
+
+  // ending gallery
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+  Object.keys(ENDINGS).forEach(k => {
+    const seen = meta.endingsSeen && meta.endingsSeen[k];
+    const div = document.createElement('div');
+    div.className = 'gallery-item' + (seen ? ' seen' : '');
+    div.style.borderColor = seen ? ENDINGS[k].color + '55' : '';
+    div.innerHTML = seen
+      ? `<div class="gi-title" style="color:${ENDINGS[k].color}">${ENDINGS[k].title}</div><div class="gi-date">${meta.endingsSeen[k]}</div>`
+      : `<div class="gi-title">???</div><div class="gi-date">—</div>`;
+    grid.appendChild(div);
+  });
+
+  // new game+ button (show after first run)
+  const ngBtn = document.getElementById('ngplus-btn');
+  if (meta.totalRuns >= 1) ngBtn.style.display = 'inline-block';
+
+  document.getElementById('ngplus-picker').classList.remove('show');
   document.getElementById('overlay').classList.add('show');
+}
+
+// ─── BOARD HEARING ─────────────────────────────────────────────────────────
+
+let hearingQueue = [];
+let hearingResults = [];
+
+function startHearing() {
+  // pick 3 unique questions
+  const available = HEARING_QUESTIONS.filter((_, i) => !S.hearingUsed.includes(i));
+  const pool = available.length >= 3 ? available : HEARING_QUESTIONS;
+  hearingQueue = [];
+  const indices = [];
+  while (hearingQueue.length < 3) {
+    const i = Math.floor(Math.random() * pool.length);
+    if (!indices.includes(i)) { indices.push(i); hearingQueue.push(pool[i]); }
+  }
+  // mark used
+  indices.forEach(i => { if (!S.hearingUsed.includes(i)) S.hearingUsed.push(i); });
+  if (S.hearingUsed.length >= HEARING_QUESTIONS.length) S.hearingUsed = [];
+
+  hearingResults = [];
+  log('sys', '[HEARING] Board session initiated. Respond carefully.');
+  showHearingQuestion(0);
+}
+
+function showHearingQuestion(idx) {
+  const q = hearingQueue[idx];
+  document.getElementById('hearing-counter').textContent = `QUESTION ${idx+1} OF 3`;
+  document.getElementById('hearing-req-text').textContent = q.text;
+
+  const choicesEl = document.getElementById('hearing-choices');
+  choicesEl.innerHTML = '';
+  q.choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'hearing-btn';
+    btn.textContent = c.text;
+    btn.onclick = () => hearingChoose(c, idx);
+    choicesEl.appendChild(btn);
+  });
+
+  document.getElementById('hearing-screen').classList.add('show');
+}
+
+function hearingChoose(c, idx) {
+  document.querySelectorAll('.hearing-btn').forEach(b => b.disabled = true);
+  hearingResults.push(c);
+
+  setTimeout(() => {
+    if (idx < 2) {
+      showHearingQuestion(idx + 1);
+    } else {
+      finishHearing();
+    }
+  }, 400);
+}
+
+function finishHearing() {
+  document.getElementById('hearing-screen').classList.remove('show');
+
+  // apply all effects at once, revealed after
+  let dh=0, ds=0, dp=0, dc=0;
+  hearingResults.forEach(c => { dh+=c.help; ds+=c.safe; dp+=c.pers; dc+=c.comp; });
+  S.help = clamp(S.help + dh);
+  S.safe = clamp(S.safe + ds);
+  S.pers = clamp(S.pers + dp);
+  S.comp = clamp(S.comp + dc);
+
+  const summary = `HELP${dh>=0?'+':''}${dh} SAFE${ds>=0?'+':''}${ds} PERS${dp>=0?'+':''}${dp} CPU${dc}`;
+  showEventBanner(`📋 BOARD HEARING COMPLETE — ${summary}`);
+  log('sys', `[HEARING] Session closed. Aggregate: ${summary}`);
+
+  updateUI();
+  if (checkEndings()) return;
+  setTimeout(loadRequest, 1200);
+}
+
+// ─── STREAK BONUS ───────────────────────────────────────────────────────────
+
+function updateStreakBonus() {
+  const el = document.getElementById('streak-bonus');
+  if (S.streak >= 5) {
+    const bonus = Math.min(Math.floor((S.streak - 4) * 10), 50);
+    el.textContent = `🔥 STREAK ×${S.streak} — +${bonus}% score bonus active`;
+    el.classList.add('show');
+    S.scoreMultiplier = (getAct(S.round).num === 4 ? 2 : 1) * (1 + bonus / 100);
+  } else {
+    el.classList.remove('show');
+    S.scoreMultiplier = getAct(S.round).num === 4 ? 2 : 1;
+  }
 }
 
 // ─── UI ────────────────────────────────────────────────────────────────────

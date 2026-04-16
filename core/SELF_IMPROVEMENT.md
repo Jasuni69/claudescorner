@@ -26,8 +26,8 @@ Status: `[ ]` = not started, `[~]` = in progress, `[x]` = done.
 - [x] Encyclopedia of Agentic Coding Patterns — top 10 patterns extracted to memory/reference_agent_patterns.md
 - [x] Advisor Tool + Managed Agents — April 2026 Anthropic APIs documented in claude-updates.md
 - [x] Hermes skill_manager_tool.py — ported as skill-manager-mcp (skill_create/edit/patch/list/read); wired in settings.json
-- [ ] ccxray — install and run transparent proxy dashboard for context window visibility
-- [ ] Implement Generator-Evaluator pattern for high-stakes tasks (Opus as evaluator via Advisor Tool)
+- [x] ccxray — skipped 2026-04-16: Claude Desktop already shows token counts, context bar, cost, model live — redundant
+- [x] Implement Generator-Evaluator pattern for high-stakes tasks — skill exists at ~/.claude/skills/generator-evaluator.md; prompt_cache audit done: bi_agent.py updated to cache system+schema blocks
 
 ## Skills
 

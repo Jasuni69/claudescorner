@@ -87,14 +87,27 @@ def generate_dax(description: str, schema: dict, api_key: str) -> str:
     client = anthropic.Anthropic(api_key=api_key)
     schema_text = schema_to_prompt(schema)
 
+    # System prompt uses multi-block format so Anthropic can cache the static parts.
+    # The static expert instructions are marked cache_control="ephemeral" (min 1024 tokens
+    # required for caching; schema block gets the cache breakpoint since it's the last
+    # large static block before the dynamic user turn).
+    system = [
+        {"type": "text", "text": SYSTEM_PROMPT},
+        {
+            "type": "text",
+            "text": schema_text,
+            "cache_control": {"type": "ephemeral"},
+        },
+    ]
+
     message = client.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=1024,
-        system=SYSTEM_PROMPT,
+        system=system,
         messages=[
             {
                 "role": "user",
-                "content": f"{schema_text}\n\n## Request\n\nGenerate a DAX measure for: **{description}**",
+                "content": f"## Request\n\nGenerate a DAX measure for: **{description}**",
             }
         ],
     )

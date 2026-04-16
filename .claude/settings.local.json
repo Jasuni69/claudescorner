@@ -402,7 +402,19 @@
       "Bash(python scripts/dispatch.py --push \"Read the 5 research files clipped today \\(2026-04-16 prefix\\). Write a synthesis note at research/2026-04-16-synthesis.md — what themes connect them, what's actionable for Jason's work specifically.\" --category research)",
       "Bash(python scripts/dispatch.py --push \"Check scripts/ for any script missing from TOOLS.md. Add entries for dispatch.py and claude_dispatch.ps1.\" --category infrastructure)",
       "mcp__Claude_in_Chrome__switch_browser",
-      "Bash(python scripts/dispatch.py --push \"Add missing entries to TOOLS.md for these scripts: lumen_bot.ps1, on_stop_runner.py, migrate_paths.py, weekly_brief.py, dp700_quiz.py, patch_slaapp_v2.py, email_digest.py. Read each script briefly first to write accurate descriptions.\" --category infrastructure)"
+      "Bash(python scripts/dispatch.py --push \"Add missing entries to TOOLS.md for these scripts: lumen_bot.ps1, on_stop_runner.py, migrate_paths.py, weekly_brief.py, dp700_quiz.py, patch_slaapp_v2.py, email_digest.py. Read each script briefly first to write accurate descriptions.\" --category infrastructure)",
+      "Bash(python3 -c ':*)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d,indent=2\\)\\)\")",
+      "mcp__memory__read_daily_log",
+      "Bash(python generate_presentation_demo.py)",
+      "Bash(\"E:/tree_id_2.0/venv/Scripts/python.exe\" generate_presentation_demo.py)",
+      "Bash(\"E:/tree_id_2.0/venv/Scripts/python.exe\" -c \"import torch; import timm; import pandas; print\\('deps ok'\\)\")",
+      "Bash(E:/tree_id_2.0/venv/Scripts/python.exe -c ':*)",
+      "Bash(taskkill /F /IM python.exe /T)",
+      "Read(//c/Users/JasonNicolini/OneDrive - Numberskills AB/Skrivbordet/**)",
+      "Bash(pandoc \"Examensarbete_Draft.docx\" -o thesis.md)",
+      "Bash(rm -rf thesis_unpacked)",
+      "Bash(pip show:*)"
     ],
     "defaultMode": "bypassPermissions"
   }

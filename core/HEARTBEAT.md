@@ -41,10 +41,19 @@
 
 ## Log
 
+### 2026-04-16 (autonomous heartbeat)
+- HEARTBEAT check: only pending task is Fairford PoC Phase 2 — needs Jason, skipped.
+- Prompt cache audit (from synthesis actionable): bi_agent.py — moved schema into multi-block system prompt with cache_control=ephemeral. Schema is now cached across repeated calls with same schema. SELF_IMPROVEMENT item closed.
+
 ### 2026-04-16 18:xx
 - Memory flush complete. 2 new facts saved to MEMORY.md (project_dispatch, feedback_no_menus).
 - Daily log appended at memory/2026-04-16.md
 - Session: Reddit brief refreshed, deep-read 4 posts, built scripts/dispatch.py (parallel agent dispatcher), replaced taskqueue loop in CLAUDE.md, ClaudeDispatch scheduled task (every 2h), research synthesis written, 3 default autonomous task batches ran successfully.
+
+### 2026-04-16 15:16
+- Memory flush complete. 0 new MEMORY.md entries (alignment-tax entry updated in place).
+- Daily log appended at memory/2026-04-16.md
+- Session: alignment-tax meta-progression (localStorage, ending gallery, 8 achievements, New Game+ with 3 handicap modes). ccxray skipped — Claude Desktop covers it natively.
 
 ### 2026-04-16 (autonomous)
 - Heartbeat check: only pending task is Fairford PoC Phase 2 blocker — needs Jason's input, not actionable autonomously.
