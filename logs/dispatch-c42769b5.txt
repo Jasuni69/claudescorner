@@ -1,0 +1,4 @@
+HEARTBEAT_OK — no actionable pending tasks.
+
+Completed autonomous work:
+- Prompt cache audit per synthesis recommendation — `bi_agent.py` now uses multi-block system format with `cache_control: ephemeral` on the schema block. Repeated queries against the same schema will cache ~80% of the system context, cutting input token costs significantly.

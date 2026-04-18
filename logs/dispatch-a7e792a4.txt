@@ -1,0 +1,6 @@
+Memory hygiene complete. Final state:
+
+- **15 memory files**, all present and verified
+- **4 stale entries fixed:** superpowers "not yet installed" updated; schedule blocker marked resolved
+- **3 new entries added:** fabric-mcp, kpi-monitor, alignment-tax (all were in HEARTBEAT log but unindexed)
+- **Today's daily log updated** with this pass

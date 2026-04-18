@@ -1,0 +1,6 @@
+2 clips written:
+
+- **GenericAgent** — self-evolving 5-layer memory + skill tree, 6x token reduction, direct ENGRAM parallel (proves the architecture at scale, self-bootstrapped)
+- **Cognee** — graph-based agent memory with Claude Code lifecycle hooks and MCP support; graph vs RAG auto-routing; `cognee.improve()` feedback loop aligns with feedback_flywheel.py
+
+Both have concrete ENGRAM relevance noted in the files.

@@ -1,0 +1,9 @@
+Clipped: `research/2026-04-16 Agentic Engineering - Simon Willison on Lennys Podcast.md`
+
+Key signals extracted:
+- **Dark factory pattern** — agents write + review code without human reading (StrongDM model)
+- **Testing is now the bottleneck**, not implementation speed
+- **Parallel agent cognitive load** drains by mid-morning — unsustainable pattern Jason should watch for
+- **Estimation collapse** — 25yr experience no longer calibrated; two-week tasks → 20 min
+
+Reddit was unreachable; HN had no MCP/Fabric signal today. Simon Willison was the highest-value source available.

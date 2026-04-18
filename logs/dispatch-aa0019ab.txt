@@ -1,0 +1,6 @@
+Done. Two clips written:
+
+- **`2026-04-16 Financial AI - Kronos Foundation Model for Financial Time Series.md`** — decoder-only transformer for OHLCV forecasting; agent-callable via KronosPredictor API; Fairford/Fabric integration candidate
+- **`2026-04-16 MCP Tool - TradingView MCP Claude Desktop Financial Analysis.md`** — 30-tool MCP server for Claude Desktop; backtesting, technicals, sentiment, news; no API keys; good Engram reference implementation for large MCP servers
+
+Both sourced from GitHub trending (Python, weekly). Digest log updated in sources.md.

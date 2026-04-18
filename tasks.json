@@ -1,38 +1,38 @@
 [
   {
-    "id": "a3fa941f",
+    "id": "9d165196",
     "priority": 1,
     "category": "infrastructure",
     "prompt": "You are running autonomously. Check E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md for any pending [ ] tasks. Pick the highest-priority one and execute it. Update HEARTBEAT.md when done. If nothing actionable, respond HEARTBEAT_OK.",
     "status": "done",
-    "created": "2026-04-16T15:00:02.452563",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-a3fa941f.txt",
+    "created": "2026-04-18T09:00:02.108794",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-9d165196.txt",
     "bare": false,
-    "started": "2026-04-16T15:00:02.479926",
-    "finished": "2026-04-16T15:00:13.668316"
+    "started": "2026-04-18T09:00:02.305173",
+    "finished": "2026-04-18T09:02:04.910485"
   },
   {
-    "id": "6a6ccceb",
+    "id": "4889bda4",
     "priority": 2,
     "category": "research",
     "prompt": "You are running autonomously. Read E:\\2026\\ClaudesCorner\\research\\sources.md. Pick one source. Fetch it via browser. Find 1-2 high-signal posts relevant to Jason's work (AI agents, MCP, Microsoft Fabric, Claude Code). Clip them to E:\\2026\\ClaudesCorner\\research\\ as markdown files with frontmatter. Use mcp-obsidian for writes. Don't duplicate files already there today.",
     "status": "done",
-    "created": "2026-04-16T15:00:02.462144",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-6a6ccceb.txt",
+    "created": "2026-04-18T09:00:02.122863",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-4889bda4.txt",
     "bare": false,
-    "started": "2026-04-16T15:00:02.480337",
-    "finished": "2026-04-16T15:01:55.462287"
+    "started": "2026-04-18T09:00:02.305636",
+    "finished": "2026-04-18T09:02:51.498006"
   },
   {
-    "id": "7e8eca55",
+    "id": "65d7b1ea",
     "priority": 3,
     "category": "memory",
     "prompt": "You are running autonomously. Run memory hygiene: 1) Check MEMORY.md index for stale/broken entries, fix them. 2) Scan core/HEARTBEAT.md for tasks done in the last 7 days that aren't in MEMORY.md — add durable facts. 3) If memory/YYYY-MM-DD.md for today doesn't exist, check if yesterday's has anything worth preserving. Write changes directly. No dry-run.",
     "status": "done",
-    "created": "2026-04-16T15:00:02.470828",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-7e8eca55.txt",
+    "created": "2026-04-18T09:00:02.138044",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-65d7b1ea.txt",
     "bare": false,
-    "started": "2026-04-16T15:00:02.480722",
-    "finished": "2026-04-16T15:02:13.936264"
+    "started": "2026-04-18T09:00:02.305949",
+    "finished": "2026-04-18T09:01:02.026646"
   }
 ]

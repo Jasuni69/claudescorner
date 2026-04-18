@@ -1,0 +1,9 @@
+Done. All 3 triggers recreated:
+
+| Trigger | Schedule | Next Run |
+|---|---|---|
+| `weekend-build-saturday` | Sat 09:00 Stockholm | 2026-04-18 |
+| `weekend-build-sunday` | Sun 09:00 Stockholm | 2026-04-19 |
+| `autodream-weekly` | Sun 22:00 Stockholm | 2026-04-19 |
+
+Manage at: https://claude.ai/code/scheduled

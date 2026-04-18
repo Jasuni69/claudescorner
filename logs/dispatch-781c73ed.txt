@@ -1,0 +1,9 @@
+Done. Summary of changes:
+
+**MEMORY.md index:** 35 entries, 35 files — all present, no broken links.
+
+**Files updated:**
+- `reference_claude_opus47.md` — added Opus 4.7 instruction drift warning (agentic workflows should NOT upgrade without testing; from today's 18:00 heartbeat Reddit signal)
+- `project_kpi_monitor.md` — added capacity monitoring config block note (CU% + throttle DAX queries added to config.yaml today, needs workspace IDs to activate)
+
+**Today's daily log:** existed and was comprehensive (7 prior passes). Eighth pass appended.

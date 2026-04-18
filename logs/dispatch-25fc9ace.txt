@@ -1,0 +1,3 @@
+Clipped: `2026-04-17 Agent Infra - Is Your Site Agent-Ready Cloudflare MCP Discovery Standards.md`
+
+Source: `isitagentready.com` (HN #24, 27pts). Covers MCP/WebMCP/Agent Skills/OAuth as the five-dimension agent-readiness rubric Cloudflare now scores sites on. Directly validates fabric-mcp, skill-manager-mcp, and ENGRAM architecture choices. Digest log updated.

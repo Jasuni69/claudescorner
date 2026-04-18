@@ -1,0 +1,4 @@
+2 clips written:
+
+- **OpenAI Agents SDK** — provider-agnostic, MCP-native, Sandbox Agent primitive with persistent filesystem state. Supports Claude via LiteLLM. Relevant as ENGRAM contrast + MCP server validation path.
+- **OpenSRE** — AI SRE incident investigation agent; 40-tool observability layer, adversarial RCA eval suite, Anthropic-native. Upgrade path for kpi_monitor.py if Fabric pipelines need root-cause agents.

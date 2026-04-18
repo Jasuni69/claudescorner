@@ -1,0 +1,5 @@
+Done. Two clips written:
+
+1. **Cloudflare Artifacts** (HN 152pts) — Git-native versioned storage built for agents. Zig/WASM git impl on Durable Objects. Per-session repo provisioning, ArtifactFS lazy hydration. Directly applicable to ENGRAM session-state versioning and parallel dispatcher audit trails.
+
+2. **Kampala YC W26** (HN 69pts) — MITM proxy that records any app's network traffic and exposes it as MCP tools. Targets legacy enterprise systems with no public API — exactly Fairford/Clementine territory. Power BI admin endpoints that aren't in the REST docs become Claude-callable without custom SDK work.

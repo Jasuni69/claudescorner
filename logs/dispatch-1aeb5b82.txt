@@ -1,0 +1,5 @@
+Clipped: **MarkItDown** (`microsoft/markitdown`, 110k stars).
+
+Key signal: it ships an MCP server, supports Azure Document Intelligence, and converts PDF/Excel/Word/PPT to clean Markdown. Direct drop-in for Fabric notebook pipelines before Claude API calls — and Fairford-safe given Microsoft provenance.
+
+File: `research/2026-04-16 Microsoft Tool - MarkItDown Document to Markdown MCP Server.md`

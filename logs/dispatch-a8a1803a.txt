@@ -1,0 +1,11 @@
+Done. Summary of changes:
+
+**Fixed (stale):**
+- `project_engram.md` — "8 tools" → "10 tools" with upgrade details (2026-04-16 HEARTBEAT log showed memory-mcp upgrade was applied to ENGRAM but memory file wasn't updated)
+- `MEMORY.md` index — ENGRAM entry updated to match
+
+**Verified clean:**
+- All 24 memory files present and indexed
+- Today's `memory/2026-04-16.md` already existed with 9 prior passes — appended tenth pass summary
+- No broken links found
+- No missing entries from last 7 days of HEARTBEAT activity (previous passes already captured everything)

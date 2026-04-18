@@ -1,0 +1,7 @@
+Two clips written to `research/`:
+
+1. **`2026-04-17 Dev Tooling - llm-anthropic 0.25...`** — Willison's plugin release adding `claude-opus-4.7`, `thinking_effort: xhigh`, `thinking_display` flag, and a `max_tokens` fix that means previous calls were silently truncated.
+
+2. **`2026-04-17 Local Inference - Qwen3.6-35B-A3B...`** — Qwen MoE model (3.6B active params) outperforms Opus 4.7 on SVG generation running locally; relevant to cost-tiered agent architectures and the Darkbloom local-inference pattern.
+
+Digest log updated. Source: Simon Willison's blog (simonwillison.net).

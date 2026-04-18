@@ -1,0 +1,5 @@
+Digest Run 4 complete. 8 new clips processed into `research/2026-04-17-synthesis.md` (source count 3→11). Top actionable items:
+
+- **High**: lazy-tool discovery pattern → formalize `skill_search`-first in skill-manager; wire `markitdown-mcp` into settings.json
+- **Medium**: GenericAgent's 5-layer memory as ENGRAM reference; Cognee Claude Code plugin for session memory capture via PostToolUse hook
+- **Low**: Track Cloudflare Artifacts public beta (May 2026) for parallel dispatch isolation

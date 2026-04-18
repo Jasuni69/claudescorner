@@ -103,7 +103,7 @@ def run_task(task: dict) -> tuple[str, bool, str]:
         env.pop(var, None)
 
     try:
-        cmd = [CLAUDE, "--dangerously-skip-permissions", "-p", task["prompt"], "--output-format", "text"]
+        cmd = [CLAUDE, "--permission-mode", "auto", "-p", task["prompt"], "--output-format", "text"]
         if task.get("bare"):
             cmd.insert(1, "--bare")
         proc = subprocess.run(

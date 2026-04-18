@@ -1,0 +1,6 @@
+Done. Summary of changes:
+
+- **Fixed**: `reference_superpowers.md` was on disk but missing from MEMORY.md index — added (index now 31 entries)
+- **Updated**: `project_clementine_hybrid_pattern.md` — added build specifics (clementine package 0.1.0, 24 silver_v2_notebooks, 19% perf, Bronze blocker resolved) that were in HEARTBEAT but not in memory
+- **Created**: `memory/2026-04-17.md` — today's daily log
+- No broken links, no stale entries found beyond those two

@@ -1,0 +1,8 @@
+Memory hygiene complete.
+
+**Changes made:**
+- Added `project_engram.md` — ENGRAM open-source kit (`github.com/Jasuni69/engram`) was in git status but missing from index
+- Added `reference_dp700.md` — DP-700 Fabric exam notes at `ms-certifications/dp-700/` also missing
+- MEMORY.md index: 15 → 17 entries
+- All existing entries verified intact — no stale/broken links found
+- Today's daily log already existed with 3 prior passes documented; appended fourth pass

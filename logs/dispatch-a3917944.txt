@@ -1,0 +1,9 @@
+Done. Summary of changes:
+
+1. **Fixed broken link** — `MEMORY.md` index had `governance.md` pointing to a nonexistent file; created `project_memory_governance.md` in the auto-memory dir and updated the index link.
+
+2. **Added missing entry** — `project_memory_mcp.md` for `projects/memory-mcp/server.py` (core infrastructure, was unindexed despite being active since early sessions; includes the `get_stale_docs` addition from 2026-04-15).
+
+3. **Appended to today's daily log** — fifth hygiene pass recorded.
+
+MEMORY.md index is now at 21 entries, all files verified present.

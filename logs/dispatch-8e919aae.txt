@@ -1,0 +1,9 @@
+Done. Summary of changes:
+
+- **3 new memory files** written:
+  - `project_skill_manager_mcp.md` — skill-manager MCP server + direct invocation pattern
+  - `project_infra_hooks.md` — PostToolUse/PostCompact/on_stop.py hook inventory
+  - `project_schedule_blocker.md` — /schedule service broken, path mismatch, needs recreation
+- **MEMORY.md index** updated with concise entries for all 3
+- **memory/2026-04-16.md** created (didn't exist)
+- No stale/broken existing entries found — all 8 prior files present and accurate

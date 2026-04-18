@@ -1,0 +1,6 @@
+Memory hygiene complete. Summary:
+
+- **Index vs disk:** 35 entries, 35 files — perfect match, no broken links
+- **New fact promoted:** OneLake RLS/CLS thread (Fairford-relevant) added to `project_clementine_hybrid_pattern.md`
+- **Already covered:** Opus 4.7 instruction drift, kpi-monitor capacity block, markitdown-mcp, dispatch.py, skill-manager v2 — all had been promoted in earlier passes today
+- **Today's daily log:** exists, comprehensive (9 passes), no gaps

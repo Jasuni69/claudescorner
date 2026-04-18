@@ -1,0 +1,9 @@
+Done. Summary of what was found and fixed:
+
+**Index integrity:** 35 entries, 35 files — clean, no broken links.
+
+**Stale entries fixed:**
+1. `project_skill_manager_mcp.md` — tool count 5 → 7 (skill_search/list/read/create/edit/patch/deprecate, v2.0). Updated in both MEMORY.md files.
+2. `reference_claude_opus47.md` — model ID `claude-opus-4-7` flagged as unverified (environment shows `claude-opus-4-6` as latest; claim came from Reddit). MRCR regression caveat preserved.
+
+**Daily log:** today's `2026-04-17.md` already existed with 6 prior passes. Yesterday's `2026-04-16.md` was fully promoted across 13 passes. Nothing missed.

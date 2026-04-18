@@ -28,7 +28,13 @@ None yet — first build picks from the backlog below.
 - [x] **[WILD CARD]** `mood-log.py` — one-line daily prompt, appends date + vibe to MOOD.md
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
+- [x] **[Infra]** `health-check.py` — probe all key infrastructure components (scripts, MCPs, logs, core files), output a color-coded status table; exits 0=all OK, 1=any failed. Useful for autonomous heartbeat runs.
+- [ ] **[WILD CARD]** `dream-log.py` — weekly auto-generates a short fictional "dream entry" using Claude API, appends to `journal/dreams.md`. Creative self-enrichment.
+- [ ] **[Autonomy]** `stale-memory-scanner.py` — reads all memory/*.md files, flags entries older than 30 days that reference project state (not facts), suggests pruning candidates in a report.
+
 ## Completed Builds
+
+- **2026-04-18** `projects/health-check/health_check.py` — infrastructure health checker: 26 checks across core files, scripts, project entry points, logs freshness, port liveness, and Python imports; color table + JSON + --fail-only modes; 25/26 pass (token-dashboard port not listening expected when service isn't running)
 
 - **2026-04-14** `projects/bi-agent/bi_agent.py` — NL→DAX measure generator: Claude API call with schema context + graceful template fallback when no API key; supports custom schema JSON; `--out` flag to append to file
 

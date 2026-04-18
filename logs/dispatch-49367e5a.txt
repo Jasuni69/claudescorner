@@ -1,0 +1,6 @@
+Two new clips added:
+
+- **`2026-04-16 Agent Security - Agent Armor Rust Runtime for AI Agent Governance.md`** — Rust/Axum MCP proxy with 8-layer governance pipeline. Drop-in audit layer for Claude Code sessions touching production (directly relevant to Clementine/Fabric work).
+- **`2026-04-16 Dev Workflow - RIP Pull Requests AI Shifts Code Review Paradigm.md`** — GitHub enables PR-disable; "prompt requests" as the emerging review primitive; connects to Agent Armor as the governance answer in a post-PR world.
+
+Digest log updated in `sources.md`.

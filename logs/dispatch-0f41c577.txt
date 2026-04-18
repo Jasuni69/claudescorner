@@ -1,0 +1,7 @@
+Done. Two clips written to `research/`:
+
+1. **`2026-04-17 MCP Tooling - lazy-tool...`** — search-before-invoke MCP proxy. Single Go binary, SQLite catalog, −46% tokens, −32% latency with 47 tools → 5 in context. Directly relevant to Jason's 10+ MCP server setup.
+
+2. **`2026-04-17 Agent Tooling - Android CLI...`** — Google's agent-optimized Android CLI. The token/speed numbers (70%/3x) are secondary; the **design pattern** is the signal: minimal agent-facing surface dramatically outperforms exposing full tool APIs. Applied takeaway logged for fabric-mcp design.
+
+Both added to the `sources.md` digest log under 2026-04-17.

@@ -1,0 +1,7 @@
+Done. Two clips written:
+
+- **`2026-04-18-awesome-copilot.md`** — GitHub's 30k-star community skill/agent/hook repo. Skill format converges with `anthropics/skills` + APM manifest. Hook examples = free pattern library for settings.json. MCP-wiring docs directly applicable to skill-manager-mcp.
+
+- **`2026-04-18-chandra-ocr.md`** — Best OCR model available (scanned PDFs, complex tables, handwriting, 90+ languages → Markdown/JSON). Python SDK + vLLM. Fills the exact gap markitdown-mcp has with non-digital-native Fabric data. Practical path: add `convert_scanned` tool to markitdown-mcp.
+
+Synthesis and digest log updated.

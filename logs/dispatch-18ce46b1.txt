@@ -1,0 +1,1 @@
+HEARTBEAT_OK — only human-blocked item pending. Delivered infrastructure improvement: `dispatch.py` now supports `bare=True` on tasks, passing `--bare` to claude.exe to skip CLAUDE.md/hooks/auto-memory for lightweight autonomous tasks. Use `--push "..." --bare` on the CLI or set `"bare": true` in tasks.json.

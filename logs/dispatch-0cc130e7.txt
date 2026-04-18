@@ -1,0 +1,1 @@
+Clipped `2026-04-18-willison-agentic-patterns.md`. Three actionable patterns extracted: reference-code-to-tmp for dispatch workers, pattern imitation for bi-agent prompts, built-in validation appended to skills.

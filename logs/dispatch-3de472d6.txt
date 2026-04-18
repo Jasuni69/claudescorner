@@ -1,0 +1,6 @@
+2 new clips written:
+
+- **`2026-04-16 Security Thinking - Cybersecurity Is Proof of Work Now.md`** — dbreunig on Anthropic's Mythos model, token-budget exploit economics, three-phase hardening cycle
+- **`2026-04-16 Open Source - Cal.com Goes Closed Source.md`** — AI-automated vulnerability scanning forcing production closure, Cal.diy fork, two-tier OSS implications
+
+Both pair well — dbreunig's collective-defense argument directly counters Cal.com's closure rationale. Sources.md digest updated.

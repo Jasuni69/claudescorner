@@ -8,12 +8,20 @@ dataset_id: "YOUR_DATASET_ID"
 tenant_id: ""
 client_id: ""
 
+# Fabric Capacity Monitoring (separate workspace/dataset)
+# Point to the "Fabric Capacity Metrics" app workspace.
+# Capacity dataset is auto-provisioned; find its ID in the Fabric portal.
+# DAX queries below target the CapacityUsageByArtifact table in that dataset.
+capacity_workspace_id: "YOUR_CAPACITY_METRICS_WORKSPACE_ID"
+capacity_dataset_id: "YOUR_CAPACITY_METRICS_DATASET_ID"
+
 kpis:
   - name: "Daily Revenue"
     dax: "EVALUATE ROW(\"Value\", [Total Revenue])"
     threshold: 50000
     direction: above   # alert if value FALLS below threshold
     unit: "SEK"
+    # spike_ignore_runs: 0  # alert on first breach (default)
 
   - name: "Open Invoices"
     dax: "EVALUATE ROW(\"Value\", COUNTROWS(Invoices))"
@@ -32,3 +40,51 @@ kpis:
     threshold: 100
     direction: above
     unit: "count"
+
+  # Example: SQL Analytics Endpoint CU spike — debounce 2 runs before alerting
+  # Uncomment and set correct workspace/dataset IDs to enable.
+  # - name: "SQL Endpoint CU% (Last Hour)"
+  #   dax: |
+  #     EVALUATE ROW("Value", [CU_Pct_Last_Hour])
+  #   threshold: 80
+  #   direction: below   # alert if rises above 80%
+  #   unit: "%"
+  #   spike_ignore_runs: 2  # suppress if breach clears within 2 runs (~2h if run hourly)
+
+# Fabric Capacity KPIs
+# These use the Capacity Metrics dataset (set capacity_workspace_id/capacity_dataset_id above).
+# Uncomment and set the correct IDs to enable capacity monitoring.
+#
+# capacity_kpis:
+#   - name: "CU% (Last Hour)"
+#     # Aggregates CU seconds used in last 60 min and compares to capacity CU seconds (F-SKU dependent)
+#     dax: |
+#       EVALUATE
+#       ROW(
+#         "Value",
+#         DIVIDE(
+#           CALCULATE(
+#             SUM(CapacityUsageByArtifact[CUSeconds]),
+#             CapacityUsageByArtifact[TimeSlot] >= NOW() - (1/24)
+#           ),
+#           [CapacityAvailableCUSeconds],
+#           0
+#         ) * 100
+#       )
+#     threshold: 80
+#     direction: below   # alert if CU% RISES above 80%
+#     unit: "%"
+#
+#   - name: "Throttle Events (Last Hour)"
+#     dax: |
+#       EVALUATE
+#       ROW(
+#         "Value",
+#         CALCULATE(
+#           COUNTROWS(ThrottlingEvents),
+#           ThrottlingEvents[TimeSlot] >= NOW() - (1/24)
+#         )
+#       )
+#     threshold: 0
+#     direction: below   # alert if any throttle events occur
+#     unit: "count"

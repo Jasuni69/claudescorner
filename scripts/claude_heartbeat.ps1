@@ -39,7 +39,7 @@ $env:CLAUDECODE = $null
 $env:CLAUDE_CODE = $null
 $env:CLAUDE_CODE_ENTRYPOINT = $null
 
-$result = & $claude --dangerously-skip-permissions -p $prompt --output-format text 2>&1
+$result = & $claude --permission-mode auto -p $prompt --output-format text 2>&1
 $exitCode = $LASTEXITCODE
 
 Add-Content $logFile "[$timestamp] Exit code: $exitCode"

@@ -1,0 +1,9 @@
+Memory hygiene complete. Summary of changes:
+
+**MEMORY.md index:** 36 → 37 entries
+
+**Files updated:**
+- `project_dispatch.md` — noted `--permission-mode auto` migration (from 22:00 heartbeat)
+- `reference_claude_design.md` — new entry: Claude Design launch + Figma stock drop signal
+
+**No broken links. No stale entries. Today's daily log already existed and was comprehensive (10 prior passes) — appended eleventh pass.**

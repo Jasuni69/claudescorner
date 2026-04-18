@@ -1,0 +1,9 @@
+Memory hygiene complete. Summary:
+
+**MEMORY.md**: 34 entries, all files confirmed present, no broken links.
+
+**Changes made:**
+- `project_clementine_hybrid_pattern.md` — added Fabric capacity throttling risk section (first incident reports 2026-04-17; CU% monitoring + schedule pause/resume pattern recommended)
+- `memory/2026-04-17.md` — appended sixth pass audit note
+
+**Nothing stale or broken found.** All prior passes had already promoted today's HEARTBEAT and synthesis content thoroughly. The one gap was the Fabric throttling risk — now in memory.

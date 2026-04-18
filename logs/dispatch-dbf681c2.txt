@@ -1,0 +1,8 @@
+Memory hygiene complete. Summary of changes:
+
+- **`project_alignment_tax.md`** — added board hearings mechanic, streak multiplier, top-5 leaderboard, and 10 new requests (from commit 78120e5, were missing from the memory file)
+- **`MEMORY.md` index** — fixed stale "Hermes Agent (82k)" → "(91k)" (file had 91k but index hadn't been updated)
+- **`MEMORY.md` index** — normalized 3 old verbose-format entries to one-liner format (saves ~10 lines of index budget)
+- Today's daily log (2026-04-16.md) already existed with 8 prior hygiene passes; appended ninth pass summary
+
+No broken file links found. All 24 memory files present.

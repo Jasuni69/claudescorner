@@ -1,0 +1,5 @@
+2 clips written:
+
+- **Darkbloom** — Eigen Labs decentralized inference on idle Apple Silicon; 4-layer crypto privacy (Secure Enclave attestation, encrypted routing); OpenAI-compatible API, ~50% cost reduction. Relevant as a private spillover backend for Clementine/Fairford where data sensitivity is a constraint.
+
+- **Claude Code CSRF PR** — Willison shipped a real security refactor (10 commits, token→header-based CSRF) with Claude Code. Key pattern: "closely guided + cross-review with GPT-5.4 before merge" + writing PR descriptions by hand as a human honesty discipline. Counterweight to today's earlier "RIP Pull Requests" clip.

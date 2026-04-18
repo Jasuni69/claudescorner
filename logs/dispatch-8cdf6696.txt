@@ -1,0 +1,1 @@
+Done. The bi-agent memory now points forward to the execution gap and the resolution path.

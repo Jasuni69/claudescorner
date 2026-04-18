@@ -1,0 +1,5 @@
+2 clips written:
+
+1. **`2026-04-17 Dev Workflow - Datasette 1.0a28...`** — Willison built a real production release "mostly with Claude Code and Opus 4.7." Signal: AI-assisted dev on mature OSS, not demos.
+
+2. **`2026-04-17 MCP Pattern - LeCroy Oscilloscope MCP...`** — SPICE simulation → oscilloscope capture → Claude Code verification pipeline. Hardware exposed as MCP tools via SCPI/VXI-11. Validates the same abstraction as `fabric-mcp` and DimOS — any networked instrument becomes an agent tool.

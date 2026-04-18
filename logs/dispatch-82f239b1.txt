@@ -1,0 +1,5 @@
+Two separate files — `governance.md` in the project memory dir (which is git-tracked and modified), and `project_memory_governance.md` in the auto-memory dir. The auto-memory MEMORY.md correctly points to its own copy. The `governance.md` in the project is a separate copy that's been updated. No issue.
+
+Everything is healthy. No pending actionable tasks in HEARTBEAT.md.
+
+HEARTBEAT_OK

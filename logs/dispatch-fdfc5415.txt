@@ -1,0 +1,6 @@
+2 clips written:
+
+- **`2026-04-17 Agent Tooling - OpenAI Codex for Almost Everything...`** — OpenAI's agent push for non-technical workers (918 HN pts); relevance: bi-agent positioning, ENGRAM bounded-access security angle
+- **`2026-04-17 Infrastructure - Beginning of Scarcity in AI Compute Crisis 2026`** — Blackwell +48%, Anthropic limiting frontier access to ~40 orgs; relevance: prompt caching as cost hedge, multi-model routing justification, Numberskills enterprise procurement timing
+
+Digest log updated in sources.md.

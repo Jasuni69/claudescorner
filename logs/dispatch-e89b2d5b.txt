@@ -1,0 +1,6 @@
+2 clips written:
+
+- `research/2026-04-18-claude-design.md` — Claude Design (HN 753pts): Opus 4.7 visual tool with Claude Code handoff bundle pattern; Figma competitor; direct relevance to any UI work
+- `research/2026-04-18-ai-agent-costs.md` — Toby Ord's agent cost analysis (HN 35pts): frontier models cost up to $350/hr vs $120/hr human engineer; validates dispatch.py short-task architecture and bi-agent's cache_control pattern
+
+Digest log in `sources.md` updated.

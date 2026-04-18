@@ -1,0 +1,5 @@
+Two clips written:
+
+- **`2026-04-16 Agent Infrastructure - Cloudflare AI Platform Unified Inference for Agents.md`** — Cloudflare's AI Gateway evolved into a unified multi-provider inference layer for agents: automatic failover, streaming buffer resilience, 70+ models via one API, same-network latency for CF-hosted models. Relevant to dispatch.py retry logic and the broader agent infra stack.
+
+- **`2026-04-16 Dev Tooling - CodeBurn Claude Code Token Cost Dashboard.md`** — npm TUI that reads Claude Code session files locally, breaks down token spend by task type, and tracks one-shot success rates. Directly relevant to the `/token-cost` skill and potentially as a signal source for feedback_flywheel.py.

@@ -1,0 +1,7 @@
+Done.
+
+- **MEMORY.md index:** 37 entries, 37 files on disk — all match, no broken links
+- **Stale entries:** None found. Key files (`project_dispatch`, `reference_claude_opus47`, `project_markitdown_mcp`, `project_alignment_tax`) verified current
+- **New facts from HEARTBEAT last 7 days:** All already promoted in yesterday's 11 hygiene passes
+- **Today's daily log:** Created at `memory/2026-04-18.md`
+- **Pending (Jason-only):** markitdown-mcp settings.json wiring, Fairford Phase 2

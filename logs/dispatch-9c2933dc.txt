@@ -1,0 +1,4 @@
+2 clips written:
+
+- **Claude Opus 4.7** — major model upgrade: 3x SWE-bench production tasks, `xhigh` effort, `/ultrareview` command, 98.5% computer-use acuity, Microsoft Foundry availability. Direct relevance to all Claude API projects and Clementine.
+- **Cloudflare Email for Agents** — bidirectional email infra with MCP server, `onEmail` hook, Durable Objects. Public beta today. Relevant to dispatch/reporting agent workflows.

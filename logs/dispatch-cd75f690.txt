@@ -1,0 +1,15 @@
+`research/markitdown-eval.md` already existed and is now updated with verified bi-agent internals. Key findings:
+
+**MCP server:** Yes — `pip install markitdown-mcp`, one tool `convert_to_markdown(uri)`.
+
+**Format verdict for BI schemas:**
+- XLSX → **use it** (structure preserved)
+- DOCX simple tables → conditional
+- PDF → **avoid** (column linearization silently corrupts data)
+
+**Integration path for bi-agent:**
+1. Fabric REST API via fabric-mcp (no document round-trip) — preferred
+2. XLSX → MarkItDown → parse Markdown table → schema.json — safe
+3. PDF → Docling (not MarkItDown) → schema.json — when PDF is the only source
+
+`bi_agent.py` docstring already has `--docling` planned but not implemented. The XLSX path is a 25-line parser away from being usable.

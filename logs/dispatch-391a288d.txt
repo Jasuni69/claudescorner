@@ -1,0 +1,8 @@
+Done. Changes made:
+
+1. **`project_kpi_monitor.md`** — added debounce details (`spike_ignore_runs`, `kpi_state.json`, 3-run DEBOUNCE→ALERT sequence) from the 05:xx heartbeat run that wasn't captured
+2. **MEMORY.md index** — fixed skill-manager line (7→8 tools, v2.0→v2.1.0, added skill_catalog mention)
+3. **MEMORY.md index** — updated kpi-monitor line to mention spike debounce
+4. **`memory/2026-04-18.md`** — appended hygiene run 3 summary
+
+No broken links found. All 38 entries verified present.

@@ -414,8 +414,80 @@
       "Read(//c/Users/JasonNicolini/OneDrive - Numberskills AB/Skrivbordet/**)",
       "Bash(pandoc \"Examensarbete_Draft.docx\" -o thesis.md)",
       "Bash(rm -rf thesis_unpacked)",
-      "Bash(pip show:*)"
+      "Bash(pip show:*)",
+      "mcp__Windows-MCP__Scrape",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); servers=d.get\\('mcpServers',{}\\); print\\(f'{len\\(servers\\)} servers: {list\\(servers.keys\\(\\)\\)}'\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(awk -F/ '{print $1}')",
+      "Bash(python -c \"import sqlite_vec\")",
+      "Bash(python -c \"import sqlite3; print\\(sqlite3.sqlite_version\\)\")",
+      "Bash(python -c \"from sentence_transformers import SentenceTransformer; m = SentenceTransformer\\('all-MiniLM-L6-v2'\\); v = m.encode\\(['test']\\); print\\('dim:', v.shape[1]\\)\")",
+      "Bash(python -m venv .venv)",
+      "Bash(.venv/Scripts/pip install *)",
+      "Bash(.venv/Scripts/python -c ' *)",
+      "Bash(.venv/Scripts/python -c \"import sqlite_vec; print\\(sqlite_vec.__version__\\)\")",
+      "Bash(.venv/Scripts/pip list *)",
+      "Bash(python -m pip install sqlite-vec sentence-transformers numpy pytest -t .venv/Lib/site-packages)",
+      "Bash(cmd.exe /c \".venv\\\\Scripts\\\\pip install sqlite-vec sentence-transformers numpy pytest 2>&1\")",
+      "Bash(E:/2026/ClaudesCorner/projects/brain-memory/.venv/Scripts/python.exe -c ' *)",
+      "Bash(E:/2026/ClaudesCorner/projects/brain-memory/.venv/Scripts/python.exe -c \"import sqlite_vec\")",
+      "Bash(E:/2026/ClaudesCorner/projects/brain-memory/.venv/Scripts/pip.exe list *)",
+      "Bash(E:/2026/ClaudesCorner/projects/brain-memory/.venv/Scripts/pip.exe install *)",
+      "Bash(powershell.exe -Command \"& 'E:\\\\2026\\\\ClaudesCorner\\\\projects\\\\brain-memory\\\\.venv\\\\Scripts\\\\pip.exe' install sqlite-vec sentence-transformers numpy pytest\")",
+      "Bash(python3 -c \"import site; print\\(site.getsitepackages\\(\\)\\)\")",
+      "Bash(python3 -m pip install sqlite-vec)",
+      "Bash(python3 -c ' *)",
+      "Bash(powershell.exe -Command \"Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; Write-Host 'done'\")",
+      "Bash(npm list *)",
+      "Bash(node build.js)",
+      "Bash(powershell.exe -Command \"& 'E:\\\\2026\\\\ClaudesCorner\\\\projects\\\\brain-memory\\\\.venv\\\\Scripts\\\\pip.exe' install sqlite-vec sentence-transformers numpy pytest 2>&1\")",
+      "Bash(python3 -m venv --copies E:/2026/ClaudesCorner/projects/brain-memory/.venv)",
+      "Bash(npm init *)",
+      "Bash(python \"C:/Users/JasonNicolini/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/c0417bd4-ad89-4a83-ba95-5ec6b3e8fda1/6d6d581d-5074-4111-a295-5659da9aa6fa/skills/pptx/scripts/office/soffice.py\" --headless --convert-to pdf shared-agent-intelligence.pptx)",
+      "Bash(powershell.exe -Command \"& 'E:\\\\2026\\\\ClaudesCorner\\\\projects\\\\brain-memory\\\\.venv\\\\Scripts\\\\python.exe' -m pip install sqlite-vec sentence-transformers numpy pytest 2>&1\")",
+      "Bash(where soffice *)",
+      "Bash(where libreoffice *)",
+      "Read(//c/Program Files/LibreOffice/program/**)",
+      "Bash(where pdftoppm *)",
+      "Bash(python -c \"from pptx import Presentation; print\\('python-pptx ok'\\)\")",
+      "Bash(python -m pip install python-pptx -q)",
+      "Bash(python \"E:/2026/ClaudesCorner/projects/vectordb-pitch/qa_check.py\")",
+      "Bash(chcp 65001)",
+      "Bash(.venv/Scripts/python.exe -m pytest src/test_vectordb.py -v)",
+      "Bash(.venv/Scripts/python.exe -c ' *)",
+      "Bash(cat)",
+      "Bash(python qa_check.py)",
+      "Bash(iconv -f UTF-8 -t ASCII//TRANSLIT)",
+      "Bash(.venv/Scripts/python.exe -m pytest src/test_index_all.py -v)",
+      "Bash(.venv/Scripts/python.exe src/index_all.py --dry-run)",
+      "Bash(.venv/Scripts/python.exe src/index_all.py)",
+      "Bash(python qa_check.py \"shared-agent-intelligence.pptx\")",
+      "mcp__Desktop_Commander__start_process",
+      "Bash(where python.exe)",
+      "Bash(where python3.exe)",
+      "mcp__Desktop_Commander__read_process_output",
+      "Bash(.venv/Scripts/python.exe src/index_all.py --force)",
+      "Bash(C:\\\\\\\\Python314\\\\\\\\python.exe)",
+      "Bash(python3)",
+      "Bash(projects/brain-memory/.venv/Scripts/python.exe -c \"import sqlite3; c=sqlite3.connect\\(':memory:'\\); c.enable_load_extension\\(True\\); c.execute\\(\\\\\"SELECT fts5\\(''\\)\\\\\"\\)\")",
+      "Bash(projects/brain-memory/.venv/Scripts/python.exe projects/brain-memory/src/index_all.py --force)",
+      "Bash(projects/brain-memory/.venv/Scripts/python.exe projects/brain-memory/src/consolidate.py --window-days 30 --min-cluster 2)",
+      "Bash(projects/brain-memory/.venv/Scripts/python.exe -c ' *)",
+      "Bash(projects/brain-memory/.venv/Scripts/python.exe scripts/word-of-the-day.py)"
     ],
     "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "E:\\2026\\ClaudesCorner\\projects\\brain-memory\\.venv\\Scripts\\python.exe E:\\2026\\ClaudesCorner\\projects\\brain-memory\\src\\index_all.py 2>>E:\\2026\\ClaudesCorner\\logs\\index_all.log"
+          }
+        ]
+      }
+    ]
   }
 }

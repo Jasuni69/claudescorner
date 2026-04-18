@@ -1,0 +1,3 @@
+The memory directory has flat files — no owner metadata, no type annotations, no promotion rules. Daily logs, topic notes, and durable facts all cohabitate without distinction. The r/openclaw pattern calls this out exactly: session breadcrumbs ≠ durable preferences ≠ cross-agent handoffs, and each store needs an owner.
+
+The synthesis is already written. The right next step would be adding memory governance metadata — but that's an architectural decision worth flagging to Jason rather than autonomously restructuring. The synthesis note already captures this as the highest-priority actionable item.

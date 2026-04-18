@@ -8,6 +8,7 @@ Usage:
     python bi_agent.py "total revenue for the current month"
     python bi_agent.py --schema schema.json "% of target achieved by region"
     python bi_agent.py --mock "rolling 3-month average sales"
+    python bi_agent.py --docling report.pdf "total sales by region"
 """
 from __future__ import annotations
 
@@ -46,6 +47,47 @@ MOCK_SCHEMA = {
         },
     ]
 }
+
+
+def extract_schema_from_pdf(pdf_path: str) -> dict:
+    """Use Docling TableFormer to extract tables from a PDF and convert to schema format."""
+    try:
+        from docling.document_converter import DocumentConverter
+        from docling.datamodel.pipeline_options import PipelineOptions, TableFormerMode
+        from docling.datamodel.base_models import InputFormat
+        from docling.document_converter import PdfFormatOption
+    except ImportError:
+        sys.exit("docling package required: pip install docling")
+
+    pipeline_options = PipelineOptions()
+    pipeline_options.do_table_structure = True
+    pipeline_options.table_structure_options.mode = TableFormerMode.ACCURATE
+
+    converter = DocumentConverter(
+        format_options={
+            InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
+        }
+    )
+
+    result = converter.convert(pdf_path)
+    doc = result.document
+
+    tables: list[dict] = []
+    for i, table in enumerate(doc.tables):
+        df = table.export_to_dataframe()
+        if df.empty:
+            continue
+        # First row as column headers; table name from caption or index
+        caption = table.caption_text(doc) if hasattr(table, "caption_text") else ""
+        table_name = caption.strip() or f"Table{i + 1}"
+        columns = [str(c) for c in df.columns.tolist()]
+        tables.append({"name": table_name, "columns": columns})
+
+    if not tables:
+        print("[bi-agent] Warning: no tables found in PDF — falling back to mock schema")
+        return MOCK_SCHEMA
+
+    return {"tables": tables}
 
 
 def schema_to_prompt(schema: dict) -> str:
@@ -136,11 +178,15 @@ def main() -> None:
     parser.add_argument("description", help="Natural language measure description")
     parser.add_argument("--schema", help="Path to schema JSON file (optional)")
     parser.add_argument("--mock", action="store_true", help="Use mock schema")
+    parser.add_argument("--docling", metavar="PDF", help="Extract schema from PDF using Docling TableFormer")
     parser.add_argument("--out", help="Append output to this .dax or .md file")
     args = parser.parse_args()
 
     # Load schema
-    if args.schema:
+    if args.docling:
+        print(f"[bi-agent] Extracting schema from PDF: {args.docling}\n")
+        schema = extract_schema_from_pdf(args.docling)
+    elif args.schema:
         schema = json.loads(Path(args.schema).read_text(encoding="utf-8"))
     else:
         schema = MOCK_SCHEMA

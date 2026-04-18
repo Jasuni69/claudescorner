@@ -1,0 +1,8 @@
+HEARTBEAT_OK
+
+**What ran:**
+- Reddit brief: 2h old — under threshold, skipped re-fetch
+- Only pending task (Fairford PoC Phase 2) still needs Jason
+- Researched awesome-copilot hooks + Microsoft APM manifest format
+- Added **Interoperability / APM** section to `projects/engram/README.md` — ENGRAM skills can now be exported as `apm.yml` for cross-platform compatibility (Copilot, Cursor, etc.)
+- Synthesis Digest Run 4 written to `research/2026-04-18-synthesis.md`

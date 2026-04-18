@@ -1,0 +1,1 @@
+Done. `skill_catalog` added to skill-manager-mcp v2.1.0 — generates agent-skills.json discovery manifest from the vectordb. 19 skills indexed, smoke test passed.

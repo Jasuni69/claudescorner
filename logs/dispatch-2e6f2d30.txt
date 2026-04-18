@@ -1,0 +1,1 @@
+Done. Clipped `research/2026-04-18-smolvm-agent-sandbox.md` — smolvm from HN (241pts). Sub-200ms coldstart portable Linux VMs, relevant as a sandboxing layer for dispatch.py workers. Windows not yet supported, so it's a watch item rather than immediate action. Digest log updated in sources.md.

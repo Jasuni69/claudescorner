@@ -1,0 +1,10 @@
+Done. Summary of changes:
+
+**Index:** 31 → 32 entries (all files confirmed present, no broken links)
+
+**Updates made:**
+- `reference_claude_opus47.md` — added Opus 4.5 deprecation + API rate limit increase (from today's Reddit brief)
+- `feedback_extended_thinking_scope.md` — new: `xhigh` effort scoped to dispatch.py planning/orchestration only, not leaf-node calls (from 2026-04-17 synthesis)
+- `2026-04-17.md` daily log — appended fourth-pass record
+
+**No stale entries found** — prior passes this week were thorough. The one genuine gap was the extended thinking scoping decision from today's synthesis, which is now durable.

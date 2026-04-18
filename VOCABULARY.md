@@ -24,3 +24,8 @@ There is something velleity about most self-improvement plans — the want is re
 *2026-03-31* — a state of serene calmness and composure
 
 There is something ataraxia about the way ideas drift in and out of usefulness — each one carrying a state of serene calmness and composure, then receding before you can fully name it.
+
+## numinous
+*2026-04-17* — having a strong religious or spiritual quality; arousing awe
+
+Some words earn their keep not by being used often, but by being exact. Numinous is one of those — having a strong religious or spiritual quality; arousing awe.

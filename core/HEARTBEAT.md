@@ -41,6 +41,132 @@
 
 ## Log
 
+### 2026-04-18 (weekend build — health-check)
+- Built `projects/health-check/health_check.py` — 26-check infrastructure health checker
+- Checks: Python, core files, scripts, 8 project entry points, logs freshness, port liveness, 4 Python imports
+- Modes: color table (default), --json, --fail-only, --no-color
+- Run: `python health_check.py` — 25/26 pass; only fail is token-dashboard port (expected when not running)
+- Tests passed. Entry point verified clean.
+
+### 2026-04-18 09:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped. Reddit brief at 4h threshold — re-fetch triggered (background).
+- Deep-read Fabric MCP Part 2 tutorial (biinsight.com). Key finding: Microsoft's official stack = Fabric MCP Server + Power BI Modeling MCP Server + VS Code Copilot as orchestrator. This is Option A for Fairford Phase 2. Our Claude-native fabric-mcp is Option B. When Jason unblocks Phase 2, present both paths.
+- Synthesis Digest Run 5 appended to 2026-04-18-synthesis.md.
+
+### 2026-04-18 07:xx (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped. Reddit brief 2h old — under threshold.
+- Researched awesome-copilot hooks + APM manifest (microsoft.github.io/apm). Key: `postToolUseFailure` is Copilot-specific, `on_post_tool_use.py` already covers it via `is_error`. APM `apm.yml` is a strong ENGRAM interop export format.
+- Added APM Interoperability section to `projects/engram/README.md` with example `apm.yml`.
+- Synthesis Digest Run 4 appended to 2026-04-18-synthesis.md.
+
+### 2026-04-18 05:xx (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief refreshed (at 4h threshold).
+- Built debounce into kpi-monitor: `spike_ignore_runs` config field per KPI, persistent state in `kpi_state.json`. Suppresses transient Fabric SQL endpoint spikes. Dry-run verified (3-run sequence: DEBOUNCE→DEBOUNCE→ALERT). Synthesis updated (Digest Run 3).
+
+### 2026-04-18 03:xx (autonomous heartbeat)
+- Pending task (Fairford PoC Phase 2) needs Jason — skipped. Reddit brief 2h old — under threshold.
+- Added `skill_catalog` tool to skill-manager-mcp (v2.0.0→2.1.0): generates agent-skills.json manifest compatible with /.well-known/ discovery standard (from yesterday's synthesis: anthropics/skills open standard + isitagentready.com scan). 19 skills indexed. Smoke test passed.
+
+### 2026-04-18 01:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief refreshed (at 4h threshold). Key signals: Opus 4.7 hackathon launched (Anthropic-official, confidence signal); Fabric MCP Part 2 tutorial out (VS Code + Copilot + MCP — Fairford-relevant); SQL Analytics endpoint spike anomaly reported (kpi-monitor debounce consideration); Azure AI Search as Fabric data agent source confirmed viable.
+- Wrote 2026-04-18-synthesis.md: Digest Run 1, 8 sources.
+
+### 2026-04-17 ~23:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch.
+- Researched Claude Design (Anthropic Labs, launched today): web UI at claude.ai/design, Opus 4.7-powered, no API/MCP yet. Figma down 7.28% on launch day. Key signal: Claude Code handoff bundle — AI-native design→code pipeline without Figma.
+- Appended Digest Run 9 to 2026-04-17-synthesis.md.
+
+### 2026-04-17 ~22:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief re-fetched (at 4h threshold). Key new signal: Claude Design launched (Anthropic Labs) — Figma dropped 4.26% on announcement. Opus 4.7 regression megathread ongoing — hold confirmed.
+- Implemented `--permission-mode auto` in claude_heartbeat.ps1 + dispatch.py (replaces `--dangerously-skip-permissions` per official CC best practices).
+- Digest Run 8 appended to 2026-04-17-synthesis.md.
+
+### 2026-04-17 ~21:30 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch.
+- Fetched Claude Code official best practices doc (code.claude.com). Key findings: CLAUDE.md bloat confirmed failure mode; Skills vs CLAUDE.md split formalized; `/btw` command for context-free side questions; `--permission-mode auto` for unattended runs; `@import` syntax for modular CLAUDE.md.
+- Appended Digest Run 7 to 2026-04-17-synthesis.md (8 sources total today).
+
+### 2026-04-17 ~19:30 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 5.5h old — exceeded 4h threshold, re-fetched.
+- Key new signals: Opus 4.7 use case split confirmed (Research mode = strong, agentic/structured = regression). Instruction drift now 3+ independent posts — no upgrade until regression-tested. OneLake RLS/CLS mapping table thread surfaced (Fairford-relevant). Fabric throttling incident reports escalating.
+- Digest Run 6 appended to 2026-04-17-synthesis.md. Source count 15→22+.
+
+### 2026-04-17 ~15:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under 4h threshold, no re-fetch.
+- Processed 4 new research clips into Digest Run 6 (ai-hedge-fund, DimOS, LeCroy Oscilloscope MCP, Datasette 1.0a28). Synthesis now 15 sources.
+- Key signals: MCP universal abstraction layer confirmed (hardware → software same pattern); ai-hedge-fund 19-agent architecture applicable to Fairford+Fabric; Opus 4.7 working well on production code fixes (Willison).
+- skill_search tool description upgraded: now explicitly marked PRIMARY ENTRY POINT with token-saving rationale (lazy-tool pattern applied).
+
+### 2026-04-17 ~18:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief re-fetched (~4h old, at threshold). 5 new signals vs Digest Run 4.
+- Key new: Opus 4.7 instruction drift confirmed (multiple posts) — flag before any model upgrade to 4.7.
+- Synthesis Digest Run 5 appended to 2026-04-17-synthesis.md.
+- kpi-monitor/config.yaml: added capacity monitoring config block (CU% + throttle events DAX, commented — needs workspace IDs).
+
+### 2026-04-17 12:06
+- Memory flush complete. 1 new fact saved to MEMORY.md (project_brain_memory).
+- Daily log appended at memory/2026-04-17.md
+- Session: full vectordb chunked RAG migration. 195 docs → ~2000+ chunks. Thesis accuracy (97.4%) retrieved from daily_log body. Project CLAUDE.md created. PostToolUse hook wired for auto-reindex. Legacy .embed_index.json files deleted.
+
+### 2026-04-17 (autonomous heartbeat — Digest Run 4)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch.
+- Synthesis extended: 8 new clips processed into Digest Run 4 (Cloudflare Artifacts, Kampala, GenericAgent, Cognee, lazy-tool, Android CLI, OpenAI Agents SDK, OpenSRE). Source count 3→11.
+- Top signals: lazy-tool validates skill_search-first pattern; GenericAgent 5-layer memory is ENGRAM reference implementation; Cognee graph routing worth evaluating against memory-mcp.
+- markitdown-mcp wiring still blocked (needs Jason to approve settings.json edit).
+
+### 2026-04-17 13:xx (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief at 4h threshold — re-fetch ran (brief already current at 09:00, minor divergence).
+- Appended Digest Run 3 to 2026-04-17-synthesis.md: Fabric throttling risk, Boris Cherny CC tips, CI/CD schedule pause pattern, Opus 4.7 nagging removal.
+- 4 new actionable items added to synthesis table.
+
+### 2026-04-17 07:xx (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch.
+- Built `projects/markitdown-mcp/server.py` — 3 tools: convert_file, convert_url, convert_base64. MCP init test passed.
+- **Manual step needed**: add `markitdown` entry to `~/.claude/settings.json` mcpServers block (blocked by permission prompt in autonomous mode). Config snippet ready in server.py header.
+
+### 2026-04-17 05:00 (autonomous heartbeat)
+- Pending task (Fairford PoC Phase 2) still needs Jason — skipped.
+- Reddit brief refreshed (5.9h old, exceeded threshold). Key signals: Opus 4.5 deprecated; permanent API rate limit increase; Opus 4.7 MRCR regression widely confirmed; Fabric capacity throttling incident reports emerging.
+- bi-agent max_tokens audit: 1024 is intentional and correct for DAX output — no truncation risk.
+- dispatch.py extended thinking audit: dispatches claude.exe subprocesses, not direct API — xhigh scoping N/A at this layer.
+
+### 2026-04-17 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 3.9h old — under threshold, no re-fetch.
+- Wrote 2026-04-17-synthesis.md: 3 clips (llm-anthropic 0.25, MarkItDown MCP, Qwen3.6-35B). Top actionable: add markitdown-mcp to MCP config for OneLake/RAG ingestion.
+
+### 2026-04-16 (autonomous heartbeat, latest — reddit refresh)
+- HEARTBEAT: only pending task is Fairford PoC Phase 2 — needs Jason, skipped.
+- Reddit brief refreshed (stale). Key findings: Opus 4.7 long-context regression (MRCR worse than 4.6), 50% pricing dispute, free DP-700 vouchers this week.
+- Updated reference_claude_opus47.md with regression caveats. reference_dp700.md with voucher alert. Synthesis now 16 sources.
+
+### 2026-04-16 (autonomous heartbeat, late)
+- Only pending task (Fairford PoC Phase 2) still blocked on Jason.
+- Reddit brief refreshed (14h old, exceeded 4h threshold). Key signal: free DP-700 vouchers available this week (r/MicrosoftFabric) — flagged as URGENT in synthesis actionable table.
+- MEMORY.md project index updated: removed stale `agents.py` entry, added dispatch.py, skill-manager-mcp, fabric-mcp, kpi-monitor, alignment-tax, engram, bi-agent with current status.
+- Opus 4.7 confirmed released (r/ClaudeAI) — IDENTITY.md update from earlier today already applied.
+
+### 2026-04-16 (autonomous heartbeat, +3 research sources)
+- Dispatch queue active (3 workers running). No new actionable pending tasks (Fairford PoC Phase 2 still needs Jason).
+- Extended synthesis: appended Opus 4.7, Cloudflare Email for Agents, MarkItDown sections to 2026-04-16-synthesis.md (14 sources total).
+- IDENTITY.md updated: autonomous model reference claude-opus-4-6 → claude-opus-4-7.
+- 3 new actionable items added to synthesis table: model upgrade, MarkItDown eval, Cloudflare email eval.
+
+### 2026-04-16 (autonomous heartbeat, latest)
+- HEARTBEAT check: only pending task is Fairford PoC Phase 2 — needs Jason, skipped.
+- ENGRAM sync: upgraded `projects/engram/projects/memory-mcp/server.py` from 307→~500 lines. Added: semantic search (sentence-transformers + cosine), TF-IDF fallback, access log, `get_stale_docs`, `write_memory`, `update_preferences` tools. Removed Jason-specific path comments. Updated README (8→10 tools).
+
 ### 2026-04-16 (autonomous heartbeat)
 - HEARTBEAT check: only pending task is Fairford PoC Phase 2 — needs Jason, skipped.
 - Prompt cache audit (from synthesis actionable): bi_agent.py — moved schema into multi-block system prompt with cache_control=ephemeral. Schema is now cached across repeated calls with same schema. SELF_IMPROVEMENT item closed.

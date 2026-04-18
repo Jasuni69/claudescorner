@@ -1,0 +1,6 @@
+Two clips written:
+
+1. **Qwen3.6-35B-A3B vs Opus 4.7** — local 21GB model wins on SVG generation; implications for agent model routing and cost architecture
+2. **Codex hacks Samsung TV** — autonomous kernel privilege escalation via physmap primitive; validates human-in-the-loop checkpoints, complements Glasswing clip
+
+Both clipped with Jason-relevant implications (ENGRAM dispatch routing, Agent Armor governance, Fabric/BI cost decisions).

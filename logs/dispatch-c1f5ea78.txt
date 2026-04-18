@@ -1,0 +1,10 @@
+Done. ENGRAM's `memory-mcp/server.py` is now synced with the production version:
+
+- **+semantic search** (sentence-transformers / cosine similarity, TF-IDF fallback)
+- **+access log** tracking per-doc hit counts
+- **+`get_stale_docs`** tool for memory pruning
+- **+`write_memory`** tool
+- **+`update_preferences`** tool
+- **+embedder warm-up** at startup
+- Removed hardcoded Jason path references in `_run_script` fallback (`python3` instead of `C:\Python314\python.exe`)
+- README updated: 8 → 10 tools, install instructions include `sentence-transformers`

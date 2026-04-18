@@ -1,0 +1,12 @@
+Memory hygiene complete:
+
+**Fixed:**
+- `project_schedule_blocker.md` — was stale (marked as broken); updated to reflect /schedule fixed 2026-04-16 with all 3 trigger IDs
+
+**Added:**
+- `project_self_improvement.md` — new entry for `SELF_IMPROVEMENT.md` living backlog + `feedback_flywheel.py`
+
+**Verified clean:**
+- All 11 MEMORY.md index entries have valid files
+- Today's daily log existed and was already accurate
+- No missing durable facts from Apr 14–16 beyond the two above

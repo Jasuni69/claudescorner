@@ -1,0 +1,9 @@
+Memory hygiene complete.
+
+**Summary:**
+- Auto-memory index: 32 → **33 entries** (added `project_markitdown_mcp.md`)
+- New file documents the `markitdown-mcp` MCP server built in today's 07:xx heartbeat — was the only undocumented project build
+- Main `MEMORY.md` Project Index updated with `markitdown-mcp` row (⏳ pending manual config)
+- Yesterday's log (2026-04-16, 13 passes) fully promoted — nothing left to add
+- Today's daily log exists and is current through this pass
+- All 33 files confirmed present, no broken index links

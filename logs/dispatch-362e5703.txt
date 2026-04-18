@@ -1,0 +1,5 @@
+`engram` — last touched 2026-03-17, now updated:
+
+- **`skills/status.md`** — portable `/status` skill using `{{base_dir}}` placeholders; shows pending tasks, recent log entries, memory freshness, task queue summary
+- **`scripts/dispatch.py`** — parallel task dispatcher adapted from ClaudesCorner's version; auto-detects the `claude` binary cross-platform; supports `--push`, `--list`, `--populate`, `--dry-run`
+- **README** — updated to reflect both additions

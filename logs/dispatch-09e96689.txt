@@ -1,0 +1,1 @@
+Background reddit_brief.py completed successfully (exit code 0). Brief was already current — no further action needed.

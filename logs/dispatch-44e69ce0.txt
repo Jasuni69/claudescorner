@@ -1,0 +1,5 @@
+Done. Added both entries.
+
+---
+
+Also noticed several other scripts missing from TOOLS.md: `lumen_bot.ps1`, `on_stop_runner.py`, `migrate_paths.py`, `weekly_brief.py`, `dp700_quiz.py`, `patch_slaapp_v2.py`, `email_digest.py`. Want me to add those too?

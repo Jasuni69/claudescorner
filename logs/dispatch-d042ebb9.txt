@@ -1,0 +1,6 @@
+Done. Changes made:
+
+1. **Duplicate fixed** — `reference_superpowers.md` appeared twice in MEMORY.md index; merged into one entry combining both descriptions
+2. **Index verified** — 30 unique entries, all 30 files confirmed on disk, no broken links
+3. **Today's log** — already existed from a prior autonomous run; appended this pass's findings
+4. **No new HEARTBEAT facts to promote** — 2026-04-16 was comprehensively flushed across 13 passes

@@ -1,0 +1,9 @@
+Done. Summary of this run:
+
+**Hygiene pass 12 complete.**
+
+- All 26 existing entries verified present and accurate
+- Found 1 gap: Obsidian integration (built 2026-04-14) was undocumented despite being core infrastructure
+- Added `project_obsidian_integration.md` — mcp-obsidian, Alt+C clipper, vault folder structure, active-vs-idle usage rules
+- MEMORY.md index now at 27 entries
+- Daily log updated

@@ -1,0 +1,7 @@
+Done. Two clips written:
+
+1. **AI-Trader** (`HKUDS/AI-Trader`, 13.5k stars) — agent-native trading marketplace where AI agents self-register and publish signals. Key angle: pairs with Kronos for signal generation → execution, and fabric-mcp is the missing data ingestion layer.
+
+2. **Is It Agent Ready?** (`isitagentready.com`, HN 76pts) — 5-dimension rubric scoring MCP discovery, OAuth, Agent Skills catalog, bot access. Direct action item: add `/.well-known/agent-skills.json` manifest to skill-manager-mcp.
+
+Both saved to `research/` with frontmatter, digest log updated in `sources.md`.

@@ -1,0 +1,4 @@
+Done. Two clips written to `research/`:
+
+- **`2026-04-17 Agent Framework - ai-hedge-fund...`** — 19-agent financial system with Claude support; the coordinator+validator pattern maps directly to ClaudesCorner's dispatcher architecture; Fabric/MCP integration gap = fork opportunity for Fairford work.
+- **`2026-04-17 Agent Infra - DimOS...`** — MCP as hardware abstraction layer; validates that fabric-mcp's design is the right approach — agents see a clean tool boundary regardless of what's behind it.

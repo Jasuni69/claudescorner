@@ -33,6 +33,16 @@ CONTEXT_PACK = BASE / "scripts" / "context-pack.py"
 MD_ROOTS = [MEMORY_DIR, BASE, BASE / "core"]
 TOP_K = 10
 EMBED_MODEL = "all-MiniLM-L6-v2"
+SOUL_VEC_PATH = BASE / "core" / "soul_vec.npy"
+
+# vectordb from brain-memory project
+_BRAIN = BASE / "projects" / "brain-memory" / "src"
+sys.path.insert(0, str(_BRAIN))
+try:
+    import vectordb as _vdb
+    _VECTORDB_AVAILABLE = True
+except ImportError:
+    _VECTORDB_AVAILABLE = False
 
 # --- Embedding support (optional) ---
 
@@ -327,9 +337,63 @@ def _snippet(text: str, terms: list[str]) -> str:
     return ""
 
 
+# --- Vectordb search (primary) ---
+
+def _load_soul_bias() -> list[float] | None:
+    try:
+        import numpy as np
+        if SOUL_VEC_PATH.exists():
+            return np.load(str(SOUL_VEC_PATH)).tolist()
+    except Exception:
+        pass
+    return None
+
+
+def _search_vectordb(query: str, from_date: str | None,
+                     to_date: str | None, doc_type: str | None) -> str:
+    if not _load_embedder():
+        return None  # fall through to legacy
+    import numpy as np
+    soul_bias = _load_soul_bias()
+    q_vec = _embed([query])[0].tolist()
+    results = _vdb.search(
+        query_embedding=q_vec, query=query, top_k=TOP_K,
+        doc_type=doc_type, status="active",
+        soul_bias=soul_bias,
+    )
+    if not results:
+        return f"No results for: {query!r} — run index_all.py to populate vectordb"
+
+    lines = [f"Results for: {query!r} (vectordb, two-pass brain retrieval)\n"]
+    for i, r in enumerate(results, 1):
+        # date filter on episodic docs
+        if from_date or to_date:
+            m = re.search(r"(\d{4}-\d{2}-\d{2})", r["name"])
+            if m:
+                from datetime import date as Date
+                d = Date.fromisoformat(m.group(1))
+                if from_date and d < Date.fromisoformat(from_date):
+                    continue
+                if to_date and d > Date.fromisoformat(to_date):
+                    continue
+        section = f" § {r['section']}" if r.get("section") else ""
+        snippet = (r.get("chunk") or r["description"]).replace("\n", " ")[:240]
+        lines.append(
+            f"  {i}. [{r['score']:.3f}] [{r['doc_type']}] {r['name']}{section}\n"
+            f"     {snippet}"
+        )
+    return "\n".join(lines)
+
+
 # --- Unified search entry point ---
 
-def _search_memory(query: str, from_date: str | None = None, to_date: str | None = None) -> str:
+def _search_memory(query: str, from_date: str | None = None,
+                   to_date: str | None = None, doc_type: str | None = None) -> str:
+    if _VECTORDB_AVAILABLE:
+        result = _search_vectordb(query, from_date, to_date, doc_type)
+        if result is not None:
+            return result
+    # Legacy fallback
     docs = _collect_docs()
     if _load_embedder():
         return _search_semantic(query, docs, from_date, to_date)
@@ -397,13 +461,14 @@ async def list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="search_memory",
-            description="Semantic search across all .md memory files using sentence-transformers embeddings (falls back to TF-IDF). Supports date filtering.",
+            description="Two-pass brain retrieval across all indexed .md files. Semantic types (memory/core/skill/agent/project) returned by pure similarity. Episodic types (daily_log/inbox/research/journal) decay with age. Identity bias from soul_vec.npy shapes results.",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "query": {"type": "string", "description": "Natural language search query"},
                     "from_date": {"type": "string", "description": "Filter results from this date (YYYY-MM-DD)"},
                     "to_date": {"type": "string", "description": "Filter results up to this date (YYYY-MM-DD)"},
+                    "doc_type": {"type": "string", "description": "Optional filter: skill|memory|daily_log|core|research|inbox|agent|project|journal|cert|root|digested"},
                 },
                 "required": ["query"],
             },
@@ -490,7 +555,8 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
         query = arguments.get("query", "")
         if not query:
             return text("[error: query is required]")
-        out = _search_memory(query, arguments.get("from_date"), arguments.get("to_date"))
+        out = _search_memory(query, arguments.get("from_date"),
+                             arguments.get("to_date"), arguments.get("doc_type"))
         return text(out)
 
     if name == "get_stale_docs":

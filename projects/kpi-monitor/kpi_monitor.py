@@ -5,6 +5,10 @@ Usage:
     python kpi_monitor.py [--config config.yaml] [--dry-run]
 
 Dry-run mode skips real Fabric queries and uses mock values to exercise alert logic.
+
+Debounce: set `spike_ignore_runs: N` on a KPI to suppress alerts until the KPI
+has breached for N consecutive runs. State is persisted in kpi_state.json next
+to the config file. Useful for SQL Analytics Endpoint spikes that self-resolve.
 """
 
 from __future__ import annotations
@@ -151,6 +155,47 @@ def pct_change(value: float, threshold: float) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Debounce state
+# ---------------------------------------------------------------------------
+
+def load_state(state_path: Path) -> dict[str, Any]:
+    if state_path.exists():
+        try:
+            return json.loads(state_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return {}
+    return {}
+
+
+def save_state(state: dict[str, Any], state_path: Path) -> None:
+    state_path.write_text(json.dumps(state, indent=2), encoding="utf-8")
+
+
+def debounce_check(
+    name: str,
+    breached: bool,
+    spike_ignore_runs: int,
+    state: dict[str, Any],
+) -> tuple[bool, dict[str, Any]]:
+    """
+    Update consecutive breach counter and return whether alert should fire.
+
+    Returns (should_alert, updated_state).
+    `spike_ignore_runs=0` means no debounce — alert immediately.
+    """
+    kpi_state = state.get(name, {"consecutive_breaches": 0})
+    if breached:
+        kpi_state["consecutive_breaches"] = kpi_state.get("consecutive_breaches", 0) + 1
+    else:
+        kpi_state["consecutive_breaches"] = 0
+
+    state[name] = kpi_state
+    count = kpi_state["consecutive_breaches"]
+    should_alert = breached and count > spike_ignore_runs
+    return should_alert, state
+
+
+# ---------------------------------------------------------------------------
 # Alert logging
 # ---------------------------------------------------------------------------
 
@@ -210,6 +255,9 @@ def main() -> None:
             )
         token = get_token(tenant_id, client_id)
 
+    state_path = config_path.parent / "kpi_state.json"
+    state = load_state(state_path)
+
     print(f"Running KPI monitor — {'DRY RUN' if args.dry_run else 'LIVE'}")
     print(f"Checking {len(kpis)} KPI(s)...\n")
 
@@ -219,6 +267,7 @@ def main() -> None:
         threshold: float = float(kpi["threshold"])
         direction: str = kpi["direction"]
         unit: str = kpi.get("unit", "")
+        spike_ignore_runs: int = int(kpi.get("spike_ignore_runs", 0))
 
         try:
             if args.dry_run:
@@ -232,10 +281,16 @@ def main() -> None:
                 )
 
             breached = check_threshold(name, value, threshold, direction)
-            status = "ALERT" if breached else "OK"
+            should_alert, state = debounce_check(name, breached, spike_ignore_runs, state)
+
+            if breached and not should_alert:
+                consec = state[name]["consecutive_breaches"]
+                status = f"DEBOUNCE({consec}/{spike_ignore_runs})"
+            else:
+                status = "ALERT" if should_alert else "OK"
             print(f"  [{status:5}] {name}: {value}{unit} (threshold: {direction} {threshold}{unit})")
 
-            if breached:
+            if should_alert:
                 alerts.append({
                     "name": name,
                     "value": value,
@@ -250,6 +305,8 @@ def main() -> None:
             print(msg)
             errors.append(msg)
             traceback.print_exc()
+
+    save_state(state, state_path)
 
     log_path = config_path.parent / "alerts.md"
     log_alerts(alerts, log_path)

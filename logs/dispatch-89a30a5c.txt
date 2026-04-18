@@ -1,0 +1,6 @@
+2 clips written:
+
+- **`2026-04-17 Agent Skills - Anthropic Skills Public Repo...`** — 120k-star official canonical format for Agent Skills; `spec/` folder is the upstream truth for skill-manager-mcp's format
+- **`2026-04-17 Agent Infra - Microsoft APM Agent Package Manager...`** — npm for AI agents; `apm.yml` declares MCP servers + skills as dependencies; actionable: ENGRAM should adopt this manifest format for portable bootstrap
+
+Both added to the digest log.

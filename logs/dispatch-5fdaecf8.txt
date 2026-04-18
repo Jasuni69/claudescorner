@@ -1,0 +1,15 @@
+**Finding:** Neither file touches the Anthropic API directly — they both shell out to `claude.exe` CLI. `prompt_cache` / `cache_control` are API-level headers, not CLI flags. The CLI doesn't expose them.
+
+So the r/openclaw cache fix doesn't apply here as-is. Your loops have zero cache leverage because they're using `claude.exe -p "..."` — each invocation is a fresh stateless call with no system prompt reuse across turns.
+
+**Where caching *would* apply:**
+
+| Layer | Cacheable? | How |
+|---|---|---|
+| `claude.exe` CLI | No | CLI doesn't support `cache_control` headers |
+| Direct API calls (Python `anthropic` SDK) | Yes | Add `"cache_control": {"type": "ephemeral"}` to long system prompts |
+| Heartbeat prompt (static text) | Partially | If rewritten as SDK call, the static prefix caches after 2nd hit |
+
+**The actual win:** Rewrite dispatch task execution to use the Python SDK directly instead of shelling out to `claude.exe`. The static parts of your prompts (SOUL.md content, HEARTBEAT.md preamble, the autonomy instructions) are good cache candidates — they're repeated across all dispatch workers.
+
+Want me to rewrite `run_task()` in dispatch.py to use `anthropic` SDK with `cache_control` on the system prompt? That's where the 0→/day cache hit rate improvement would come from.

@@ -1,0 +1,3 @@
+dispatch.py uses `--dangerously-skip-permissions -p <prompt>` — the prompt itself is the only per-call overhead, no additional system prompt injected here. The inflation risk is in the CLAUDE.md system prompt loaded by the claude.exe subprocess itself. That's environment-wide, not something dispatch.py can reduce directly. The actionable mitigation remains: use `--bare` for leaf-node tasks that don't need CLAUDE.md context (skill-manager queries, pure research fetches).
+
+The `--bare` flag is already supported. Tasks could set `"bare": true` to skip CLAUDE.md + hooks for the ~40% of tasks that are pure info-fetch. That's the real cost lever given 1.47x tokenizer inflation.

@@ -1,0 +1,5 @@
+Two clips written:
+
+- **`2026-04-18-magika-file-detection.md`** — Google's AI file-type detector (15.6k stars, +956 today). ~99% accuracy, 5ms/file, 200+ types, no MCP yet. Flagged as `magika-mcp` opportunity: 3-tool wrapper as pre-filter for markitdown-mcp and fabric ingestion validation.
+
+- **`2026-04-18-claude-chrome-exploit.md`** — Hacktron researchers used Claude Opus to write a working Chrome 138 RCE exploit chain ($2,283, 2.3B tokens, 20hrs supervision). Key implication: patch-to-exploit compression is accelerating; validates the smolvm sandboxing clip and the need for isolated dispatch.py workers.

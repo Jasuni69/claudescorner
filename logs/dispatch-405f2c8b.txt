@@ -1,0 +1,12 @@
+Done. Summary of what was found and fixed:
+
+**Index audit:** All 30 existing entries verified present on disk — no broken links.
+
+**HEARTBEAT scan (last 7 days):** 2026-04-17 morning entry referenced `research/2026-04-17-synthesis.md` with a High priority actionable (markitdown-mcp) not yet in memory.
+
+**New entry created:**
+- `reference_markitdown_mcp.md` — microsoft/markitdown MCP server; PDF/DOCX/PPTX/XLSX/images → Markdown; Azure Doc Intelligence backend available (same MSAL auth as fabric-mcp); flagged for Fabric RAG pipeline
+
+**Today's log:** Already existed with two prior passes. Appended third pass summary.
+
+**Index:** 30 → 31 entries.

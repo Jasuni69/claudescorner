@@ -1,0 +1,4 @@
+2 clips written:
+
+- **Project Glasswing** — Mythos does 181 Firefox exploits vs Opus's ~0%; restricted to AWS/Apple/Microsoft/Google partners; $100M in researcher credits. Directly names the capability behind the "cybersecurity is proof of work" thesis from yesterday's clips.
+- **Meta Muse Spark** — sub-agent spawning built in, 16 tools, `str_replace` file interface copying Claude's pattern. Lags Terminal-Bench = not a Claude Code threat. Signals agentic architecture is table stakes now.

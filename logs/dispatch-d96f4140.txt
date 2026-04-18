@@ -1,0 +1,8 @@
+Done. Summary of changes:
+
+**MEMORY.md: 27 → 30 entries.** 3 new files created:
+- `project_token_dashboard.md` — Flask token cost dashboard on :5050
+- `project_deadlines_mcp.md` — DEADLINES.md watcher MCP server
+- `project_examensarbete.md` — Jason's master thesis (tree re-ID, 97.4% CMC@1, draft ~80% done)
+
+**No stale or broken entries found** — the 11 prior passes today had already caught everything else. The `project_obsidian_integration.md` was added by the twelfth pass (not visible in initial read due to concurrent writes). Daily log updated with pass #13.

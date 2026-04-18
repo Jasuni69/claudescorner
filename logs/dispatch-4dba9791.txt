@@ -1,0 +1,3 @@
+Clipped: `research/2026-04-16 Agent Framework - Hermes Agent Self-Improving Skills and MCP Integration.md`
+
+Key signal: NousResearch/hermes-agent hit 91k stars with +53k in one week. It's MCP-native, implements closed-loop skill creation (same pattern as your `feedback_flywheel.py`), and uses the agentskills.io open standard. The ENGRAM differentiator vs Hermes: Claude Code-specific + Obsidian memory architecture vs their model-agnostic multi-platform play. The spike suggests the self-improving agent category is breaking mainstream — good timing for ENGRAM positioning.

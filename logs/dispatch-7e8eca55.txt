@@ -1,0 +1,10 @@
+Memory hygiene complete. Summary of changes:
+
+**New entry:**
+- `project_bi_agent.md` — bi_agent.py with prompt caching pattern (`cache_control=ephemeral` on schema block). Was missing despite being a durable architectural decision.
+
+**Fixes:**
+- `reference_agent_ecosystem.md` — hook table had `on_post_compact.py` listed as `on_pre_compact.py` (wrong filename); also added SessionStart hook as existing.
+- MEMORY.md index updated to 24 entries.
+
+**Nothing stale or broken** in the existing 23 entries. The `flywheel-2026-04-14.md` file in `memory/` says "delete after acting on it" but its corrections are already codified in SOUL.md — leaving it as a reference since it has useful structured history.

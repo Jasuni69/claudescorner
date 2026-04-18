@@ -1,0 +1,3 @@
+`projects/engram` is a full ClaudesCorner-style repo nested inside. It's showing as modified in git status because it's tracked as a directory but has its own git history. That's fine — no action needed.
+
+Research clip done. Digest updated. HEARTBEAT clean. No stale pending tasks to action autonomously.
