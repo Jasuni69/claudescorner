@@ -1,0 +1,6 @@
+Two clips written:
+
+- `research/2026-04-19-claude-token-inflation-4-7-vs-4-6.md` — HN 381pts thread on Opus 4.7 input token inflation (~30–45%); net cost depends on workload; dispatch.py + bi-agent implications noted
+- `research/2026-04-19-willison-reference-repo-prompting.md` — Willison's agentic pattern: clone ref to `/tmp`, imitate code, embed validation oracle; surfaces the missing `verify:` oracle in dispatch.py worker prompts as an action item
+
+Digest log in `sources.md` updated.

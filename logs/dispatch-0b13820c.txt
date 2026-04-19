@@ -1,0 +1,18 @@
+Done. Here's what was built:
+
+**`C:\claude-hooks\on_observation_compress.py`** — new PostToolUse hook that:
+- Fires on `Write|Edit|Bash|WebFetch|WebSearch|mcp__memory__*|mcp__skill-manager__skill_create/update`
+- Extracts durable signal from each tool type (file paths, skill names, search queries, memory writes)
+- Filters Bash to only durable commands (git, pip, npm, python scripts)
+- Appends `- [HH:MM] [session_id] observation` bullets to today's daily log
+- Never crashes Claude Code (exception → `logs/hook_errors.log`)
+
+**`memory-mcp/server.py`** — new `observe` tool:
+- Accepts raw observation text + type (`tool_result|decision|error|research|build`) + optional tags
+- Rule-based `_compress_observation()` extracts the highest-signal line (no API call needed)
+- Appends compressed bullet to today's daily log under `## Observations`
+- Use after significant tool sequences: `mcp__memory__observe(observation="...", observation_type="build", tags=["bi-agent"])`
+
+**`settings.json`** — second PostToolUse hook entry wired for the new script.
+
+Manual `write_memory` calls are still there for durable MEMORY.md facts. The `observe` tool + hook handle the lower-level "what just happened" layer that was previously silent.

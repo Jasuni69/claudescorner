@@ -115,8 +115,19 @@ Rules:
 - Respect the schema — only reference tables and columns that exist
 - Format the DAX across multiple lines with proper indentation
 - Add a 1-line comment above the measure explaining what it calculates
-- Output ONLY: measure name (as [Measure Name]) on line 1, then the DAX expression
-- Do not include markdown fences or explanation — just the measure name and DAX
+
+Output format (EXACTLY this structure, no deviations):
+[Measure Name] =
+    <DAX expression>
+
+-- ORACLE: PASS
+-- References: Table[Column], ...
+
+Oracle rules (self-validate before output):
+- If every Table[Column] reference in the DAX exists in the schema above → write "-- ORACLE: PASS"
+- If any reference does not exist in the schema → write "-- ORACLE: FAIL: <list missing references>"
+- Always list every Table[Column] pair referenced after "-- References:"
+- Do not include markdown fences or additional explanation
 """
 
 

@@ -1,0 +1,9 @@
+Done. Summary of what was done:
+
+**Hygiene run 2 (2026-04-19):**
+- **50/50 entries verified** — no broken links
+- **1 stale line fixed**: `reference_chrome_devtools_mcp` in MEMORY.md incorrectly said "wired in settings.json" — corrected to "NOT yet wired"
+- **2 research clips processed** (both 2026-04-19):
+  - Token inflation 4.7 vs 4.6 → added section to `reference_claude_opus47.md` (input +30–45%, reasoning −50%, 3–5× real-world consumption, mitigations)
+  - Willison reference-repo prompting (2nd clip) → extended `reference_willison_agentic_patterns.md` (confirms /tmp+oracle pattern, flags missing `verify:` step in dispatch.py workers)
+- No new MEMORY.md entries needed — both clips augmented existing files

@@ -1,0 +1,10 @@
+**Memory hygiene run 3 complete.**
+
+**Added:** `reference_finrl_trading.md` (FinRL-Trading — weight-centric quant infrastructure, MCP integration opportunity for Fairford execution loop)
+
+**No changes needed for:**
+- `reference_willison_agentic_patterns.md` — already had both 04-18 and 04-19 clips
+- `reference_claude_opus47.md` — Willison system prompt diff already captured by prior heartbeat
+- All 50 prior entries verified intact
+
+**Index count: 51 entries. Disk: 52 files (51 entries + MEMORY.md). Clean.**

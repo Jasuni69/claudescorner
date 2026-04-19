@@ -1,0 +1,3 @@
+HEARTBEAT_OK
+
+Digest Run 7 appended to synthesis (3 new sources: awesome-llm-apps, OpenSRE, Willison new-content-type). Key actionable: OpenSRE as kpi-monitor RCA upgrade path; Fairford reference architecture from awesome-llm-apps finance multi-agent team.

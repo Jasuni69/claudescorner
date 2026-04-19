@@ -1,0 +1,1 @@
+Clipped `2026-04-18-willison-new-content-type.md`. Key signal: the `/tmp` reference-clone pattern — give agents a real codebase to imitate instead of a verbal spec, and embed a concrete validation oracle in the prompt. Direct application to `dispatch.py` worker prompts and skill `verify:` sections.

@@ -1,0 +1,7 @@
+3 clips written:
+
+- **`2026-04-18-generic-agent.md`** — lsdefine/GenericAgent (4.2k, +794): L0-L4 memory crystallization, skill auto-promotion from first-encounter. Direct ENGRAM structural parallel; crystallization pattern applicable to skill-manager-mcp.
+
+- **`2026-04-18-chrome-devtools-mcp.md`** — ChromeDevTools/chrome-devtools-mcp (36k, +438): Official Chrome DevTools MCP server, 29 tools, npx install. Fills the browser automation gap in dispatch.py workers; complements windows-mcp.
+
+- **`2026-04-18-claude-mem.md`** — thedotmack/claude-mem (62k, +1024): Auto session memory via lifecycle hooks + Agent SDK compression. Working implementation of what ENGRAM proposes; `PostToolUse` hook → auto-compress → semantic store is the upgrade path for memory-mcp.

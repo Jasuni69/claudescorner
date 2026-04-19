@@ -1,0 +1,4 @@
+HEARTBEAT_OK. Pending task (Fairford Phase 2) still needs Jason. Processed 2 remaining research clips into Digest Run 4:
+
+- **AgentRQ**: MCP-native human-in-loop escalation — structured upgrade path for blocked dispatch workers vs current fire-and-forget silence
+- **Claude Design code-native thesis**: 246pt HN signal confirming existing Figma-hold stance; Claude Code-first UI policy for Fairford/ENGRAM

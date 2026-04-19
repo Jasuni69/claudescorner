@@ -1,0 +1,7 @@
+Done. Two clips written and verified:
+
+1. **`2026-04-19-agentrq-mcp-human-in-loop.md`** — AgentRQ: MCP-native bidirectional human-in-loop task board. Direct dispatch.py upgrade path — blocked workers can `createTask` to escalate to Jason rather than silently dying. 4 MCP tools, self-hostable, Apache-2.0.
+
+2. **`2026-04-19-claude-design-code-native-shift.md`** — Sam Henri's Claude Design analysis (HN 246pts). Figma's locked format excluded it from LLM training; Claude Design → Claude Code = zero handoff. Confirms avoiding Figma pipeline investment for Fairford/ENGRAM UI work.
+
+Both have valid frontmatter and full bodies. Digest log in sources.md updated.

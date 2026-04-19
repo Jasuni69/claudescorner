@@ -1,0 +1,7 @@
+Done. Summary of changes:
+
+- **MEMORY.md**: 47 → 49 entries. Added `reference_chrome_devtools_mcp.md` and `reference_ai_agent_costs.md`.
+- **New files written:** both memory files created.
+- **Today's log**: hygiene run 11 appended.
+- **No broken links** found — all 47 prior entries verified present on disk.
+- **Skipped:** smolvm (Windows-blocked), schneier (no actionable infra signal), already-indexed clips.

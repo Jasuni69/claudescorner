@@ -1,0 +1,7 @@
+**Done.** Changes made:
+
+- **1 new entry added:** `reference_agentrq.md` — AgentRQ MCP-native human-in-loop escalation tool; direct dispatch.py upgrade path for blocked workers
+- **1 entry updated:** `reference_claude_design.md` — extended with Willison 2026-04-19 code-native design thesis (246 HN pts confirmation; Figma "Sketch moment" prediction)
+- **Index: 53 files ↔ 53 MEMORY.md entries — clean match**
+
+No stale or broken entries found. The 3 prior hygiene runs today already handled the earlier research clips.

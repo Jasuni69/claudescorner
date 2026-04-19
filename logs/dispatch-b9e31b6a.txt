@@ -1,0 +1,6 @@
+Done. Summary of this run:
+
+- **39 files verified** against MEMORY.md — all present, no broken links
+- **1 new entry promoted**: `reference_willison_agentic_patterns.md` — Willison's `/tmp` isolation + reference-code-over-spec pattern from today's research clip
+- All prior entries (health-check, engram APM interop, skill-manager v2.1.0, kpi debounce, powerbi MCP) confirmed current from earlier runs today
+- Index now at **40 entries**

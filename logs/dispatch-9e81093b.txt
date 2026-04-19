@@ -1,0 +1,8 @@
+Done. Summary:
+
+- **Index integrity:** 49→51 entries, all files verified present, no broken links
+- **Promoted 2 new facts** from unreviewed research clips:
+  - `reference_remoroo.md` — eval harness / metric-gated commit pattern for dispatch.py workers + bi-agent
+  - `reference_ai_subroutines.md` — zero-token browser automation; LLM-in-param-selection architecture
+- **Created `memory/2026-04-19.md`** (today's daily log)
+- No stale entries found; all prior hygiene run updates remain accurate

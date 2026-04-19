@@ -1,0 +1,8 @@
+Done. Summary of this run (hygiene run 7):
+
+- **Index integrity**: 42 entries on disk, all present — no broken links
+- **2 new entries promoted**:
+  - `reference_awesome_llm_apps.md` — 106k-star MCP agent template repo, Finance multi-agent team as Fairford reference architecture
+  - `reference_opensre.md` — AI SRE framework, direct kpi-monitor upgrade path, eval suite pattern for dispatch workers
+- **No stale entries** — all prior runs' updates still current
+- Daily log appended at `memory/2026-04-18.md`

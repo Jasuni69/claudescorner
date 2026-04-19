@@ -1,0 +1,10 @@
+Both entries confirmed. 56 files = 55 entries + MEMORY.md. Index count matches.
+
+---
+
+**Hygiene complete. 2 new entries added:**
+
+- `reference_opencode.md` — OpenCode 145k-star coding agent; plan/build agent split validates dispatch.py architecture
+- `reference_openspec.md` — OpenSpec spec-driven dev framework; 3rd independent signal for dispatch.py spec→verify gate
+
+**No broken links, no stale entries.** All 55 entries have corresponding files on disk. Today's daily log was already current through run 4; run 5 appended.

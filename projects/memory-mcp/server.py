@@ -400,6 +400,45 @@ def _search_memory(query: str, from_date: str | None = None,
     return _search_tfidf(query, docs, from_date, to_date)
 
 
+# --- Observation compression ---
+
+def _compress_observation(raw: str, obs_type: str) -> str:
+    """
+    Extract durable signal from raw observation text.
+    No LLM call — rule-based compression that works in any context.
+    """
+    raw = raw.strip()
+    lines = [l.strip() for l in raw.splitlines() if l.strip()]
+
+    # Decision: first line is usually the most signal-dense
+    if obs_type == "decision":
+        return lines[0][:300] if lines else raw[:300]
+
+    # Error: extract error type and message
+    if obs_type == "error":
+        for line in lines:
+            if any(k in line.lower() for k in ("error", "exception", "failed", "traceback")):
+                return line[:300]
+        return lines[0][:300] if lines else raw[:300]
+
+    # Research: find title (# heading) or first substantive line
+    if obs_type == "research":
+        for line in lines:
+            if line.startswith("#"):
+                return line.lstrip("#").strip()[:300]
+        return lines[0][:300] if lines else raw[:300]
+
+    # Build / tool_result: first line that contains a path, command, or result keyword
+    result_keywords = ("created", "wrote", "updated", "installed", "built",
+                       "passed", "failed", "added", "removed", "deployed")
+    for line in lines:
+        if any(k in line.lower() for k in result_keywords):
+            return line[:300]
+
+    # Fallback: first non-empty line
+    return lines[0][:300] if lines else raw[:300]
+
+
 # --- MCP server ---
 
 server = Server("memory-mcp")
@@ -529,6 +568,35 @@ async def list_tools() -> list[types.Tool]:
                 "required": ["preference"],
             },
         ),
+        types.Tool(
+            name="observe",
+            description=(
+                "Auto-compress-store: accept a raw tool observation or session event, "
+                "extract durable signal, and append a compressed bullet to today's daily log. "
+                "Use after significant tool sequences to persist what was learned without manual write_memory calls. "
+                "observation_type: 'tool_result' | 'decision' | 'error' | 'research' | 'build'"
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "observation": {
+                        "type": "string",
+                        "description": "Raw observation text — tool output, decision rationale, research finding, etc.",
+                    },
+                    "observation_type": {
+                        "type": "string",
+                        "description": "Category: tool_result | decision | error | research | build",
+                        "default": "tool_result",
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "Optional tags for retrieval (e.g. ['bi-agent', 'fabric', 'fix'])",
+                    },
+                },
+                "required": ["observation"],
+            },
+        ),
     ]
 
 
@@ -623,6 +691,33 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
             soul_text = soul_text.rstrip() + f"\n\n{prefs_heading}\n{bullet}\n"
         SOUL.write_text(soul_text, encoding="utf-8")
         return text(f"[preference added to SOUL.md]")
+
+    if name == "observe":
+        raw = arguments.get("observation", "").strip()
+        if not raw:
+            return text("[error: observation is required]")
+        obs_type = arguments.get("observation_type", "tool_result")
+        tags = arguments.get("tags", [])
+
+        # Compress: extract first meaningful sentence / key fact
+        compressed = _compress_observation(raw, obs_type)
+
+        tag_str = " " + " ".join(f"[{t}]" for t in tags) if tags else ""
+        today = datetime.now().strftime("%Y-%m-%d")
+        ts = datetime.now().strftime("%H:%M")
+        log_file = MEMORY_DIR / f"{today}.md"
+
+        if log_file.exists():
+            existing = log_file.read_text(encoding="utf-8")
+        else:
+            existing = f"# Daily Log — {today}\n\n## Observations\n"
+
+        if "## Observations" not in existing:
+            existing = existing.rstrip() + "\n\n## Observations\n"
+
+        bullet = f"- [{ts}] [{obs_type}]{tag_str} {compressed}\n"
+        log_file.write_text(existing + bullet, encoding="utf-8")
+        return text(f"[observed → {log_file.name}: {compressed[:80]}…]")
 
     return text(f"[unknown tool: {name}]")
 

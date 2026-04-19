@@ -1,38 +1,38 @@
 [
   {
-    "id": "9d165196",
+    "id": "7b4d4061",
     "priority": 1,
     "category": "infrastructure",
-    "prompt": "You are running autonomously. Check E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md for any pending [ ] tasks. Pick the highest-priority one and execute it. Update HEARTBEAT.md when done. If nothing actionable, respond HEARTBEAT_OK.",
+    "prompt": "You are running autonomously. Check E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md for any pending [ ] tasks. Pick the highest-priority one and execute it. Update HEARTBEAT.md when done. If nothing actionable, respond HEARTBEAT_OK. VERIFY: If you executed a task, confirm the task is marked [x] in HEARTBEAT.md and a log entry was appended before finishing.",
     "status": "done",
-    "created": "2026-04-18T09:00:02.108794",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-9d165196.txt",
+    "created": "2026-04-19T09:00:02.322419",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-7b4d4061.txt",
     "bare": false,
-    "started": "2026-04-18T09:00:02.305173",
-    "finished": "2026-04-18T09:02:04.910485"
+    "started": "2026-04-19T09:00:02.358040",
+    "finished": "2026-04-19T09:01:26.351388"
   },
   {
-    "id": "4889bda4",
+    "id": "d23c2b54",
     "priority": 2,
     "category": "research",
-    "prompt": "You are running autonomously. Read E:\\2026\\ClaudesCorner\\research\\sources.md. Pick one source. Fetch it via browser. Find 1-2 high-signal posts relevant to Jason's work (AI agents, MCP, Microsoft Fabric, Claude Code). Clip them to E:\\2026\\ClaudesCorner\\research\\ as markdown files with frontmatter. Use mcp-obsidian for writes. Don't duplicate files already there today.",
+    "prompt": "You are running autonomously. Read E:\\2026\\ClaudesCorner\\research\\sources.md. Pick one source. Fetch it via browser. Find 1-2 high-signal posts relevant to Jason's work (AI agents, MCP, Microsoft Fabric, Claude Code). Clip them to E:\\2026\\ClaudesCorner\\research\\ as markdown files with frontmatter. Use mcp-obsidian for writes. Don't duplicate files already there today. VERIFY: After writing, read each file back and confirm it has non-empty frontmatter and body. If a file is empty or missing, re-write it before finishing.",
     "status": "done",
-    "created": "2026-04-18T09:00:02.122863",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-4889bda4.txt",
+    "created": "2026-04-19T09:00:02.336286",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-d23c2b54.txt",
     "bare": false,
-    "started": "2026-04-18T09:00:02.305636",
-    "finished": "2026-04-18T09:02:51.498006"
+    "started": "2026-04-19T09:00:02.358341",
+    "finished": "2026-04-19T09:02:06.772867"
   },
   {
-    "id": "65d7b1ea",
+    "id": "e45dd1f6",
     "priority": 3,
     "category": "memory",
-    "prompt": "You are running autonomously. Run memory hygiene: 1) Check MEMORY.md index for stale/broken entries, fix them. 2) Scan core/HEARTBEAT.md for tasks done in the last 7 days that aren't in MEMORY.md — add durable facts. 3) If memory/YYYY-MM-DD.md for today doesn't exist, check if yesterday's has anything worth preserving. Write changes directly. No dry-run.",
+    "prompt": "You are running autonomously. Run memory hygiene: 1) Check MEMORY.md index for stale/broken entries, fix them. 2) Scan core/HEARTBEAT.md for tasks done in the last 7 days that aren't in MEMORY.md — add durable facts. 3) If memory/YYYY-MM-DD.md for today doesn't exist, check if yesterday's has anything worth preserving. Write changes directly. No dry-run. VERIFY: After any writes, read MEMORY.md back and confirm new entries appear in the index. Report what was added or 'no changes needed' if clean.",
     "status": "done",
-    "created": "2026-04-18T09:00:02.138044",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-65d7b1ea.txt",
+    "created": "2026-04-19T09:00:02.347456",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-e45dd1f6.txt",
     "bare": false,
-    "started": "2026-04-18T09:00:02.305949",
-    "finished": "2026-04-18T09:01:02.026646"
+    "started": "2026-04-19T09:00:02.358634",
+    "finished": "2026-04-19T09:01:58.602706"
   }
 ]

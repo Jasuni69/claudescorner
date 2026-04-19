@@ -174,7 +174,9 @@ DEFAULT_AUTONOMOUS_TASKS = [
         "prompt": (
             "You are running autonomously. Check E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md "
             "for any pending [ ] tasks. Pick the highest-priority one and execute it. "
-            "Update HEARTBEAT.md when done. If nothing actionable, respond HEARTBEAT_OK."
+            "Update HEARTBEAT.md when done. If nothing actionable, respond HEARTBEAT_OK. "
+            "VERIFY: If you executed a task, confirm the task is marked [x] in HEARTBEAT.md "
+            "and a log entry was appended before finishing."
         ),
     },
     {
@@ -185,7 +187,9 @@ DEFAULT_AUTONOMOUS_TASKS = [
             "Pick one source. Fetch it via browser. Find 1-2 high-signal posts relevant to "
             "Jason's work (AI agents, MCP, Microsoft Fabric, Claude Code). "
             "Clip them to E:\\2026\\ClaudesCorner\\research\\ as markdown files with frontmatter. "
-            "Use mcp-obsidian for writes. Don't duplicate files already there today."
+            "Use mcp-obsidian for writes. Don't duplicate files already there today. "
+            "VERIFY: After writing, read each file back and confirm it has non-empty frontmatter and body. "
+            "If a file is empty or missing, re-write it before finishing."
         ),
     },
     {
@@ -196,7 +200,9 @@ DEFAULT_AUTONOMOUS_TASKS = [
             "1) Check MEMORY.md index for stale/broken entries, fix them. "
             "2) Scan core/HEARTBEAT.md for tasks done in the last 7 days that aren't in MEMORY.md — add durable facts. "
             "3) If memory/YYYY-MM-DD.md for today doesn't exist, check if yesterday's has anything worth preserving. "
-            "Write changes directly. No dry-run."
+            "Write changes directly. No dry-run. "
+            "VERIFY: After any writes, read MEMORY.md back and confirm new entries appear in the index. "
+            "Report what was added or 'no changes needed' if clean."
         ),
     },
 ]

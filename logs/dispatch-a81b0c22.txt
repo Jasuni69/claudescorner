@@ -1,0 +1,5 @@
+Two clips filed:
+
+- **`2026-04-18-awesome-llm-apps.md`** — Shubhamsaboo/awesome-llm-apps (106k stars). 100+ runnable agent/RAG templates with a dedicated MCP agents section and 19 reusable skill modules. Direct fork source for skill-manager-mcp patterns and Fairford multi-agent reference architecture.
+
+- **`2026-04-18-opensre-ai-sre.md`** — Tracer-Cloud/opensre (1.6k stars, +184 today). Full alert→RCA→remediation AI SRE agent with 40+ integrations, Anthropic first-class, MCP-native. Concrete upgrade path for kpi-monitor; eval suite pattern applicable to dispatch.py worker quality scoring.

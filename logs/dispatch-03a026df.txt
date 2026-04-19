@@ -1,0 +1,1 @@
+Clipped `2026-04-18-claude-system-prompts-git-timeline.md` — Willison's tool that turns Anthropic's published system prompt history into a git repo with `log`/`diff`/`blame`. 26 revisions across 14 models, 104 commits, 21-month timeline. The 4-artifact-per-commit pattern is directly applicable to versioning SOUL.md evolution.

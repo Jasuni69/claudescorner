@@ -1,0 +1,7 @@
+Done. Two clips written and verified:
+
+- `2026-04-19-opencode-open-source-coding-agent.md` — OpenCode (145k stars): provider-agnostic open-source Claude Code analog; plan/build agent split; MCP Registry; LSP support. Key insight: plan agent = read-only guard pattern worth adopting in dispatch.py.
+
+- `2026-04-19-openspec-spec-driven-development.md` — OpenSpec (41k stars): spec-driven dev CLI; proposal→specs→design→tasks per feature; `/opsx:verify` oracle pattern. Key insight: this is the missing `verify:` gate identified in dispatch.py workers — concrete implementation reference.
+
+Both have valid frontmatter + body. Digest log in sources.md updated.

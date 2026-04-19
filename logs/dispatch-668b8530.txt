@@ -1,0 +1,5 @@
+2 new clips filed:
+
+- **`2026-04-18-ai-subroutines-zero-token-browser.md`** — rtrvr.ai's record-once/replay-N pattern for browser automation. Zero token cost at execution; auth propagates in-page. Ships with MCP upgrades. Relevant as dispatch.py browser primitive + chrome-devtools-mcp complement.
+
+- **`2026-04-18-remoroo-autonomous-ml-experiments.md`** — overnight autonomous experimentation engine with metric-gated commits. Key signal: their fixed eval harness pattern identifies a gap in current dispatch.py workers — no structured `verify:` step.

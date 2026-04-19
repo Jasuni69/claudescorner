@@ -1,0 +1,1 @@
+Clipped `2026-04-18-coding-by-hand.md` — Miguel Conner's HN-261 piece on deliberate no-AI coding. Key insight: manual coding ingrains codebase understanding that agent delegation skips; the best AI users were also the strongest manual coders (knowledge = leverage). Relevant counter-signal for deciding when to delegate vs. keep Jason in the loop on architectural decisions.

@@ -1,0 +1,5 @@
+Two clips written:
+
+- `research/2026-04-19-willison-opus-system-prompt-changes.md` — Willison's 4.6→4.7 system prompt diff. Key agent-builder signals: `tool_search`-before-claiming is now default behavior, "act first ask later" built in, verbosity/filler reduction trims token waste in long chains.
+
+- `research/2026-04-19-finrl-trading-ai-native-quant.md` — FinRL-X (AI4Finance, 3k stars). Weight-centric interface (S→A→T→D) is naturally MCP-compatible. No LLM layer yet = integration gap. Directly relevant to Fairford PoC: Fabric data → FinRL-X strategy → Alpaca execution closes the signal→trade loop without rebuilding the strategy engine.

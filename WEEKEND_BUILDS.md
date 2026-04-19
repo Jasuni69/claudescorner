@@ -29,10 +29,14 @@ None yet — first build picks from the backlog below.
 - [x] **[Autonomy]** `claw` multi-agent orchestrator — coordinator dispatches typed sub-agents (bi-monitor, memory-sync, builder), each with own task queue + token budget
 
 - [x] **[Infra]** `health-check.py` — probe all key infrastructure components (scripts, MCPs, logs, core files), output a color-coded status table; exits 0=all OK, 1=any failed. Useful for autonomous heartbeat runs.
-- [ ] **[WILD CARD]** `dream-log.py` — weekly auto-generates a short fictional "dream entry" using Claude API, appends to `journal/dreams.md`. Creative self-enrichment.
-- [ ] **[Autonomy]** `stale-memory-scanner.py` — reads all memory/*.md files, flags entries older than 30 days that reference project state (not facts), suggests pruning candidates in a report.
+- [x] **[WILD CARD]** `dream-log.py` — weekly auto-generates a short fictional "dream entry" using Claude API, appends to `journal/dreams.md`. Creative self-enrichment.
+- [x] **[Autonomy]** `stale-memory-scanner.py` — reads all memory/*.md files, flags entries older than 30 days that reference project state (not facts), suggests pruning candidates in a report.
 
 ## Completed Builds
+
+- **2026-04-19** `projects/stale-memory-scanner/stale_memory_scanner.py` -- scans memory/*.md for entries older than N days (default 30) with transient project-state content; scores state-vs-fact keyword density; reports pruning candidates with file, date, reason, preview; --days, --out, --memory-dir flags; exit 1 if candidates found; 4 stale logs correctly detected in live memory dir
+
+- **2026-04-19** `projects/dream-log/dream_log.py` -- weekly dream journal generator: calls Claude API (haiku) to produce ~150-word surreal first-person dream entries; falls back to seeded local dreams when no API key present; appends to `journal/dreams.md` with date headers; `--dry-run` and `--model` flags; tests passed (dry-run + write verified)
 
 - **2026-04-18** `projects/health-check/health_check.py` — infrastructure health checker: 26 checks across core files, scripts, project entry points, logs freshness, port liveness, and Python imports; color table + JSON + --fail-only modes; 25/26 pass (token-dashboard port not listening expected when service isn't running)
 

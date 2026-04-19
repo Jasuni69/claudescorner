@@ -1,0 +1,3 @@
+Brief timestamp is still `2026-04-19 09:00` — the re-fetch returned the same content. No new signals vs Digest Run 3. No further action needed.
+
+HEARTBEAT_OK.

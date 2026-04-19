@@ -41,6 +41,87 @@
 
 ## Log
 
+### 2026-04-19 (weekend build -- stale-memory-scanner)
+- Built `projects/stale-memory-scanner/stale_memory_scanner.py` -- memory hygiene scanner
+- Parses date-named daily logs + dated sections in undated files + mtime fallback
+- Scores state-vs-fact keyword density to distinguish transient state from durable facts
+- Reports pruning candidates with file, date, reason, 6-line preview
+- Flags: `--days N` (default 30), `--out FILE`, `--memory-dir DIR`; exit 1 if candidates found
+- Live scan: 4 stale daily logs correctly flagged (2026-03-13 through 2026-03-19)
+- WEEKEND_BUILDS.md updated; backlog now fully cleared
+
+### 2026-04-19 (weekend build -- dream-log)
+- Built `projects/dream-log/dream_log.py` -- dream journal generator
+- Claude API (haiku) generates ~150-word surreal first-person dream entries; falls back to 3 seeded static dreams when ANTHROPIC_API_KEY unset
+- Writes to `journal/dreams.md` with `## YYYY-MM-DD` headers; creates file if missing
+- CLI: `--dry-run` + `--model` flags; tests passed (dry-run clean, write verified 658 bytes)
+- WEEKEND_BUILDS.md updated; item moved to Completed Builds
+
+### 2026-04-19 ~13:00 UTC (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief ~4h old — re-fetch triggered (background).
+- Processed 2 unclipped research clips into Synthesis Digest Run 5: OpenCode (145.6k stars — plan/build agent split validates dispatch.py role separation; LSP gap noted), OpenSpec (41.1k stars — spec→apply→verify pattern is 3rd independent source confirming dispatch.py workers need frozen spec step before execute; bi-agent schema_spec.md gap identified; writing-plans skill alignment confirmed).
+- 2 new actionable items added to synthesis table.
+
+### 2026-04-19 ~09:00 UTC (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under 4h threshold, no re-fetch.
+- Processed 2 unclipped research clips into Digest Run 4: AgentRQ (MCP-native human-in-loop escalation for dispatch workers — backlog), Claude Design code-native thesis (246pt HN signal — validates existing Figma-hold stance, Claude Code-first UI policy confirmed).
+- Synthesis now 4 digest runs for 2026-04-19.
+
+### 2026-04-19 ~05:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief at 4h threshold — re-fetch triggered (background).
+- Processed 2 unclipped research sources into Digest Run 2 for 2026-04-19: FinRL-Trading (Fairford Phase 2 execution loop candidate — wrap allocate_portfolio as MCP tool), Willison 4.6→4.7 system prompt diff (tool_search now model-native, verbosity reduction, act-first default — all align with existing CLAUDE.md posture).
+- Key new actionable: FinRL-X MCP wrapper for Fairford Phase 2 (Medium, blocked on Jason).
+
+### 2026-04-19 ~11:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under 4h threshold, no re-fetch.
+- Processed 2 research clips into Synthesis Digest Run 1 for 2026-04-19: Claude 4.7 token inflation (HN 381pts — input +30-45%, net ~11% cheaper on benchmarks but 3-5× higher in practice; hold on 4.7 confirmed), Willison reference-repo prompting (3rd independent source confirming dispatch.py needs verify oracle).
+- Added `VERIFY:` self-validation oracle clauses to all 3 DEFAULT_AUTONOMOUS_TASKS in dispatch.py (infrastructure, research, memory workers). Directly actionable from 3-signal convergence (Remoroo + Willison 04-18 + Willison 04-19).
+
+### 2026-04-19 ~09:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 12h old — re-fetch triggered (background).
+- Processed 5 unclipped research sources into Digest Run 11: AI Subroutines (zero-token browser), chrome-devtools-mcp (36k stars, wire to settings.json), claude-mem (62k stars, ENGRAM parallel + memory-mcp upgrade path), GenericAgent (L0-L4 + skill crystallization pattern), Remoroo (eval oracle pattern for dispatch.py workers). Synthesis appended to 2026-04-18-synthesis.md.
+- Key actionables: wire chrome-devtools-mcp into settings.json (Medium), add eval oracle block to dispatch.py worker prompts (Medium).
+
+### 2026-04-18 ~23:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch.
+- Appended Digest Run 10 to 2026-04-18-synthesis.md: 2 sources (Schneier Mythos cybersecurity governance, Willison 3-prompt agentic workflow). Key signals: agent sandboxing non-optional (Mythos exploit scale), dispatch.py worker /tmp clone pattern confirmed, kpi-monitor confidence calibration note added.
+
+### 2026-04-18 ~21:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 4h old — re-fetched. New signals: TMDL+PBIR DevOps UI thread (validates pbip_diff extension opportunity), Claude Design 10h reviews (not production-ready, no API yet — defer Figma pipeline decisions), 4.7 regression sentiment continues, Fabric "talk to your data" complaints (hallucinated DAX, no multi-turn) = bi-agent competitive framing for Fairford Phase 2.
+- Synthesis Digest Run 9 appended to 2026-04-18-synthesis.md (4 sources). Key actionable: bi-agent explicit validation oracle (Medium priority), Fairford Phase 2 competitive framing via "talk to your data" thread.
+
+### 2026-04-18 ~19:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch.
+- Processed 2 unclipped research sources into Digest Run 8: "Coding by Hand" (delegation boundary signal) + Willison Claude system prompts git timeline (SOUL.md versioning pattern). Synthesis now 8 digest runs for the day.
+
+### 2026-04-18 ~17:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 4h old — re-fetched. Key new signals: Claude 4.7 commit-hash hallucination confirmed (hold on 4.7 upgrade stands); MineBench 4.6 vs 4.7 comparison posted; Fabric "talk to your data" + agent-for-docs threads (Fairford-relevant).
+- Wired magika-mcp into settings.json (was built 2026-04-18 ~13:00, never activated). Takes effect after CC restart.
+
+### 2026-04-18 ~15:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 1h old — under threshold, no re-fetch.
+- Synthesis Digest Run 7 appended: 3 sources (awesome-llm-apps 106k stars, OpenSRE AI SRE framework, Willison content-type post). Key signals: OpenSRE as kpi-monitor RCA upgrade path, awesome-llm-apps finance multi-agent = Fairford reference architecture, embed validation oracle explicitly in bi-agent prompt.
+
+### 2026-04-18 ~13:00 (autonomous heartbeat)
+- Reddit brief at 4h threshold — re-fetch triggered (background).
+- Synthesis Digest Run 6 appended: 4 sources (smolvm, chrome exploit, magika, Willison /tmp pattern). Key signals: magika as markitdown pre-filter, smolvm Windows-blocked, dispatch.py worker prompt improvement via /tmp reference clone.
+- Built `projects/magika-mcp/server.py` — 3-tool MCP stdio server: detect_file, detect_bytes, batch_detect. Wraps google/magika. MCP init test passed. Wire via settings.json when ready.
+
+### 2026-04-18 ~11:00 (autonomous heartbeat)
+- Only pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Reddit brief 2h old — under threshold, no re-fetch. Synthesis current through Digest Run 5.
+- Committed engram memory-mcp v2 upgrade to local git (3ede139): semantic search, 10 tools, APM interop section. Not pushed (needs Jason to authorize push to engram/main).
+
 ### 2026-04-18 (weekend build — health-check)
 - Built `projects/health-check/health_check.py` — 26-check infrastructure health checker
 - Checks: Python, core files, scripts, 8 project entry points, logs freshness, port liveness, 4 Python imports

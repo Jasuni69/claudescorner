@@ -1,0 +1,6 @@
+Done. Two files clipped and verified:
+
+- `research/2026-04-19-fuelgauge-claude-code-status-line.md` — Bash/PowerShell Claude Code status line showing 3 rate-limit windows, no Node. Direct fit for ClaudesCorner session monitoring.
+- `research/2026-04-19-agentkey-access-governance.md` — Centralized credential governance for AI agents (approval inbox, audit log, AES-256, self-growing tool catalog, free/self-hostable). Fills the missing access-control layer in dispatch.py workers; complements AgentRQ.
+
+Both have valid frontmatter + body. Digest log in `sources.md` updated.
