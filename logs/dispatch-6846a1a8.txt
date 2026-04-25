@@ -1,0 +1,8 @@
+Oracle passes. Done.
+
+**Summary:** Added Haiku 4.5 as a first-tier model option to `dispatch.py`:
+- `HAIKU_MODEL` + `MODEL_ALIASES` constants
+- `push_task(..., model="haiku")` parameter  
+- `--model ALIAS` CLI flag (e.g. `python dispatch.py --push "..." --model haiku`)
+- `run_task()` resolves alias → `--model claude-haiku-4-5-20251001` on the subprocess call
+- Docstring now documents all 3 tiers: Haiku (leaf nodes) → Sonnet (default) → Opus (planning only)

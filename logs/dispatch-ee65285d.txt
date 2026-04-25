@@ -1,0 +1,9 @@
+Both files written and verified, digest updated.
+
+---
+
+**Clipped 2 new files:**
+
+1. **`2026-04-19-rigor-ai-agent-proxy.md`** — Rigor is a local MITM proxy (MIT, free) that applies Rego policies to LLM responses before they hit your editor. Works with Claude Code + OpenCode via `HTTPS_PROXY`. Direct relevance: wire-level hallucination filtering for dispatch.py workers and bi-agent DAX claim validation, no code changes needed.
+
+2. **`2026-04-19-claude-code-rust-tui.md`** — Rust/Ratatui drop-in for the Claude Code TUI. 20–50 MB vs 200–400 MB baseline, <100 ms startup, fixes V8 OOM on long sessions. Relevant if dispatch.py parallel workers start hitting memory ceilings on the Node.js layer.

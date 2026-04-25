@@ -1,0 +1,5 @@
+Written. Key findings:
+
+- **5 of 12 vectors apply**: prompt injection, goal drift, replay, unverified subagent spawning, unsigned delegation
+- **AgentKey+AgentRQ close 3**: delegation, spawning, replay — but prompt injection is still open
+- **Verify oracle hardening**: suffix the worker's final prompt with a YES/NO goal-match assertion; gates success on alignment with original task description

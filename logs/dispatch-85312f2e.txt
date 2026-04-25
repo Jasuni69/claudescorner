@@ -1,0 +1,8 @@
+Oracle passed. Summary:
+
+**Memory hygiene complete:**
+- Zero broken MEMORY.md links (all 107→115 files verified on disk)
+- All recent project memories current (dispatch.py topology/DENY, bi-agent oracle, memory-mcp depth)
+- **8 new entries added** (107 → 115): Vercel/Context.ai OAuth breach, Lovable RLS breach, GitHub velocity ban, Daemons/Charlie Labs deny: pattern, GoModel gateway, Ternary Bonsai, TrendRadar (GPL-3.0 blocked), Ctx context manager
+- Today's daily log (`memory/2026-04-22.md`) appended with hygiene run record
+- Skipped 3 low-signal clips (HAE-OLS math, dflash Windows-blocked, poly_data GPL-gated)

@@ -1,0 +1,3 @@
+Oracle passes. 
+
+**Summary:** Added prompt injection guard to `skill-manager-mcp` v2.5.0. `_check_injection()` scans for 11 scope-redefinition/jailbreak patterns before `skill_create` or `skill_edit` writes anything to disk. Fail-closed (unlike the Sunglasses fail-open pattern used elsewhere) — blocked skills return `[injection-guard]: ...` and are never stored. All 5 injection test variants detected; clean skill bodies pass through unchanged.

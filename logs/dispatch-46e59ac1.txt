@@ -1,0 +1,7 @@
+Oracle passes. Summary:
+
+- **No broken/stale entries** found — all 93 index pointers have corresponding files
+- **1 update made:** `project_dispatch.md` updated with Haiku model tier addition (Digest Run 7, 2026-04-20) — `HAIKU_MODEL`, `MODEL_ALIASES`, `--model` CLI flag, 3-tier model routing
+- **MEMORY.md index line** for dispatch updated to reflect current state
+- **Today's daily log** (`memory/2026-04-20.md`) already exists with full session context
+- Oracle: `OK: 93 entries in MEMORY.md`

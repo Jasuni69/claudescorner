@@ -1,0 +1,15 @@
+Done. Here's the summary:
+
+---
+
+**Source chosen:** Hacker News front page — not yet fetched today; all existing 2026-04-21 clips came from GitHub trending, not HN.
+
+**Files written:**
+
+1. `research/2026-04-21-ternary-bonsai-158bit-llm.md` (2186 bytes) ✓  
+   **Signal:** PrismML's 1.58-bit 8B model runs at 82 tok/s on M4 Pro in 1.75 GB RAM — first credible open-weight Haiku-tier fallback for dispatch.py if Anthropic rate limits tighten.
+
+2. `research/2026-04-21-vercel-breach-context-ai-oauth.md` (2948 bytes) ✓  
+   **Signal:** Roblox malware → Context.ai "Allow All" OAuth → Vercel breach is the canonical real-world instance of the supply-chain AI tool attack vector — directly validates AgentKey for dispatch.py credential governance before Fairford Phase 2.
+
+Both oracle checks passed. Digest log in `sources.md` updated.

@@ -1,0 +1,9 @@
+All done. Summary:
+
+**SPEC → BUILD → VERIFY complete.**
+
+- Found 2 unprocessed 2026-04-22 clips (Zed Parallel Agents + Coding Models Are Doing Too Much)
+- Digested both into `research/2026-04-22-synthesis.md` Digest Run 8
+- Applied zero-cost empirical improvement: surgical edit constraint added to `scripts/dispatch.py` BUILD worker prompt (`"Make only the changes necessary. Preserve existing code... Do not refactor unrelated code."`)
+- HEARTBEAT log entry for 2026-04-23 written; daily log appended
+- Oracle: **OK** — 13 done tasks, latest log=2026-04-23

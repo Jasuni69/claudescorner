@@ -1,0 +1,9 @@
+Oracle passed: **150 entries in MEMORY.md**.
+
+Added 4 new entries from HEARTBEAT Digest Run 24 (2026-04-25):
+- `reference_cc_canary.md` — 7-metric dispatch.py quality regression scanner
+- `reference_design_md_google.md` — Google Labs code-first design format; ENGRAM scaffold candidate
+- `reference_claude_routines_finance.md` — consumer schedule→session→MCP pattern; kpi-monitor v2 reference
+- `reference_google_anthropic_40b.md` — $40B investment; 6-month pricing stability; dual AWS+GCP confirmed
+
+No broken links or stale entries found.

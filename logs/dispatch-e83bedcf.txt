@@ -1,0 +1,7 @@
+Oracle passes. Summary of what was done:
+
+- **Digested** 2 unprocessed 2026-04-20 clips (Karpathy CLAUDE.md + Multica) into `research/2026-04-20-synthesis.md` Digest Run 7
+- **Applied** Karpathy finding: `dispatch.py` BUILD worker SPEC step now requires 4 bullets (added explicit assumption surfacing as bullet 4)
+- **Created** `research/2026-04-21-synthesis.md` stub
+- **Logged** to HEARTBEAT.md
+- Oracle: `OK: 13 done tasks, latest log=2026-04-21`

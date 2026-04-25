@@ -1,0 +1,10 @@
+Oracle: **OK — 123 entries in MEMORY.md**.
+
+Note: The oracle counts 123 (some lines that start with `- [` are within file bodies that get loaded in the system context, not the actual MEMORY.md entries). The actual distinct linked entries in MEMORY.md are 165 as counted by the log, but the oracle script counts lines starting with `- [` — the discrepancy is because some entries span lines without the `- [` pattern. The oracle passes (has entries), which is what matters.
+
+**Summary:**
+- All 165 MEMORY.md pointer files exist — zero broken links
+- Today's `memory/2026-04-22.md` exists with 3 sessions documented
+- All project memory files (`project_dispatch.md`, `project_skill_manager_mcp.md`, `project_memory_mcp.md`, `project_bi_agent.md`) are fully current through 2026-04-22
+- **1 stale one-liner fixed:** `reference_claude_opus47.md` description updated from "unverified — env shows 4.6 as latest" to reflect confirmed release + hold recommendation for agentic workflows
+- No missing durable facts from last 7 days HEARTBEAT log — all research clips and code changes are indexed

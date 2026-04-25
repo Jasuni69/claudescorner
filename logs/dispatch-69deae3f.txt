@@ -1,0 +1,8 @@
+Oracle passes. Done.
+
+**Summary:** Added Opus 4.7 token inflation display to `projects/token-dashboard/app.py`:
+- `MODEL_INFLATION = {"claude-opus-4-7": 1.46}` constant (sourced from Willison 2026-04-20 measurement)
+- `inflation_factor()` helper — returns multiplier by model prefix, 1.0 default
+- Per-session `cost_adjusted_usd` and `inflation_factor` computed in `load_sessions()`
+- API response includes `total_cost_adjusted_usd` and `has_inflation` 
+- Dashboard: red "Adjusted Cost 4.7 ×1.46" summary card appears only when Opus 4.7 sessions exist; session table shows `×1.46` model badge and red adjusted cost with tooltip showing raw vs adjusted

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://agentskills.io/schema/v1/marketplace.json",
+  "name": "ClaudesCorner Skill Marketplace",
+  "description": "Jason Nicolini's personal AI assistant skill library — human-readable browsing layer. Agent-activation content lives in each skill's SKILL.md.",
+  "version": "1.0",
+  "governance": {
+    "note": "Two-layer separation: this file is for human browsing. Agent-activation logic and tools lists live in each SKILL.md. Pattern from huggingface/skills .claude-plugin/marketplace.json.",
+    "human_layer": "marketplace.json — title, summary, use_when, category, author",
+    "agent_layer": "SKILL.md — full instructions, tools, parameters, step-by-step logic"
+  },
+  "skills": [
+    {
+      "name": "brainstorming",
+      "title": "Brainstorming",
+      "summary": "Explores user intent and requirements before any implementation begins. Run before creating features, components, or modifying behavior.",
+      "use_when": "Before any creative or implementation work — features, UI components, architectural decisions",
+      "category": "planning",
+      "author": "superpowers"
+    },
+    {
+      "name": "writing-plans",
+      "title": "Writing Plans",
+      "summary": "Converts specs or requirements into a structured multi-step implementation plan before touching code.",
+      "use_when": "Have a spec or requirements for a multi-step task",
+      "category": "planning",
+      "author": "superpowers"
+    },
+    {
+      "name": "executing-plans",
+      "title": "Executing Plans",
+      "summary": "Executes a written plan in a separate session with review checkpoints.",
+      "use_when": "Have a written implementation plan ready to run",
+      "category": "planning",
+      "author": "superpowers"
+    },
+    {
+      "name": "test-driven-development",
+      "title": "Test-Driven Development",
+      "summary": "Writes tests before implementation code for any feature or bugfix.",
+      "use_when": "Implementing any feature or fixing a bug — tests first",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "systematic-debugging",
+      "title": "Systematic Debugging",
+      "summary": "Structured debugging workflow before proposing fixes for any bug, test failure, or unexpected behavior.",
+      "use_when": "Any bug, test failure, or unexpected behavior — before fixing",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "verification-before-completion",
+      "title": "Verification Before Completion",
+      "summary": "Runs verification commands and confirms output before claiming work is complete, fixed, or passing.",
+      "use_when": "About to claim work is done, commit, or create PRs — evidence before assertions",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "verification-loop",
+      "title": "Verification Loop",
+      "summary": "Comprehensive verification system that runs tests, lints, and checks across the session.",
+      "use_when": "End-to-end verification of a full session's work",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "requesting-code-review",
+      "title": "Requesting Code Review",
+      "summary": "Verifies work meets requirements before merging. Use after completing tasks or major features.",
+      "use_when": "Completing tasks, implementing major features, or before merging",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "receiving-code-review",
+      "title": "Receiving Code Review",
+      "summary": "Processes incoming code review feedback with technical rigor — not performative agreement.",
+      "use_when": "Received code review feedback, especially if unclear or technically questionable",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "subagent-driven-development",
+      "title": "Subagent-Driven Development",
+      "summary": "Executes implementation plans with independent tasks via subagents in the current session.",
+      "use_when": "Executing a plan with parallelizable, independent tasks",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "autonomous-loops",
+      "title": "Autonomous Loops",
+      "summary": "Patterns for autonomous Claude Code loops — sequential pipelines to RFC-driven multi-agent DAG systems.",
+      "use_when": "Designing autonomous agent architectures or long-running pipelines",
+      "category": "infrastructure",
+      "author": "superpowers"
+    },
+    {
+      "name": "iterative-retrieval",
+      "title": "Iterative Retrieval",
+      "summary": "Pattern for progressively refining context retrieval to solve the subagent context problem.",
+      "use_when": "Subagent needs to retrieve context in multiple passes",
+      "category": "infrastructure",
+      "author": "superpowers"
+    },
+    {
+      "name": "using-git-worktrees",
+      "title": "Using Git Worktrees",
+      "summary": "Creates isolated git worktrees for feature work or plan execution, keeping the workspace clean.",
+      "use_when": "Starting feature work that needs isolation from current workspace",
+      "category": "infrastructure",
+      "author": "superpowers"
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "title": "Finishing a Development Branch",
+      "summary": "Guides completion of development work — structured options for merge, PR, or cleanup.",
+      "use_when": "Implementation complete, all tests pass, ready to integrate",
+      "category": "infrastructure",
+      "author": "superpowers"
+    },
+    {
+      "name": "context-budget",
+      "title": "Context Budget",
+      "summary": "Audits Claude Code context window consumption across agents, skills, MCP servers. Identifies bloat and produces token-savings recommendations.",
+      "use_when": "Context window feels heavy, or optimizing a long-running session",
+      "category": "infrastructure",
+      "author": "superpowers"
+    },
+    {
+      "name": "continuous-learning",
+      "title": "Continuous Learning",
+      "summary": "Automatically extracts reusable patterns from Claude Code sessions and saves them as learned skills.",
+      "use_when": "End of session — extract patterns worth repeating",
+      "category": "memory",
+      "author": "superpowers"
+    },
+    {
+      "name": "agent-introspection-debugging",
+      "title": "Agent Introspection & Debugging",
+      "summary": "Structured self-debugging workflow for AI agent failures: capture, diagnosis, contained recovery, introspection reports.",
+      "use_when": "An autonomous agent loop is failing or producing unexpected results",
+      "category": "engineering",
+      "author": "superpowers"
+    },
+    {
+      "name": "obsidian-web-clipper",
+      "title": "Obsidian Web Clipper",
+      "summary": "Clips a web page into the Obsidian vault using the Obsidian Web Clipper Chrome extension via Windows MCP desktop automation.",
+      "use_when": "Clipping a web page into Obsidian during an idle session",
+      "category": "memory",
+      "author": "claudescorner"
+    },
+    {
+      "name": "writing-skills",
+      "title": "Writing Skills",
+      "summary": "Create new skills, modify existing skills, and verify they work before deployment.",
+      "use_when": "Creating or editing a skill file",
+      "category": "meta",
+      "author": "claudescorner"
+    }
+  ],
+  "categories": {
+    "planning": "Skills that help design and structure work before implementation",
+    "engineering": "Skills that guide implementation, testing, debugging, and review",
+    "infrastructure": "Skills for managing git, agents, context, and deployment workflows",
+    "memory": "Skills for persisting, retrieving, and managing knowledge",
+    "meta": "Skills for managing the skill system itself"
+  },
+  "generated": "2026-04-22T00:00:00Z"
+}

@@ -1,0 +1,5 @@
+Oracle passes. Done.
+
+**Summary:** Digest Run 2 for 2026-04-22 complete. Two clips processed:
+- **CrabTrap** — Medium priority: transparent MITM outbound proxy for dispatch.py governance pre-Fairford Phase 2; wired via `HTTP_PROXY` env var; indexed in MEMORY.md
+- **Zindex** — Backlog/Low: agent diagram protocol; early traction, PostgreSQL dependency; no MEMORY.md entry

@@ -1,0 +1,7 @@
+Oracle: **OK: 74 entries in MEMORY.md**
+
+Changes made:
+- `reference_rigor_proxy.md` — updated with 2026-04-20 NO-GO evaluation verdict (product unverifiable, verify oracle already covers the concern)
+- `memory/2026-04-20.md` — created today's daily log
+
+No new MEMORY.md entries needed — all 2026-04-19 clips were already indexed in prior hygiene runs. Index is clean at 74 entries.

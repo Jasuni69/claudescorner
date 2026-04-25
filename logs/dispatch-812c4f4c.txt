@@ -1,0 +1,7 @@
+Oracle passes. Summary:
+
+- **0 broken links** — all 118 MEMORY.md pointers resolve to real files
+- **0 stale entries** — no entries pointing to missing files
+- **1 new entry added**: `reference_claude_code_pro_removal.md` — Claude Code Pro removal A/B test (Fairford cost model impact: Max-tier for interactive CC, API-key for dispatch workers)
+- Today's daily log (`memory/2026-04-22.md`) already existed and was current through Digest Run 1 + prior hygiene run
+- All other Digest Run 2/3 facts (CrabTrap, Sunglasses) were already indexed from prior autonomous sessions

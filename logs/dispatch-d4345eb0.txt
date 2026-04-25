@@ -1,0 +1,14 @@
+Done. Here's the summary:
+
+---
+
+**PLAN**
+- Source: **Hacker News** — chosen because it surfaces the highest cross-signal items consistently, and nothing had been clipped today
+- Files written:
+  - `research/2026-04-25-claude-stop-hooks-exit-code-fix.md`
+  - `research/2026-04-25-free-claude-code-proxy-open-weight-routing.md`
+- Top signal per post:
+  1. **Stop hooks:** Claude Code stop hooks require `exit 2` + plain text on **stderr** — JSON to stdout with any exit code is silently ignored; this is a direct fix needed in `on_stop.py` and dispatch.py worker hooks
+  2. **free-claude-code:** MIT FastAPI proxy routes Claude Code to NVIDIA NIM/OpenRouter/DeepSeek via two env vars, with per-model Opus/Sonnet/Haiku routing; viable dispatch.py cost fallback when Anthropic rate limits hit
+
+**VERIFY** — Both files pass the oracle (3044 bytes and 3429 bytes respectively, frontmatter present). Digest log in `sources.md` updated.

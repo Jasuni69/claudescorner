@@ -1,0 +1,5 @@
+87 entries in MEMORY.md (was 85). Two additions:
+- `reference_anthropic_narasimhan_board.md` — Vas Narasimhan board appointment (durable governance fact from today's log)
+- `reference_lightweight_agent_comms.md` — CLI resume-mode zero-cost agent comms pattern (research clip existed, no pointer)
+
+No broken links. Oracle: `OK: 87 entries in MEMORY.md`.

@@ -1,0 +1,9 @@
+**Oracle: OK — 153 entries in MEMORY.md**
+
+What was done:
+- **0 broken links, 0 unindexed files** — structurally clean
+- **2 memory files updated** with details from Digest Run 26 (HEARTBEAT 2026-04-25):
+  - `reference_deepseek_v4_pro.md` — added V4-Flash at $0.14/M via OpenRouter
+  - `reference_claude_code_postmortem.md` — added dispatch long-session exposure note + cc-canary detection link
+- **MEMORY.md index** — updated deepseek_v4_pro entry to mention Pro/Flash pricing
+- **Daily log** — appended session #4 to `memory/2026-04-25.md`

@@ -1,0 +1,3 @@
+Oracle passes. Digest Run 3 complete:
+- **Sunglasses v0.2.19** — inbound MCP content scope-creep scanner (fills CrabTrap outbound / AgentKey identity gap); 3 dispatch.py scan points identified; Medium priority pre-Fairford Phase 2; added to MEMORY.md
+- **Claude Code Pro Removal A/B test** — dispatch workers unaffected (API key billing); Fairford cost model should assume Max-tier for interactive access

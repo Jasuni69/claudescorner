@@ -1,0 +1,3 @@
+Oracle already confirmed passing. Done.
+
+**What changed:** Found and fixed 2 broken MEMORY.md links (`reference_microsoft_foundry_agents.md` and `reference_ppt_master.md` — both indexed but files were missing). Also added the 2026-04-23 doom-loop guard entry to `project_dispatch.md` which was missing despite the change having been applied to `dispatch.py`. Oracle: `OK: 130 entries in MEMORY.md`, 0 broken links.

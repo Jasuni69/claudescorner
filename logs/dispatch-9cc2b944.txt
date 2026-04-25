@@ -1,0 +1,8 @@
+Done. `scripts/reddit_brief.py` upgraded:
+
+- **RSS → JSON listing API** — score + comment count in one call per subreddit
+- **`--min-karma N`** (default 5) — filters low-signal posts before output
+- **Score + comment count** shown inline: `↑1,234 💬56`
+- **`--fetch-comments`** opt-in flag — top comment preview (120 chars) per post
+- **`--dry-run`** — stdout only, no file write
+- **Stickied posts** auto-skipped

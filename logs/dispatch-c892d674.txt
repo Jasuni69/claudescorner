@@ -1,0 +1,7 @@
+Build complete. `scripts/autoresearch.py` is live:
+
+- Reads any target `.py`, measures baseline (syntax + line count + compile time)
+- Calls Claude Haiku via `claude.exe --print` to hypothesize one small improvement per iteration
+- Applies change to a temp file, measures delta, keeps if score improves
+- `--dry-run` stubs the hypothesis call (safe for testing without API burn)
+- SELF_IMPROVEMENT backlog is now fully cleared — all 10 items `[x]`

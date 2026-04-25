@@ -1,0 +1,11 @@
+Both files written, oracle passes, digest log updated.
+
+**Summary:**
+
+- **Source chosen:** Hacker News — top two AI-relevant posts today (489 + 932 pts)
+- **Files written:**
+  - `research/2026-04-24-claude-code-quality-postmortem.md` (2475 bytes) ✓
+  - `research/2026-04-24-gpt-55-competitive-signal.md` (1720 bytes) ✓
+- **Top signals:**
+  1. **Claude Code postmortem** — 3 confirmed bugs affected Sonnet 4.6/Opus 4.6/4.7 between March 4–April 20; the thinking-cache-cleared-every-turn bug (Mar26–Apr10) is the most dangerous for dispatch.py long-running sessions and explains any anomalous token burn in that window. Fix: ensure v2.1.116+.
+  2. **GPT-5.5** — OpenAI's new frontier model (932 HN pts); no MCP support confirmed, HN commenters still prefer Claude for coding; hold Sonnet 4.6 as dispatch.py default until benchmark data arrives.

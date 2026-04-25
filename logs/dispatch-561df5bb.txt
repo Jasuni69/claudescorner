@@ -1,0 +1,9 @@
+**VERIFY complete.** Both files pass oracle:
+- `2026-04-21-kimi-vendor-verifier.md` — 2262 bytes, frontmatter present
+- `2026-04-21-qwen36-max-preview.md` — 2002 bytes, frontmatter present
+
+**What was clipped:**
+
+1. **Kimi Vendor Verifier** (HN 152pts) — The K2VV ToolCall benchmark (F1 + JSON Schema accuracy) is the direct missing piece in dispatch.py's verify-oracle. Current workers assert prose expectations; KVV shows schema-level conformance checks are what catch real production failures.
+
+2. **Qwen3.6-Max-Preview** (HN 520pts) — Alibaba's frontier "Max" tier, distinct from the sparse-MoE 35B-A3B already in memory. Positioned as a Sonnet 4.6 competitor; worth benchmarking via KVV before routing any Fairford work through it if Anthropic rate limits tighten.

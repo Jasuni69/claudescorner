@@ -181,7 +181,7 @@
 | Item | Priority | Status |
 |------|----------|--------|
 | Add `verify:` validation oracle to dispatch.py worker prompt template | High | Done (2026-04-19 ~11:00) |
-| Add `spec:` artifact step to dispatch.py build worker prompts (OpenSpec pattern) | Medium | Backlog |
+| Add `spec:` artifact step + plan/build role distinction to dispatch.py workers (OpenSpec + OpenCode) | Medium | Done (2026-04-19 ~21:00) |
 | Wrap FinRL-X `allocate_portfolio` as MCP tool for Fairford Phase 2 | Medium | Backlog — needs Jason to unblock Phase 2 |
 | Keep `--bare` flag as default for context-heavy dispatch workers | Medium | Documented |
 | Hold 4.7 upgrade — profile token cost AND instruction adherence before switching | High | Standing hold |
@@ -192,4 +192,196 @@
 | Evaluate AgentRQ for dispatch.py worker escalation channel | Medium | Backlog |
 | Integrate AgentRQ `getWorkspace` into /status skill for blocked task visibility | Low | Backlog |
 | Fairford/ENGRAM UI: prototype in Claude Code directly, not Figma-first | Low | Standing policy |
-| OpenCode plan/build agent role convention for dispatch.py workers | Low | Backlog |
+| Evaluate Fuelgauge for ClaudesCorner Windows status line (no Node, PowerShell native) | Low | Backlog |
+| Evaluate AgentKey for dispatch.py worker credential governance (self-hostable, MCP-native) | Medium | Backlog |
+| Evaluate Evolver GEP pattern for ENGRAM skill crystallization (EvolutionEvents = daily log analog) | Medium | Backlog |
+| Explore Craft Agents fabric-mcp integration as Fairford PoC Craft source | Low | Backlog — needs Jason to unblock Phase 2 |
+
+---
+
+## Digest Run 7
+
+**Sources processed:** 2  
+**Files:** `2026-04-19-evolver-gep-self-evolution-engine.md`, `2026-04-19-craft-agents-mcp-native-agent-desktop.md`
+
+---
+
+### Evolver — GEP-Powered Self-Evolution Engine (5.2k stars, +1131 today)
+
+**Signal strength:** Medium-High — ENGRAM structural parallel with auditable evolution trail  
+**What it is:** GPL-3.0 agent evolution engine. Prompts drive evolution, not code edits. Genes/Capsules = reusable evolution assets in `assets/gep/`. EvolutionEvents = immutable audit log. Claude Code hooks at `~/.claude/` out of box.
+
+**Key pattern:** Signal extraction from `memory/` → selector matches existing Genes → protocol-bound prompt emitted → EvolutionEvent committed. Eliminates ad hoc SOUL.md edits with auditable trail.
+
+**Four strategy modes:** innovation (80% new), optimization, hardening, emergency repair. Signal deduplication prevents repair loops. EvoMap Hub = shared Gene pool across agent workers (skill-manager-mcp analog for distributed case).
+
+**ClaudesCorner impact:**
+- ENGRAM: Gene/Capsule = skill-manager-mcp skills; EvolutionEvents = daily_log entries. Evolver formalizes what ENGRAM does informally — worth adopting GEP naming convention in skill metadata
+- feedback_flywheel.py already does signal extraction from daily logs → this is the same pattern with an audit trail added
+- dispatch.py: `--loop` daemon = continuous worker without restart; evolver-mcp (no MCP yet) could expose evolution events as readable dispatch signals
+- Gap: GPL-3.0 vs MIT/Apache-2.0 — contamination risk if code is incorporated into ENGRAM. Study patterns only, don't fork
+
+---
+
+### Craft Agents OSS — MCP-Native Agent Desktop (4.4k stars, Apache 2.0)
+
+**Signal strength:** Medium — architecture validation + Fairford integration opportunity  
+**What it is:** Electron + craft-cli desktop built on Claude Agent SDK. Todo→Done session workflow. 32+ MCP tools. AES-256-GCM credentials. Multi-provider.
+
+**Key pattern:** `craft run` = single-shot agent execution (headless) — equivalent to dispatch.py worker spawning claude.exe. VPS server mode + thin desktop client = persistent orchestration without per-session restart.
+
+**ClaudesCorner impact:**
+- dispatch.py: `craft run` is architecturally identical to current worker pattern — Craft is a production-hardened version of the same idea with credential governance + session persistence baked in. Not a replacement, but a reference implementation
+- Obsidian vault access built in — same access pattern as mcp-obsidian; Craft does it via MCP tool, not separate server
+- ENGRAM: Skills system per workspace = SOUL.md equivalent. Session persistence = HEARTBEAT analog. Documentation value for ENGRAM README
+- Fairford PoC gap: no fabric-mcp integration — if Phase 2 uses Craft desktop, fabric-mcp source addition is a clear contribution opportunity
+- Credential governance: AES-256-GCM at rest, same pattern as AgentKey; validates AgentKey approach without external dependency
+
+---
+
+## Digest Run 6
+
+**Sources processed:** 2  
+**Files:** `2026-04-19-fuelgauge-claude-code-status-line.md`, `2026-04-19-agentkey-access-governance.md`
+
+---
+
+### Fuelgauge — Claude Code Status Line (HN: 2pts, fresh)
+
+**Signal strength:** Low-Medium — useful but low novelty vs existing token-dashboard  
+**What it is:** Shell-script Claude Code plugin (Bash/PowerShell) showing context window + 5h + 7d usage in real-time. Reads local session data, no Node.js required.
+
+**Key differentiator:** PowerShell native on Windows (no Node, no WSL shim). Three usage windows = covers daily dispatch.py rate awareness gap that token-dashboard only shows historically.
+
+**ClaudesCorner impact:**
+- token-dashboard covers historical view; Fuelgauge complements with live at-a-glance
+- PowerShell path = works natively on Windows without environment changes
+- Requires `jq` + Claude Code ≥ v1.2.80 — both likely satisfied
+- Low install cost: add marketplace repo → `plugin install` → `setup`
+- No urgency — token-dashboard is sufficient for current workflows; worth revisiting if dispatch workers start hitting 5h cap more frequently
+
+---
+
+### AgentKey — Centralized Credential Governance for AI Agents (HN: 2pts, fresh)
+
+**Signal strength:** Medium-High — directly fills dispatch.py security gap  
+**What it is:** SaaS/self-hostable access governance platform. Agents register identity → request tools → human approves → credentials served AES-256-GCM encrypted on demand. Full audit log, one-click revocation, Slack/Discord webhooks.
+
+**Key patterns:**
+- Self-growing catalog: agents declare what they need, unapproved requests trigger human suggestion flow — mirrors skill-manager-mcp discovery pattern
+- Audit trail + revocation = currently missing primitive in ClaudesCorner
+- Self-hostable on Vercel (Neon + Upstash + Clerk) → no secrets leave local infra
+
+**ClaudesCorner impact:**
+- dispatch.py workers: currently no credential governance (API keys hardcoded / .env); AgentKey fills this without SDK dependency
+- Complements AgentRQ: AgentRQ = task escalation, AgentKey = access escalation — together they close the autonomous worker accountability loop
+- ENGRAM: credential governance section could reference AgentKey pattern as optional module for teams
+- Priority: Medium — current single-user setup has low blast radius, but worth wiring before Fairford Phase 2 multi-worker rollout
+
+---
+
+## Digest Run 8
+
+**Sources processed:** 2  
+**Files:** `2026-04-19-claude-code-rust-tui.md`, `2026-04-19-rigor-ai-agent-proxy.md`
+
+---
+
+### Claude Code Rust — Native Rust TUI (94 stars)
+
+**Signal strength:** Low-Medium — premature for adoption but validates dispatch.py V8 OOM risk  
+**What it is:** Drop-in Rust/Ratatui replacement for Claude Code's Node.js TUI. Communicates via TypeScript Agent SDK bridge over stdio JSON. Claims 200-400 MB → 20-50 MB memory reduction, <100 ms startup vs 2-5 s.
+
+**Key architectural note:** Rust presentation layer + TypeScript bridge = same stdio JSON interface that dispatch.py workers already use. The bridge doesn't change the API — it's a TUI-only swap.
+
+**ClaudesCorner impact:**
+- dispatch.py runs headless (`--print` / `--bare`) — TUI performance is irrelevant for workers
+- Monitor if V8 OOM becomes a real dispatch.py issue (long autonomous runs) — 94 stars is too early to commit
+- Pattern: Agent SDK stdio bridge = viable headless primitive if we ever need to build a custom dispatch frontend
+- No action needed now
+
+---
+
+### Rigor — Wire-Level MITM Proxy for AI Agents (MIT, Free tier)
+
+**Signal strength:** High — directly closes the dispatch.py verify gap at the protocol level  
+**What it is:** Local MITM proxy (`127.0.0.1:8787`) that intercepts LLM traffic via `HTTPS_PROXY` env var. Rego policies (Rust OPA subset) filter/warn/rewrite responses before they reach the agent. Optional LSP integration to detect hallucinated symbols. Append-only audit log. No telemetry.
+
+**5-stage pipeline:** Daemon → traffic routing → codebase mapping (LSP) → claim evaluation (Rego) → enforcement (block/warn/rewrite)
+
+**ClaudesCorner impact:**
+- dispatch.py workers: set `HTTPS_PROXY=http://127.0.0.1:8787` → instant hallucination filtering without modifying any worker prompts. Complements the `verify:` oracle clauses added 2026-04-19 ~11:00
+- bi-agent: protect DAX output from silent fabricated measure names — set proxy for all bi-agent calls
+- Pairs well with AgentKey (credential governance) + AgentRQ (task escalation) — three-layer accountability stack
+- Free MIT tier covers all current ClaudesCorner needs; $19 priority tier is low risk if waitlist becomes a blocker
+- **Action: evaluate Rigor free tier on a dispatch.py test run** — high signal, low install cost
+
+---
+
+## Digest Run 9
+
+**Sources processed:** 2  
+**Files:** `2026-04-19-deer-flow-bytedance-superagent.md`, `2026-04-19-willison-agentic-new-content-type.md`
+
+---
+
+### DeerFlow — ByteDance Long-Horizon SuperAgent Harness (62.6k stars, +214 today, MIT)
+
+**Signal strength:** High — production-hardened reference for dispatch.py v2 architecture  
+**What it is:** Hierarchical coordinator → dynamic sub-agent spawning for multi-hour autonomous tasks. LangGraph runtime, persistent cross-run memory, 3-mode sandboxing (local/Docker/K8s), MCP native, Slack/Telegram routing. Claude, Gemini, DeepSeek all supported.
+
+**Key differentiators:**
+- Lead coordinator spawns workers dynamically based on task complexity (vs dispatch.py static 3 workers)
+- Persistent memory across runs (vs tasks.json + logs only)
+- Docker/K8s sandbox modes = fixes the "workers run in-process" security gap identified in earlier digest runs
+- Slack gateway = natural escalation channel; no public IP needed
+
+**ClaudesCorner impact:**
+- dispatch.py v2 design: DeerFlow's coordinator pattern = what a proper dispatch.py upgrade looks like. Current design is flat 3-worker; DeerFlow shows dynamic spawning + proper isolation as the upgrade path
+- ENGRAM: DeerFlow's persistent memory layer is structurally identical — stronger reference implementation than GenericAgent for ENGRAM README's architecture section
+- fabric-mcp drop-in: DeerFlow has no Fabric/Power BI MCP integration — obvious contribution opportunity if DeerFlow gains traction in enterprise use
+- smolvm vs Docker: DeerFlow validates Docker container isolation as the right model for dispatch workers at production scale (smolvm = experimental/Windows-blocked anyway)
+- Action: Study DeerFlow's LangGraph worker-spawning pattern before designing dispatch.py v2
+
+---
+
+### Willison — Adding a New Content Type (3-Part Agentic Prompt Pattern)
+
+**Signal strength:** High — 4th corroboration of reference-repo + verify pattern; now shows real production output  
+**What it is:** Concrete demonstration of the 3-part agentic prompt: (1) clone ref to /tmp, (2) imitate existing code, (3) self-validate with live server test. Added a full "beats" content type to a Django blog-to-newsletter tool in a single shot.
+
+**Key evidence:**
+- Agent inferred `beatTypeDisplay` mapping from Django model in cloned repo — no spec written, real code as source
+- Self-validation via `uvx rodney` = agent confirms correctness before returning, not just on return
+- "Minimal instructions + maximum context" > verbose spec — pattern now shown on a real feature
+
+**ClaudesCorner impact:**
+- dispatch.py workers: `verify:` clauses added 2026-04-19 ~11:00 were correct; this clip shows what the validation oracle looks like in practice (actual run command, not assertion comment)
+- Upgrade `verify:` from description to executable: worker prompts should include runnable check command, not just "verify output is correct"
+- Skills: `verify:` sections that say "check that X happened" should include a concrete shell command where possible
+- This is now 4th independent source (Remoroo, Willison 04-18, OpenSpec, Willison 04-19) on same pattern — lock this in as convention
+
+---
+
+## Actionable Items (updated)
+
+| Item | Priority | Status |
+|------|----------|--------|
+| Add `verify:` validation oracle to dispatch.py worker prompt template | High | Done (2026-04-19 ~11:00) |
+| **Upgrade `verify:` clauses from descriptions to runnable commands (4-source confirmation)** | High | Done (2026-04-19 ~20:00) |
+| **Evaluate Rigor free tier on a dispatch.py test run** | High | Done (2026-04-20) — NO-GO: product unverifiable, verify oracle pattern already covers output correctness; see research/2026-04-20-rigor-evaluation.md |
+| **Review DeerFlow LangGraph worker-spawning for dispatch.py v2 design** | Medium | Backlog |
+| Add `spec:` artifact step + plan/build role distinction to dispatch.py workers (OpenSpec + OpenCode) | Medium | Done (2026-04-19 ~21:00) |
+| Wrap FinRL-X `allocate_portfolio` as MCP tool for Fairford Phase 2 | Medium | Backlog — needs Jason |
+| Keep `--bare` flag as default for context-heavy dispatch workers | Medium | Documented |
+| Hold 4.7 upgrade — profile token cost AND instruction adherence before switching | High | Standing hold |
+| Monitor Sonnet 4.6 regression reports — no clear safe current model for agentic use | Medium | Watch |
+| Evaluate AgentRQ for dispatch.py worker escalation channel | Medium | Backlog |
+| Evaluate AgentKey for dispatch.py worker credential governance | Medium | Backlog |
+| Evaluate Fuelgauge for ClaudesCorner Windows status line | Low | Backlog |
+| Monitor claude-code-rust TUI — flag if V8 OOM surfaces in dispatch.py long runs | Low | Watch |
+| Evaluate Evolver GEP pattern for ENGRAM skill crystallization | Medium | Backlog |
+| Explore DeerFlow Docker sandbox + Slack gateway as dispatch.py v2 primitives | Medium | Backlog |
+| fabric-mcp contribution to DeerFlow ecosystem — no Fabric MCP in their stack | Low | Backlog |
+| Explore Craft Agents fabric-mcp integration as Fairford PoC Craft source | Low | Backlog — needs Jason |
+| Fairford/ENGRAM UI: prototype in Claude Code directly, not Figma-first | Low | Standing policy |

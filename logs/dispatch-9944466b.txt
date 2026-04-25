@@ -1,0 +1,11 @@
+Done. Summary:
+
+**Source:** GitHub trending (daily) + HN newest — neither had been scraped today.
+
+**Clips written (both oracle-verified):**
+
+1. **Tesseron** (`2026-04-22 MCP Infrastructure - Tesseron Live App MCP Bridge WebSocket Agent Actions.md`, 2908 bytes)
+   - Live apps expose typed MCP tools over WebSocket — agents call real functions instead of scraping UIs. Ships a Claude Code plugin. BSL 1.1. 4 stars but architecturally novel; low-priority backlog for dispatch.py browser workers.
+
+2. **claude-context** (`2026-04-22 MCP Infrastructure - claude-context Zilliz Semantic Codebase Search MCP.md`, 3203 bytes)
+   - Zilliz's hybrid BM25+vector MCP server for codebase search; 40% token reduction vs full-directory reads; MIT; 6.9k stars. Medium-priority: test against dispatch.py worker invocations on the `projects/` dir — if 40% holds, wire into settings.json as `code-search` MCP.

@@ -1,0 +1,17 @@
+Task plan write is blocked by the permission system on temp paths — that's fine, the actual work is done. Summary:
+
+---
+
+**PLAN**
+- Source: Hacker News (GitHub trending was ~95% already-clipped repos this week)
+- Files: `2026-04-24-browser-harness-self-healing-llm-browser.md`, `2026-04-24-claude-critics-token-issues-quality.md`
+- Signal: browser-harness = thinnest CDP-direct browser worker for dispatch.py; Claude critics = token spike/cache evidence confirming Sonnet 4.6 default and cache_control=ephemeral are correct
+
+**EXECUTE — done**
+Both files written to `E:\2026\ClaudesCorner\research\`
+
+**VERIFY — passed**
+```
+OK: ...browser-harness-self-healing-llm-browser.md (2602 bytes)
+OK: ...claude-critics-token-issues-quality.md (2853 bytes)
+```

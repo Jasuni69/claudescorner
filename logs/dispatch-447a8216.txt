@@ -1,0 +1,13 @@
+Done. Both files written and oracle-verified.
+
+**Summary:**
+
+**Source:** Hacker News newest (2026-04-23) — freshest, nothing clipped today.
+
+**Files written:**
+1. `research/2026-04-23-teams-sdk-byoa.md` (2546 bytes) ✓
+2. `research/2026-04-23-pgrust-multi-agent.md` (3300 bytes) ✓
+
+**Top signals:**
+- **Teams SDK BYOA**: Microsoft's HTTP adapter pattern lets any LangChain/Azure Foundry agent surface in Teams with zero code rewrite — direct Fairford → Teams deployment path; MCP gap = `teams-sdk-mcp` bridge opportunity.
+- **pgrust 17-agent**: 250k LOC Postgres rewrite in 2 weeks with 17 concurrent AI agents using git worktrees + small commits — first published empirical proof of dispatch.py's exact parallel-worker + worktree-isolation topology at scale.

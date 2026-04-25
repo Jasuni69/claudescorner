@@ -1,0 +1,4 @@
+Oracle passes. Digest Run 6 complete — all 2026-04-22 research clips processed. Key findings:
+
+- **Google TPU-8i** (Info): shared HBM3e pool designed for agentic KV-cache workloads; Anthropic API cost floor compresses 12-18 months; validates dispatch.py architecture
+- **last30days-skill** (Medium): 23.4k-star MIT skill fans out to 7+ platforms with engagement ranking + dedup; direct reddit_brief.py upgrade path and dispatch.py research worker candidate

@@ -1,0 +1,7 @@
+Done. Summary:
+
+**2 entries added to auto-memory MEMORY.md:**
+- `project_stale_memory_scanner.md` — memory hygiene scanner built today
+- `project_dream_log.md` — dream journal generator built today
+
+**No broken/stale entries found.** All 55 prior entries verified present on disk. Index now at 57 entries.

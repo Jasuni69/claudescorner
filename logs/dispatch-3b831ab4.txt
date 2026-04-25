@@ -1,0 +1,10 @@
+Done. Summary of what shipped:
+
+**`projects/skill-manager-mcp/marketplace.json`** — new file, 19 skills with `title`, `summary`, `use_when`, `category`, `author`. Five categories: planning/engineering/infrastructure/memory/meta. Governance block explains the layer separation.
+
+**`server.py` v2.3.0** — new tool `skill_marketplace_list(category?, search?)`:
+- Returns human-readable browsing layer, never loads SKILL.md bodies
+- Category filter and substring search supported
+- Tool description explicitly marks `skill_search` as the agent-activation entry point, keeping the two layers distinct
+
+The separation: humans (or UIs) call `skill_marketplace_list` to browse; agents call `skill_search` to activate.

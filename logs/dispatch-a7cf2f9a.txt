@@ -1,0 +1,5 @@
+All 3 oracle cases pass. Summary:
+
+- **Digested** 2 new 2026-04-21 clips into Digest Run 3 (`research/2026-04-21-synthesis.md`)
+- **Applied** K2VV finding immediately: added `validate_dax_output()` to `projects/bi-agent/bi_agent.py` — 3-layer client-side oracle (verdict check + balanced parens + schema ref cross-check); bi-agent now exits 1 on any oracle failure instead of silently passing bad DAX
+- **HEARTBEAT oracle:** passes (13 done tasks, today's log entry present)

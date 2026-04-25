@@ -1,0 +1,7 @@
+Oracle passes. 
+
+**Done.** Added `MAX_BUDGET_USD` env var support to `dispatch.py`'s `run_task()`:
+- When set, passes `--max-budget-usd <value>` to each `claude.exe` worker
+- Fail-open when unset — zero behavior change for existing deployments
+- `--max-tokens` doesn't exist in claude.exe; `--max-budget-usd` is the correct flag
+- Synthesis table updated to Done; HEARTBEAT logged

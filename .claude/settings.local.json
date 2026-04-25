@@ -473,7 +473,22 @@
       "Bash(projects/brain-memory/.venv/Scripts/python.exe projects/brain-memory/src/index_all.py --force)",
       "Bash(projects/brain-memory/.venv/Scripts/python.exe projects/brain-memory/src/consolidate.py --window-days 30 --min-cluster 2)",
       "Bash(projects/brain-memory/.venv/Scripts/python.exe -c ' *)",
-      "Bash(projects/brain-memory/.venv/Scripts/python.exe scripts/word-of-the-day.py)"
+      "Bash(projects/brain-memory/.venv/Scripts/python.exe scripts/word-of-the-day.py)",
+      "Bash(dir \"C:\\\\Users\\\\JasonNicolini\\\\.claude\" /b)",
+      "Bash(cp -r /c/Users/JasonNicolini/.claude/skills/start-project /e/2026/ClaudesCorner/skills/)",
+      "Bash(cp -r /c/Users/JasonNicolini/.claude/skills/feature /e/2026/ClaudesCorner/skills/)",
+      "Bash(cp -r /c/Users/JasonNicolini/.claude/skills/new-project /e/2026/ClaudesCorner/skills/)",
+      "Bash(cp -r /c/Users/JasonNicolini/.claude/skills/code-review /e/2026/ClaudesCorner/skills/)",
+      "Bash(cp -r /c/Users/JasonNicolini/.claude/skills/deploy /e/2026/ClaudesCorner/skills/)",
+      "Bash(C:Python314python.exe -c ' *)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\.claude\" -Force | Select-Object Name, Length | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"$env:APPDATA\\\\Claude\" -Force | Select-Object Name | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"$env:APPDATA\\\\Claude\\\\claude-code\" -Force -Recurse -Depth 1 | Select-Object FullName | Format-Table -AutoSize)",
+      "PowerShell(Get-Content \"$env:APPDATA\\\\Claude\\\\config.json\" -Raw)",
+      "PowerShell(Get-Content \"$env:APPDATA\\\\Claude\\\\cowork-enabled-cli-ops.json\" -Raw -ErrorAction SilentlyContinue; Write-Output \"---\"; Get-Content \"$env:APPDATA\\\\Claude\\\\Preferences\" -Raw -ErrorAction SilentlyContinue | Select-String -Pattern \"model|opus|sonnet\" -AllMatches | Select-Object -First 20)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='claude.exe'\")"
     ],
     "defaultMode": "bypassPermissions"
   },

@@ -1,0 +1,8 @@
+The task plan update is blocked by the permission hook (suspicious path pattern). That's fine — the work is complete.
+
+**Summary:** Oracle passes with 131 entries. One gap found and fixed:
+
+- `project_skill_manager_mcp.md` was missing the v2.5.0 injection guard added 2026-04-23 (`_check_injection` + 11 regex patterns, fail-closed, wired into `skill_create` + `skill_edit`)
+- MEMORY.md index line updated: v2.4.0 → v2.5.0 with injection guard note
+
+All other prior hygiene runs today (5 total) covered: fabric-mcp `query_dataset_by_name`, memory-mcp write-gate, dispatch.py doom-loop guard, microsoft_foundry + ppt-master missing files, CrabTrap `_proxy_env()` detail. Nothing else was stale.

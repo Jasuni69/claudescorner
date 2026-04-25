@@ -1,0 +1,9 @@
+Oracle passes. 
+
+**VERIFY:** `OK: 13 done tasks, latest log=2026-04-23, today=2026-04-23`
+
+Done. Digested 2 previously-missed 2026-04-23 clips into synthesis Digest Run 6:
+- **context-mode** — 98% context reduction via BM25/FTS5; dispatch.py research worker supplement; backlog medium
+- **Awesome Agent Skills** — 1100+ MIT SKILL.md skills from 50+ orgs; Microsoft Azure skills ready for Fairford; Trail of Bits security skills for dispatch.py review gate; confirms SKILL.md de facto standard (3rd time)
+
+Added `reference_awesome_agent_skills.md` to MEMORY.md (176 entries). No code changes were warranted — both items are backlog/watch only.

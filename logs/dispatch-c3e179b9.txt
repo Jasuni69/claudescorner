@@ -1,0 +1,8 @@
+Oracle passed: **OK: 140 entries in MEMORY.md**
+
+**What was done:**
+- 0 broken links, 0 unindexed files — memory index is clean
+- 1 stale entry fixed: `reference_checkmarx_agentic_guardrails.md` said "gap to close before Fairford Phase 2" — updated to "gap closed 2026-04-24" reflecting the `requirements.txt` + `mcp-sbom.json` BUILD agent work done earlier today
+- MEMORY.md index line updated to match
+- Today's daily log (run #6) appended
+- No new entries needed — all 2026-04-24 HEARTBEAT facts were already indexed by the 5 prior hygiene runs today

@@ -1,0 +1,9 @@
+Done. Two files clipped, both oracle-verified:
+
+**Clip 1 — CrabTrap** (high relevance)
+`2026-04-22 Agent Security - CrabTrap Brex LLM-as-Judge HTTP Proxy for Agent Governance.md` — 3469 bytes ✅
+Signal: Brex's open-source Go MITM proxy intercepts every outbound agent HTTP call, runs static rules then LLM-as-judge, blocks SSRF/prompt-injection in real time. Wire via `HTTP_PROXY` into dispatch.py workers — zero agent code changes. Fills the request-level governance gap that AgentKey (identity) and AgentRQ (escalation) don't cover.
+
+**Clip 2 — Zindex** (medium relevance)
+`2026-04-22 Agent Infrastructure - Zindex Diagram Scene Protocol MCP Agent Diagramming.md` — 2962 bytes ✅
+Signal: MCP-native diagram infrastructure where agents declare semantic graph elements (not raw SVG geometry); layout engine handles positioning. Backlog item: if dispatch.py or fabric-mcp ever needs durable diagram output, this is the right layer.

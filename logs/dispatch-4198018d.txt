@@ -1,0 +1,4 @@
+Oracle passes. Done:
+
+- **dispatch.py BUILD worker oracle** now includes a goal-drift assertion: verifies that a log entry exists for today's date, not just that historical `[x]` items exist. Agents that run without logging anything will now fail the oracle with a clear message.
+- **skill-manager-mcp** agentskills.io alignment was already complete — synthesis table updated to reflect reality.

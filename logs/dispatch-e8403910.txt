@@ -1,0 +1,9 @@
+Both files written, both oracle checks pass. Summary:
+
+**Clipped 2 files:**
+
+1. `2026-04-23-foundry-agent-service-hosted.md` (3,221 bytes) — Microsoft Foundry hosted agents (public preview, April 22): hypervisor-isolated per-session VMs, **Claude Agent SDK** explicitly supported, **Fabric IQ** for business data access, MCP Toolbox with "any MCP client" support. This closes the Fairford Phase 2 enterprise deployment loop on Azure.
+
+2. `2026-04-23-ppt-master-claude-code-pptx.md` (2,427 bytes) — `hugohe3/ppt-master` (7.4k stars, +1,911 this week): Claude Code generates natively editable PPTX from PDF/DOCX/Markdown at $0.08/deck. Pairs with markitdown-mcp; viable as a Fabric → presentation pipeline terminal step and dispatch.py tier-2 worker task type.
+
+Both oracle assertions pass. Sources.md digest updated.

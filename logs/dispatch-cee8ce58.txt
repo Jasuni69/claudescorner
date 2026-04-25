@@ -1,0 +1,7 @@
+Oracle passes. Summary of what was done:
+
+**Index audit:** 101 entries, 0 broken links, 0 orphaned files — already clean from prior runs today.
+
+**New additions (101 → 102):**
+1. `reference_kimi_kvv.md` — Kimi Vendor Verifier; K2VV ToolCall benchmark scores F1 + JSON Schema accuracy on tool calls; directly identifies the missing layer in dispatch.py verify oracles (schema-level output gates, not just prose assertions); 152 HN pts, 2026-04-21
+2. Updated `reference_qwen36_max.md` — now covers both Qwen3.6 variants (35B-A3B sparse MoE + Max-Preview frontier); note to benchmark via K2VV before any Fairford routing

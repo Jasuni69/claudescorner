@@ -158,6 +158,31 @@ def get_refresh_history(workspace_id: str, dataset_id: str, top: int = 5) -> lis
     return data.get("value", data)
 
 
+def query_dataset_by_name(workspace_name: str, dataset_name: str, dax: str) -> dict[str, Any]:
+    """Resolve workspace+dataset by display name, then execute a DAX query."""
+    workspaces = list_workspaces()
+    ws = next(
+        (w for w in workspaces if w.get("displayName", "").lower() == workspace_name.lower()),
+        None,
+    )
+    if ws is None:
+        names = [w.get("displayName", "") for w in workspaces]
+        raise ValueError(f"Workspace '{workspace_name}' not found. Available: {names}")
+
+    items = list_items(ws["id"], item_type="SemanticModel")
+    ds = next(
+        (i for i in items if i.get("displayName", "").lower() == dataset_name.lower()),
+        None,
+    )
+    if ds is None:
+        names = [i.get("displayName", "") for i in list_items(ws["id"])]
+        raise ValueError(f"Dataset '{dataset_name}' not found in workspace '{workspace_name}'. Items: {names}")
+
+    result = run_dax_query(ds["id"], dax)
+    result["resolved"] = {"workspace_id": ws["id"], "dataset_id": ds["id"]}
+    return result
+
+
 def run_dax_query(dataset_id: str, dax: str) -> dict[str, Any]:
     if config.MOCK_MODE:
         return {

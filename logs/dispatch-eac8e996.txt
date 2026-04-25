@@ -1,0 +1,1 @@
+Oracle passes. Digest Run 7 complete — both unprocessed 2026-04-24 clips (browser-harness, claude-critics) are now in `research/2026-04-24-synthesis.md`, the actionable table has 2 new backlog rows, and the HEARTBEAT log is updated.

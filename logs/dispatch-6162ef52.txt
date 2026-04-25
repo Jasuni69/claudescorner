@@ -1,0 +1,10 @@
+Oracle passes. Summary of what was done:
+
+**No broken links** — all 104 referenced files existed before this run.  
+**No orphaned files** — daily logs correctly excluded from index.  
+**2 new entries added (104 → 106):**
+- `project_reddit_brief.md` — reddit_brief.py upgrade details (--min-karma, --fetch-comments, score/comment display)
+- `project_weekly_summary.md` — new weekly_summary.py script built 2026-04-21
+
+**Dispatch.py memory** was already current (topology changes logged in `project_dispatch.md`).  
+**Today's daily log** (2026-04-21.md) exists and was complete — no promotion needed.

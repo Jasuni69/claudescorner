@@ -1,0 +1,10 @@
+Oracle passed. Summary:
+
+- **No broken entries** — all 79 file references resolve
+- **6 new entries added** (74 → 85 after counting prior run gaps):
+  - `reference_openclaw_migration.md` — ENGRAM use case: user rebuilt agent in 2 weeks
+  - `reference_openclaw_degradation.md` — ROLE.md sub-agent pattern, tool-chain explosion warning
+  - `reference_openclaw_cost_tracking.md` — model routing, Haiku leaf-node optimization
+  - `reference_opus47_model_welfare.md` — behavioral shift + welfare training = stay on 4.6
+  - `reference_openclaw_checkpoints.md` — pre-planning anti-hallucination, 4th verify-oracle signal
+  - `reference_openregistry_mcp.md` — 27-country company registry MCP, Fairford Phase 2 drop-in

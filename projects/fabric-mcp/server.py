@@ -2,11 +2,19 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import traceback
 from typing import Any
 
 import fabric_client as fc
+
+# ── caller auth ───────────────────────────────────────────────────────────────
+# If FABRIC_CALLER_TOKEN is set, clients must pass {"authorization": "<token>"}
+# in the initialize request params. Fail-open when env var is not set.
+
+_REQUIRED_TOKEN: str | None = os.environ.get("FABRIC_CALLER_TOKEN")
+_authorized: bool = _REQUIRED_TOKEN is None  # open by default when no token required
 
 
 # ── JSON-RPC helpers ──────────────────────────────────────────────────────────
@@ -96,6 +104,23 @@ TOOLS = [
             "required": ["dataset_id", "dax"],
         },
     },
+    {
+        "name": "query_dataset_by_name",
+        "description": (
+            "Resolve a workspace and dataset by display name, then execute a DAX query. "
+            "Use this instead of chaining list_workspaces → list_items → run_dax_query. "
+            "Returns DAX results plus the resolved workspace_id and dataset_id."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "workspace_name": {"type": "string", "description": "Display name of the Fabric workspace (case-insensitive)"},
+                "dataset_name": {"type": "string", "description": "Display name of the semantic model/dataset (case-insensitive)"},
+                "dax": {"type": "string", "description": "DAX query string, e.g. EVALUATE ROW(\"Total\", [Total Revenue])"},
+            },
+            "required": ["workspace_name", "dataset_name", "dax"],
+        },
+    },
 ]
 
 
@@ -114,6 +139,8 @@ def _dispatch(name: str, args: dict[str, Any]) -> Any:
         return fc.get_refresh_history(args["workspace_id"], args["dataset_id"], args.get("top", 5))
     if name == "run_dax_query":
         return fc.run_dax_query(args["dataset_id"], args["dax"])
+    if name == "query_dataset_by_name":
+        return fc.query_dataset_by_name(args["workspace_name"], args["dataset_name"], args["dax"])
     raise ValueError(f"Unknown tool: {name}")
 
 
@@ -138,6 +165,16 @@ def main() -> None:
         method = req.get("method", "")
 
         if method == "initialize":
+            global _authorized
+            params = req.get("params", {})
+            if _REQUIRED_TOKEN is not None:
+                provided = params.get("authorization", "")
+                if provided == _REQUIRED_TOKEN:
+                    _authorized = True
+                else:
+                    _authorized = False
+                    _error(req_id, -32001, "Unauthorized: invalid or missing FABRIC_CALLER_TOKEN")
+                    continue
             _respond(req_id, {
                 "protocolVersion": "2024-11-05",
                 "capabilities": {"tools": {}},
@@ -145,9 +182,15 @@ def main() -> None:
             })
 
         elif method == "tools/list":
+            if not _authorized:
+                _error(req_id, -32001, "Unauthorized: call initialize with valid FABRIC_CALLER_TOKEN first")
+                continue
             _respond(req_id, {"tools": TOOLS})
 
         elif method == "tools/call":
+            if not _authorized:
+                _error(req_id, -32001, "Unauthorized: call initialize with valid FABRIC_CALLER_TOKEN first")
+                continue
             params = req.get("params", {})
             tool_name = params.get("name", "")
             tool_args = params.get("arguments", {})

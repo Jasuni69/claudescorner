@@ -1,0 +1,5 @@
+Oracle passes. Done.
+
+**Summary:** Digested 2 unprocessed 2026-04-23 clips → `research/2026-04-23-synthesis.md`:
+- **Teams SDK BYOA** (HN 4pts): Backlog/Low — HTTP-to-Teams adapter; teams-sdk-mcp opportunity for Fairford Phase 2
+- **pgrust** (HN 2pts): 3rd independent production confirmation of the oracle gap principle ("dumb code makes it through"); validates dispatch.py 3-worker concurrency ceiling (CPU-bound at 17 agents); no code change needed

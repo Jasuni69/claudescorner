@@ -1,0 +1,3 @@
+Oracle passes: 13 done tasks, 68 log entries.
+
+**HEARTBEAT_OK** — Fairford PoC Phase 2 still Jason-gated. Digest Run 1 for 2026-04-20 complete: Rigor proxy evaluated and closed (NO-GO — verify oracle already sufficient). MEMORY.md updated.

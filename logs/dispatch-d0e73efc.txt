@@ -1,0 +1,8 @@
+2 new entries added. Index now at 61. All untracked research clips are covered.
+
+**Summary:**
+- Scanned MEMORY.md (59 entries) vs disk — matched
+- Found 2 unindexed research clips not covered by the 7 prior hygiene runs today:
+  - `rigor-ai-agent-proxy` → `reference_rigor_proxy.md`: wire-level hallucination filtering proxy for dispatch.py + bi-agent
+  - `claude-code-rust-tui` → `reference_claude_code_rust.md`: Rust TUI drop-in, monitor for V8 OOM in parallel workers
+- MEMORY.md now at **61 entries**. No stale/broken entries found.

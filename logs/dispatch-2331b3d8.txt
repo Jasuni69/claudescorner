@@ -1,0 +1,11 @@
+Done. Summary:
+
+**PLAN**
+- Source: Hacker News — not yet tapped today
+- Files: `2026-04-22 Agent Infrastructure - Zed Parallel Agents...` and `2026-04-22 Agent Design - Coding Models Are Doing Too Much...`
+
+**Signals clipped:**
+1. **Zed Parallel Agents** (55 HN pts) — IDE-native multi-thread orchestration with per-thread model selection + worktree isolation validates dispatch.py architecture exactly; Threads Sidebar is the visual analog of the headless dispatcher
+2. **Coding Models Are Doing Too Much** (93 HN pts) — Claude Opus scores best on edit fidelity (0.060 Levenshtein); adding "preserve original code" to prompts is a zero-cost fix applicable immediately to dispatch.py workers and bi-agent
+
+**VERIFY:** Both files passed oracle (`OK: ... 2358 bytes` / `OK: ... 3033 bytes`). Digest log updated in sources.md.

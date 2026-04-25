@@ -1,0 +1,10 @@
+Oracle passed.
+
+**Summary of changes:**
+
+- **2 new memory files created:**
+  - `reference_rag_anything.md` — RAG-Anything (HKUDS, 16.4k stars): multimodal RAG with MinerU + knowledge graph; markitdown-mcp upgrade path; ENGRAM v2 backend candidate
+  - `reference_swarms_orchestration.md` — Swarms (6.3k stars): production multi-agent framework with runtime topology switching, native SKILL.md/MCP/Anthropic Agent Skills, X402 payment protocol; dispatch.py v2 reference
+- **MEMORY.md** updated: 104 entries (was 143 lines → 2 added; oracle confirmed count correct)
+- **Today's daily log** created: `memory/2026-04-21.md`
+- **No broken/stale entries** found — all 104 MEMORY.md pointers have corresponding files

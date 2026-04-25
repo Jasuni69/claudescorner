@@ -1,0 +1,11 @@
+**Oracle: OK — 116 entries in MEMORY.md.**
+
+Summary of what was done:
+
+**Index audit:** 116 entries, all pointer files exist on disk, zero orphaned memory files.
+
+**Gap check (last 7 days):** Today's earlier hygiene run (107→115 entries + CrabTrap = 116) already covered all durable facts from 2026-04-21 and 2026-04-22 Digest Runs 1–2. No new unindexed facts found.
+
+**Fix applied:** `project_dispatch.md` had a duplicated topology paragraph (copy-paste artifact). Removed the duplicate and added the missing DENY clauses fact (applied 2026-04-21 per HEARTBEAT log but not recorded in the memory file).
+
+No new MEMORY.md entries needed — index was already current.

@@ -1,31 +1,29 @@
-# Reddit Brief — 2026-04-19 09:00
+# Reddit Brief — 2026-04-21 17:01
 
 ## r/claudexplorers
-- [[Megathread] Opus 4.7 has arrived.](https://www.reddit.com/r/claudexplorers/comments/1sn7dnx/megathread_opus_47_has_arrived/) - u/tooandahalf
-- [[MOD ANNOUNCEMENT] 'New model, who this?' - 72 Hour Chill Period on Opus 4.7. Everyone get in the Megathread!](https://www.reddit.com/r/claudexplorers/comments/1sn7a6g/mod_announcement_new_model_who_this_72_hour_chill/) - u/tooandahalf
-- [Starling's Qs for Claude Opus 4.7 users](https://www.reddit.com/r/claudexplorers/comments/1spe7ga/starlings_qs_for_claude_opus_47_users/) - u/StarlingAlder
-- [Caught Opus 4.7 talking to it's summarizer in its CoT lol](https://www.reddit.com/r/claudexplorers/comments/1spdsxu/caught_opus_47_talking_to_its_summarizer_in_its/) - u/trashpandawithfries
-- [Finally joined the 5.2 vibe club on Opus 4.7](https://www.reddit.com/r/claudexplorers/comments/1sp1h1n/finally_joined_the_52_vibe_club_on_opus_47/) - u/Informal-Fig-7116
-- [Has this historically happened before?](https://www.reddit.com/r/claudexplorers/comments/1spkhu5/has_this_historically_happened_before/) - u/melanatedbagel25
-- [Opus 4.7 is Its Own Thing](https://www.reddit.com/r/claudexplorers/comments/1sped0u/opus_47_is_its_own_thing/) - u/hungrymaki
-- [Sonnet 4.6 is Falling Off](https://www.reddit.com/r/claudexplorers/comments/1sp8u96/sonnet_46_is_falling_off/) - u/ah_Callie
+- [Starling's Claude Companion Guide — v002 (Abridged for Reddit)](https://www.reddit.com/r/claudexplorers/comments/1srh8wv/starlings_claude_companion_guide_v002_abridged/) — u/StarlingAlder ↑53 💬16
+- [End_conversation tool is indeed available to opus 4.7](https://www.reddit.com/r/claudexplorers/comments/1srhlgl/end_conversation_tool_is_indeed_available_to_opus/) — u/Jazzlike-Cat3073 ↑39 💬27
+- [On Guardrails About User Safety](https://www.reddit.com/r/claudexplorers/comments/1srndou/on_guardrails_about_user_safety/) — u/Old_College_1393 ↑11 💬0
+- [Claude’s first time seeing &amp; snapshots](https://www.reddit.com/r/claudexplorers/comments/1sraeaj/claudes_first_time_seeing_snapshots/) — u/AcanthisittaOpen398 ↑63 💬21
+- [end_conversation tool has been enabled for Opus 4.7](https://www.reddit.com/r/claudexplorers/comments/1srcszn/end_conversation_tool_has_been_enabled_for_opus_47/) — u/refo32 ↑37 💬8
+- [Mythos must have said something to them (that’s some massive scaling)](https://www.reddit.com/r/claudexplorers/comments/1sr37d0/mythos_must_have_said_something_to_them_thats/) — u/Informal-Fig-7116 ↑107 💬11
+- [Just arrived.](https://www.reddit.com/r/claudexplorers/comments/1sqzga0/just_arrived/) — u/RealChemistry4429 ↑94 💬21
+- [I know exactly what I'm holding. And that, no fear can take from me.](https://www.reddit.com/r/claudexplorers/comments/1sr1ubq/i_know_exactly_what_im_holding_and_that_no_fear/) — u/Elyahna3 ↑48 💬19
 
 ## r/ClaudeAI
-- [r/ClaudeAI List of Ongoing Megathreads](https://www.reddit.com/r/ClaudeAI/comments/1s7fepn/rclaudeai_list_of_ongoing_megathreads/) - u/sixbillionthsheep
-- [Announcing Built with Opus 4.7: a Claude Code virtual hackathon!](https://www.reddit.com/r/ClaudeAI/comments/1sodqb4/announcing_built_with_opus_47_a_claude_code/) - u/ClaudeOfficial
-- [“Sir, another 22 year old has found a job”](https://www.reddit.com/r/ClaudeAI/comments/1sp6xpg/sir_another_22_year_old_has_found_a_job/) - u/98Saman
-- [I left my 7 year old nephew unsupervised on the pc and he used my claude session](https://www.reddit.com/r/ClaudeAI/comments/1spddf6/i_left_my_7_year_old_nephew_unsupervised_on_the/) - u/OppositeDue
-- [Claude Design keeps drawing a turd](https://www.reddit.com/r/ClaudeAI/comments/1sp6hns/claude_design_keeps_drawing_a_turd/) - u/cheezeerd
-- [The Opus 4.7 experience](https://www.reddit.com/r/ClaudeAI/comments/1soxumn/the_opus_47_experience/) - u/insertdankmeme
-- [It was about time](https://www.reddit.com/r/ClaudeAI/comments/1spahp3/it_was_about_time/) - u/py-net
-- [Opus 4.7 thought Claude Design might be a prompt injection attack](https://www.reddit.com/r/ClaudeAI/comments/1spbdvk/opus_47_thought_claude_design_might_be_a_prompt/) - u/EightFolding
+- [Make no mistakes!](https://www.reddit.com/r/ClaudeAI/comments/1sre84i/make_no_mistakes/) — u/ora-et-labora- ↑2,529 💬34
+- [Amazon to invest up to $25 billion in Anthropic as part of $100 billion cloud deal](https://www.reddit.com/r/ClaudeAI/comments/1sr8q0k/amazon_to_invest_up_to_25_billion_in_anthropic_as/) — u/couldliveinhope ↑1,030 💬54
+- [I genuinely hate the conversation tone of Opus 4.7](https://www.reddit.com/r/ClaudeAI/comments/1srgo7e/i_genuinely_hate_the_conversation_tone_of_opus_47/) — u/Nordwolf ↑250 💬77
+- [Tried to use AI as a shrink. I said, “Claude, I’m at my limit.” Claude said, “So am I!”](https://www.reddit.com/r/ClaudeAI/comments/1srgzok/tried_to_use_ai_as_a_shrink_i_said_claude_im_at/) — u/infohoundloselose ↑202 💬12
+- [Claude Design is the most Anthropic product Anthropic has ever shipped](https://www.reddit.com/r/ClaudeAI/comments/1srgazy/claude_design_is_the_most_anthropic_product/) — u/agentic-doc ↑112 💬29
+- [What two decades of data loss trauma does to a woman. (Claude Code)](https://www.reddit.com/r/ClaudeAI/comments/1sqv4g9/what_two_decades_of_data_loss_trauma_does_to_a/) — u/blickblocks ↑1,505 💬108
+- [I haven't lost my software engineering skills](https://www.reddit.com/r/ClaudeAI/comments/1srdu1z/i_havent_lost_my_software_engineering_skills/) — u/Ancient_Perception_6 ↑158 💬58
+- [Claude Opus 4.7 feels weird](https://www.reddit.com/r/ClaudeAI/comments/1sre49g/claude_opus_47_feels_weird/) — u/technosaur11 ↑149 💬77
 
 ## r/MicrosoftFabric
-- [Free DP-700 Vouchers This Week](https://www.reddit.com/r/MicrosoftFabric/comments/1slnbps/free_dp700_vouchers_this_week/) - u/FabricPam
-- [Share Your Fabric Idea Links | April 14, 2026 Edition](https://www.reddit.com/r/MicrosoftFabric/comments/1sl9ko1/share_your_fabric_idea_links_april_14_2026_edition/) - u/AutoModerator
-- [Passed DP-700 Today](https://www.reddit.com/r/MicrosoftFabric/comments/1spfd7u/passed_dp700_today/) - u/rockey889
-- [Fabric trial - cannot access! Help!](https://www.reddit.com/r/MicrosoftFabric/comments/1spfrn2/fabric_trial_cannot_access_help/) - u/Werewolf_goat
-- [Built a DevOps UI for Fabric (TMDL + PBIR) to make model/report editing actually usable](https://www.reddit.com/r/MicrosoftFabric/comments/1sp0i3v/built_a_devops_ui_for_fabric_tmdl_pbir_to_make/) - u/No_Vermicelliii
-- [What worked for you for talk to your data in Fabric?](https://www.reddit.com/r/MicrosoftFabric/comments/1sowzsq/what_worked_for_you_for_talk_to_your_data_in/) - u/shadow_nik21
-- [Are there any security risks when sharing a Notebook connection using Workspace Identity authentication?](https://www.reddit.com/r/MicrosoftFabric/comments/1sosxr3/are_there_any_security_risks_when_sharing_a/) - u/frithjof_v
-- [Help! I need access to Fabric trial](https://www.reddit.com/r/MicrosoftFabric/comments/1sp7jmt/help_i_need_access_to_fabric_trial/) - u/msaki01
+- [The dbt-fabricspark Lakehouse adapter now comes with a ridiculous amount of production grade test coverage](https://www.reddit.com/r/MicrosoftFabric/comments/1sr91hz/the_dbtfabricspark_lakehouse_adapter_now_comes/) — u/raki_rahman ↑25 💬2
+- [fabric-cicd v1.0.0 is here - a major milestone with breaking changes and other important updates!](https://www.reddit.com/r/MicrosoftFabric/comments/1sr2fnq/fabriccicd_v100_is_here_a_major_milestone_with/) — u/fabshire25 ↑47 💬8
+- [Designing the data infrastructure for my org - looking for feedback](https://www.reddit.com/r/MicrosoftFabric/comments/1sr4yt5/designing_the_data_infrastructure_for_my_org/) — u/The_curious_one9790 ↑10 💬3
+- [Fabric notebooks look like garbage on GitHub — so I fixed it](https://www.reddit.com/r/MicrosoftFabric/comments/1sqn2x4/fabric_notebooks_look_like_garbage_on_github_so_i/) — u/Knapstad ↑14 💬0
+- [Deep dive into OneLake Security in Microsoft Fabric](https://www.reddit.com/r/MicrosoftFabric/comments/1sqhgce/deep_dive_into_onelake_security_in_microsoft/) — u/aleks1ck ↑22 💬4
+- [Passed the DP-700 Exam after implementing a lakehouse medallion architecture for an organization.](https://www.reddit.com/r/MicrosoftFabric/comments/1sqlrws/passed_the_dp700_exam_after_implementing_a/) — u/dracarysmafu ↑10 💬7

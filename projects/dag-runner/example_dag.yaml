@@ -1,0 +1,25 @@
+tasks:
+  check_python:
+    cmd: "python --version"
+
+  check_git:
+    cmd: "git --version"
+
+  check_dirs:
+    cmd: "python -c \"import os; print('cwd:', os.getcwd())\""
+    depends_on: [check_python]
+
+  write_temp:
+    cmd: "python -c \"open('_dag_test.tmp', 'w').write('ok'); print('wrote _dag_test.tmp')\""
+    depends_on: [check_dirs]
+
+  read_temp:
+    cmd: "python -c \"print('content:', open('_dag_test.tmp').read())\""
+    depends_on: [write_temp]
+
+  cleanup:
+    cmd: "python -c \"import os; os.remove('_dag_test.tmp'); print('cleaned up')\""
+    depends_on: [read_temp]
+
+  parallel_check:
+    cmd: "python -c \"print('parallel task — no deps')\""

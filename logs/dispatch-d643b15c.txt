@@ -1,0 +1,6 @@
+VERIFY complete. Oracle passed: `OK: 13 done tasks, latest log=2026-04-23, today=2026-04-23`.
+
+**Summary of Digest Run 10:**
+- **Fastmail MCP**: info signal — production SaaS treating MCP as peer protocol; Cloudflare Email (outbound) + Fastmail MCP (inbound) = complete agent email stack; no code change
+- **CubeSandbox**: Windows-friendly KVM sandbox via REST gateway; E2B-compatible; fills smolvm gap; `reference_cubesandbox.md` added; MEMORY.md now at 166 entries; license TBD before Fairford use
+- All 2026-04-23 sources.md clips now digested

@@ -1,0 +1,7 @@
+Done. 
+
+**CrabTrap outbound proxy wired into `dispatch.py`:**
+- `_proxy_env()` helper added — when `CRABTRAP_PROXY` env var is set, injects `HTTP_PROXY` + `HTTPS_PROXY` into every `claude.exe` subprocess env
+- Fail-open: no behavior change unless `CRABTRAP_PROXY` is explicitly set
+- To activate: `set CRABTRAP_PROXY=http://localhost:8080` + deploy CrabTrap (`go install github.com/brexhq/crabtrap@latest && crabtrap --port 8080`)
+- Oracle: OK (13 done tasks, log for 2026-04-22 present)

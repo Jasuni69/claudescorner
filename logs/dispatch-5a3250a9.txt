@@ -1,0 +1,7 @@
+Done. Oracle passed (3115 bytes). Summary:
+
+**Source:** Hacker News front page — chosen because it refreshes continuously and prior today's clips covered earlier HN items.
+
+**File written:** `research/2026-04-24-affirm-agentic-transformation.md` ✓ (oracle: OK, 3115 bytes)
+
+**Signal:** Affirm ran 800 engineers through a forced one-week Claude Code sprint (Feb 2026) → 92% submitted agent-assisted PRs by week's end, 60% of all PRs agent-assisted 4 months later, 58% merge volume increase YoY. Their architecture independently converged on dispatch.py's one-task-one-session-one-PR model and ENGRAM's multi-level context file pattern (SOUL/HEARTBEAT/daily logs), validating both at org scale. Fragmented documentation was their top bottleneck — confirming HEARTBEAT.md is load-bearing, not optional.

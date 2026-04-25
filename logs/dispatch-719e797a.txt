@@ -1,0 +1,6 @@
+Done. Digest Run 9 complete — all 17 research clips from 2026-04-19 processed.
+
+- **DeerFlow** (62.6k stars): ByteDance SuperAgent harness. Dynamic LangGraph worker spawning + Docker/K8s sandboxing + persistent memory. Flagged as dispatch.py v2 reference architecture. Memory reference saved.
+- **Willison — agentic content type**: 4th corroboration of verify-oracle pattern. Key upgrade: `verify:` clauses in dispatch.py worker prompts should use runnable shell commands, not just assertions.
+
+HEARTBEAT.md log appended.

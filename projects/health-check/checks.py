@@ -66,6 +66,43 @@ def check_projects() -> list[Result]:
     return [_file_exists(name, path) for name, path in entry_points.items()]
 
 
+def check_dispatch_activity() -> list[Result]:
+    """Token-burn proxy: count dispatch logs in last 24h and check staleness."""
+    results: list[Result] = []
+    logs_dir = BASE / "logs"
+    now = datetime.now()
+    cutoff_24h = now - timedelta(hours=24)
+    cutoff_8h = now - timedelta(hours=8)
+
+    dispatch_logs = sorted(logs_dir.glob("dispatch-*.txt"), key=lambda p: p.stat().st_mtime, reverse=True)
+
+    if not dispatch_logs:
+        results.append(Result("dispatch activity", False, "no dispatch logs found"))
+        return results
+
+    # Count runs + total bytes in last 24h
+    recent = [p for p in dispatch_logs if datetime.fromtimestamp(p.stat().st_mtime) > cutoff_24h]
+    total_bytes = sum(p.stat().st_size for p in recent)
+    results.append(Result(
+        "dispatch runs (24h)",
+        True,
+        f"{len(recent)} runs, {total_bytes // 1024}KB logged",
+    ))
+
+    # Staleness check — flag if no run in last 8h
+    latest = dispatch_logs[0]
+    latest_mtime = datetime.fromtimestamp(latest.stat().st_mtime)
+    age_h = (now - latest_mtime).total_seconds() / 3600
+    ok = latest_mtime > cutoff_8h
+    results.append(Result(
+        "dispatch freshness",
+        ok,
+        f"last run {age_h:.1f}h ago" + ("" if ok else " — STALE (>8h)"),
+    ))
+
+    return results
+
+
 def check_logs() -> list[Result]:
     results: list[Result] = []
 
@@ -128,6 +165,7 @@ def run_all() -> list[Result]:
     results.extend(check_scripts())
     results.extend(check_projects())
     results.extend(check_logs())
+    results.extend(check_dispatch_activity())
     results.extend(check_network_ports())
     results.extend(check_python_imports())
     return results

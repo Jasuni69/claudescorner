@@ -1,0 +1,9 @@
+Oracle passes.
+
+**Summary of changes:**
+
+- **No broken links, no orphans** — all 104 memory files are indexed, all 104 MEMORY.md entries have corresponding files.
+- **No today's daily log needed** — `2026-04-21.md` already exists.
+- **1 durable fact added** to `project_dispatch.md`: SwarmRouter topology declaration (2026-04-21) — `topology`/`topology_group` task fields, `_split_by_topology()`, `_run_sequential_group()`, `--topology`/`--topology-group` CLI flags. This was in HEARTBEAT log but not persisted to memory.
+- **Daily log updated** with the topology fact and hygiene run summary.
+- All other 2026-04-21 HEARTBEAT activity (bi-agent oracle, Karpathy SPEC bullet, goal-drift oracle) was already captured in their respective files.

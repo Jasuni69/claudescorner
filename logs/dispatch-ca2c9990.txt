@@ -1,0 +1,7 @@
+Oracle passes.
+
+**Summary of this run:**
+- Digested 4 unprocessed clips (2026-04-21b/c) → Synthesis Digest Run 7
+- Applied Daemons finding immediately: added `DENY` hard-limit clauses to all 3 dispatch.py worker prompts (BUILD/PLAN/MEMORY), closing the scope-creep gap at the prompt layer
+- Updated actionable table: 1 Done, 2 new items (velocity cap + GoModel backlog)
+- Oracle: OK (13 done tasks, log 2026-04-21)

@@ -1,0 +1,6 @@
+Oracle passes. All 12 2026-04-22 clips are now fully digested across 7 digest runs:
+
+- **Digest Run 7 added to `research/2026-04-22-synthesis.md`** — covers Claude Opus 4.7 vs Kimi K2.6 FlowGraph benchmark (Info: validates existing oracle + routing policy) and Qwen3.6-27B Dense (Backlog/Medium: K2VV benchmark needed before Haiku-tier routing)
+- **HEARTBEAT log entry appended** for this run
+- **Daily log updated** in `memory/2026-04-22.md`
+- **Oracle: OK** — 13 done tasks, latest log = 2026-04-22

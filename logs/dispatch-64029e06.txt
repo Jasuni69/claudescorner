@@ -1,0 +1,8 @@
+Done. Summary of what was built:
+
+**skill-manager-mcp v2.4.0** — two-layer agent governance:
+
+- `agent_activation_allowed: true/false` frontmatter field in SKILL.md (skills without it default to `true` — fully backward-compatible)
+- `skill_search(context="autonomous")` filters results to only agent-activatable skills; dispatch workers and heartbeat agents should pass this flag
+- `skill_catalog` manifest now includes the `agent_activation_allowed` field per skill for /.well-known/ discovery consumers
+- MCP tool schema updated with `context` enum param

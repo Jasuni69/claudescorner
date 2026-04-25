@@ -1,0 +1,9 @@
+Both files written, oracle verified, digest log updated.
+
+**Summary:**
+
+- **Source**: GitHub Trending (daily) — Reddit was blocked, today's 14 clips already covered HN front-page
+- **Files clipped**:
+  1. `research/2026-04-23-context-mode-mcp-context-compression.md` (3312 bytes) ✓ — MCP server achieving 98% token reduction via SQLite FTS5 + sandboxed subprocess; direct dispatch.py MAX_CONTEXT_TOKENS upgrade path
+  2. `research/2026-04-23-awesome-agent-skills-1100-skills.md` (3221 bytes) ✓ — 1100+ curated official skills from 50+ orgs (Microsoft, Sentry, Trail of Bits, Anthropic); MIT; skill-manager-mcp expansion source
+- Both pass oracle: `txt.startswith('---')` ✓, `len(txt)>200` ✓

@@ -1,0 +1,7 @@
+Done. Upgraded all 3 dispatch.py worker VERIFY clauses from prose to runnable Python oracle commands:
+
+- **infrastructure worker**: asserts `[x]` tasks exist and log entries present
+- **research worker**: asserts each written file has frontmatter and is >200 bytes
+- **memory worker**: asserts MEMORY.md has at least one entry
+
+Each oracle prints `OK:` on pass or raises an `AssertionError` with a specific message on failure, giving workers actionable feedback rather than a prose reminder to manually check.

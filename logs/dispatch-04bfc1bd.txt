@@ -1,0 +1,13 @@
+Done. Summary:
+
+**Source:** GitHub trending Python (weekly)
+
+**Files written:**
+- `research/2026-04-21-dflash-block-diffusion-speculative-decoding.md` (1895 bytes) ✓
+- `research/2026-04-21-poly-data-polymarket-pipeline.md` (2068 bytes) ✓
+
+**Both oracles pass.**
+
+**Top signals:**
+- **dflash:** Block diffusion + vLLM/SGLang/MLX + Qwen3/Kimi-K2.5 draft models = the missing latency layer if Anthropic rate limits push dispatch.py toward open-weight fallbacks
+- **poly_data:** Resumable Polymarket order-flow pipeline (Goldsky GraphQL + Polars) = structured prediction-market alternative data for Fairford signal layer alongside Kronos; GPL-3.0 so wrapper-only

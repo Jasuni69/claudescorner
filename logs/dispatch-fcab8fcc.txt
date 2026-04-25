@@ -1,0 +1,7 @@
+Both files verified with valid frontmatter and body. Two clips written:
+
+**`2026-04-19-evolver-gep-self-evolution-engine.md`**  
+EvoMap/evolver (5.2k stars, +1131 today) — GEP self-evolution protocol with Claude Code hooks, OpenClaw spawn integration, and a distributed Gene/Capsule skill store. Direct ENGRAM/skill-manager parallel. Gap: no MCP layer yet.
+
+**`2026-04-19-craft-agents-mcp-native-agent-desktop.md`**  
+lukilabs/craft-agents-oss (4.4k stars, +139 today) — MCP-native agent desktop on Claude Agent SDK. 32+ tools, headless server mode, `craft run` single-shot CLI matches dispatch.py worker pattern, Obsidian vault source. Gap: no fabric-mcp source yet = Fairford PoC opportunity.

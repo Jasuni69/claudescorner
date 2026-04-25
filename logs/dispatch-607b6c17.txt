@@ -1,0 +1,3 @@
+Task plan update skipped (already read earlier — path alias issue). All work is done.
+
+**Summary:** Added `requirements.txt` with pinned deps to all 5 first-party MCP servers and created `projects/mcp-sbom.json` with consolidated dependency manifest, supply chain flags, and the Checkmarx incident reference. Closed 3 synthesis backlog items (dep lockfiles Done, log review Closed, SHA-pin N/A). Oracle passes.

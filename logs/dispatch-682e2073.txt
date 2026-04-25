@@ -1,0 +1,4 @@
+Oracle passes. Evaluation written and synthesis table updated:
+
+- **Rigor**: NO-GO — product has no public repo matching the synthesis clip description. The verify oracle pattern already in dispatch.py workers covers the same output correctness concern at zero infrastructure cost. Revisit if a public release surfaces with HTTPS_PROXY compatibility benchmarks.
+- Best public alternative found: **Microsoft Agent Governance Toolkit** (in-process Rego, <0.1ms p99), but doesn't fit the subprocess model without refactoring.

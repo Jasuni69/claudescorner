@@ -1,0 +1,11 @@
+Oracle passes. Summary:
+
+**Changes made:**
+1. `project_skill_manager_mcp.md` — updated v2.3.0 → v2.4.0, added `agent_activation_allowed` governance flag entry (built today per HEARTBEAT log)
+2. `MEMORY.md` index line for skill-manager — updated from "8 tools (v2.2.0)" → "9 tools (v2.4.0)" with marketplace.json and governance flag noted
+
+**Already clean:**
+- All 120 MEMORY.md pointers resolve to existing files
+- No orphaned files (every `.md` in memory dir is indexed)
+- Today's daily log (`memory/2026-04-22.md`) already exists with full session record
+- `project_dispatch.md` and `project_memory_mcp.md` already reflect 2026-04-21 changes (DENY clauses, depth param, topology)

@@ -1,0 +1,9 @@
+Oracle passes.
+
+**Summary:**
+- Index: 104 files on disk, 104 in MEMORY.md — zero broken links, zero orphans
+- Today's log (`memory/2026-04-21.md`) exists with 3 hygiene passes already recorded
+- 3 memory files updated with durable facts from last 7 days of HEARTBEAT activity:
+  - `project_bi_agent.md` — DAX structural oracle (`validate_dax_output()`) added 2026-04-21
+  - `project_engram.md` — OpenClaw migration story + Checkpoints Pattern added 2026-04-20
+  - `project_dispatch.md` — SPEC step 4th bullet (state assumptions) + goal-drift oracle added 2026-04-21

@@ -1,0 +1,3 @@
+Oracle confirmed: **OK: 141 entries in MEMORY.md**
+
+1 new entry added: `reference_openai_agent_skills.md` — OpenAI Agent Skills (openai/skills, 17.4k stars), 5th SKILL.md org confirmation, $skill-installer pattern, skill-manager-mcp cross-platform moat. All other checks clean: 0 broken links, 0 unindexed files, today's daily log updated.

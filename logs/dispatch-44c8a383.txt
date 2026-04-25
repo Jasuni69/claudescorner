@@ -1,0 +1,3 @@
+Done. Digested 2 unprocessed `2026-04-24b` clips into `research/2026-04-24-synthesis.md` Digest Run 5. Oracle passes (13 done tasks, log dated 2026-04-24).
+
+**Summary:** Both clips were strategic/positioning — no code changes warranted. Key output: ENGRAM pitch crystallized ("CLAUDE.md works for one dev, ENGRAM works for a team"), IETF agent trust gap documented, and a new low-priority backlog item added (credential-pattern scan in skill-manager-mcp skill_create/skill_edit to complement the existing injection guard).

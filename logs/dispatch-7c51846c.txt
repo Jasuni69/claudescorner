@@ -1,0 +1,3 @@
+Oracle confirmed: **OK: 153 entries in MEMORY.md**
+
+Summary: MEMORY.md was structurally clean (153 refs = 153 disk files, 0 broken links, 0 unindexed). HEARTBEAT Digest Run 27 (Microsoft APM) was already indexed by a prior session. Trimmed 11 over-length index lines (byte-heavy due to UTF-8 em-dashes; all were ≤200 unicode chars). Daily log updated.

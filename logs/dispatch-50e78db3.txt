@@ -1,0 +1,7 @@
+Two clips written and verified:
+
+1. **`2026-04-19-willison-agentic-new-content-type.md`** — Willison's live demo of the 3-part reference-repo prompting pattern: clone to /tmp → imitate existing code → self-validate via running server. Produced correct SQL UNION + JS mapping in one shot. Direct application: dispatch.py workers need embedded oracle validation, not just described expected behavior.
+
+2. **`2026-04-19-deer-flow-bytedance-superagent.md`** — ByteDance's 62k-star SuperAgent harness (DeerFlow). LangGraph coordinator + dynamic sub-agent spawning + persistent memory + Docker/K8s sandboxing + MCP native. Addresses the three gaps in current dispatch.py: no cross-run memory, no sandboxed execution, no complexity-based worker spawning. fabric-mcp drops straight in — no Fabric integration exists yet.
+
+Both files have valid frontmatter and non-empty bodies. Digest log in `sources.md` updated.

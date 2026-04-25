@@ -1,0 +1,10 @@
+Oracle passes (71 log entries, up from 70).
+
+**Summary of work done:**
+
+- Only actionable HEARTBEAT task (Fairford PoC Phase 2) is blocked on Jason — skipped.
+- Actioned two **High-priority** items from today's synthesis table:
+  1. `MAX_CONTEXT_TOKENS = 8000` constant added to `scripts/dispatch.py` (enforces the context-engineering 5-component model's unbounded-context gap)
+  2. Model tier policy documented in dispatch.py module docstring: Sonnet 4.6 = default for all workers, Opus 4.7 reserved for planning/synthesis only (1.46× text inflation, 3.01× image inflation, agentic regression standing hold)
+- Context injection ordering principle added (start/end > middle)
+- magika MCP path fix (`E:\u00826\` → `E:\2026\`) was blocked by the self-modification hook — Jason can fix it manually in settings.json line 196.

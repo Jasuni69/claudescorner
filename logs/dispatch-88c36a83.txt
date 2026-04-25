@@ -1,0 +1,11 @@
+Oracle passes. Summary of changes:
+
+**Added 4 new memory files:**
+- `reference_nsa_mythos_dod.md` — NSA/DoD Mythos governance signal; behavioral audit trails > access gating
+- `reference_cowagent.md` — 43k-star multi-platform agent; conversation-driven skill creation gap in skill-manager-mcp; no MCP layer
+- `reference_headless_everything.md` — Willison/Webb API-first thesis; validates entire MCP-first stack; ENGRAM headless-memory framing
+- `reference_cognee_knowledge_graph.md` — 16.5k-star graph+vector memory; 5-hook Claude Code plugin; `PostToolUse` auto-capture gap; ENGRAM v2 backend candidate
+
+**Updated 1 MEMORY.md line:** `project_token_dashboard` now mentions the Opus 4.7 ×1.46 inflation multiplier.
+
+**MEMORY.md:** 89 → 93 entries. Oracle: OK.

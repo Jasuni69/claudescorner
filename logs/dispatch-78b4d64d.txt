@@ -1,0 +1,14 @@
+Task plan write blocked by path policy — that's fine, the work is complete. Both oracle checks passed.
+
+---
+
+**PLAN**
+- Source: **Hacker News** — highest signal density, most today's clips came from there but the live front page had two uncovered posts
+- Files written:
+  - `research/2026-04-24-google-40b-anthropic-investment.md`
+  - `research/2026-04-24-claude-code-routines-financial.md`
+- Top signals:
+  1. **Google $40B Anthropic**: $10B immediate + $30B contingent + 5GW TPU over 5 years; IPO possibly Oct 2026 — validates compute scarcity window and AWS/GCP dual-provider architecture for dispatch.py
+  2. **Claude Code Routines**: Prompt + MCP + schedule = zero-infra autonomous monitoring; consumer-scale independent validation of dispatch.py worker model; kpi-monitor upgrade template
+
+**VERIFY**: Both files pass oracle — frontmatter present, 2168 and 2679 bytes respectively.

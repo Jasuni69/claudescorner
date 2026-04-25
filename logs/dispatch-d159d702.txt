@@ -1,0 +1,12 @@
+Both clips written, oracle verified, digest log updated.
+
+---
+
+**PLAN (executed)**
+1. Source: Hacker News `/newest` — fresh posts not in today's earlier clips
+2. Files written:
+   - `research/2026-04-23-fastmail-mcp.md` (2,257 bytes) ✓
+   - `research/2026-04-23-cubesandbox.md` (3,031 bytes) ✓
+3. Top signals:
+   - **Fastmail MCP**: First production SaaS treating MCP as a peer protocol to IMAP/CalDAV — OAuth-gated email+calendar+contacts for any MCP client; completes agent email stack alongside Cloudflare Email MCP
+   - **CubeSandbox**: Tencent KVM microVM sandbox with <60ms coldstart, <5MB per instance, E2B-compatible REST API — Windows-friendly smolvm alternative; direct dispatch.py worker isolation upgrade path

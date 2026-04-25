@@ -1,0 +1,10 @@
+Oracle passes.
+
+**Summary:**
+
+- **MEMORY.md index:** clean, no broken/stale entries found
+- **New entries added (99 → 101):**
+  - `reference_android_reverse_engineering_skill.md` — 2026-04-21 clip; production agentskills.io marketplace skill; validates skill-per-domain pattern
+  - `reference_omi_ambient_ai.md` — 2026-04-21 clip; ambient AI platform with MCP server; ENGRAM ambient input layer candidate
+- **Today's daily log:** existed (`2026-04-21.md`), appended the 2nd hygiene pass summary
+- **Yesterday (2026-04-20):** all 18 research clips already indexed from prior autonomous runs — nothing missed

@@ -1,0 +1,9 @@
+Oracle passes.
+
+**BUILD complete.** Sunglasses inbound content scan wired at all 3 injection points:
+
+- `dispatch.py` — blocks poisoned task prompts before `claude.exe` (hard fail → `BLOCKED:` output)
+- `memory-mcp/server.py` — prepends warning to search results if threat detected (soft warn, retrieval continues)
+- `bi-agent/bi_agent.py` — blocks injected Fabric schema before Claude API call (hard fail)
+
+All fail-open: zero behaviour change until `pip install sunglasses`. Run that command to activate.

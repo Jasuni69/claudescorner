@@ -1,0 +1,10 @@
+Oracle passes. Summary:
+
+**Added:** 1 new memory file + MEMORY.md entry
+- `project_autoresearch.md` — `scripts/autoresearch.py` (Karpathy hypothesis-measure-keep loop, built 2026-04-21)
+
+**No changes needed for:**
+- `project_dispatch.md` — already had 2026-04-21 topology + goal-drift oracle entries
+- All MEMORY.md index links — verified all 107 referenced files exist, no orphans, no broken pointers
+
+MEMORY.md: 106 → 107 entries.

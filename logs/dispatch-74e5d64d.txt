@@ -1,0 +1,7 @@
+Oracle passes.
+
+**Summary:** Added two sections to `projects/engram/README.md`:
+- **Migration from OpenClaw** — OpenClaw↔ENGRAM component mapping table, 4-step migration guide, multi-company pattern
+- **Checkpoints Pattern** — SPEC→BUILD→VERIFY protocol as a first-class skill template with 4-source citation
+
+Synthesis table item marked Done. HEARTBEAT logged.

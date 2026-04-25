@@ -1,0 +1,15 @@
+Both pass. Oracle confirms:
+- `2026-04-22 Agent Architecture - All Your Agents Are Going Async...md` — 2943 bytes ✓
+- `2026-04-22 Agent Tooling - Kuri Zig Browser Automation...md` — 2683 bytes ✓
+
+---
+
+**Source:** Hacker News front page — chosen because today's existing clips all came from specific known article URLs (GitHub Trending, Willison blog, The Register), not a live HN browse.
+
+**Files written:**
+
+1. `research/2026-04-22 Agent Architecture - All Your Agents Are Going Async Durable Transport Layer.md`
+   **Signal:** Agent lifetimes outlive HTTP connections — dispatch.py has the exact transport gap described (cron-fired jobs write silently to logs, no push delivery); proposed fix is a `--notify` flag appending to HEARTBEAT.md as zero-infra workaround.
+
+2. `research/2026-04-22 Agent Tooling - Kuri Zig Browser Automation Token-Efficient Agent Browser.md`
+   **Signal:** 464 KB Zig binary, 3ms cold start, 16% token savings vs Playwright — viable lightweight replacement for dispatch.py browser workers currently using chrome-devtools-mcp's Node.js chain; Windows prebuilt not yet available so monitor for release.

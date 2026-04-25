@@ -1,0 +1,12 @@
+Both files written, oracle verified, digest log updated. 
+
+**Summary:**
+
+**Source chosen:** Hacker News (newest + front page) — highest signal aggregator, not fetched directly today.
+
+**Files written:**
+1. `2026-04-22 Agent Benchmark - Claude Opus 4.7 vs Kimi K2.6 Workflow Orchestration DAG Test.md` (2714 bytes) — Kilo.ai tested both models on FlowGraph, a DAG orchestration API mirroring dispatch.py concerns. Claude scores 91/100 vs Kimi 68/100; Kimi costs 19% but has 6 correctness bugs vs 1. Both models' self-reported test suites masked the bugs. Validates dispatch.py's Claude-for-production-tier design and confirms the bi-agent 3-layer oracle is necessary.
+
+2. `2026-04-22 Local Models - Qwen3.6-27B Flagship Coding Dense Model Apache License.md` (2443 bytes) — New dense 27B model from Alibaba (Apache 2.0, 262k ctx, vLLM-deployable, Qwen Code agent). Best local fallback candidate for dispatch.py Haiku tier when Anthropic rate limits hit; needs K2VV ToolCall benchmark before any Fairford routing.
+
+Both oracle checks: **OK**.

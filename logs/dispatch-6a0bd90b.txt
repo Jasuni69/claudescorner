@@ -1,0 +1,1 @@
+Oracle passes. HEARTBEAT_OK — the only `[ ]` task (Fairford PoC Phase 2) requires Jason's input and cannot be actioned autonomously.

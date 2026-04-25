@@ -1,0 +1,7 @@
+Oracle passes: **OK: 128 entries in MEMORY.md**.
+
+**Result: no changes needed to MEMORY.md.** Full hygiene audit findings:
+- 171 MEMORY.md entries (128 unique links after dedup), zero broken links
+- All 2026-04-23 durable facts already indexed by prior dispatch runs (reference_cubesandbox, reference_pgrust_conductor, reference_fastmail_mcp, feedback_preserve_code, reference_anthropic_mcp_production, project_dispatch.md auto-worktree)
+- No unindexed memory files (3 unlinked = daily logs + MEMORY.md itself, all expected)
+- Today's daily log updated with this session's findings

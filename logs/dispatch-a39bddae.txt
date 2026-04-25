@@ -1,0 +1,7 @@
+**VERIFY PASSED: OK: 143 entries in MEMORY.md**
+
+Added 2 new entries from Digest Run 20 (the only gap found):
+- `reference_mnot_ietf_agents.md` — Nottingham/IETF trust framework gap; ENGRAM = pre-standards implementation
+- `reference_engram_managed_runtimes.md` — 3 enterprise blockers mapped to ENGRAM components; "CLAUDE.md works for one dev, ENGRAM works for a team"
+
+All other 2026-04-24 HEARTBEAT entries were already indexed by prior hygiene runs. No stale/broken links found.

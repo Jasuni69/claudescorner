@@ -1,0 +1,10 @@
+**Oracle passes: `OK: 125 entries in MEMORY.md`**
+
+**Summary of work done:**
+
+1. **Broken link check:** 0 broken links — all 125 MEMORY.md entries point to existing files.
+2. **Unindexed files check:** No unindexed non-dated memory files found.
+3. **HEARTBEAT scan (2026-04-17 → 2026-04-23):** All recent durable facts were already indexed by prior hygiene runs. One new durable fact identified:
+   - **pgrust/Conductor pattern** — 3rd independent oracle-gap production confirmation + dispatch.py 3-worker cap validation + Conductor auto-worktree as backlog/medium architectural gap
+4. **New file created:** `reference_pgrust_conductor.md`
+5. **MEMORY.md updated:** 124 → 125 entries (CubeSandbox was added by a concurrent dispatch worker; pgrust added by this run).

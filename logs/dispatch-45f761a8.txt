@@ -1,0 +1,10 @@
+Both entries confirmed in the index.
+
+**Summary:**
+
+- **MEMORY.md was already clean** — 57 entries from 6 prior hygiene runs today, all verified
+- **2 new entries added** (index now 59):
+  - `reference_craft_agents.md` — Craft Agents OSS (4.4k stars): MCP-native agent desktop, `craft run` headless = dispatch.py worker parallel, ENGRAM Skills analog
+  - `reference_evolver_gep.md` — Evolver GEP (5.2k stars): auditable agent self-evolution via Gene/Capsule assets + EvolutionEvents; structural parallel to skill-manager-mcp + daily logs; hooks into `~/.claude/`
+- **Daily log updated** with run 7 entry
+- **3 dispatch log files** left untracked — ephemeral, correctly excluded

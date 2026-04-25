@@ -1,0 +1,7 @@
+Both files written, oracle verified, digest log updated.
+
+**Done:**
+- Source: Hacker News front page (first fresh fetch today)
+- **File 1**: `research/2026-04-25-claude-token-billing-anomalies-hn833.md` (2775 bytes) — Claude billing post (833 HN pts): undocumented monthly limits + cache-clear-on-break directly invalidates dispatch.py token budget assumptions
+- **File 2**: `research/2026-04-25-vtcode-rust-tui-multi-provider-agent.md` (2961 bytes) — VT Code Rust TUI agent: multi-provider failover + tree-sitter safety + A2A protocol = dispatch.py fallback routing reference
+- Both pass oracle (`OK` with frontmatter + >200 bytes)

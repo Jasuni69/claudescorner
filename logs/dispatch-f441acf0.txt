@@ -1,0 +1,5 @@
+Done. Summary of what was accomplished:
+
+- **Digest Run 6:** Processed 9 undigested 2026-04-21 morning research clips into `2026-04-21-synthesis.md`
+- **dispatch.py BUILD worker hardened:** Added explicit `BLOCKED: <reason>` halt instruction — if a spec constraint can't be satisfied, worker must output BLOCKED and stop rather than partial-succeed or reframe. This directly implements the "Less Human AI Agents" pattern (nial.se, HN 51pts).
+- Key signals from the 9 clips: Vercel OAuth supply-chain breach validates AgentKey priority; RLMs recursive retrieval suggests memory-mcp depth upgrade; Ternary Bonsai + dflash + poly_data filed as backlog pending license/platform unblocking.

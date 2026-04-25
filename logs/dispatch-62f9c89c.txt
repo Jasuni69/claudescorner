@@ -1,0 +1,11 @@
+Done. Both files verified.
+
+**Source chosen:** awesomeagents.ai — not yet fetched today; contains fresh agent ecosystem news from the last 72 hours not covered by any existing clip.
+
+**Files written:**
+- `research/2026-04-21-github-500-agent-prs-ban.md` (3636 bytes) ✅
+- `research/2026-04-21-lovable-breach-vibe-coding-credentials.md` (3076 bytes) ✅
+
+**Top signal per clip:**
+1. **GitHub 500 PRs ban** — platform governance operates at the velocity layer, not quality layer; dispatch.py workers hitting external platforms need rate caps independent of output quality, and attestation points (CLA/merge) are the correct human-in-loop boundary
+2. **Lovable breach** — AI-generated code inherits insecure defaults (missing RLS); vibe-coded platforms co-locate API keys + code + chat history, creating triple-exposure on breach; validates AgentKey scoped credentials and RLS as an explicit checklist step in Fairford schema generation

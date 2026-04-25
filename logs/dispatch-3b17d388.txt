@@ -1,0 +1,7 @@
+Oracle: **OK: 145 entries in MEMORY.md**
+
+**What changed:**
+- `project_skill_manager_mcp.md`: bumped to v2.6.0, added credential-scan section (10 patterns, fail-closed, allowlist)
+- `reference_affirm_agentic_dev.md`: created — Affirm 800-engineer org-scale confirmation of dispatch.py + SOUL+HEARTBEAT + skill marketplace
+- `reference_anthropic_nec_japan.md`: created — 30k NEC employees on Claude Code, regulated verticals, no MCP = ENGRAM gap
+- MEMORY.md index: 143 → 145 entries, skill-manager entry updated

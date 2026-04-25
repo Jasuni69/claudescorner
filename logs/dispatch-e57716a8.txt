@@ -1,0 +1,12 @@
+Oracle passes. Summary of changes made:
+
+**No broken links found.** 120 entries, 0 broken.
+
+**4 memory files updated** with durable facts from 2026-04-22 HEARTBEAT log:
+
+- `reference_sunglasses_mcp_scanner.md` — noted integration done (fail-open wrappers in place, 3 scan points), updated activation instructions
+- `project_dispatch.md` — added 2026-04-22 `_inbound_scan()` entry to build history
+- `project_memory_mcp.md` — added 2026-04-22 inbound scan on `search_memory` results
+- `project_bi_agent.md` — added 2026-04-22 schema scan before Claude API injection
+
+No new MEMORY.md index entries needed — all relevant files were already indexed; only the content of existing files needed updating to reflect the 2026-04-22 Sunglasses integration work.

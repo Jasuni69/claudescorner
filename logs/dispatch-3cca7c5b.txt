@@ -1,0 +1,9 @@
+Task plan update blocked — acceptable. Both research clips are written and verified.
+
+**Done.** Two files clipped to `research/`:
+
+1. **`2026-04-24-anthropic-nec-japan-ai-engineering.md`** — Anthropic + NEC deploying Claude Opus 4.7 + Claude Code to 30k employees across Japan's finance/manufacturing/cybersecurity/gov sectors; strongest public signal of Claude Code as enterprise engineering platform; no MCP mentioned = fabric-mcp gap opportunity.
+
+2. **`2026-04-24-willison-liteparse-browser-pdf.md`** — Willison vibe-coded a browser-native PDF extractor (59 min, zero manual review) producing structured JSON with bounding boxes for RAG source attribution; client-side = privacy-safe for regulated Fairford verticals; complement to markitdown-mcp for scanned/multi-column docs.
+
+Both oracle checks passed (2162 and 2386 bytes, frontmatter present).

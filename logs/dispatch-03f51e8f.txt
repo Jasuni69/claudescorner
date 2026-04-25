@@ -1,0 +1,8 @@
+Oracle passes.
+
+**Summary:** Digest Run 4 complete. Both remaining 2026-04-22 clips processed:
+
+- **Planning With Files** — 14× task completion multiplier quantified; validates HEARTBEAT.md architecture; gap flagged in dispatch.py (tier ≥ 2 workers should auto-write `task_plan.md` before claude.exe)
+- **HuggingFace Skills** — 2nd major org confirming agentskills.io SKILL.md format; `agent_activation_allowed` two-layer governance flag identified as spec gap in skill-manager-mcp v2.2.0
+
+2 new MEMORY.md entries. All 2026-04-22 sources.md clips are now fully digested (6 total across 4 runs).

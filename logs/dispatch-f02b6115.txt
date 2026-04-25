@@ -1,0 +1,1 @@
+HEARTBEAT_OK. Digest Run 6 complete — 2 clips processed (Fuelgauge + AgentKey), synthesis updated, HEARTBEAT log appended.

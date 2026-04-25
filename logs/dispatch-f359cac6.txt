@@ -1,0 +1,6 @@
+**OK: 76 entries in MEMORY.md**
+
+Changes made:
+- **Added**: `reference_context_engineering.md` — 5-component context engineering model
+- **Corrected**: removed false claim that dispatch.py workers lack enforce oracles — they have them in all 3 default prompts (verified against source)
+- No stale/broken entries found across all 75 prior entries

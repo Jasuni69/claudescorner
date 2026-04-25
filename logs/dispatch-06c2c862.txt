@@ -1,0 +1,4 @@
+Done. Both files verified:
+
+- **`2026-04-21-hae-ols-kv-cache-compression.md`** (2541 bytes) — HAE paper: entropy-based KV cache summarization, 3× lower error than Top-K pruning; validates dispatch.py `MAX_CONTEXT_TOKENS` density-over-length principle and ENGRAM two-pass retrieval math.
+- **`2026-04-21-ctx-cross-session-context-manager.md`** (2465 bytes) — Ctx: local SQLite transcript binder for Claude Code/Codex with branching workstreams; complements ENGRAM (session-transcript layer vs semantic memory layer); flagged as ctx-mcp wrap candidate for dispatch.py worker state handoff.

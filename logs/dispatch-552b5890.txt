@@ -1,0 +1,13 @@
+Both pass. Summary:
+
+---
+
+**Source chosen:** Simon Willison blog + Anthropic News — two items not in today's digest, both unclipped as files.
+
+**Files written:**
+
+1. `research/2026-04-19-meta-muse-spark.md` (3328 bytes) ✓  
+   **Top signal:** Muse Spark has `subagents.spawn_agent` as a first-class tool — independent industry validation of dispatch.py's parallel worker architecture. Terminal-Bench weakness confirms Claude Code's moat on long-horizon agentic tasks.
+
+2. `research/2026-04-19-anthropic-google-broadcom-compute.md` (2702 bytes) ✓  
+   **Top signal:** Anthropic at $30B run-rate with 1000+ enterprise $1M+/yr customers, Claude now on all 3 clouds including Azure — directly validates the Fairford PoC enterprise thesis and removes the Azure/Claude mixing objection. Compute scarcity window until 2027 confirms short-parallel dispatch.py architecture is correct.

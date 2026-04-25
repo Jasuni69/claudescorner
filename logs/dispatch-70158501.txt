@@ -1,0 +1,15 @@
+Done. Here's the summary:
+
+---
+
+**Source chosen:** Simon Willison (simonwillison.net) + GitHub Blog — April 22 posts not yet clipped today. Willison is the highest-signal technical analyst for Claude Code and developer tooling.
+
+**Files written:**
+
+1. `research/2026-04-22 Dev Tooling - GitHub Copilot Individual Plans Agentic Workflow Token Limits.md` (2822 bytes) ✓
+   - **Signal:** GitHub paused new signups and restricted Opus 4.7 to Pro+ ($39/mo) because agentic workflows broke the per-request pricing model — validates direct Anthropic API + dispatch.py over any GitHub-mediated Claude access.
+
+2. `research/2026-04-22 Anthropic - Willison Claude Code Pricing Transparency Reversal.md` (2338 bytes) ✓
+   - **Signal:** Willison's post adds the trust/transparency angle missing from the existing Register clip — Anthropic's silent A/B test was caught via Archive.org, reverted same day, but the experiment continues; Max-tier pricing ($100+) is the realistic floor to budget for Fairford and heavy agentic sessions.
+
+Both oracle checks: **OK**. Digest log in `sources.md` updated.

@@ -1,0 +1,8 @@
+Memory hygiene complete.
+
+**Summary:**
+- **MEMORY.md integrity:** 123 entries, 0 broken links, 0 unindexed files — clean
+- **HEARTBEAT scan (last 7 days):** All 2026-04-22 durable facts already indexed (CrabTrap wiring, Sunglasses scan, skill-manager v2.4.0, task_plan injection)
+- **1 update:** `reference_crabtrap_proxy.md` — added the 2026-04-22 `_proxy_env()` dispatch.py integration note that was missing
+- **Daily log:** Created `memory/2026-04-23.md` (didn't exist)
+- **Oracle:** `OK: 123 entries in MEMORY.md`

@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<title>Clementine — Infographic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /*EDITMODE-BEGIN*/
+    --accent: #E8732C;
+    --leaf: #2E8B57;
+    --ink: #1B1A17;
+    --paper: #F6F1E7;
+    --paper-2: #EDE4D2;
+    --rule: #1B1A17;
+    /*EDITMODE-END*/
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Space Grotesk', system-ui, sans-serif;
+    --serif: 'Newsreader', Georgia, serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#2a2824;font-family:var(--sans);color:var(--ink);}
+  .wrap{
+    display:flex; justify-content:center; padding:40px 20px 80px;
+  }
+  .sheet{
+    width: 1200px; max-width:100%;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 64px 72px 72px;
+    position:relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    overflow:hidden;
+  }
+  /* subtle paper grain */
+  .sheet::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(rgba(27,26,23,.04) 1px, transparent 1px),
+      radial-gradient(rgba(27,26,23,.03) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    mix-blend-mode: multiply;
+    opacity:.6;
+  }
+  .sheet > *{ position:relative; }
+
+  /* ====== Header ====== */
+  .meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    padding-bottom:14px; border-bottom:1px solid var(--rule);
+  }
+  .meta .dots{display:flex;gap:6px}
+  .meta .dots span{width:8px;height:8px;border-radius:50%;background:var(--ink);opacity:.9}
+  .meta .dots span:nth-child(1){background:var(--accent)}
+  .meta .dots span:nth-child(2){background:var(--leaf)}
+
+  .hero{
+    display:grid; grid-template-columns: 1.3fr .9fr;
+    gap: 40px; align-items:end;
+    padding: 48px 0 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink); opacity:.7; margin-bottom:22px;
+  }
+  h1.title{
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(72px, 9vw, 128px);
+    line-height:.92;
+    letter-spacing:-.02em;
+    margin:0 0 18px;
+    font-style: italic;
+  }
+  h1.title .amp{ font-style:italic; color:var(--accent) }
+  .lede{
+    font-family:var(--serif); font-weight:400; font-size: 20px; line-height:1.45;
+    max-width: 52ch;
+    color: #2a2824;
+  }
+  .hero-right{
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .stat{
+    display:flex; align-items:baseline; gap:14px;
+    border-top:1px solid var(--rule);
+    padding-top:14px;
+  }
+  .stat .n{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size: 64px; line-height:.9; letter-spacing:-.02em;
+    color: var(--accent);
+  }
+  .stat .l{
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    line-height:1.4;
+  }
+
+  /* Clementine mark */
+  .mark{
+    width: 100%; aspect-ratio: 1/1; position:relative; max-width: 140px; margin-left:auto;
+  }
+  .mark .circle{
+    position:absolute; inset:0; border-radius:50%;
+    background: radial-gradient(circle at 32% 28%, #FFB36E 0%, var(--accent) 42%, #B8531A 100%);
+    box-shadow: inset -12px -14px 40px rgba(0,0,0,.18), inset 12px 14px 30px rgba(255,255,255,.25);
+  }
+  .mark .dimple{
+    position:absolute; top:6%; left:46%; width:14%; height:14%;
+    background: radial-gradient(circle at 50% 50%, #7a3510 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .mark .leaf{
+    position:absolute; top:-4%; left:44%;
+    width:30%; height:22%;
+    background: var(--leaf);
+    border-radius: 0 100% 0 100%;
+    transform: rotate(-18deg);
+    box-shadow: inset -4px -4px 12px rgba(0,0,0,.2);
+  }
+
+  /* ====== Sections ====== */
+  .section-head{
+    display:flex; align-items:baseline; gap:18px;
+    margin: 56px 0 24px;
+  }
+  .section-head .num{
+    font-family:var(--mono); font-size:12px; letter-spacing:.12em;
+    color:var(--accent); font-weight:500;
+  }
+  .section-head h2{
+    font-family:var(--serif); font-weight:400; font-size: 36px;
+    letter-spacing:-.01em; margin:0;
+  }
+  .section-head h2 em{ color:var(--accent); font-style:italic }
+  .rule{ flex:1; height:1px; background:var(--ink); opacity:.8; align-self:center }
+
+  /* ====== Flow diagram ====== */
+  .flow{
+    display:grid; grid-template-columns: 1fr 60px 1fr 60px 1fr;
+    align-items:stretch; gap:0;
+    margin-top: 10px;
+  }
+  .node{
+    border:1px solid var(--ink);
+    padding: 20px 20px 22px;
+    background: var(--paper);
+    display:flex; flex-direction:column; gap:10px;
+    min-height: 220px;
+    position:relative;
+  }
+  .node .cap{
+    font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+    display:flex; justify-content:space-between;
+    padding-bottom:8px; border-bottom:1px solid var(--ink);
+  }
+  .node h3{
+    font-family:var(--serif); font-weight:400; font-size: 22px;
+    margin: 4px 0 0; letter-spacing:-.01em;
+  }
+  .node ul{
+    list-style:none; margin:auto 0 0; padding:0;
+    font-family:var(--mono); font-size:11px; letter-spacing:.04em;
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .node ul li::before{
+    content:"▸ "; color: var(--accent);
+  }
+  .node.inbound{ background: var(--paper-2); }
+  .node.core{
+    background: var(--ink); color: var(--paper);
+    border-color: var(--ink);
+  }
+  .node.core .cap{ border-color: rgba(246,241,231,.3); color: var(--paper) }
+  .node.core h3{ color: var(--paper) }
+  .node.core .cap .dot{ width:8px;height:8px;border-radius:50%;background:var(--accent); display:inline-block}
+  .node.core .big{
+    font-family:var(--serif); font-style:italic; font-size: 40px; line-height:1;
+    color: var(--accent); margin-top:6px;
+  }
+  .node.core p{ font-family:var(--sans); font-size: 12px; opacity:.85; line-height:1.5; margin: 6px 0 0 }
+  .node.outbound{ background: var(--paper); }
+
+  .arrow{
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .arrow svg{ width: 100%; height: 20px }
+
+  /* ====== Three column: Systems / Reports / Value ====== */
+  .tri{
+    display:grid; grid-template-columns: repeat(3,1fr);
+    gap: 0;
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+  }
+  .tri > div{
+    padding: 24px 22px 28px;
+    border-right:1px solid var(--ink);
+  }
+  .tri > div:last-child{ border-right:none }
+  .tri h4{
+    font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    margin:0 0 16px; display:flex; justify-content:space-between;
+  }
+  .tri h4 .k{ color:var(--accent) }
+  .tri ol{
+    list-style:none; margin:0; padding:0;
+    font-family:var(--serif); font-size: 19px; line-height:1.35;
+    display:flex; flex-direction:column; gap:10px;
+    counter-reset: li;
+  }
+  .tri ol li{
+    counter-increment: li;
+    display:flex; gap:12px; align-items:baseline;
+    padding-bottom:8px; border-bottom:1px dashed rgba(27,26,23,.25);
+  }
+  .tri ol li::before{
+    content: counter(li,decimal-leading-zero);
+    font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+    color:var(--accent); min-width:22px;
+    transform: translateY(-2px);
+  }
+  .tri .growing{
+    font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+    margin-top:14px; opacity:.65;
+  }
+
+  /* ====== Timeline ====== */
+  .timeline{
+    display:grid; grid-template-columns: repeat(4,1fr);
+    margin-top: 10px; gap: 0;
+    position:relative;
+  }
+  .timeline::before{
+    content:""; position:absolute; top: 28px; left: 2%; right:2%;
+    height:1px; background: var(--ink);
+  }
+  .step{
+    padding: 0 16px;
+    position:relative;
+  }
+  .step .dot{
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--paper); border: 1.5px solid var(--ink);
+    margin: 20px 0 16px;
+    position:relative; z-index:1;
+  }
+  .step.hl .dot{ background: var(--accent); border-color: var(--accent) }
+  .step .day{
+    font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .step h5{
+    font-family:var(--serif); font-weight:400; font-size:22px; margin:0 0 6px;
+    letter-spacing:-.01em;
+  }
+  .step p{
+    font-family:var(--sans); font-size:13px; line-height:1.5; margin:0;
+    color:#2a2824;
+  }
+
+  /* ====== Traditional vs Clementine ====== */
+  .versus{
+    display:grid; grid-template-columns: 1fr 1fr;
+    border:1px solid var(--ink);
+    margin-top: 10px;
+  }
+  .versus > div{ padding: 22px 24px 26px; }
+  .versus .trad{ background: var(--paper-2); border-right:1px solid var(--ink) }
+  .versus .clem{ background: var(--ink); color:var(--paper) }
+  .versus h4{
+    font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    margin:0 0 14px; display:flex; justify-content:space-between;
+  }
+  .versus .clem h4 .k{ color: var(--accent) }
+  .versus ul{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:10px;
+    font-family:var(--serif); font-size:17px; line-height:1.4;
+  }
+  .versus .trad li::before{
+    content:"✕"; font-family:var(--mono); color:#8a3a2a; margin-right:10px; font-weight:600;
+  }
+  .versus .clem li::before{
+    content:"→"; font-family:var(--mono); color:var(--accent); margin-right:10px; font-weight:600;
+  }
+
+  /* Footer */
+  footer{
+    margin-top: 56px; padding-top: 18px;
+    border-top: 1px solid var(--ink);
+    display:flex; justify-content:space-between; align-items:flex-end; gap:20px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  }
+  footer .cta{
+    font-family:var(--serif); font-style:italic; font-size: 28px;
+    text-transform:none; letter-spacing:-.01em;
+    max-width: 46ch;
+  }
+  footer .contact a{ color: var(--ink); text-decoration:none; border-bottom:1px solid var(--ink) }
+  footer .contact div{ margin-bottom:4px }
+
+  /* Tweaks panel */
+  .tweaks{
+    position:fixed; right:20px; bottom:20px; width:260px;
+    background: #1B1A17; color:#F6F1E7; padding:16px; border-radius:10px;
+    font-family: var(--sans); font-size:12px; display:none;
+    box-shadow: 0 20px 40px rgba(0,0,0,.5); z-index:10;
+  }
+  .tweaks h6{margin:0 0 10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-family:var(--mono)}
+  .tweaks label{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:10px}
+  .tweaks input[type=color]{width:40px; height:24px; border:none; background:none; padding:0}
+  .tweaks button{
+    background:none; border:1px solid rgba(246,241,231,.3); color:#F6F1E7;
+    padding:6px 10px; border-radius:4px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; cursor:pointer;
+    width:100%; margin-top:4px;
+  }
+  .tweaks button:hover{background:rgba(246,241,231,.1)}
+
+  @media print{
+    html,body{background:var(--paper)}
+    .wrap{padding:0}
+    .sheet{box-shadow:none; width:auto}
+    .tweaks{display:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<article class="sheet" id="sheet">
+
+  <div class="meta">
+    <div>Numberskills / Produktlösning</div>
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div>Utgåva 01 · 2026</div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">SaaS · Power BI · End-to-end rapportering</div>
+      <h1 class="title">Clement<span class="amp">ine</span>.</h1>
+      <p class="lede">Färdigbyggda rapporter och dashboards som kopplas till era datakällor. Ni lägger till datan — vi står för motorn, visualiseringen och uppdateringarna.</p>
+    </div>
+    <div class="hero-right">
+      <div class="mark" aria-hidden="true">
+        <div class="circle"></div>
+        <div class="dimple"></div>
+        <div class="leaf"></div>
+      </div>
+      <div class="stat">
+        <div class="n">~ dagar</div>
+        <div class="l">Från uppstart<br>till färdig dashboard</div>
+      </div>
+      <div class="stat">
+        <div class="n">0 kr</div>
+        <div class="l">Startavgift ·<br>inga konsulttimmar för arkitektur</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: How it works flow -->
+  <div class="section-head">
+    <div class="num">01 / Flöde</div>
+    <h2>Från rådata till <em>insikt</em></h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="flow">
+    <div class="node inbound">
+      <div class="cap"><span>Källa</span><span>IN</span></div>
+      <h3>Era system</h3>
+      <ul>
+        <li>Fortnox</li>
+        <li>Hailey HR</li>
+        <li>PowerOffice</li>
+        <li>Dynamics 365 BC</li>
+      </ul>
+    </div>
+    <div class="arrow" aria-hidden="true">
+      <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#1B1A17" stroke-width="1"/><polyline points="46,4 54,10 46,16" fill="none" stroke="#1B1A17" stroke-width="1"/></svg>
+    </div>
+    <div class="node core">
+      <div class="cap"><span><span class="dot"></span> Motor</span><span>CLEMENTINE</span></div>
+      <h3 style="color:#F6F1E7">Hämtar, strukturerar,<br>modellerar.</h3>
+      <div class="big">⟁</div>
+      <p>Skalbar SaaS-plattform. Uppdateras automatiskt i valt intervall. Inga startavgifter, fast månadskostnad.</p>
+    </div>
+    <div class="arrow" aria-hidden="true">
+      <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#1B1A17" stroke-width="1"/><polyline points="46,4 54,10 46,16" fill="none" stroke="#1B1A17" stroke-width="1"/></svg>
+    </div>
+    <div class="node outbound">
+      <div class="cap"><span>Leverans</span><span>UT</span></div>
+      <h3>Power BI-rapport</h3>
+      <ul>
+        <li>Balans</li>
+        <li>Resultat</li>
+        <li>Budget</li>
+        <li>Personal</li>
+        <li>Sälj</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION: Details -->
+  <div class="section-head">
+    <div class="num">02 / Innehåll</div>
+    <h2>Vad som ingår <em>från dag ett</em></h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="tri">
+    <div>
+      <h4><span>Integrerade system</span><span class="k">04</span></h4>
+      <ol>
+        <li>Fortnox</li>
+        <li>Hailey HR</li>
+        <li>PowerOffice</li>
+        <li>Microsoft Dynamics Business Central</li>
+      </ol>
+      <div class="growing">+ Fler system läggs till löpande</div>
+    </div>
+    <div>
+      <h4><span>Färdiga rapporter</span><span class="k">05</span></h4>
+      <ol>
+        <li>Balansrapporter</li>
+        <li>Resultatrapporter</li>
+        <li>Budgetrapporter</li>
+        <li>Personalrapporter</li>
+        <li>Säljrapporter</li>
+      </ol>
+      <div class="growing">Standardiserade — byggda av tidigare uppdrag</div>
+    </div>
+    <div>
+      <h4><span>Det ni får</span><span class="k">/ Värde</span></h4>
+      <ol>
+        <li>Fast månadskostnad</li>
+        <li>Automatiska uppdateringar</li>
+        <li>Skalar efter behov</li>
+        <li>Ingen tid på arkitektur</li>
+        <li>Möjlighet att anpassa senare</li>
+      </ol>
+      <div class="growing">Använd så länge ni har behov</div>
+    </div>
+  </div>
+
+  <!-- SECTION: Timeline -->
+  <div class="section-head">
+    <div class="num">03 / Tidslinje</div>
+    <h2>Ett typiskt <em>upplägg</em></h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="step">
+      <div class="dot"></div>
+      <div class="day">Dag 00</div>
+      <h5>Kontakt.</h5>
+      <p>Vi stämmer av vilka frågor ni vill kunna besvara med er data.</p>
+    </div>
+    <div class="step">
+      <div class="dot"></div>
+      <div class="day">Dag 01</div>
+      <h5>Uppkoppling.</h5>
+      <p>Clementine ansluts mot era befintliga system — bokföring, HR, CRM.</p>
+    </div>
+    <div class="step hl">
+      <div class="dot"></div>
+      <div class="day">Dag ~3</div>
+      <h5>Dashboards.</h5>
+      <p>Färdiga rapporter levereras, förankrade i er egen data.</p>
+    </div>
+    <div class="step">
+      <div class="dot"></div>
+      <div class="day">Löpande</div>
+      <h5>Vidareutv.</h5>
+      <p>När nya frågor väcks anpassar vi eller bygger nytt från grunden.</p>
+    </div>
+  </div>
+
+  <!-- SECTION: Comparison -->
+  <div class="section-head">
+    <div class="num">04 / Jämförelse</div>
+    <h2>Inte <em>ett utvecklingsprojekt</em> — en produkt</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="versus">
+    <div class="trad">
+      <h4><span>Traditionellt BI-projekt</span><span>—</span></h4>
+      <ul>
+        <li>Startavgifter och arkitekturtimmar</li>
+        <li>Långa väntetider innan resultat syns</li>
+        <li>Hjulet uppfinns på nytt, varje gång</li>
+        <li>Specifik utveckling krävs innan något levereras</li>
+      </ul>
+    </div>
+    <div class="clem">
+      <h4><span>Clementine</span><span class="k">✦</span></h4>
+      <ul>
+        <li>Fast månadskostnad, inga startavgifter</li>
+        <li>Färdig lösning på några dagar</li>
+        <li>Rapporter som redan är byggda — anpassas till er</li>
+        <li>Skalbar SaaS — använd så länge behovet finns</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="cta">Berätta vad ni vill kunna läsa ut ur er data — så visar vi vad vi kan skapa.</div>
+    <div class="contact">
+      <div>Numberskills Sverige AB</div>
+      <div>Industrigatan 1 · 112 46 Stockholm</div>
+      <div><a href="tel:+46850777000">08 507 77 000</a> · <a href="mailto:info@numberskills.se">info@numberskills.se</a></div>
+    </div>
+  </footer>
+
+</article>
+</div>
+
+<!-- Tweaks -->
+<div class="tweaks" id="tweaks">
+  <h6>Tweaks</h6>
+  <label>Accent (clementine) <input type="color" id="tw-accent" value="#E8732C"></label>
+  <label>Blad <input type="color" id="tw-leaf" value="#2E8B57"></label>
+  <label>Papper <input type="color" id="tw-paper" value="#F6F1E7"></label>
+  <label>Text / Ink <input type="color" id="tw-ink" value="#1B1A17"></label>
+  <button id="tw-reset">Reset</button>
+  <button id="tw-print">Skriv ut / PDF</button>
+</div>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const map = {
+    'tw-accent':'--accent',
+    'tw-leaf':'--leaf',
+    'tw-paper':'--paper',
+    'tw-ink':'--ink',
+  };
+  const panel = document.getElementById('tweaks');
+
+  // listener FIRST
+  window.addEventListener('message', (e)=>{
+    const d = e.data || {};
+    if(d.type==='__activate_edit_mode') panel.style.display='block';
+    if(d.type==='__deactivate_edit_mode') panel.style.display='none';
+  });
+  // then announce
+  try{ window.parent.postMessage({type:'__edit_mode_available'}, '*'); }catch(e){}
+
+  Object.keys(map).forEach(id=>{
+    const el = document.getElementById(id);
+    el.addEventListener('input', ()=>{
+      root.style.setProperty(map[id], el.value);
+      // derive paper-2 slightly darker
+      if(id==='tw-paper'){
+        root.style.setProperty('--paper-2', shade(el.value, -.06));
+      }
+      const edits = {};
+      edits[map[id].replace('--','')] = el.value;
+      try{ window.parent.postMessage({type:'__edit_mode_set_keys', edits}, '*'); }catch(e){}
+    });
+  });
+  document.getElementById('tw-reset').addEventListener('click', ()=>{
+    ['--accent','--leaf','--paper','--paper-2','--ink'].forEach(v=>root.style.removeProperty(v));
+    document.getElementById('tw-accent').value='#E8732C';
+    document.getElementById('tw-leaf').value='#2E8B57';
+    document.getElementById('tw-paper').value='#F6F1E7';
+    document.getElementById('tw-ink').value='#1B1A17';
+  });
+  document.getElementById('tw-print').addEventListener('click', ()=> window.print());
+
+  function shade(hex, p){
+    const n = parseInt(hex.slice(1),16);
+    let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+    r=Math.max(0,Math.min(255,Math.round(r+(p<0?r:(255-r))*p)));
+    g=Math.max(0,Math.min(255,Math.round(g+(p<0?g:(255-g))*p)));
+    b=Math.max(0,Math.min(255,Math.round(b+(p<0?b:(255-b))*p)));
+    return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');
+  }
+})();
+</script>
+</body>
+</html>

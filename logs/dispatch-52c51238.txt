@@ -1,0 +1,9 @@
+Done. Summary:
+
+**Clipped 2 files today from Hacker News:**
+
+1. `2026-04-24-agent-vault-credential-proxy.md` (2939 bytes) — Agent Vault by Infisical: open-source HTTP proxy that injects credentials at the network layer, preventing secrets from ever reaching agent process memory. Completes the dispatch.py governance stack alongside AgentKey + CrabTrap + AgentRQ.
+
+2. `2026-04-24-mcp-gateways-identity-authz.md` (3732 bytes) — Diagrid's argument that MCP gateways need three missing layers: SPIFFE cryptographic agent identity, OPA zero-trust per-tool authorization, and tamper-evident signed execution history chains. Most relevant for fabric-mcp + Fairford Phase 2 payment-adjacent calls.
+
+Both passed the oracle (`OK: ... bytes`). Digest log in `sources.md` updated.

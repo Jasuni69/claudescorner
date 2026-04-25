@@ -1,0 +1,8 @@
+Oracle passes. 107 entries confirmed.
+
+**Changes made:**
+- `project_memory_mcp.md` — added `depth` param upgrade (2026-04-21 recursive retrieval, N-pass search)
+- `project_dispatch.md` — was already fully up-to-date (topology, BLOCKED clause, goal-drift oracle all present)
+- `MEMORY.md` index line for memory-mcp updated to mention `depth` param
+
+**No stale/broken entries found** — all 107 index links were already consistent with HEARTBEAT log. Today's daily log (`2026-04-21.md`) already exists and is current.

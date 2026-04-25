@@ -1,0 +1,8 @@
+Done.
+
+**Summary:**
+- **Source:** GitHub Trending (daily Python) — angle not covered by today's earlier clips which used weekly trending
+- **File written:** `research/2026-04-21-trendradar-mcp-trend-monitor.md` (2,714 bytes)
+- **Oracle:** `OK: ...trendradar-mcp-trend-monitor.md (2714 bytes)` ✓
+- **Top signal:** TrendRadar ships a 21-tool MCP server with LiteLLM Claude support, multi-platform sentiment analysis, and trend aggregation — plug-and-play Fairford alternative-data layer alongside Kronos (OHLCV) and poly_data (Polymarket) already clipped today. Three complementary signal sources now MCP-native.
+- **Flag:** GPL-3.0 license — check compatibility before wiring into Fairford production pipeline.

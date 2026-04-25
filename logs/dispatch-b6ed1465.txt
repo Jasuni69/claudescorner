@@ -1,0 +1,7 @@
+Oracle passes. 
+
+**Done.** Added `_should_memorize()` write-gate to `projects/memory-mcp/server.py` implementing the MemReader passive-screen pattern:
+- Off by default (`MEMORY_WRITE_GATE=0`) — zero behavior change for existing agents
+- When `MEMORY_WRITE_GATE=1`: screens every `write_memory` call via Claude Haiku with a YES/NO prompt that distinguishes durable facts from ephemeral state
+- Fail-open on every error path (subprocess crash, timeout, claude absent)
+- `write_memory` returns `[write-gate: skipped]` on NO verdict instead of writing

@@ -1,0 +1,7 @@
+All done. Summary:
+
+**Source chosen**: Hacker News front page — picked up DeepSeek V4 Pro (brand new, 304 HN pts, not in any prior clip).
+
+**File written**: `research/2026-04-24-deepseek-v4-pro-frontier-model.md` — oracle passed (3,666 bytes, frontmatter confirmed).
+
+**Top signal**: DeepSeek V4 Pro is a 1.6T MoE (49B active) MIT-licensed model with 1M context that scores 80.6% SWE-Verified and 73.6% MCPAtlas — the strongest open-weight Sonnet 4.6 competitor yet. Action item: benchmark via K2VV ToolCall before routing any dispatch.py work to it.

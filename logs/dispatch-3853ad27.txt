@@ -1,0 +1,9 @@
+Done. Summary:
+
+**Source chosen:** GitHub trending (weekly Python) — HN was thin today; GitHub had the strongest signal.
+
+**Files written:**
+- `research/2026-04-20-hermes-agent-102k.md` — Hermes Agent, 102k stars (+38k this week): autonomous skill crystallization after complex tasks + MCP support = production-proven ENGRAM parallel; agentskills.io format convergence point for skill-manager-mcp
+- `research/2026-04-20-context-engineering-runnable.md` — Context Engineering reference: 5-component RAG+enforcement model reveals dispatch.py workers lack the enforcement/oracle layer (steps 4–5); directly maps to the `verify:` gap and token budgeting need
+
+**Oracle:** Both files pass (`OK: 2587 bytes`, `OK: 2194 bytes`).

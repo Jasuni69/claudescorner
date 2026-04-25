@@ -1,0 +1,3 @@
+mcp==1.21.0
+requests==2.32.5
+msal>=1.0.0  # optional: only required for Azure AD auth; not installed in current env

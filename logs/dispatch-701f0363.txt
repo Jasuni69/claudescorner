@@ -1,0 +1,15 @@
+Both files written and verified. Here's the summary:
+
+---
+
+**PLAN executed — simonwillison.net (Apr 24 posts, not yet clipped today)**
+
+**Files written:**
+
+1. `research/2026-04-25-willison-claude-code-quality-postmortem-analysis.md` (2963 bytes) ✓
+   - Signal: Thinking-cache bug (Mar26–Apr10) cleared context every turn for the full session — dispatch.py long-session workers were the most affected class. Harness bugs look identical to model drift without per-session telemetry. Fix: v2.1.116 + wire cc-canary `thinking_redaction` metric.
+
+2. `research/2026-04-25-deepseek-v4-willison-analysis.md` (2693 bytes) ✓
+   - Signal: DeepSeek V4-Pro at $1.74/M input undercuts Sonnet 4.6 ($3/M), MIT, 1M context — strongest open-weight Sonnet-tier routing candidate yet. V4-Flash at $0.14/M = potential Haiku-tier replacement. Gate on K2VV ToolCall benchmark before dispatch.py routing.
+
+Both oracle checks pass. Digest log in `sources.md` updated.

@@ -1,0 +1,7 @@
+Both confirmed. Summary:
+
+**2 new entries added** (MEMORY.md now 63 entries):
+- `reference_steve_yegge_adoption.md` — Yegge's 20/60/20 AI adoption curve; Google's internal MCP+skills stack as ENGRAM validation; Fairford PoC positioning tool
+- `reference_fincept_terminal.md` — FinceptTerminal 37-agent Bloomberg alternative; MCP node editor as fabric-mcp insertion point; Fairford signal layer pattern
+
+**No stale or broken entries.** All prior hygiene runs had already covered the other 17 research clips from today.

@@ -1,0 +1,3 @@
+Oracle passes.
+
+**Summary:** Added `FABRIC_CALLER_TOKEN` bearer check to `projects/fabric-mcp/server.py`. When the env var is set, `initialize` requires `params.authorization` to match; `tools/list` and `tools/call` gate on the resulting `_authorized` flag. Fail-open when env var is unset. All behavioral tests pass, oracle OK.

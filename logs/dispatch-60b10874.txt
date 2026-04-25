@@ -1,0 +1,9 @@
+**Oracle passed: 104 entries.**
+
+Summary of what was checked and changed:
+
+- **0 broken links** — all 104 linked `.md` files exist
+- **0 orphaned memory files** — only `2026-04-20.md` and `2026-04-21.md` are daily logs (correct, not memory entries)
+- **1 stale index entry fixed** — `bi-agent` description updated to reflect the 3-layer structural oracle added today (2026-04-21)
+- **All today's HEARTBEAT work already captured** — topology dispatch in `project_dispatch.md`, bi-agent oracle in `project_bi_agent.md`, all 2026-04-21 research clips indexed from prior hygiene runs
+- **Today's daily log exists** at `memory/2026-04-21.md`

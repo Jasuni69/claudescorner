@@ -1,0 +1,11 @@
+All done. Summary:
+
+**Source chosen**: GitHub Trending (daily) — surfaced `huggingface/ml-intern` not yet in digest log. HN newest — surfaced Agent Skills standardization article.
+
+**Files written** (both pass oracle):
+- `research/2026-04-23-ml-intern-huggingface-autonomous-ml-engineer.md` (2877 bytes)
+- `research/2026-04-23-agent-skills-standardization-skillmd.md` (3378 bytes)
+
+**Top signals**:
+1. **ml-intern**: HuggingFace's 300-iteration autonomous agent loop has a doom-loop detector that injects corrective prompts on repeated tool patterns — the exact failure mode dispatch.py workers currently have no defense against.
+2. **Agent Skills**: SKILL.md is now confirmed as the cross-platform standard (Anthropic/OpenAI/Google/GitHub/Cursor), organically — validates skill-manager-mcp's format choice and frames ENGRAM's portability story; security scanning gap identified as backlog item.

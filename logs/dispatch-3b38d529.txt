@@ -1,0 +1,7 @@
+Oracle passes. Done.
+
+**Summary:** Implemented auto-worktree isolation in `scripts/dispatch.py` (pgrust/Conductor pattern). Two helpers added:
+- `_worktree_create(task_id)` — creates `BASE/.worktrees/<task_id>/` via `git worktree add --detach` when `DISPATCH_WORKTREES=1`; fail-open otherwise
+- `_worktree_remove(worktree_dir)` — cleans up after task exits; fail-silent
+
+`run_task()` now uses the worktree as `cwd` when available, falling back to `BASE`. Zero behavior change without the env var set.

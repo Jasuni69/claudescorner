@@ -1,0 +1,5 @@
+Both files written and verified. Two clips added to today's digest:
+
+1. **`2026-04-19-steve-yegge-ai-adoption-curve.md`** — Yegge's 20/60/20 agentic adoption curve, Google internal rebuttal (Osmani: 40K weekly SWE users; Hassabis: "clickbait"). Relevant for Fairford positioning and ENGRAM validation.
+
+2. **`2026-04-19-fincept-terminal-bloomberg-alternative.md`** — Open-source Bloomberg alternative, +1,169 stars today. 37 AI investor-persona agents, Claude support, MCP node editor, 100+ data connectors. Direct fabric-mcp integration opportunity for the Fairford PoC.

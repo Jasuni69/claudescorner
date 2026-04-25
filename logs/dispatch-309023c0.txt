@@ -1,0 +1,8 @@
+**Done.** Oracle result: `OK: 128 entries in MEMORY.md`
+
+Changes made:
+- `project_memory_mcp.md` — added 2026-04-23 write-gate entry (`_should_memorize`, `MEMORY_WRITE_GATE=1`, Haiku classifier, fail-open on errors)
+- `MEMORY.md` — updated memory-mcp index one-liner to reflect write-gate + inbound scan
+- `memory/2026-04-23.md` — appended this session's log
+
+State: 128 entries, 0 broken links, 0 unindexed files. All other HEARTBEAT 7-day facts were already indexed by prior runs today.

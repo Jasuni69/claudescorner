@@ -1,0 +1,7 @@
+Oracle passed: **152 entries in MEMORY.md**.
+
+Added 2 new entries from HEARTBEAT Digest Run 25 (the only unindexed facts):
+- `reference_stop_hooks_exit_code.md` — exit 2 + stderr required for blocking hooks; exit 0 = observer; on_stop.py confirmed correct
+- `reference_free_claude_code.md` — FastAPI proxy for Claude Code→NIM/OpenRouter routing; Backlog/Low; gated on Anthropic ToS + K2VV
+
+No broken MEMORY.md links found. All prior 2026-04-24 and earlier 2026-04-25 entries were already indexed by previous hygiene runs.

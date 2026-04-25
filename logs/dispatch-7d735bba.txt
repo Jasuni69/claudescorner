@@ -1,0 +1,12 @@
+**Memory hygiene complete.**
+
+- 93 existing entries — all links valid, zero broken references
+- 6 new entries added (93 → 99):
+  - `reference_karpathy_claude_guidelines.md` — Karpathy SPEC→BUILD→VERIFY pattern
+  - `reference_kimi_k26.md` — Moonshot AI 300-subagent model, potential Haiku fallback
+  - `reference_multica_orchestration.md` — external dispatch.py + skill-manager-mcp validation
+  - `reference_ggsql.md` — ggplot2-in-SQL → Vega-Lite, watch for Fabric support
+  - `reference_ai_agent_traffic.md` — Claude UA `Claude-User/1.0`, robots.txt blocking risk for dispatch.py web workers
+  - `reference_qwen36_max.md` — Alibaba 256k-context model, evaluate as Tier 1 dispatch alternative
+- Today's daily log created at `memory/2026-04-21.md`
+- Oracle: `OK: 99 entries in MEMORY.md`

@@ -1,0 +1,9 @@
+Done. Summary:
+
+**Source chosen:** Hacker News — two stories not yet clipped today.
+
+**Files written (both oracle-verified):**
+
+1. `2026-04-22 Infrastructure - Google Eighth Generation TPU Agentic Era Compute Architecture.md` (3503 bytes) — Google's TPU-8t/TPU-8i dual-chip announcement: 121 ExaFLOPS, 2 PB shared HBM3e, 9,600-chip superpods, 2× perf/watt. Framed explicitly for agentic workloads (long KV-cache, multi-step inference). Signal: Anthropic's API cost floor will compress over 12-18 months as Google forces competitive response — good for dispatch.py economics long-term.
+
+2. `2026-04-22 Agent Skill - last30days-skill Multi-Source Research Agent Skill GitHub Trending.md` (3501 bytes) — 23.4k-star MIT skill that fans out to 10+ platforms (Reddit/HN/Polymarket/GitHub/YouTube/web), deduplicates by engagement score, and synthesizes in one shot. Signal: this is what reddit_brief.py should evolve into — and its output format maps directly to what ENGRAM's memory layer should receive as input.

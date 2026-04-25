@@ -1,0 +1,11 @@
+---
+
+**PLAN executed:**
+
+1. **Source**: Hacker News → `juanpabloaj.com` (28pts, not in any existing clip). Chosen because every other HN AI item from today was already clipped, and this one directly addresses dispatch.py cost patterns.
+
+2. **File**: `research/2026-04-20-lightweight-agent-communication-no-api.md`
+
+3. **Top signal**: CLI `--resume` mode lets Codex/Gemini continue prior sessions without new API billing — multi-agent critique loops for free, using existing subscriptions. Key risk: no verify oracle = hallucination amplification.
+
+**Oracle**: `OK: ...2026-04-20-lightweight-agent-communication-no-api.md (2264 bytes)` ✓

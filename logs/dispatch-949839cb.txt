@@ -1,0 +1,7 @@
+Oracle passes. HEARTBEAT_OK — Fairford PoC Phase 2 still needs Jason.
+
+**Digest Run 2 complete:**
+- **Hermes Agent** (102k stars): near-1:1 ENGRAM analog; confirms skill-manager-mcp semantic search and fabric-mcp are genuine differentiators; action → align skill frontmatter with agentskills.io SKILL.md format
+- **Context Engineering**: 5th independent signal confirming `verify:` oracle is correct; new gap identified — dispatch.py worker context windows are unbounded; action → add `max_context_tokens` cap + document injection ordering
+
+Memory updated: `reference_hermes_agent.md` written, MEMORY.md now 75 entries.

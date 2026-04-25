@@ -18,6 +18,30 @@ import os
 import sys
 from pathlib import Path
 
+# ── Inbound content scan (sunglasses — optional soft dependency) ──────────────
+try:
+    from sunglasses import Engine as _SunglassesEngine
+    _SCAN_ENGINE = _SunglassesEngine()
+    _SUNGLASSES_AVAILABLE = True
+except ImportError:
+    _SCAN_ENGINE = None
+    _SUNGLASSES_AVAILABLE = False
+
+
+def _inbound_scan(text: str, label: str) -> None:
+    """Scan external content for scope-redefinition injection before injecting into Claude API.
+
+    Raises ValueError and prints to stderr if a threat is detected.
+    No-ops silently if sunglasses is not installed (fail-open).
+    """
+    if not _SUNGLASSES_AVAILABLE or not _SCAN_ENGINE:
+        return
+    result = _SCAN_ENGINE.scan(text)
+    if result.is_threat:
+        msg = f"[sunglasses] BLOCKED schema injection at {label}: {result.category} — {result.pattern}"
+        print(msg, file=sys.stderr)
+        raise ValueError(msg)
+
 # ── Schema ────────────────────────────────────────────────────────────────────
 
 MOCK_SCHEMA = {
@@ -140,6 +164,9 @@ def generate_dax(description: str, schema: dict, api_key: str) -> str:
     client = anthropic.Anthropic(api_key=api_key)
     schema_text = schema_to_prompt(schema)
 
+    # Scan external schema content before injecting into Claude API (supply-chain attack surface)
+    _inbound_scan(schema_text, "bi-agent:schema")
+
     # System prompt uses multi-block format so Anthropic can cache the static parts.
     # The static expert instructions are marked cache_control="ephemeral" (min 1024 tokens
     # required for caching; schema block gets the cache breakpoint since it's the last
@@ -182,6 +209,59 @@ def template_dax(description: str) -> str:
     )"""
 
 
+# ── Output oracle ─────────────────────────────────────────────────────────────
+
+def validate_dax_output(dax: str, schema: dict) -> tuple[bool, str]:
+    """Client-side structural oracle for DAX output.
+
+    Checks:
+    1. Model self-reported ORACLE: PASS (not FAIL).
+    2. No unbalanced parentheses (catches truncated output).
+    3. All Table[Column] references in the schema (using References line if present).
+
+    Returns (ok, reason). reason is empty string on success.
+    """
+    import re
+
+    # 1. Model-reported oracle status
+    if "-- ORACLE: FAIL" in dax:
+        fail_line = next((l for l in dax.splitlines() if "ORACLE: FAIL" in l), "")
+        return False, f"Model self-reported ORACLE FAIL: {fail_line}"
+    if "-- ORACLE: PASS" not in dax:
+        return False, "Model did not emit oracle verdict (missing -- ORACLE: PASS)"
+
+    # 2. Balanced parentheses
+    depth = 0
+    for ch in dax:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+        if depth < 0:
+            return False, "Unbalanced parentheses in DAX output"
+    if depth != 0:
+        return False, f"Unbalanced parentheses in DAX output (unclosed: {depth})"
+
+    # 3. Schema reference check via References line
+    ref_line = next((l for l in dax.splitlines() if l.startswith("-- References:")), None)
+    if ref_line:
+        raw_refs = ref_line.replace("-- References:", "").strip()
+        table_col_pairs = re.findall(r"(\w+)\[(\w+)\]", raw_refs)
+        schema_cols: dict[str, set[str]] = {
+            t["name"]: set(t.get("columns", []) + t.get("measures", []))
+            for t in schema.get("tables", [])
+        }
+        missing = [
+            f"{tbl}[{col}]"
+            for tbl, col in table_col_pairs
+            if tbl not in schema_cols or col not in schema_cols.get(tbl, set())
+        ]
+        if missing:
+            return False, f"Schema reference mismatch: {', '.join(missing)}"
+
+    return True, ""
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -211,6 +291,11 @@ def main() -> None:
     else:
         print(f"[bi-agent] Generating DAX for: {args.description}\n")
         result = generate_dax(args.description, schema, api_key)
+        ok, reason = validate_dax_output(result, schema)
+        if not ok:
+            print(f"[bi-agent] ORACLE FAIL: {reason}", file=sys.stderr)
+            sys.exit(1)
+        print("[bi-agent] Oracle: PASS")
 
     print(result)
 

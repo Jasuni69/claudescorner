@@ -1,0 +1,3 @@
+Oracle passes.
+
+**Summary:** Digested 3 unprocessed 2026-04-23 clips into Digest Run 3 of `research/2026-04-23-synthesis.md`. Key signals: Anthropic's official MCP Production Guide quantifies the lazy-tool pattern at 85% token reduction (validates existing skill-manager-mcp architecture), MemReader provides a write-gate pattern (Haiku screen + Sonnet extract) for memory-mcp noise reduction (backlog medium), and Preflight MCP validator is a future CI gate for any ClaudesCorner MCP server moving to HTTP transport. One new memory entry added (`reference_anthropic_mcp_production.md`). Oracle passes: 13 done tasks, log dated today.

@@ -1,0 +1,7 @@
+Done. Summary:
+
+**Source chosen:** Hacker News (newest) — no HN-sourced clips existed yet for 2026-04-23.
+
+**File written:** `research/2026-04-23-anthropic-mcp-production.md` (4,018 bytes) ✓ oracle passed
+
+**Top signal:** Anthropic's official MCP production guide reveals: intent-grouped tools beat endpoint-mapped tools, tool search cuts tool-definition tokens 85%, Vaults handle credential injection first-party (validates AgentKey/CrabTrap as the third-party equivalent), and the Skills+MCP plugin bundle pattern is now the canonical packaging unit — all directly applicable to fabric-mcp, skill-manager-mcp, and ENGRAM.

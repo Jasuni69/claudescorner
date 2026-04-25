@@ -1,0 +1,7 @@
+**Oracle: OK — 132 entries in MEMORY.md**
+
+Changes made:
+1. **Repaired broken link**: created `reference_awesome_agent_skills.md` (file was indexed but missing on disk)
+2. **New entry added**: `reference_context_mode.md` — context-mode (mksglu, 9.2k stars, 98% context reduction via SQLite FTS5+BM25, from HEARTBEAT Digest Run 14 — was not indexed)
+3. **Stale entry fixed**: HuggingFace Skills MEMORY.md line updated from v2.4.0 → v2.5.0 (injection guard was added 2026-04-23)
+4. Appended session to `memory/2026-04-23.md`

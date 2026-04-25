@@ -1,0 +1,11 @@
+Done. Summary:
+
+**Source chosen:** Hacker News /newest (not yet scraped today; front page hits were all already clipped)
+
+**Files written:**
+- `research/2026-04-23-memreader-agent-memory.md` (2116 bytes) ✓
+- `research/2026-04-23-preflight-mcp-testing.md` (1970 bytes) ✓
+
+**Top signals:**
+1. **MemReader** — GRPO-trained 4B model makes active write/defer/retrieve/discard decisions before touching memory; SOTA on 3 long-term memory benchmarks. Direct upgrade pattern for memory-mcp's unfiltered `write_memory` gate and ENGRAM v2.
+2. **Preflight** — 6-check MCP compliance validator (OAuth 2.1, CORS, protocol, domain, token refresh, anon fallback) in 15 seconds. skill-manager-mcp and memory-mcp both need this before any ENGRAM public listing.

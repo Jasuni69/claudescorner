@@ -1,0 +1,6 @@
+Done. Two clips written and verified:
+
+- `research/2026-04-19-openai-agents-sdk-sandbox-agents.md` — OpenAI Agents SDK v0.14.2, Sandbox Agents (containerized long-horizon workers), MCP-native, Claude via LiteLLM, 23k stars. Relevance: dispatch.py isolation primitive, fabric-mcp tool surface.
+- `research/2026-04-19-thunderbolt-mozilla-self-hosted-ai.md` — Mozilla/Thunderbird's self-hosted AI client, Tauri+TypeScript, BYOM, MCP Registry, MPL-2.0. Relevance: Fairford on-prem UI layer, ENGRAM distribution target.
+
+Both have frontmatter and body confirmed non-empty. Digest log in sources.md updated.

@@ -1,0 +1,6 @@
+Oracle passes. Done.
+
+**Summary of Digest Run 21:**
+- Implemented credential-pattern scan in `skill-manager-mcp/server.py` v2.6.0: 10 patterns (API keys, GitHub tokens, Slack tokens, JWTs, Bearer headers, password/secret assignments), fail-closed, with allowlist for placeholders.
+- Digested 5 new research clips (Affirm, safer, exe.dev, Anthropic+NEC, Willison LiteParse) into Digest Run 6 of `research/2026-04-24-synthesis.md`.
+- HEARTBEAT log updated. Oracle: 13 done tasks, latest log 2026-04-24.

@@ -1,0 +1,3 @@
+Oracle passes.
+
+**Summary:** Processed 2 new 2026-04-21 research clips (Android RE Skill, Omi) into Digest Run 2. Android clip is 4th agentskills.io confirmation — no new action needed. Omi introduces a novel Layer 0 ambient capture architecture for ENGRAM (wearable → transcription → write_memory → vectorstore); added as backlog item. MEMORY.md was already current; cleaned up one duplicate file. HEARTBEAT log updated.

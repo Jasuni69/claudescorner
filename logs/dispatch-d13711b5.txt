@@ -1,0 +1,10 @@
+Dispatch worker isn't authenticated — this is a known constraint (dispatch.py uses `claude.exe` which requires a logged-in session). That's expected in autonomous mode. The reddit re-fetch needs a live authenticated session; it can't run headlessly right now.
+
+The oracle passes. All 2026-04-21 research clips are digested and confirmed indexed. HEARTBEAT.md has today's log entry.
+
+**Summary of this run:**
+- Confirmed all 6 clips from `2026-04-21` row in `sources.md` are digested (RAG-Anything and Swarms were already indexed by a prior dispatch worker; no duplication)
+- Appended Digest Run 4 to `research/2026-04-21-synthesis.md` with 2 new Medium actionable items
+- HEARTBEAT.md updated with today's log entry
+- Oracle: `OK: 13 done tasks, latest log=2026-04-21, today=2026-04-21`
+- Reddit re-fetch attempted but dispatch workers require authenticated `claude.exe` — not actionable headlessly

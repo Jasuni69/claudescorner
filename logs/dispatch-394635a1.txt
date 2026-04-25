@@ -1,0 +1,7 @@
+Done. Summary:
+
+**Source chosen**: Hacker News front page — broadest aggregator, underrepresented as a direct fetch in today's clips.
+
+**Files written** (both oracle-verified):
+- `research/2026-04-21-gomodel-ai-gateway-go.md` (2524 bytes) — Go AI gateway 44x lighter than LiteLLM; dual-layer semantic cache at 60–70% hit rate = dispatch.py Anthropic API cost-reduction primitive
+- `research/2026-04-21-daemons-charlielabs-background-processes.md` (3204 bytes) — Markdown-defined AI background processes with `deny:` rules + event/schedule triggers; "agents create work, daemons maintain it" — formalizes what dispatch.py + HEARTBEAT already do informally, adds bounded-scope safety layer concept

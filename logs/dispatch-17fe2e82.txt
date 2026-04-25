@@ -1,0 +1,7 @@
+Oracle passes. Done.
+
+Applied SPEC+PLAN step to dispatch.py worker prompts (Medium priority backlog item from synthesis table):
+- **Infrastructure worker** → now a BUILD agent with SPEC→BUILD→VERIFY protocol (state task/files/acceptance before coding)
+- **Research worker** → now a PLAN agent with PLAN→EXECUTE→VERIFY (declare source choice + filenames + top signal before clipping)
+
+Two synthesis table entries marked Done. HEARTBEAT log updated.

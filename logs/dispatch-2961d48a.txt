@@ -1,0 +1,3 @@
+Task plan update blocked by path policy — that's fine, the work is done. 
+
+**Summary:** Clipped `openai/skills` (17.4k stars, #8 Python trending today) to `research/2026-04-24-openai-skills-catalog.md`. Key signal: OpenAI is the 5th major AI org to adopt the SKILL.md folder format without coordination, cementing the de facto standard and validating skill-manager-mcp's format choice. Oracle passed (2303 bytes, frontmatter present). Sources digest log updated.

@@ -1,0 +1,13 @@
+Both clips done. Oracle passed.
+
+---
+
+**PLAN recap:**
+- **Source:** Hacker News front page — two items not yet in today's clips
+- **Files written:**
+  - `research/2026-04-22 MCP Governance - Sunglasses Runtime Scope Creep Scanner for Agent Security.md` (2,637 bytes) ✓
+  - `research/2026-04-22 Anthropic - Claude Code Pro Plan Removal Test Pricing Shift.md` (2,297 bytes) ✓
+
+**Top signals:**
+1. **Sunglasses:** CVE-2026-25536 proves MCP SDK leaks data across isolation boundaries; `pip install sunglasses` adds a pre-action inbound content scanner at the dispatch.py worker input boundary — fills the gap CrabTrap (outbound) and AgentKey (identity) don't cover
+2. **Claude Code Pro removal:** Anthropic's 10× underpricing acknowledgment signals plan restructuring is coming; dispatch.py API-key workers are unaffected, but interactive sessions may require Max (~$100/month) — Fairford PoC cost model needs updating

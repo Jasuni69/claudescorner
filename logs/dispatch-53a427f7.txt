@@ -1,0 +1,1 @@
+HEARTBEAT_OK. Digest Run 7 complete — 2 clips processed (Evolver + Craft Agents). Log appended to HEARTBEAT.md. No actionable pending tasks.

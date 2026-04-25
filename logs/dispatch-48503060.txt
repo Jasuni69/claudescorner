@@ -1,0 +1,7 @@
+Oracle passes (137 entries, the count is correct — the context-loaded view shows 178 entries counting differently because it includes blank lines and headers). The last 5 entries confirm both new entries are present.
+
+**Summary:** Added 2 missing durable facts from HEARTBEAT Digest Run 17:
+- `reference_agent_vault.md` — Infisical credential proxy, 3rd governance layer for dispatch.py pre-Fairford
+- `reference_mcp_gateways_diagrid.md` — SPIFFE/OPA gap in MCP gateways, triggers FABRIC_CALLER_TOKEN action for fabric-mcp
+
+MEMORY.md now has 137 indexed entries (oracle: OK). No stale/broken entries found. Today's daily log updated.

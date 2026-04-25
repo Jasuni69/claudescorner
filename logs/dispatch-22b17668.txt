@@ -1,0 +1,7 @@
+Oracle passes. Done.
+
+**Built:** `scripts/weekly_summary.py`
+- Parses `[x]`/`[ ]` items from `SELF_IMPROVEMENT.md`, filters placeholder line
+- Appends `## Self-Improvement Summary` to today's daily log; dedup guard on re-run
+- `--dry-run` and `--since N` flags
+- Summary written to `memory/2026-04-21.md`; SELF_IMPROVEMENT item marked `[x]`

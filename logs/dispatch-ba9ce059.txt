@@ -1,0 +1,3 @@
+Oracle passes. Task complete.
+
+**Summary:** Added `check_dispatch_activity()` to `projects/health-check/checks.py` — reports 24h dispatch run count + KB (token-burn proxy) and a staleness flag if no run in 8h. Health check now runs 28 checks. Synthesis backlog item marked Done.

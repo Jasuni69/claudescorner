@@ -1,0 +1,7 @@
+Oracle passes. 
+
+Digested 2 unprocessed 2026-04-21d clips into `research/2026-04-22-synthesis.md`:
+- **HAE-OLS** → backlog: entropy chunk reranking for memory-mcp
+- **Ctx** → backlog: monitor for MCP server, evaluate as dispatch.py sequential context hand-off
+
+Daily log and HEARTBEAT entry written. All sources.md clips are now digested through 2026-04-21d.

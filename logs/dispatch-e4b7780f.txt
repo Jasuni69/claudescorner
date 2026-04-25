@@ -1,0 +1,5 @@
+Both clips verified and logged:
+
+- **`2026-04-19-claude-code-game-studios.md`** (2701 bytes) — 13.2k-star Claude Code multi-agent template; 49 agents, 72 skills, 12 hooks, 3-tier dispatch model. Direct architecture parallel to dispatch.py worker categories + hooks-as-safety-layer pattern. ENGRAM harness candidate.
+
+- **`2026-04-19-deeptutor-agent-native-learning.md`** (2644 bytes) — 20.1k-star agent-native learning platform. Key signal: independently arrived at SKILL.md + YAML frontmatter pattern (same as skill-manager-mcp). Nanobot persistent memory model parallels ENGRAM. No MCP = wrapper opportunity.

@@ -1,0 +1,12 @@
+**Done. Oracle results:**
+
+```
+OK: 2026-04-20-nsa-mythos-dod-blacklist.md (3234 bytes)
+OK: 2026-04-20-cowagent-multi-platform-skill-hub.md (3741 bytes)
+```
+
+**What was clipped:**
+
+1. **NSA/Mythos** (`2026-04-20-nsa-mythos-dod-blacklist.md`) — DoD blacklisted Anthropic as supply-chain risk; NSA uses Mythos anyway. Key signal: restricted-release governance collapses at state-actor level — behavioral constraints + audit trails (AgentKey) beat access gating. Extends the Schneier/Project Glasswing thread.
+
+2. **CowAgent** (`2026-04-20-cowagent-multi-platform-skill-hub.md`) — 43.5k-star multi-platform agent (WeChat/Feishu/DingTalk) with Skill Hub + vector memory + Claude support. Independently validates skill-manager-mcp design; its conversation-driven skill creation (`describe it → scaffold it`) is a UX gap in the current stack. No MCP layer = cowagent-mcp opportunity.

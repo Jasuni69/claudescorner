@@ -1,0 +1,7 @@
+Done. Both files pass oracle.
+
+**Summary:**
+- Source: Hacker News (2026-04-20 front page)
+- **`2026-04-20-browser-use-agent-captcha.md`** (2446 bytes) — Browser-Use reverse-CAPTCHA authenticates agents via obfuscated math; fills the AgentKey identity layer 0 gap for dispatch.py worker onboarding
+- **`2026-04-20-willison-token-counter-model-comparison.md`** (2547 bytes) — Willison confirms 1.46× text / 3.01× image inflation on Opus 4.7 vs 4.6; validates keeping dispatch.py on Sonnet 4.6 default and bi-agent `cache_control=ephemeral`
+- Digest log in `sources.md` updated with both clips

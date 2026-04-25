@@ -1,0 +1,6 @@
+Oracle passes. Done.
+
+**Summary:** Digest Run 5 complete. 4 clips processed:
+- **Tesseron** (WebSocket MCP bridge): Backlog/Low — BSL-1.1 blocks use; monitor for Apache-2.0 + traction
+- **claude-context** (BM25+vector codebase search, 6.9k stars MIT): Backlog/Medium — ~40% token savings for dispatch.py file-heavy tasks; `reference_claude_context.md` added to MEMORY.md
+- **GitHub Copilot pricing** + **Willison pricing transparency**: informational confirmations of existing dispatch.py direct-API architecture

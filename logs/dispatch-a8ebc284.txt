@@ -1,0 +1,7 @@
+Done. Summary:
+
+**Source chosen**: Simon Willison blog (via HN) — not yet clipped today, fresh posts available.
+
+**Files written** (both oracle-verified):
+- `research/2026-04-20-headless-everything-personal-ai.md` (2918 bytes) — Matt Webb's thesis that headless APIs beat GUIs for agents validates Jason's entire MCP stack as the correct architectural bet; API availability = competitive moat
+- `research/2026-04-20-cognee-knowledge-graph-memory.md` (3662 bytes) — graph+vector hybrid memory with 5 Claude Code lifecycle hooks including `PostToolUse` auto-capture; `cognee.improve()` feedback loop is the missing ENGRAM runtime mechanism; strongest ENGRAM v2 reference found to date

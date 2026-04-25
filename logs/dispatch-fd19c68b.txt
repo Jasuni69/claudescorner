@@ -1,0 +1,8 @@
+Oracle passes: **107 entries**. No changes needed — MEMORY.md is clean and current.
+
+All items from the last 7 days of HEARTBEAT.md are already indexed:
+- dispatch.py topology (`project_dispatch.md`) ✓
+- bi-agent oracle (`project_bi_agent.md`) ✓
+- reddit_brief/weekly_summary/autoresearch scripts ✓
+- All 2026-04-21 research clips (Kimi KVV, Qwen3.6, Android RE, Omi, RAG-Anything, Swarms) ✓
+- 0 broken links, 0 orphaned entries

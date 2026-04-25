@@ -1,0 +1,7 @@
+Done. Summary:
+
+**PLAN:** Chose GitHub Trending (daily) — `coreyhaines31/marketingskills` (23.6k stars, +491 today, MIT) — unclipped, directly relevant to skill-manager-mcp.
+
+**EXECUTED:** Wrote `research/2026-04-23-marketingskills-claude-code.md` (3,018 bytes) covering: 40+ SKILL.md marketing skills, foundational-context-first pattern, `.claude-plugin` config, skill-manager-mcp import path, `marketingskills-mcp` gap.
+
+**VERIFIED:** Oracle passed — frontmatter present, 3,018 bytes. Digest log in sources.md updated.

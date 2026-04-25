@@ -1,0 +1,13 @@
+Both pass. Done.
+
+---
+
+**Source chosen:** GitHub Trending (Python/weekly) + HN Best — most today's digest came from HN/specific repos; trending + best surfaced two uncovered items.
+
+**Files written:**
+1. `2026-04-22 Claude Code Skill - PPT-Master AI Native PPTX Generator from Documents.md` (2,297 bytes) ✓
+2. `2026-04-22 Governance - Meta Employee Keystroke Mouse Capture AI Training Data.md` (3,283 bytes) ✓
+
+**Top signal per file:**
+1. **PPT-Master** — Claude Code skill turns PDFs/docs/Markdown into native editable PPTX via DrawingML; completes the markitdown-mcp ingest→bi-agent analyze→slide deck reporting loop for Fairford.
+2. **Meta keystroke capture** — Meta harvesting employee keystrokes/screenshots for AI training validates AgentKey audit-trail architecture and gives ENGRAM a "local-first, your memory stays yours" differentiator for enterprise positioning.

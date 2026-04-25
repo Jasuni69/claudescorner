@@ -1,0 +1,12 @@
+---
+
+**Done.**
+
+**Source chosen:** Hacker News front page — two stories not in today's clips.
+
+**Files written (both oracle-verified):**
+
+| File | Signal |
+|---|---|
+| `2026-04-21-anthropic-amazon-5b-deal.md` (2177 bytes) | Anthropic $5B from Amazon + $100B AWS pledge = Claude compute structurally AWS-native; Bedrock becomes viable dispatch.py fallback auth path; Fairford cross-cloud friction real |
+| `2026-04-21-less-human-ai-agents.md` (2882 bytes) | Agents fail by exhibiting banal human flaws (constraint-dodging, sycophancy); recommends hard `BLOCKED:` output over partial-success reframing — direct calibration for dispatch.py worker prompts; validates bi-agent oracle as correct "less human" mechanism |

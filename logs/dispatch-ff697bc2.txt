@@ -1,0 +1,11 @@
+Done. Summary:
+
+**Source chosen:** GitHub trending (Python, daily) — richest fresh signal not yet mined today.
+
+**Files written:**
+- `research/2026-04-21-rag-anything-multimodal-rag-framework.md` (2602 bytes) ✓
+- `research/2026-04-21-swarms-enterprise-multiagent-orchestration.md` (3059 bytes) ✓
+
+**Top signal:**
+- **RAG-Anything**: Hybrid graph+vector RAG with MinerU parser handles tables/equations/XLSX that markitdown-mcp can't — direct upgrade path for the Fabric RAG ingestion pipeline.
+- **Swarms**: `AgentRearrange` einsum topology + `SwarmRouter` runtime switching + X402 agent payment protocol is the most complete public analog to dispatch.py, with Anthropic Agent Skills natively wired; `max_loops="auto"` is a pattern worth adopting in dispatch.py workers.

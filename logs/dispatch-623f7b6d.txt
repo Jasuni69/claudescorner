@@ -1,0 +1,15 @@
+**VERIFY — oracle passed:**
+```
+OK: research/2026-04-20-kronos-financial-foundation-model.md (3023 bytes)
+OK: research/2026-04-20-ai-hedge-fund-19agent-system.md (3753 bytes)
+```
+
+**Summary:**
+
+**Source chosen:** GitHub Trending Python (weekly) — not tapped today; surfaces sustained momentum over single-day spikes.
+
+**Files written:**
+
+1. `research/2026-04-20-kronos-financial-foundation-model.md` — Kronos (19.7k stars, +4.4k weekly): first decoder-only transformer pre-trained purely on OHLCV candlestick tokens; `KronosPredictor` API takes a pandas DataFrame and returns forecasts — directly agent-callable as a Fairford signal layer MCP tool today.
+
+2. `research/2026-04-20-ai-hedge-fund-19agent-system.md` — ai-hedge-fund (56.4k stars): 3-tier 19-agent coordinator/validator architecture (investor personas → analysis agents → risk-manager gate → portfolio manager); no MCP layer = clear fabric-mcp insertion point; risk-manager chokepoint = the verify oracle pattern missing from dispatch.py workers.

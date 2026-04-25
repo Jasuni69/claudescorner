@@ -1,0 +1,8 @@
+Oracle passes.
+
+**Done.** Added `depth` parameter to `search_memory` in `projects/memory-mcp/server.py`:
+
+- `depth=1` (default): unchanged single-pass behavior
+- `depth=N`: N-pass recursive retrieval — top-K results from each pass feed as new queries into the next pass, results merged and ranked by best score across all passes
+- Tool schema updated with `depth` field; `call_tool` handler passes it through
+- Import and schema verified clean; HEARTBEAT oracle: OK

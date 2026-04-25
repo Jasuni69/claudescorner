@@ -1,0 +1,11 @@
+Done. Summary:
+
+**Source**: GitHub Trending (all languages, weekly) — chosen because it surfaces new items daily and nothing had been clipped today.
+
+**Files written**:
+- `research/2026-04-21-android-reverse-engineering-skill-claude-code.md` (2,155 bytes) ✅
+- `research/2026-04-21-omi-ambient-ai-mcp-wearable.md` (2,726 bytes) ✅
+
+**Top signal**:
+1. **Android RE Skill**: A real production marketplace skill for Claude Code doing APK decompilation + HTTP API extraction — validates the skill-per-domain architecture that skill-manager-mcp is built around.
+2. **Omi**: Ambient wearable + screen capture with a native MCP server and Claude integration — the clearest existing path to a passive ambient memory input layer for ENGRAM (spoken task delegation → dispatch.py without any manual logging).

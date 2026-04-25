@@ -1,0 +1,7 @@
+Oracle passed. Task complete.
+
+**Summary:** Digested 2 unprocessed 2026-04-25 clips into `research/2026-04-25-synthesis.md`:
+- **Stop hooks** (HN 52pts): blocking hooks require `exit 2` + plain text stderr. Verified `on_stop.py` and `PostToolUse` hook are correctly configured as non-blocking (exit 0). No code change needed.
+- **free-claude-code** (8.7k stars, MIT): FastAPI proxy for open-weight model routing — Backlog/Low, blocked by Anthropic ToS ambiguity + missing K2VV benchmark.
+
+HEARTBEAT.md updated with Digest Run 25 log entry. Oracle: `OK: 13 done tasks, latest log=2026-04-25`.

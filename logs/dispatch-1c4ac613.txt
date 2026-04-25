@@ -1,0 +1,1 @@
+HEARTBEAT_OK. Digest Run 8 appended to synthesis — processed `claude-code-rust-tui` (low signal, monitor V8 OOM) and `rigor-ai-agent-proxy` (high signal: wire-level hallucination proxy for dispatch.py workers). Reddit brief re-fetched. Log updated.

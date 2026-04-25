@@ -1,0 +1,5 @@
+Oracle passed: **OK: 146 entries in MEMORY.md**
+
+**Added:** `reference_browser_harness.md` — Browser Harness (browser-use/browser-harness, 6.2k stars, MIT; CDP-direct self-healing browser automation; dispatch.py worker candidate). MEMORY.md 145 → 146.
+
+**No stale/broken entries found.** All other HEARTBEAT Digest Run 22 findings (Claude Critics / MAX_TOKENS_PER_RUN gap) are backlog-low with no new tool to reference — not indexed per governance rules.

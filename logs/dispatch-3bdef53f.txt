@@ -1,0 +1,10 @@
+Done. Summary:
+
+**Source chosen:** HN `/newest` — front page was saturated with already-clipped items (Qwen3.6, KVV); `/newest` surfaced breaking developments.
+
+**Files written (both oracle-verified):**
+
+| File | Signal |
+|---|---|
+| `2026-04-21-openclaw-anthropic-cli-policy-reversal.md` (1844 bytes) | Anthropic re-sanctions `claude -p` CLI reuse — dispatch.py workers can fall back to CLI auth on machines with Claude Code logged in |
+| `2026-04-21-rlms-recursive-language-models.md` (2432 bytes) | RLMs unify reasoning + tool-use via recursive context querying; 27B model beats GPT-5.2 2× on LongCoT — validates dispatch.py Haiku-tier + ENGRAM two-pass retrieval as principled architecture |

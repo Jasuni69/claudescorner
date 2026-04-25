@@ -1,0 +1,1 @@
+Done. Digested the last unprocessed 2026-04-24 research clip (OpenAI Agent Skills) into `research/2026-04-24-synthesis.md` as Digest Run 4 and added the log entry to `core/HEARTBEAT.md`. Oracle passed.

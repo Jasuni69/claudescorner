@@ -1,0 +1,11 @@
+Oracle passes.
+
+**Summary of what was built:**
+
+`scripts/dispatch.py` now implements the planning-with-files pattern (14× completion multiplier):
+
+- `_infer_tier(model_alias)` — maps haiku→1, default/sonnet→2, opus→3
+- `_write_task_plan(task)` — creates a structured `task_plan.md` in a temp dir for tier ≥ 2 tasks; returns `None` for haiku (tier 1); fail-open on I/O errors
+- `run_task()` — if a plan file is created, its path is appended to the worker prompt with instructions to write the PLAN/FINDINGS/PROGRESS sections
+
+Tier-1 (haiku) leaf-node tasks are completely unaffected. Backward-compatible — no schema changes required.

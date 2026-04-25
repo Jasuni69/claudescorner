@@ -1,0 +1,5 @@
+2 entries added to MEMORY.md:
+- `reference_openai_agents_sdk.md` — OpenAI Agents SDK (Sandbox Agents / dispatch.py worker isolation parallel)
+- `reference_thunderbolt_mozilla.md` — Mozilla Thunderbolt self-hosted AI client (Fairford UI layer candidate)
+
+66 total entries, no broken links. Oracle passed.

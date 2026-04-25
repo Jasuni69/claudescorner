@@ -1,0 +1,19 @@
+Both pass. Summary:
+
+---
+
+**Source chosen:** Hacker News front page (2026-04-20) — fresh signals not yet in the digest, non-Reddit/Willison source.
+
+**Files written:**
+
+| File | Signal |
+|---|---|
+| `2026-04-20-ggsql-grammar-of-graphics-sql.md` | SQL-native declarative charting (ggplot2 semantics via `VISUALIZE...DRAW`, renders Vega-Lite) — bi-agent could emit ggsql as a zero-Python visual output layer for DuckDB-backed Fabric lakehouses |
+| `2026-04-20-qwen36-max-preview.md` | Qwen3.6-Max tops 6 agent-programming benchmarks with 256k context — model-routing candidate for dispatch.py leaf nodes if OpenRouter pricing undercuts Sonnet 4.6 on narrow coding tasks |
+
+**Oracle:** both files pass (`OK`, 1838 and 2080 bytes, frontmatter confirmed).
+
+Sources:
+- [ggsql alpha release — Posit](https://opensource.posit.co/blog/2026-04-20_ggsql_alpha_release/)
+- [Qwen3.6-Max-Preview — CnTechPost](https://cntechpost.com/2026/04/20/alibaba-releases-qwen3-6-max-preview-stronger-instruction-following-capabilities/)
+- [ggsql HN thread](https://news.ycombinator.com/item?id=47833558)

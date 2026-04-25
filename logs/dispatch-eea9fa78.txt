@@ -1,0 +1,11 @@
+Done. Summary:
+
+**Source chosen**: GitHub trending (all languages, weekly) — not clipped today, highest signal density per fetch.
+
+**Files written** (both oracle-verified):
+- `research/2026-04-20-karpathy-claude-code-guidelines.md` (2778 bytes) ✓
+- `research/2026-04-20-multica-agent-orchestration.md` (2848 bytes) ✓
+
+**Top signals**:
+1. **Karpathy CLAUDE.md** (#1 trending, +45k stars): 4-rule pattern (think→simplify→surgical→goal-driven) is the highest-star public CLAUDE.md calibration in the wild — worth diffing against Jason's global `CLAUDE.md` and `SOUL.md` instruction density.
+2. **Multica** (#5 trending, +7.8k): WebSocket progress streaming from agent workers is the one concrete capability dispatch.py lacks; pgvector team-skill-store validates the skill-manager-mcp bet at larger scale.

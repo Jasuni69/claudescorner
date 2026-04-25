@@ -1,0 +1,65 @@
+{
+  "generated": "2026-04-24",
+  "note": "Static SBOM for first-party MCP servers. Versions resolved from active Python 3.14 env (C:\\Python314). Re-run: python -m pip list > to update.",
+  "servers": {
+    "memory-mcp": {
+      "path": "projects/memory-mcp/server.py",
+      "deps": {
+        "mcp": "1.21.0",
+        "sentence-transformers": "5.3.0"
+      },
+      "optional": {},
+      "notes": "sentence-transformers fall-back to TF-IDF if unavailable"
+    },
+    "skill-manager-mcp": {
+      "path": "projects/skill-manager-mcp/server.py",
+      "deps": {
+        "mcp": "1.21.0",
+        "sentence-transformers": "5.3.0",
+        "sqlite-vec": "0.1.9"
+      },
+      "optional": {},
+      "notes": "vectordb module from projects/brain-memory/src/ (sys.path sibling); sqlite-vec loaded via vectordb"
+    },
+    "fabric-mcp": {
+      "path": "projects/fabric-mcp/server.py",
+      "deps": {
+        "mcp": "1.21.0",
+        "requests": "2.32.5"
+      },
+      "optional": {
+        "msal": ">=1.0.0 (Azure AD auth; lazy import in fabric_client.py)"
+      },
+      "notes": "FABRIC_MOCK=true bypasses all requests; FABRIC_CALLER_TOKEN bearer auth added 2026-04-24"
+    },
+    "deadlines-mcp": {
+      "path": "projects/deadlines-mcp/server.py",
+      "deps": {
+        "mcp": "1.21.0"
+      },
+      "optional": {},
+      "notes": "stdlib only beyond mcp"
+    },
+    "markitdown-mcp": {
+      "path": "projects/markitdown-mcp/server.py",
+      "deps": {
+        "mcp": "1.21.0",
+        "markitdown": "0.1.5"
+      },
+      "optional": {},
+      "notes": "markitdown may pull azure-ai-documentintelligence for advanced OCR"
+    }
+  },
+  "shared_transitive": {
+    "torch": "2.10.0+cu126",
+    "transformers": "5.4.0",
+    "torchaudio": "2.9.0",
+    "torchvision": "0.25.0+cu126"
+  },
+  "supply_chain_flags": {
+    "sha_pin_ci": "NOT APPLICABLE — no CI pipelines (.github/workflows) in first-party MCP servers",
+    "msal_not_installed": "msal not in active env; fabric-mcp will fail Azure AD auth if msal absent — install before production use",
+    "no_lockfile_prior": "requirements.txt files added 2026-04-24; no prior lockfiles existed",
+    "checkmarx_incident_ref": "2026-04-22 Checkmarx supply chain compromise via GitHub Actions SHA-tag bypass — not applicable here (no CI), but tag-based GH Actions in any future CI must use SHA pins"
+  }
+}

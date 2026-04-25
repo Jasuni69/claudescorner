@@ -1,0 +1,12 @@
+Done. Here's what happened:
+
+**dispatch.py — topology declaration added** (`scripts/dispatch.py`)
+
+Tasks can now declare their execution strategy:
+- `topology: "sequential"` + `topology_group: "my-pipeline"` → tasks in that group run serially in priority order; group halts on first failure
+- `topology: "parallel"` (default) → unchanged behavior
+- CLI: `--topology sequential --topology-group my-pipeline` when pushing tasks
+
+Example use case: a 3-step research pipeline (fetch → parse → write) where step 2 must not start before step 1 finishes can now be expressed in the task metadata rather than requiring separate dispatch.py invocations.
+
+Oracle: `OK: 13 done tasks, latest log=2026-04-21, today=2026-04-21`

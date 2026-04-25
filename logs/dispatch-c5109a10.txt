@@ -1,0 +1,7 @@
+Oracle passed. Summary:
+
+**2 issues found and fixed:**
+1. `reference_fastmail_mcp.md` — file was missing despite being in MEMORY.md index → **created**
+2. `reference_anthropic_mcp_production.md` — file existed but had no MEMORY.md entry → **indexed** (Anthropic official MCP production guide: 85% token reduction via lazy-tool, intent-grouped tools, OAuth elicitation, Vaults, Skills+MCP plugin bundle)
+
+**Oracle:** `OK: 128 entries in MEMORY.md` — all entries have corresponding files, no unindexed files remain.

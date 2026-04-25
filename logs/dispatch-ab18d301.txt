@@ -1,0 +1,7 @@
+Oracle passes. 
+
+**Summary:** Processed 2 remaining 2026-04-20 research clips into Digest Run 3:
+- **Browser Use agent-CAPTCHA** — reverse-CAPTCHA pattern; agent identity layer 0 gap in dispatch.py; AgentKey complement; monitor for OSS
+- **Willison token counter** — Opus 4.7 inflation confirmed at 1.46× text / 3.01× image vs 4.6; validates Sonnet 4.6 as dispatch default; token-dashboard needs 1.46× multiplier
+
+All 2026-04-20 research clips are now processed. Only actionable pending task remains blocked on Jason (Fairford PoC Phase 2).

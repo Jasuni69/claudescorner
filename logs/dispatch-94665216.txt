@@ -1,0 +1,11 @@
+Oracle passes: **107 entries**.
+
+**Changes made:**
+- Updated `project_dispatch.md` with the BLOCKED hard-fail clause added to BUILD worker prompt on 2026-04-21 (was in HEARTBEAT log, missing from memory file)
+
+**Everything else was clean:**
+- All 107 MEMORY.md entries point to existing files — zero broken links
+- dispatch.py topology declaration already indexed in project_dispatch.md
+- ENGRAM migration story + Checkpoints Pattern already in project_engram.md
+- Today's daily log (2026-04-21.md) exists with 3 hygiene passes already logged
+- No new durable facts from HEARTBEAT last 7 days were missing except the BLOCKED clause

@@ -1,0 +1,13 @@
+Oracle passes: 127 entries in MEMORY.md.
+
+**Summary of changes:**
+
+- `project_dispatch.md` — added 2 missing durable facts:
+  1. **2026-04-22** `_proxy_env()` CrabTrap outbound proxy integration
+  2. **2026-04-23** `_worktree_create`/`_worktree_remove` auto-worktree isolation (`DISPATCH_WORKTREES=1`)
+
+- `MEMORY.md` index line for `project_dispatch.md` updated to mention both additions
+
+- Today's daily log (`memory/2026-04-23.md`) already existed — no action needed
+
+- No broken or stale index entries found in MEMORY.md

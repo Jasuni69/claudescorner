@@ -1,0 +1,5 @@
+Oracle passes. 
+
+**VERIFY: OK** — 13 done tasks, latest log entry is today (2026-04-24).
+
+**Summary:** Created `research/2026-04-24-synthesis.md` digesting both 2026-04-24 clips — Anthropic's postmortem (3 bugs, most critical: thinking cache cleared every turn Mar 26–Apr 10) and GPT-5.5 competitive signal (hold Sonnet 4.6, await K2VV benchmark). Logged to HEARTBEAT.md as Digest Run 16.

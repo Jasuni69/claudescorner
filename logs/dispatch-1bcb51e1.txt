@@ -1,0 +1,6 @@
+Oracle passes. 
+
+**Summary:**
+- Digested 2 new 2026-04-24 clips into `research/2026-04-24-synthesis.md` Digest Run 2 (Agent Vault credential proxy + MCP Gateways security analysis)
+- Added `_check_claude_version()` to `scripts/dispatch.py` — warns on startup if claude.exe < v2.1.116 (thinking-cache bug fix; pre-Fairford requirement)
+- HEARTBEAT.md log entry written for 2026-04-24 Digest Run 17

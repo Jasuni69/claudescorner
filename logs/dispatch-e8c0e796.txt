@@ -1,0 +1,13 @@
+Both pass. Done.
+
+---
+
+**Source chosen**: Hacker News /newest — only source not already tapped today; GitHub trending was all duplicates.
+
+**Files written**:
+- `research/2026-04-20-sok-agentic-commerce-security.md` (2483 bytes) — arxiv SoK paper on autonomous agent security
+- `research/2026-04-20-openregistry-mcp-company-data.md` (2431 bytes) — Show HN MCP server for company registries
+
+**Top signal per clip**:
+1. **SoK paper**: 12 cross-layer attack vectors in agentic commerce directly map to dispatch.py worker isolation gaps and AgentKey's authorization model — the inter-agent trust dimension is the most relevant unaddressed risk in the current stack
+2. **OpenRegistry**: free OAuth 2.1 MCP endpoint over 27 government registries is a zero-scrape drop-in for Fairford's KYC/beneficial-ownership signal layer; enterprise tier needed for audit-trail compliance

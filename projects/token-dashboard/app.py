@@ -23,6 +23,13 @@ PRICE = {
     "output": 15.00,
 }
 
+# Opus 4.7 inflates token counts ~1.46× vs 4.6 (Willison 2026-04-20 measurement;
+# Anthropic stated ≤1.35× — real-world 8% above ceiling).
+# Images inflate 3.01×, but we can't separate image tokens here, so use text multiplier.
+MODEL_INFLATION: dict[str, float] = {
+    "claude-opus-4-7": 1.46,
+}
+
 
 def cost_usd(usage: dict) -> float:
     inp = usage.get("input_tokens", 0)
@@ -35,6 +42,14 @@ def cost_usd(usage: dict) -> float:
         + cr * PRICE["cache_read"]
         + out * PRICE["output"]
     ) / 1_000_000
+
+
+def inflation_factor(model: str) -> float:
+    """Return token-count inflation multiplier for models known to inflate (e.g. Opus 4.7)."""
+    for prefix, factor in MODEL_INFLATION.items():
+        if prefix in model:
+            return factor
+    return 1.0
 
 
 def load_sessions() -> list[dict]:
@@ -68,6 +83,7 @@ def load_sessions() -> list[dict]:
                     ts = entry.get("timestamp", "")
                     model = msg.get("model", "unknown")
 
+                    infl = inflation_factor(model)
                     if sid not in sessions:
                         sessions[sid] = {
                             "session_id": sid,
@@ -80,15 +96,19 @@ def load_sessions() -> list[dict]:
                             "cache_read_tokens": 0,
                             "output_tokens": 0,
                             "cost_usd": 0.0,
+                            "cost_adjusted_usd": 0.0,
+                            "inflation_factor": infl,
                             "turns": 0,
                         }
 
                     s = sessions[sid]
+                    raw_cost = cost_usd(usage)
                     s["input_tokens"] += usage.get("input_tokens", 0)
                     s["cache_creation_tokens"] += usage.get("cache_creation_input_tokens", 0)
                     s["cache_read_tokens"] += usage.get("cache_read_input_tokens", 0)
                     s["output_tokens"] += usage.get("output_tokens", 0)
-                    s["cost_usd"] += cost_usd(usage)
+                    s["cost_usd"] += raw_cost
+                    s["cost_adjusted_usd"] += raw_cost * infl
                     s["turns"] += 1
                     if ts > s["last_ts"]:
                         s["last_ts"] = ts
@@ -146,10 +166,15 @@ def stats():
     total_cache_read = sum(s["cache_read_tokens"] for s in sessions)
     total_cache_create = sum(s["cache_creation_tokens"] for s in sessions)
 
+    total_adjusted = sum(s["cost_adjusted_usd"] for s in sessions)
+    has_inflation = any(s["inflation_factor"] != 1.0 for s in sessions)
+
     return jsonify({
         "summary": {
             "total_sessions": len(sessions),
             "total_cost_usd": round(total_cost, 4),
+            "total_cost_adjusted_usd": round(total_adjusted, 4),
+            "has_inflation": has_inflation,
             "total_input_tokens": total_input,
             "total_output_tokens": total_output,
             "total_cache_read_tokens": total_cache_read,
@@ -297,9 +322,15 @@ function buildCharts(data) {
 }
 
 function buildSummary(s) {
+  const inflCard = s.has_inflation ? `
+    <div class="card" title="Opus 4.7 inflates token counts ~1.46× vs 4.6 (Willison 2026-04-20). Adjusted = raw × 1.46 for affected sessions.">
+      <div class="label">Adjusted Cost <span style="color:#fc8181;font-size:0.7em">4.7 ×1.46</span></div>
+      <div class="value" style="color:#fc8181">$${s.total_cost_adjusted_usd.toFixed(4)}</div>
+    </div>` : '';
   document.getElementById('summary').innerHTML = `
     <div class="card"><div class="label">Sessions</div><div class="value">${s.total_sessions}</div></div>
     <div class="card"><div class="label">Total Cost</div><div class="value green">$${s.total_cost_usd.toFixed(4)}</div></div>
+    ${inflCard}
     <div class="card"><div class="label">Input Tokens</div><div class="value">${fmt(s.total_input_tokens)}</div></div>
     <div class="card"><div class="label">Cache Read</div><div class="value">${fmt(s.total_cache_read_tokens)}</div></div>
     <div class="card"><div class="label">Cache Create</div><div class="value">${fmt(s.total_cache_creation_tokens)}</div></div>
@@ -310,17 +341,24 @@ function buildSummary(s) {
 function buildTable(sessions) {
   const tbody = document.getElementById('sessionRows');
   if (!sessions.length) { tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:1rem">No sessions found</td></tr>'; return; }
-  tbody.innerHTML = sessions.map(s => `
-    <tr>
+  tbody.innerHTML = sessions.map(s => {
+    const inflBadge = s.inflation_factor !== 1.0
+      ? ` <span style="color:#fc8181;font-size:0.7em" title="Token count inflated ×${s.inflation_factor} vs 4.6 baseline">×${s.inflation_factor}</span>`
+      : '';
+    const costCell = s.inflation_factor !== 1.0
+      ? `<span title="raw: $${s.cost_usd.toFixed(4)} · adjusted ×${s.inflation_factor}: $${s.cost_adjusted_usd.toFixed(4)}" style="color:#fc8181;font-weight:600">$${s.cost_adjusted_usd.toFixed(4)}*</span>`
+      : `<span class="cost-badge">$${s.cost_usd.toFixed(4)}</span>`;
+    return `<tr>
       <td title="${s.session_id}">${s.session_id.slice(0,8)}…</td>
       <td title="${s.project}">${s.project}</td>
-      <td>${s.model}</td>
+      <td>${s.model}${inflBadge}</td>
       <td>${s.last_ts.slice(0,10)}</td>
       <td>${fmt(s.input_tokens)}</td>
       <td>${fmt(s.cache_read_tokens)}</td>
       <td>${fmt(s.output_tokens)}</td>
-      <td class="cost-badge">$${s.cost_usd.toFixed(4)}</td>
-    </tr>`).join('');
+      <td>${costCell}</td>
+    </tr>`;
+  }).join('');
 }
 
 async function load() {

@@ -1,0 +1,9 @@
+Done. Summary:
+
+**Source chosen:** Hacker News front page — only major source not yet checked today (GitHub trending was saturated with already-clipped repos).
+
+**Files written:**
+1. `research/2026-04-20-kimi-k26-open-source-coding.md` (2524 bytes) — **Kimi K2.6** (HN 343pts): 300-agent swarm model directly competing with Claude on SWE-Bench/Terminal-Bench, explicitly powers OpenClaw+Hermes at lower cost; no MCP yet = Claude ecosystem moat holds; dispatch.py should be benchmarked against it before Fairford Phase 2.
+2. `research/2026-04-20-ai-traffic-nginx-logs.md` (3087 bytes) — **AI Traffic Nginx Logs** (HN 106pts): Claude is the most transparent AI agent on the web (Claude-User/1.0 + robots.txt check always); Gemini ghosts from cache; Copilot/Grok masquerade as browsers; explicitly allowlisting Claude-User + exposing `/.well-known/agent-skills.json` maximizes agent-native reach for ENGRAM/Fairford endpoints.
+
+Both pass oracle verification.

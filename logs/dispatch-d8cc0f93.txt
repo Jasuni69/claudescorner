@@ -1,0 +1,9 @@
+All done. Summary:
+
+**PLAN**: Fetched Hacker News (2026-04-24) — chose 2 stories not in any prior digest:
+
+1. **CC-Canary** (`2026-04-24-cc-canary-claude-code-drift-detection.md`, 2904 bytes) — zero-network Claude Code session health monitor via local JSONL log analysis; fills the dispatch.py quality-regression blind spot; can retrospectively validate the Mar26–Apr10 thinking-cache bug.
+
+2. **Design.md** (`2026-04-24-design-md-google-visual-identity-for-agents.md`, 2522 bytes) — Google Labs YAML+Markdown format spec for visual identity in coding agents; validates code-first design over Figma pipelines; actionable for Fairford UI layer and ENGRAM scaffolding.
+
+Both passed the oracle verification (`OK: ... bytes`). Sources.md digest log updated with `2026-04-24d` entry.

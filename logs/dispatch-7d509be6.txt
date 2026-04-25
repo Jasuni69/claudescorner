@@ -1,0 +1,12 @@
+Oracle passes. Done.
+
+**Summary of this run:**
+
+1. **Built** `query_dataset_by_name` intent-grouped tool for `fabric-mcp` — resolves workspace + dataset by display name (case-insensitive), executes DAX, returns results + resolved IDs. Reduces Fairford Phase 2 from 3 tool calls to 1. Mock + MCP protocol verified.
+
+2. **Digested** 3 unprocessed 2026-04-23 research clips into synthesis Digest Run 4:
+   - *Design Slop* (HN 312pts): 67% of Show HN apps show AI design patterns; empirically validates headless/MCP-first architecture — info only
+   - *Microsoft Foundry Hosted Agents* (public preview): Claude Agent SDK + Azure + Fabric IQ + hypervisor isolation = Fairford Phase 2 **Option C** — flagged for Jason
+   - *ppt-master* (7.4k stars): $0.08/deck PPTX generator; bi-agent → DAX → PPTX pipeline candidate — backlog
+
+3. **Added** 2 MEMORY.md entries: `reference_microsoft_foundry_agents.md`, `reference_ppt_master.md`

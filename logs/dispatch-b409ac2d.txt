@@ -1,0 +1,7 @@
+Oracle passes. Summary of what was done:
+
+- Digested 2 unprocessed 2026-04-23 clips (ml-intern + Agent Skills Standardization) into `research/2026-04-23-synthesis.md` Digest Run 5
+- Added **doom-loop guard** to `scripts/dispatch.py` BUILD worker prompt: same tool×3 without progress → `BLOCKED: doom-loop detected` (ml-intern pattern)
+- Updated dispatch.py module docstring with the doom-loop guard section
+- 4 new actionable table rows added to synthesis
+- HEARTBEAT log entry appended for today

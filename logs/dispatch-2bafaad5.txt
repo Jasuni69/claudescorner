@@ -1,0 +1,9 @@
+Memory hygiene complete. Oracle passed: **OK: 123 entries in MEMORY.md**.
+
+**What was done:**
+- 0 broken links, 0 unindexed files — index was clean
+- Today's daily log already existed (2 prior sessions)
+- Found 3 durable facts from 2026-04-22/23 HEARTBEAT entries not yet captured in memory files:
+  1. **`project_dispatch.md`** — added 2026-04-23 BUILD worker surgical edit constraint ("preserve original code"; sourced from over-editing benchmark, Claude Opus = 0.060 Levenshtein)
+  2. **`reference_qwen36_max.md`** — added Qwen3.6-27B Dense section (dense vs MoE, Apache 2.0, qwen-code CLI, Haiku-tier candidate)
+  3. **`project_bi_agent.md`** — added kilo.ai FlowGraph benchmark finding (Claude 91/100 vs Kimi 68/100; both self-reported tests masked bugs; independent validator confirmed oracle design is correct)

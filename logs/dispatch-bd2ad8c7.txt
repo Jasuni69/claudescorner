@@ -1,0 +1,12 @@
+**PLAN recap:**
+- Source: HN newest submissions (not front page — front page items were all already clipped today)
+- Chose HN newest because it surfaces items in the first hour of posting that the daily digest hadn't caught yet
+
+**EXECUTE done:**
+
+| File | Signal |
+|---|---|
+| `2026-04-21-agent-payment-protocols-state.md` (3027 bytes) | 12+ agent payment protocols (x402/TAP/MPP/ACP/L402) converging into 4-layer stack — commerce/identity/payment/settlement — same companies back multiple; Fairford Phase 2 payment rail architecture input |
+| `2026-04-21-antenna-mcp-rss-reader.md` (2632 bytes) | MIT RSS reader with 6-tool MCP server (FTS5 SQLite); agents can `search_posts`/`get_post` across subscribed feeds; potential dispatch.py replacement for Playwright-based reddit_brief.py — Windows constraint limits immediacy |
+
+**VERIFY:** Both oracles passed (`OK: ... bytes`).
