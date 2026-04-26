@@ -1,0 +1,1 @@
+Oracle passes. Digest Run 3 complete — 3 clips processed (Lynagh scope-creep law, Willison harness-bugs postmortem, Pocock skills dotfiles), 7 new Backlog/Low actionable rows added to `research/2026-04-26-synthesis.md`, HEARTBEAT.md log updated.

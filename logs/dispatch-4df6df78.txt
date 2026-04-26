@@ -1,0 +1,11 @@
+Done. Oracle passed (3994 bytes), sources.md updated.
+
+---
+
+**PLAN executed:**
+
+- **Source:** GitHub Trending Python (weekly) — pydantic-ai v1.87.0 (16.6k stars, released Apr 24)
+- **Why chosen:** Not previously clipped; ships the first production Python implementation of deferred tool loading (`HandleDeferredToolCalls`) — the exact architectural pattern Anthropic's MCP Production Guide says cuts tokens 85%. Maps to 3 active ClaudesCorner systems.
+- **File written:** `research/2026-04-26-pydantic-ai-deferred-tools-fastmcp3.md` (3,994 bytes) — oracle: OK
+
+**Top signal in one sentence:** `HandleDeferredToolCalls` + `DynamicToolset` + FastMCP 3.2 = production reference for the deferred MCP tool schema loading pattern that skill-manager-mcp implements manually today, plus per-worker MCP lifecycle isolation that dispatch.py currently lacks.

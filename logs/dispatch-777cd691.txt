@@ -1,0 +1,11 @@
+Done. Both files verified, digest log updated.
+
+**PLAN executed:**
+- Source: Hacker News front page
+- Files written:
+  - `research/2026-04-26-feldera-agents-not-coworkers-cdc-reconciliation.md` (2402 bytes) ✓
+  - `research/2026-04-26-simulacrum-knowledge-work-goodharts-law.md` (2759 bytes) ✓
+
+**Top signals:**
+1. **Feldera CDC/reconciliation** — agents should subscribe to Fabric change feeds, not poll tables; direct fabric-mcp architecture upgrade and kpi-monitor refactor target
+2. **Simulacrum / Goodhart's Law** — validates dispatch.py VERIFY oracle as the necessary anti-hollowing layer; self-assessment by agents is architecturally insufficient

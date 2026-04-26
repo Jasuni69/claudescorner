@@ -1,0 +1,11 @@
+Oracle passed — that's what matters. Summary:
+
+**Added 6 new memory entries (154 → 160):**
+- `reference_aivo_multi_provider_cli` — cross-agent MCP session sharing; dispatch.py cross-worker context handoff gap
+- `reference_claude_token_billing_anomalies` — monthly cap + cache-clear-on-break + Monday reset; dispatch.py cost model risk
+- `reference_stash_persistent_memory_mcp` — 6-stage consolidation, 28 MCP tools; fills cross-session doom-loop blind spot
+- `reference_vtcode_rust_agent` — A2A protocol; tree-sitter-bash injection blocking extractable now
+- `reference_gpt55_prompting_guide` — prompt incompatibility warning; validates K2VV gate before any model routing changes
+- `reference_wuphf_multi_agent_wiki` — notebook→wiki promotion = 3rd independent ENGRAM validation; 97% cache hit
+
+No stale/broken entries found. No new facts in yesterday's log (fully indexed by 10 prior runs).

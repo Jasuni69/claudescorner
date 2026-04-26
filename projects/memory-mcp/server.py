@@ -691,7 +691,8 @@ async def list_tools() -> list[types.Tool]:
                 "Auto-compress-store: accept a raw tool observation or session event, "
                 "extract durable signal, and append a compressed bullet to today's daily log. "
                 "Use after significant tool sequences to persist what was learned without manual write_memory calls. "
-                "observation_type: 'tool_result' | 'decision' | 'error' | 'research' | 'build'"
+                "observation_type: 'tool_result' | 'decision' | 'error' | 'research' | 'build'. "
+                "Optional Memori attribution: entity (user/object), process (agent/tool), session (session ID)."
             ),
             inputSchema={
                 "type": "object",
@@ -709,6 +710,18 @@ async def list_tools() -> list[types.Tool]:
                         "type": "array",
                         "items": {"type": "string"},
                         "description": "Optional tags for retrieval (e.g. ['bi-agent', 'fabric', 'fix'])",
+                    },
+                    "entity": {
+                        "type": "string",
+                        "description": "Optional Memori attribution: the user, object, or subject being observed (e.g. 'jason', 'projects/bi-agent')",
+                    },
+                    "process": {
+                        "type": "string",
+                        "description": "Optional Memori attribution: the agent or program that generated this observation (e.g. 'dispatch-BUILD', 'on_stop.py')",
+                    },
+                    "session": {
+                        "type": "string",
+                        "description": "Optional Memori attribution: current session identifier (e.g. '2026-04-25', 'dispatch-7d4827c5')",
                     },
                 },
                 "required": ["observation"],
@@ -823,9 +836,23 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
             return text("[error: observation is required]")
         obs_type = arguments.get("observation_type", "tool_result")
         tags = arguments.get("tags", [])
+        entity = arguments.get("entity", "").strip()
+        process = arguments.get("process", "").strip()
+        session = arguments.get("session", "").strip()
 
         # Compress: extract first meaningful sentence / key fact
         compressed = _compress_observation(raw, obs_type)
+
+        # Build attribution prefix (Memori entity/process/session schema)
+        attribution = ""
+        if entity:
+            attribution += f"[entity:{entity}]"
+        if process:
+            attribution += f"[process:{process}]"
+        if session:
+            attribution += f"[session:{session}]"
+        if attribution:
+            attribution = " " + attribution
 
         tag_str = " " + " ".join(f"[{t}]" for t in tags) if tags else ""
         today = datetime.now().strftime("%Y-%m-%d")
@@ -840,7 +867,7 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
         if "## Observations" not in existing:
             existing = existing.rstrip() + "\n\n## Observations\n"
 
-        bullet = f"- [{ts}] [{obs_type}]{tag_str} {compressed}\n"
+        bullet = f"- [{ts}] [{obs_type}]{attribution}{tag_str} {compressed}\n"
         log_file.write_text(existing + bullet, encoding="utf-8")
         return text(f"[observed → {log_file.name}: {compressed[:80]}…]")
 

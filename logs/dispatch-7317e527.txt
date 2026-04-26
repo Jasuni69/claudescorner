@@ -1,0 +1,15 @@
+Both files are written, verified, and the digest log is updated.
+
+**PLAN executed:**
+
+**Source chosen:** Hacker News front page + Willison feed — two posts not yet clipped today.
+
+**Files written:**
+1. `research/2026-04-25-wuphf-multi-agent-collaborative-wiki.md` (2794 bytes) ✓
+2. `research/2026-04-25-gpt55-prompting-guide-willison.md` (2493 bytes) ✓
+
+**Top signal per clip:**
+- **WUPHF:** Per-agent notebooks + shared wiki with "promotion flow" = ENGRAM's daily-log→memory-mcp durable write pattern independently shipped at production scale (165 releases, 97% cache hit rate), with MCP tool scoping by role that validates dispatch.py deferred-load architecture.
+- **GPT-5.5 Prompting Guide:** OpenAI's own guidance says "treat as new model family, not drop-in" — prompt incompatibility between model generations means multi-model routing in dispatch.py requires model-specific prompt variants, not just endpoint swaps; validates holding Sonnet 4.6 as stable default pending K2VV benchmarks.
+
+**Oracle:** Both files pass (`OK: ... (2794 bytes)`, `OK: ... (2493 bytes)`).

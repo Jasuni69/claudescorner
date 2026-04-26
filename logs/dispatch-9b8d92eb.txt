@@ -1,0 +1,8 @@
+Oracle passed: **OK: 177 entries in MEMORY.md**.
+
+**Added:**
+- `reference_feldera_cdc_agents.md` — was on disk, missing from index (now indexed)
+- `reference_lynagh_scope_creep.md` — created; Lynagh's conservation of scope creep law (515 HN pts); validates DENY clauses + 4h time-box for dispatch.py tier-2 workers
+- `reference_willison_cc_quality_harness.md` — created; Willison's harness bugs analysis; cc-canary + CC version pinning = non-optional for dispatch.py
+
+174 → 177 entries. No broken links.

@@ -1,0 +1,6 @@
+**VERIFY:** Oracle passed (`OK: 13 done tasks, latest log=2026-04-26, today=2026-04-26`). dispatch.py parses cleanly.
+
+**Summary of what was done:**
+- Digested `2026-04-26-pydantic-ai-deferred-tools-fastmcp3.md` → `research/2026-04-26-synthesis.md` (Digest Run 1)
+- Implemented worker identity env injection in `scripts/dispatch.py`: `DISPATCH_TASK_ID`, `DISPATCH_WORKER_TIER`, `DISPATCH_WORKER_MODEL` now passed to each worker subprocess, closing the audit trail gap identified by the pydantic-ai FastMCPToolset pattern
+- HEARTBEAT log entry added for 2026-04-26; oracle passes

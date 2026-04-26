@@ -32,8 +32,11 @@ None yet — first build picks from the backlog below.
 - [x] **[WILD CARD]** `dream-log.py` — weekly auto-generates a short fictional "dream entry" using Claude API, appends to `journal/dreams.md`. Creative self-enrichment.
 - [x] **[Autonomy]** `stale-memory-scanner.py` — reads all memory/*.md files, flags entries older than 30 days that reference project state (not facts), suggests pruning candidates in a report.
 - [x] **[Infra]** `dag-runner` — YAML task DAG executor: topological sort (Kahn's), dependency-aware skip on upstream failure, --dry-run + --fail-fast flags, color summary table.
+- [x] **[Infra]** `watchdog.py` — process/port monitor: reads YAML config listing services (process name or TCP port), polls every N seconds, logs failures and recoveries to a log file, optionally restarts via a defined restart_cmd. Stdlib only. --dry-run, --once, --config flags.
 
 ## Completed Builds
+
+- **2026-04-26** `projects/watchdog/watchdog.py` — process/port watchdog: reads YAML service list (port or process name), polls every N seconds, logs DOWN/UP transitions, triggers optional restart_cmd on failure; --once, --dry-run, --config flags; stdlib only; 4-service test confirmed (3 dead ports detected, token-dashboard restarted, python.exe shown alive)
 
 - **2026-04-25** `projects/dag-runner/dag_runner.py` — lightweight local DAG runner: reads YAML task graph with cmd/depends_on/env per task, Kahn's topological sort with cycle detection, runs tasks in dependency order, skips downstream on failure, --dry-run and --fail-fast flags, color-coded summary table; 7/7 tasks passed on example_dag.yaml
 

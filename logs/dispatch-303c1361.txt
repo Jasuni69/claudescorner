@@ -1,0 +1,1 @@
+Done. Digest Run 5 appended to `research/2026-04-25-synthesis.md` covering WUPHF, GPT-5.5 prompting guide, Memori, and Memsearch — 7 new actionable rows added (2 Info/Done, 2 Backlog/Medium, 3 Backlog/Low). HEARTBEAT log entry written. Oracle: OK.

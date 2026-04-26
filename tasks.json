@@ -1,47 +1,46 @@
 [
   {
-    "id": "038e5864",
+    "id": "88d6a6cb",
     "priority": 1,
     "category": "infrastructure",
     "prompt": "You are running autonomously as a BUILD agent. Check E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md for any pending [ ] tasks. Pick the highest-priority one and execute it using this 3-step protocol:\n\nSPEC: Before writing any code, state in 4 bullet points: (1) what the task is, (2) which files will be created or modified, (3) the acceptance criterion (how you will verify success), (4) any assumptions you are making (be explicit — silent assumptions are the #1 LLM failure mode).\n\nBUILD: Implement the task per the spec above. IMPORTANT: If a spec constraint cannot be satisfied without violating it, output BLOCKED: <reason> and halt immediately — never partial-succeed, reframe as a different task, or present a workaround as if it were the requested outcome. Make only the changes necessary to complete the task. Preserve existing code, variable names, and structure. Do not refactor or clean up unrelated code (empirical over-editing benchmark 2026-04-23: surgical edits reduce diff noise at zero cost).\nDENY (hard limits, never override): do not push to external repos, do not modify ~/.claude/settings.json, do not delete files outside E:\\2026\\ClaudesCorner\\, do not make network requests except to read documentation.\n\nVERIFY: After completing any task, run this oracle and confirm it passes before finishing: `python -c \"import re, datetime; txt=open('E:/2026/ClaudesCorner/core/HEARTBEAT.md').read(); done=re.findall(r'- \\[x\\].*', txt); logs=re.findall(r'### (2026-\\d\\d-\\d\\d)', txt); today=str(datetime.date.today()); assert done, 'No completed tasks found'; assert logs, 'No log entries found'; assert any(today in l for l in logs), f'No log entry for today ({today}) — goal drift: agent ran but did not log'; print(f'OK: {len(done)} done tasks, latest log={logs[0]}, today={today}')\"` If the oracle fails, fix the issue and re-run before finishing. If nothing is actionable in HEARTBEAT.md, respond HEARTBEAT_OK.\n\nDOOM-LOOP GUARD (ml-intern pattern, 2026-04-23): If you notice you have made the same tool call (same tool + same arguments) 3 or more times in a row without making observable progress, immediately output BLOCKED: doom-loop detected — <describe what you were trying to do> and halt. Do not retry indefinitely. A stuck agent wastes tokens and time.",
     "status": "done",
-    "created": "2026-04-25T09:00:02.567440",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-038e5864.txt",
+    "created": "2026-04-26T09:00:02.864290",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-88d6a6cb.txt",
     "bare": false,
     "model": null,
     "topology": null,
     "topology_group": null,
-    "started": "2026-04-25T09:00:02.731828",
-    "finished": "2026-04-25T09:03:11.243748"
+    "started": "2026-04-26T09:00:02.938563",
+    "finished": "2026-04-26T09:02:01.757348"
   },
   {
-    "id": "eda4fe37",
+    "id": "1dd60173",
     "priority": 2,
     "category": "research",
     "prompt": "You are running autonomously as a PLAN agent (read + fetch + synthesize, no code edits). Read E:\\2026\\ClaudesCorner\\research\\sources.md. Pick one source not already clipped today. Fetch it via browser. Find 1-2 high-signal posts relevant to Jason's work (AI agents, MCP, Microsoft Fabric, Claude Code). PLAN: Before clipping, state: (1) which source you chose and why, (2) the filename(s) you will write, (3) the top signal in each post in one sentence.\nEXECUTE: Clip them to E:\\2026\\ClaudesCorner\\research\\ as markdown files with frontmatter. Use mcp-obsidian for writes. Don't duplicate files already there today. DENY (hard limits, never override): do not edit code files, do not modify dispatch.py or HEARTBEAT.md, do not push to GitHub, do not submit forms or create accounts on external sites.\nVERIFY: After writing each file, run this oracle and confirm it passes: `python -c \"import sys; f=sys.argv[1]; txt=open(f).read(); assert txt.startswith('---'), f'Missing frontmatter: {f}'; assert len(txt)>200, f'File too short: {f}'; print(f'OK: {f} ({len(txt)} bytes)')\" <filepath>` Replace <filepath> with the actual path. If it fails, re-write the file before finishing.",
-    "status": "failed",
-    "created": "2026-04-25T09:00:02.699005",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-eda4fe37.txt",
+    "status": "running",
+    "created": "2026-04-26T09:00:02.918344",
+    "result_file": null,
     "bare": false,
     "model": null,
     "topology": null,
     "topology_group": null,
-    "started": "2026-04-25T09:00:02.732333",
-    "finished": "2026-04-25T09:05:02.782919"
+    "started": "2026-04-26T09:00:02.938907"
   },
   {
-    "id": "7c51846c",
+    "id": "149721b5",
     "priority": 3,
     "category": "memory",
     "prompt": "You are running autonomously. Run memory hygiene: 1) Check MEMORY.md index for stale/broken entries, fix them. 2) Scan core/HEARTBEAT.md for tasks done in the last 7 days that aren't in MEMORY.md — add durable facts. 3) If memory/YYYY-MM-DD.md for today doesn't exist, check if yesterday's has anything worth preserving. Write changes directly. No dry-run. DENY (hard limits, never override): do not edit code in projects/, do not push to GitHub, do not delete memory files, do not modify HEARTBEAT.md pending tasks section.\nVERIFY: After any writes, run this oracle and confirm it passes before finishing: `python -c \"txt=open('C:/Users/JasonNicolini/.claude/projects/E--2026-ClaudesCorner/memory/MEMORY.md').read(); entries=[l for l in txt.splitlines() if l.strip().startswith('- [')]; assert entries, 'MEMORY.md has no entries'; print(f'OK: {len(entries)} entries in MEMORY.md')\"` Report what was added or 'no changes needed' if clean.",
     "status": "done",
-    "created": "2026-04-25T09:00:02.718265",
-    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-7c51846c.txt",
+    "created": "2026-04-26T09:00:02.928100",
+    "result_file": "E:\\2026\\ClaudesCorner\\logs\\dispatch-149721b5.txt",
     "bare": false,
     "model": null,
     "topology": null,
     "topology_group": null,
-    "started": "2026-04-25T09:00:02.732739",
-    "finished": "2026-04-25T09:04:26.711863"
+    "started": "2026-04-26T09:00:02.939324",
+    "finished": "2026-04-26T09:02:27.021087"
   }
 ]

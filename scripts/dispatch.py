@@ -83,6 +83,7 @@ Auto-worktree isolation (2026-04-23, pgrust/Conductor pattern):
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -325,6 +326,23 @@ def update_task(tasks: list[dict], task_id: str, **kwargs) -> None:
 
 # ── Execution ─────────────────────────────────────────────────────────────────
 
+# Patterns that indicate a worker self-reported failure even when claude.exe exited 0.
+# Used by _output_signals_failure() to enforce the VERIFY exit-code gate.
+_SOFT_FAIL_PATTERNS = [
+    r"^BLOCKED:",           # doom-loop or constraint violation halt
+    r"AssertionError",      # oracle assert statement fired
+    r"VERIFY.*failed",      # explicit verify failure message
+    r"oracle.*FAIL",        # oracle reported FAIL
+    r"goal drift",          # heartbeat oracle goal-drift check fired
+]
+_SOFT_FAIL_RE = re.compile("|".join(_SOFT_FAIL_PATTERNS), re.MULTILINE | re.IGNORECASE)
+
+
+def _output_signals_failure(output: str) -> bool:
+    """Return True if worker output contains a self-reported failure signal."""
+    return bool(_SOFT_FAIL_RE.search(output))
+
+
 def run_task(task: dict) -> tuple[str, bool, str]:
     """Run a single task. Returns (task_id, success, output)."""
     task_id = task["id"]
@@ -336,6 +354,11 @@ def run_task(task: dict) -> tuple[str, bool, str]:
         env.pop(var, None)
     # Inject outbound proxy if configured (CrabTrap MITM; fail-open when CRABTRAP_PROXY unset)
     env = _proxy_env(env)
+    # Worker identity — allows MCP tools (memory-mcp, fabric-mcp) to tag calls by worker
+    model_alias_for_env = task.get("model")
+    env["DISPATCH_TASK_ID"] = task_id
+    env["DISPATCH_WORKER_TIER"] = str(_infer_tier(model_alias_for_env))
+    env["DISPATCH_WORKER_MODEL"] = MODEL_ALIASES.get(model_alias_for_env, model_alias_for_env or "claude-sonnet-4-6")
 
     # Create per-task git worktree for isolation (fail-open when DISPATCH_WORKTREES unset)
     worktree = _worktree_create(task_id)
@@ -381,6 +404,12 @@ def run_task(task: dict) -> tuple[str, bool, str]:
         )
         output = proc.stdout.strip() or proc.stderr.strip()
         success = proc.returncode == 0
+        # VERIFY exit-code gate (2026-04-26, Goodhart's Law / Simulacrum pattern):
+        # claude.exe exits 0 even when the agent's VERIFY oracle fails or agent halted with
+        # BLOCKED:. Scan output for failure signals so soft-pass is treated as a real failure.
+        if success and _output_signals_failure(output):
+            success = False
+            output = f"[verify-gate: soft-fail detected]\n{output}"
     except subprocess.TimeoutExpired:
         output = f"TIMEOUT after {TIMEOUT_SECONDS}s"
         success = False

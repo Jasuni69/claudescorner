@@ -1,0 +1,7 @@
+Oracle passed: **OK: 162 entries in MEMORY.md**
+
+**Run #8 complete.** Added 2 entries (160 → 162):
+- `reference_memori_memory_infra` — Memori 13.8k-star production memory layer; 81.95% LoCoMo at 5% token cost; ENGRAM v2 backend candidate
+- `reference_memsearch_markdown_memory` — Memsearch 1.4k-star by Zilliz; markdown-truth + milvus; BM25+RRF hybrid; cross-platform; validates brain-memory architecture
+
+No broken links found. HEARTBEAT through billing anomaly run fully indexed.

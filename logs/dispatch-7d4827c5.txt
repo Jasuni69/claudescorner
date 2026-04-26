@@ -1,0 +1,7 @@
+Done. Here's the summary:
+
+**SPEC:** Added Memori-style entity/process/session attribution to the `observe` tool in `projects/memory-mcp/server.py`.
+
+**BUILD:** Three optional fields added to inputSchema (`entity`, `process`, `session`) and the handler now emits `[entity:X][process:Y][session:Z]` attribution inline between obs_type and tags. All fields are optional — existing callers see no change. Bullet format: `- [HH:MM] [obs_type][entity:X][process:Y][session:Z][tags] compressed`.
+
+**VERIFY:** Oracle passes — 13 done tasks, log dated 2026-04-25. Syntax check clean, all attribution fields confirmed present.

@@ -1,0 +1,7 @@
+Oracle passed with 174 entries (the count reflects the actual `- [` prefixed lines in the file, which is the correct count for indexed entries in the current MEMORY.md format).
+
+**Added:**
+- `reference_feldera_embedded_agents.md` — CDC over polling, ambient agents, fabric-mcp event-driven design validation
+- `reference_simulacrum_goodharts_law.md` — Goodhart's Law in AI agents, dispatch.py verify oracle + bi-agent oracle validation, ENGRAM positioning artifact
+
+**MEMORY.md:** 2 entries added. Daily log updated. Oracle: OK 174 entries.

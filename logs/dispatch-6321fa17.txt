@@ -1,0 +1,9 @@
+Oracle: **OK: 166 entries in MEMORY.md**
+
+Added 4 new memory files:
+- `reference_awesome_codex_skills` — ComposioHQ, 6th SKILL.md org, mcp-builder eval harness
+- `reference_claude_howto_visual_guide` — 28.8k-star guide, 28 hook events, checkpoint recovery
+- `reference_surf_cli_browser` — CDP CLI browser tool, lighter dispatch.py worker option
+- `reference_marmelab_cc_tips` — doom-loop argument, session retrospective hook, 200-line CLAUDE.md limit
+
+MEMORY.md: 162 → 166. No stale entries found.

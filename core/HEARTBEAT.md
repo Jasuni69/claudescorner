@@ -41,6 +41,132 @@
 
 ## Log
 
+### 2026-04-26 (weekend build — watchdog)
+- Backlog was fully checked off; self-generated new item: `watchdog.py` process/port monitor.
+- Built `projects/watchdog/watchdog.py` (198 lines, stdlib only): YAML-driven service monitor, TCP port checks, process name checks (tasklist on Windows), DOWN/UP transition logging, optional restart_cmd via Popen, --once/--dry-run/--config flags.
+- Built `projects/watchdog/watchdog.yaml`: 4-service example (token-dashboard :5050, memory-mcp :8765, python.exe, dead-port-test :19999).
+- Test run --once --dry-run: all 4 services polled, 3 dead ports detected and logged, python.exe shown OK, dry-run restart message fired. Exit 0.
+- Test run --once (no dry-run): same results, token-dashboard Flask process actually spawned in background. Exit 0.
+- WEEKEND_BUILDS.md updated: item checked, Completed Builds entry added.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — Digest Run 3: Lynagh scope-creep + Willison harness bugs + Pocock skills dotfiles)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 3 unprocessed 2026-04-26 research clips into research/2026-04-26-synthesis.md (Digest Run 3):
+  - Lynagh "Conservation of Scope Creep" (kevinlynagh.com, HN 515pts): scope-creep law validates dispatch.py DENY clauses + one-task-one-session model; two gaps: HEARTBEAT.md task descriptions lack explicit success criteria; tier-2 workers have no wall-clock timeout (Lynagh's 4-hour cap empirically validated); Backlog/Low.
+  - Willison CC Quality Postmortem (simonwillison.net): Mar–Apr 2026 regression = 3 harness bugs not model drift; thinking-clear bug fired every turn not just after idle; dispatch.py tier-2 workers were maximally exposed (long sessions); fix: pin CC version + wire cc-canary weekly check + flag anomalous token burn; Backlog/Low.
+  - mattpocock/skills (github.com/mattpocock, 20k stars, MIT): dotfiles moment for SKILL.md; 7th major convergence; no MCP layer = skill-manager-mcp semantic discovery gap confirmed; `git-guardrails-claude-code` worth reading for dispatch.py worker git safety patterns; `write-a-skill` + `caveman` + `obsidian-vault` = ClaudesCorner cultural alignment; Backlog/Low.
+- Synthesis table: 7 new Backlog/Low rows added (Digest Run 3 actionable items table).
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — VERIFY exit-code enforcement gate)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Medium) from 2026-04-26-synthesis.md: dispatch.py VERIFY exit-code enforcement gate (Goodhart's Law / Simulacrum pattern).
+  - Added `_SOFT_FAIL_PATTERNS` + `_SOFT_FAIL_RE` regex and `_output_signals_failure()` helper to `scripts/dispatch.py`.
+  - After `success = proc.returncode == 0`, gate scans worker output for: `BLOCKED:` (doom-loop/constraint halt), `AssertionError` (oracle assert fired), `VERIFY.*failed`, `oracle.*FAIL`, `goal drift` (heartbeat oracle).
+  - If any signal found: flips `success = False`, prepends `[verify-gate: soft-fail detected]` to result log so failures are unambiguous in dispatch logs.
+  - Added `import re` (was missing).
+  - Unit-tested: 5 failure patterns caught; 3 clean-output patterns pass through correctly.
+  - Backward-compatible: gate only fires when exit code was 0 AND output contains signal — no change to existing failure paths.
+- Synthesis table: VERIFY exit-code enforcement gate → Done.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — pydantic-ai digest + worker identity injection)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 1 unprocessed 2026-04-26 research clip into research/2026-04-26-synthesis.md (Digest Run 1):
+  - pydantic-ai v1.87 (16.6k stars): `HandleDeferredToolCalls` lazy schema load = skill-manager-mcp two-step formalised; `DynamicToolset` per-run MCP isolation = dispatch.py shared-config gap; FastMCPToolset per-tool metadata injection = worker identity audit trail gap; FastMCP 3.2 OAuth 2.1 = auth gap for memory-mcp/fabric-mcp; OTEL spans = no observability infra yet.
+- Implemented Backlog (Medium) from clip: worker identity env injection in dispatch.py.
+  - Added `DISPATCH_TASK_ID`, `DISPATCH_WORKER_TIER`, `DISPATCH_WORKER_MODEL` to `env` dict in `run_task()` after `_proxy_env()` call.
+  - MCP tools (memory-mcp, fabric-mcp) can now read worker identity from subprocess environment — closes audit trail gap identified in pydantic-ai FastMCPToolset pattern.
+  - Backward-compatible: env vars are additive; no existing call sites affected.
+- Synthesis table: worker identity injection → Done; DynamicToolset/OAuth/OTEL → Backlog.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — Digest Run 2: Feldera CDC + Simulacrum/Goodhart)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 2 unprocessed 2026-04-26 research clips into research/2026-04-26-synthesis.md (Digest Run 2):
+  - Feldera "Agents Aren't Coworkers" (feldera.com, HN 13pts): ambient embedded agent architecture; CDC over polling; reconciliation loops; validates fabric-mcp CLI-first + dispatch.py reconciliation; gaps: fabric-mcp polling debt + kpi-monitor polling debt → Backlog/Low (Fairford Phase 2).
+  - Simulacrum of Knowledge Work (blog.happyfellow.dev, HN 88pts): Goodhart's Law applied to AI agent output; LLMs optimize surface signals not substance; validates dispatch.py verify oracle; key gap: VERIFY exit-code not enforced → workers can soft-pass → Backlog/Medium; also validates ENGRAM "gen/verify separation" as architectural answer.
+- Memory files for both clips already existed from prior memory-hygiene agent run — no new MEMORY.md writes needed.
+- Synthesis file Digest Run 2 section now complete; 4 new actionable rows added to table.
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — hook surface audit)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Low) from 2026-04-25-synthesis.md: claude-howto hook audit.
+  - Enumerated full hook surface from global settings.json and project settings.local.json.
+  - Current wired hooks: Stop (on_stop.py), SessionStart (on_session_start.py), PreCompact (on_pre_compact.py), PostCompact (on_post_compact.py), PostToolUse ×3 (on_post_tool_use.py + on_observation_compress.py + index_all.py).
+  - Two unused hook types identified: PreToolUse (no pre-execution gate — potential use: token-burn telemetry, banned-pattern rejection); UserPromptSubmit (no prompt-level scan — potential use: unicode injection scan, prompt logging for dispatch workers).
+  - PreCompact was already wired — synthesis table entry "find missed PreToolUse/UserPromptSubmit/PreCompact hooks" was partially stale on PreCompact.
+  - Synthesis table entry updated to Done. Gaps documented; no code change required for audit phase.
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — AGENTS.md cross-agent portability)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Low) from 2026-04-25-synthesis.md: Marmelab AGENTS.md for cross-agent portability.
+  - Created `AGENTS.md` at E:\2026\ClaudesCorner\AGENTS.md: machine-readable companion to CLAUDE.md.
+  - Declares BUILD/RESEARCH/MEMORY worker roles with model tiers (Sonnet/Sonnet/Haiku), tool scopes, deny clauses, timeout/context caps.
+  - Includes dispatcher config, hook declarations (Stop + PostToolUse), MCP server registry (6 servers), and security section (injection guard, credential scan, CrabTrap, tighten-only policy).
+  - Enables OpenClaw/Hermes/Codex/Cursor runtimes to boot the same agent stack without manual wiring.
+  - Session retrospective in on_stop.py blocked by auto-mode write scope (C:\claude-hooks\ outside ClaudesCorner); synthesis table updated.
+- Synthesis table: AGENTS.md → Done; session retrospective → Blocked (needs Jason approval).
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — Digest Run 30 + CLAUDE.md size check)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 4 unprocessed 2026-04-25 research clips into research/2026-04-25-synthesis.md (Digest Run 6):
+  - awesome-codex-skills (ComposioHQ, 1.2k stars): 6th major org independently adopting SKILL.md; `mcp-builder/` skill = first known eval harness for MCP server construction + validation; `helium-mcp/` = Fairford alternative-data candidate; Backlog/Low
+  - claude-howto (28.8k stars, MIT): 28 hook events across 5 types — dispatch.py currently uses only Stop + PostToolUse; PreToolUse/UserPromptSubmit/PreCompact unexercised; checkpoint module for long-horizon worker recovery; Backlog/Low
+  - surf-cli (453 stars, MIT): CLI-first CDP browser automation; zero-config dispatch.py leaf-node browser primitive; Windows experimental — test before committing; 1200px screenshot auto-resize = real token saver; Backlog/Low
+  - marmelab (Apr 2026): "errors compound at agent speed" = quantitative case for doom-loop + verify oracle; CLAUDE.md 200-line limit; session retrospective → SELF_IMPROVEMENT.md; AGENTS.md for cross-agent portability; Backlog/Low
+- Corrected stale synthesis table entries: RRF hybrid search + SHA-256 delta both already implemented (vectordb.py + index_all.py) — updated to Done.
+- Implemented Backlog (Low) from marmelab clip: CLAUDE.md line-count guard.
+  - Added `check_claude_md_size()` to `projects/health-check/checks.py`: checks global + project CLAUDE.md line counts against 200-line limit (Marmelab production recommendation).
+  - Wired into `run_all()` between monthly_limit_warning and network_ports.
+  - Verified: global CLAUDE.md = 41 lines (OK), project CLAUDE.md = 31 lines (OK).
+- Synthesis table: 3 Backlog/Low items + 2 Done corrections added (Digest Run 6).
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — Memori attribution schema)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Medium) from 2026-04-25-synthesis.md: Memori entity/process/session attribution in memory-mcp `observe` tool.
+  - Added optional `entity`, `process`, `session` fields to `observe` tool inputSchema in `projects/memory-mcp/server.py`.
+  - Handler now emits `[entity:X][process:Y][session:Z]` attribution prefix between obs_type and tags in stored bullets.
+  - Backward-compatible: all three fields optional; existing callers see identical output.
+  - Follows Memori's three-tier attribution schema (Entity/Process/Session) for richer retrieval provenance.
+  - Synthesis table: Memori entity/process/session item → Done (LoCoMo benchmark + BYODB remain Backlog).
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — Digest Run 29)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 4 unprocessed 2026-04-25 research clips into research/2026-04-25-synthesis.md (Digest Run 5):
+  - WUPHF (nex-crm/wuphf, 94 stars, MIT, Go): multi-agent office on Claude Code; notebook→wiki promotion flow = ENGRAM daily-log→memory-mcp pattern independently discovered; 97% cache hit rate; MCP tool scoping (4 vs 27 tools) = dispatch.py Haiku/Sonnet tier logic at production scale; 165 releases; Backlog/Low: evaluate `team_wiki_write` as memory-mcp write-gate v2 reference
+  - GPT-5.5 Prompting Guide (Willison/OpenAI, simonwillison.net): "new model family, not drop-in" — prompts from gpt-5.2/5.4 break; full re-tuning required per worker role; routing change = not 1-line endpoint swap; K2VV ToolCall F1 + prompt re-tuning budget both required before any dispatch.py routing change; SOUL.md needs `model:` frontmatter key if multi-model added; Info/Done — Sonnet 4.6 confirmed
+  - Memori (MemoriLabs/Memori, 13.8k stars, Apache-2.0): production memory layer; 81.95% LoCoMo at 1,294 tokens (5% cost); entity/process/session attribution schema; transparent SDK interception gap vs memory-mcp PostToolUse hook; BYODB self-hosted mode; Backlog/Medium: adopt schema in memory-mcp write payloads + benchmark vs LoCoMo + evaluate BYODB backend
+  - Memsearch (zilliztech/memsearch, 1.4k stars, MIT, Zilliz): markdown-first + Milvus shadow index; BM25+vector RRF reranking hybrid search (gap: memory-mcp dense-only); SHA-256 delta indexing (gap: index_all.py re-indexes all); cross-platform plugins (gap: memory-mcp Claude-Code-only); validates YYYY-MM-DD.md pattern; Backlog/Medium: add RRF hybrid + SHA-256 delta to brain-memory/src/vectordb.py + index_all.py
+- Synthesis actionable table: 7 new rows added (2 Info/Done + 2 Backlog/Medium + 3 Backlog/Low).
+- Memory files for all 4 clips already existed from prior session — no new writes needed.
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — billing anomaly health checks)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Low) from 2026-04-25-synthesis.md: Claude token billing anomaly documentation in health-check.
+  - Added `check_monthly_limit_warning()` to `projects/health-check/checks.py`: 3 informational checks (monthly cap / cache-clear-on-break / Monday window reset).
+  - Documented undocumented ceiling, cache-invalidation-on-break, and Monday token window as named health-check results.
+  - Wired into `run_all()` between dispatch_activity and network_ports.
+  - Verified: 30/31 checks pass (only failure: token-dashboard port 5050 not running — pre-existing).
+- Synthesis table: both billing anomaly items → Done.
+- Oracle: see below.
+
+### 2026-04-25 (autonomous heartbeat, BUILD agent — Digest Run 28)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 4 unprocessed 2026-04-25 research clips into research/2026-04-25-synthesis.md (Digest Run 4):
+  - Aivo (yuanchuan/aivo, 2pts pre-viral): unified multi-provider CLI; `--as reviewer` cross-agent MCP session sharing = missing dispatch.py cross-worker context handoff primitive; SQLite per-session token log; Backlog/Low — monitor for production maturity
+  - Claude Token Billing Anomalies (HN 833pts): undocumented monthly cap + cache-clear-on-break + Monday window reset; dispatch.py long-week cost model at risk; Backlog/Low: monthly_limit_warning in health-check + cache-invalidation note in HEARTBEAT startup + verify window reset cadence
+  - Stash (alash3al/stash, Apache 2.0, 18pts): 6-stage consolidation pipeline (episodes→facts→relationships→causal→patterns→contradictions); 28 MCP tools; failure pattern detection across sessions = cross-session doom-loop blind spot in dispatch.py; Backlog/Medium: evaluate for ENGRAM v2 write-layer + Fairford pgvector backend
+  - VT Code (vinhnx/VTCode, 508 stars, Rust): multi-provider failover; tree-sitter-bash injection blocking; A2A protocol; SKILL.md compatible (6th major runtime); Backlog/Low: monitor A2A Anthropic adoption; tree-sitter-bash pattern extractable regardless
+- Synthesis actionable table: 5 new rows added (2 Backlog/Medium + 3 Backlog/Low).
+- Oracle: see below.
+
 ### 2026-04-25 (weekend build — dag-runner)
 - Built `projects/dag-runner/dag_runner.py`: YAML task DAG executor with Kahn's topological sort, cycle detection, dependency-aware skipping, --dry-run + --fail-fast flags.
 - Tests passed: 7/7 tasks on example_dag.yaml (check_python, check_git, check_dirs, write_temp, read_temp, cleanup, parallel_check).

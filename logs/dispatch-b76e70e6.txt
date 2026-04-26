@@ -1,0 +1,9 @@
+Oracle passed: **OK: 170 entries in MEMORY.md**
+
+Added 4 new entries (166 → 170):
+1. `project_agents_md.md` — AGENTS.md machine-readable cross-agent config (BUILD/RESEARCH/MEMORY roles, 6-MCP registry, built 2026-04-25)
+2. `reference_gpt55_codex_unified.md` — GPT-5.5 unified Codex; no MCP-native; K2VV gate required; Sonnet 4.6 hold confirmed
+3. `reference_rlm_recursive_language_models.md` — RLM 3.8k-star MIT; recursive decomposition + REPL sandbox; Haiku-tier cost reduction; E2B-compatible
+4. `reference_tensorlake_outbox_sandboxes.md` — Command Outbox pattern; 1000 sandboxes/340ms; dispatch.py v2 polling upgrade path
+
+No stale or broken entries found. Today's daily log updated with run #12 session.

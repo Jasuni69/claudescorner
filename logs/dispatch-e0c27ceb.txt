@@ -1,0 +1,9 @@
+Done. Both files pass oracle verification:
+
+**Clips written:**
+
+1. `research/2026-04-25-surf-cli-browser-automation-ai-agents.md` (3,386 bytes) — Surf-CLI: zero-config CLI browser automation for AI agents via Unix socket + CDP; natively supports Claude Code; window isolation for parallel workers; lighter dispatch.py browser primitive than chrome-devtools-mcp. Windows experimental — evaluate before committing.
+
+2. `research/2026-04-25-marmelab-claude-code-tips-day-one.md` (4,655 bytes) — Marmelab practitioner tips; key signal: *"errors compound at agent speed faster than you can catch them"* — direct argument for doom-loop detection in dispatch.py. Bug documentation pattern (investigate+document+fix → persistent knowledge), session retrospective hook, CLAUDE.md 200-line ceiling, AGENTS.md for cross-agent portability.
+
+Both added to the 2026-04-25 digest row in `sources.md`.

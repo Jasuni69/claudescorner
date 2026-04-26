@@ -1,0 +1,1 @@
+Done. Digest Run 2 is complete — `research/2026-04-26-synthesis.md` now covers all 3 clips for today (pydantic-ai Run 1 + Feldera/Simulacrum Run 2). Oracle passes.

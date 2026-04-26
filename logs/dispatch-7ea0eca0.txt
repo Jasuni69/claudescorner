@@ -1,0 +1,11 @@
+Done. Both files verified:
+
+- `research/2026-04-25-hermes-agent-v0110-interface-release.md` — **3,191 bytes, OK**
+- `research/2026-04-25-self-organizing-agents-context-maintenance.md` — **3,596 bytes, OK**
+
+**PLAN (executed):**
+1. Source: GitHub Trending (weekly Python) → found Hermes v0.11.0 (Apr 23, 117k stars); HN newest → found self-organizing agents post
+2. Filenames: as above
+3. Top signals:
+   - Hermes v0.11.0 adds `/steer` mid-run correction + AWS Bedrock transport + orchestrator roles — the `/steer` primitive is specifically missing from dispatch.py and would allow operator intervention on running tier 2/3 workers without restart
+   - Self-organizing agents post independently validates HEARTBEAT.md/SOUL.md architecture from first principles, with accumulation-without-pruning as the confirmed failure mode — exactly what stale-memory-scanner addresses

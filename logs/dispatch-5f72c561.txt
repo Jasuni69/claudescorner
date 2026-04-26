@@ -1,0 +1,7 @@
+Oracle passes. Done.
+
+**Summary of changes:**
+
+- `scripts/dispatch.py`: Added `import re`, `_SOFT_FAIL_RE` regex, `_output_signals_failure()` helper, and a post-exit-code scan gate in `run_task()`. Workers that exit 0 but output `BLOCKED:`, `AssertionError`, `VERIFY.*failed`, `oracle.*FAIL`, or `goal drift` are now marked `success=False` with `[verify-gate: soft-fail detected]` prefixed in their log.
+- `research/2026-04-26-synthesis.md`: Table row updated to Done.
+- `core/HEARTBEAT.md`: Log entry added for today's run.

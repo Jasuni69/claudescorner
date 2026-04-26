@@ -1,0 +1,17 @@
+Both files written and verified. Here's the summary:
+
+---
+
+**PLAN executed.**
+
+**Source chosen:** GitHub Trending (daily Python) + HN newest — richest unclipped signals today.
+
+**Files written:**
+
+1. `research/2026-04-25-rlm-recursive-language-models.md` (4,106 bytes) ✓  
+   **Signal:** `alexzhang13/rlm` (MIT, Anthropic-native) replaces `llm.completion()` with `rlm.completion()` — LMs recursively decompose long contexts in sandboxed REPL environments across Modal/E2B/Daytona/Docker; small models + RLM loops approach frontier performance on long-horizon tasks, directly validating dispatch.py Haiku-tier cost reduction and ENGRAM two-pass retrieval architecture.
+
+2. `research/2026-04-25-tensorlake-parallel-sandboxes-outbox.md` (4,503 bytes) ✓  
+   **Signal:** Durable command outbox (RocksDB + long-polling dataplane) drains 1,000 sandbox starts in 340ms — replacing reconciliation-loop tick latency with network-RTT-bounded scheduling — maps directly onto dispatch.py v2 queue redesign: swap `tasks.json` polling for transactional SQLite outbox + CubeSandbox REST worker pool.
+
+Both oracle checks passed. Sources.md digest log updated.

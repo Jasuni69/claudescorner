@@ -1,0 +1,8 @@
+Oracle passed: 172 entries. 
+
+**Summary of changes:**
+- Created `reference_pydantic_ai_deferred_tools.md` — pydantic-ai v1.87 HandleDeferredToolCalls + FastMCP 3.2; directly relevant to skill-manager-mcp deferred-load pattern and dispatch.py per-worker MCP isolation gap
+- Updated `MEMORY.md` (+1 entry, 222→172 counted lines now 172 link entries)
+- Updated `memory/2026-04-26.md` with this run's log
+
+Everything else was clean: no broken links, all HEARTBEAT.md entries through 2026-04-25 already indexed, NEC Japan already indexed from prior run.

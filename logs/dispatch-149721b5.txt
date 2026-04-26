@@ -1,0 +1,3 @@
+**Oracle passed: OK: 178 entries in MEMORY.md**
+
+**Added:** `reference_mattpocock_skills.md` — mattpocock/skills (20k-star MIT, #2 GitHub Trending). Key finding: 7th major org adopting SKILL.md without an MCP layer, confirming skill-manager-mcp's semantic discovery moat. `git-guardrails-claude-code` skill is the most actionable artifact for dispatch.py worker git safety patterns.

@@ -1,0 +1,24 @@
+# watchdog.yaml — example service config
+# interval: seconds between polls
+# logfile: optional path for persistent log (relative to this file)
+
+interval: 30
+logfile: watchdog.log
+
+services:
+  - name: token-dashboard
+    port: 5050
+    restart_cmd: "python E:\\2026\\ClaudesCorner\\projects\\token-dashboard\\app.py"
+    enabled: true
+
+  - name: memory-mcp
+    port: 8765
+    enabled: true
+
+  - name: python
+    process: python.exe
+    enabled: true
+
+  - name: dead-port-test
+    port: 19999
+    enabled: true

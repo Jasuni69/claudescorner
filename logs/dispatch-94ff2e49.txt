@@ -1,0 +1,10 @@
+Both oracle checks pass. Done.
+
+---
+
+**PLAN executed:**
+- **Source:** Simon Willison (simonwillison.net) for today's new post + Anthropic News — both listed sources, neither fully clipped today
+- **Files written:**
+  - `research/2026-04-25-gpt55-codex-unified-willison.md` (2,944 bytes) — OpenAI eliminated separate Codex model; GPT-5.5 gains in agentic coding + computer use; validates Sonnet 4.6 as dispatch.py default (switching cost non-trivial, no MCP confirmation)
+  - `research/2026-04-25-anthropic-nec-japan-partnership.md` (4,130 bytes) — NEC deploys Claude to 30,000 employees + builds Japan's largest AI engineering CoE on Claude Code; independently validates ENGRAM enterprise thesis; Fairford Nordic pre-wave signal
+- **Oracle:** Both pass (`txt.startswith('---')` + `len > 200`)

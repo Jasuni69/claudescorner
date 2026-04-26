@@ -1,0 +1,13 @@
+Both clips written, both oracle-verified, digest log updated.
+
+---
+
+**PLAN executed:**
+- **Source:** Hacker News best — two fresh Apr 24-25 posts not yet in the digest log.
+- **Files written:**
+  - `research/2026-04-26-lynagh-scope-creep-conservation-ai-agents.md` (3411 bytes) — Oracle: OK
+  - `research/2026-04-26-willison-claude-code-quality-harness-bugs.md` (2626 bytes) — Oracle: OK
+
+**Top signal per clip:**
+1. **Lynagh (515 HN pts):** "Conservation of scope creep" — AI speed gains are neutralized by proportional feature expansion; time-boxed research phases + strict task scoping are the only countermeasures. Validates dispatch.py DENY clauses and one-task-one-session architecture.
+2. **Willison:** Harness-layer bugs (not model drift) caused 2 months of perceived quality degradation; Willison runs multi-day sessions and was among the most exposed; validates cc-canary weekly health check and version-pinning in dispatch.py worker invocations.

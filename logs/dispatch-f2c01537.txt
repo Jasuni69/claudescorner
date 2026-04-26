@@ -1,0 +1,8 @@
+**Oracle passed: OK: 162 entries in MEMORY.md**
+
+**Changes made:**
+- `project_health_check.md` body: updated from 28 to 31 checks; added 2026-04-25 billing anomaly changelog; baseline corrected to 30/31 pass
+- `MEMORY.md` index: health-check line updated from "28-check…26/28 pass" to "31-check…30/31 pass"
+- `memory/2026-04-25.md`: run #9 session appended
+
+Everything else was already clean — Digest Runs 25–29 all indexed by prior runs today, 0 broken links, 0 unindexed durable facts.

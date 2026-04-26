@@ -1,0 +1,7 @@
+**Oracle: OK — 166 entries in MEMORY.md**
+
+Changes made:
+- `project_health_check.md` — updated 31→33 checks; added `check_claude_md_size()` changelog entry (Digest Run 30, 2026-04-25); baseline corrected to 32/33 pass
+- `project_memory_mcp.md` — added Memori attribution schema entry (entity/process/session fields in `observe` tool, 2026-04-25)
+- `MEMORY.md` index — health-check line updated (31→33, 30/31→32/33)
+- `memory/2026-04-25.md` — hygiene run #11 appended

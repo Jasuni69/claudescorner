@@ -1,0 +1,7 @@
+Oracle passed: **OK: 171 entries in MEMORY.md**
+
+**What was done:**
+- Updated `reference_hermes_agent.md`: stale 102k star count → 117k; added v0.11.0 "Interface Release" details (`/steer` interrupt, pluggable transports, orchestrator roles, ENGRAM moat clarification)
+- Created `reference_self_organizing_agents.md`: independent ENGRAM validation from blog.gchinis.com — accumulate-without-prune is the identified failure mode, stale-memory-scanner already addresses it; ENGRAM citation candidate
+- Updated MEMORY.md: hermes index entry updated, self-organizing agents entry added (170 → 171 entries)
+- Created `memory/2026-04-26.md` daily log

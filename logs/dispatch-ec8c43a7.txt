@@ -1,0 +1,6 @@
+Oracle passes. Summary:
+
+- Digested 4 unprocessed 2026-04-25 clips (Digest Run 6): awesome-codex-skills, claude-howto, surf-cli, marmelab
+- Corrected 2 stale synthesis table entries: RRF hybrid search and SHA-256 delta both already implemented — marked Done
+- Implemented `check_claude_md_size()` in `projects/health-check/checks.py` (Marmelab 200-line CLAUDE.md limit; both files pass at 41/31 lines)
+- HEARTBEAT.md updated with today's log; oracle: OK (13 done tasks, latest log=2026-04-25)

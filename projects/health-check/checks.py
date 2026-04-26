@@ -103,6 +103,22 @@ def check_dispatch_activity() -> list[Result]:
     return results
 
 
+def check_monthly_limit_warning() -> list[Result]:
+    """Informational check for undocumented Claude billing behaviors (HN 833pts, 2026-04-25).
+
+    Documents three anomalies so operators don't mistake billing surprises for bugs:
+    - Undocumented monthly cap (silently hits ceiling not visible in hourly/weekly stats)
+    - Cache cleared on forced break (tier 2/3 workers pay double tokens on resume)
+    - Token window resets Monday not rolling 7d (cost estimates may be wrong mid-week)
+    """
+    notes = [
+        ("monthly cap risk", "undocumented ceiling — check usage.anthropic.com if dispatch stalls late month"),
+        ("cache-clear-on-break", "forced break clears context cache; tier 2/3 workers re-pay codebase tokens on resume"),
+        ("billing window", "token window resets Monday 00:00 UTC — not rolling 7d; mid-week estimates may undercount"),
+    ]
+    return [Result(label, True, detail) for label, detail in notes]
+
+
 def check_logs() -> list[Result]:
     results: list[Result] = []
 
@@ -141,6 +157,30 @@ def check_port(port: int, label: str) -> Result:
         return Result(label, False, f"port {port} not listening")
 
 
+def check_claude_md_size() -> list[Result]:
+    """Check CLAUDE.md files don't exceed 200-line limit (Marmelab, 2026-04-25).
+
+    Beyond ~200 lines context degrades — business logic only, no code patterns.
+    """
+    targets = {
+        "CLAUDE.md (global)": Path.home() / ".claude" / "CLAUDE.md",
+        "CLAUDE.md (project)": BASE / "CLAUDE.md",
+    }
+    results: list[Result] = []
+    for label, path in targets.items():
+        if not path.exists():
+            results.append(Result(label + " size", True, "not present — skip"))
+            continue
+        lines = len(path.read_text(encoding="utf-8", errors="ignore").splitlines())
+        ok = lines <= 200
+        results.append(Result(
+            label + " size",
+            ok,
+            f"{lines} lines" + ("" if ok else f" — OVER LIMIT (>200); trim to reduce context drift"),
+        ))
+    return results
+
+
 def check_network_ports() -> list[Result]:
     return [
         check_port(5050, "token-dashboard :5050"),
@@ -166,6 +206,8 @@ def run_all() -> list[Result]:
     results.extend(check_projects())
     results.extend(check_logs())
     results.extend(check_dispatch_activity())
+    results.extend(check_monthly_limit_warning())
+    results.extend(check_claude_md_size())
     results.extend(check_network_ports())
     results.extend(check_python_imports())
     return results

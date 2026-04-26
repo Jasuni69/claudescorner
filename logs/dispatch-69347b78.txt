@@ -1,0 +1,10 @@
+Done. Here's the summary:
+
+**PLAN:**
+- Source: GitHub Trending daily (all languages) — chose it because today's existing clips were all blog/opinion; trending surfaces concrete tools
+- File: `research/2026-04-26-mattpocock-skills-dotfiles-movement.md`
+- Top signal: Matt Pocock's personal SKILL.md library hitting 20k stars confirms "skills-as-dotfiles" as a mainstream practitioner moment — the missing discovery layer is exactly what skill-manager-mcp provides
+
+**EXECUTE:** File written at `research/2026-04-26-mattpocock-skills-dotfiles-movement.md` (4,552 bytes). Digest log in `sources.md` updated.
+
+**VERIFY:** Oracle passed — `OK: ...mattpocock-skills-dotfiles-movement.md (4552 bytes)`

@@ -1,0 +1,5 @@
+Oracle passes. Done.
+
+**VERIFY: OK** — 13 done tasks, log entry for 2026-04-25 present.
+
+**What was done:** Audited ClaudesCorner's full Claude Code hook surface against the 7 hook types. Found 5 of 7 wired (Stop, SessionStart, PreCompact, PostCompact, PostToolUse ×3) — two gaps: `PreToolUse` (no pre-execution gate) and `UserPromptSubmit` (no prompt-level scan). Synthesis table entry marked Done; HEARTBEAT log appended.
