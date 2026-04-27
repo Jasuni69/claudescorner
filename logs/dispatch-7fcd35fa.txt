@@ -1,0 +1,7 @@
+**OK: 180 entries in MEMORY.md**
+
+Added 2 new entries:
+- `reference_brunelle_workflow_patterns.md` — Brunelle's workflow patterns (HN 249pts): upfront conventions, context clears between implementations, external-client-as-oracle; 3rd independent validation of dispatch.py one-task-one-session + VERIFY oracle design
+- `project_watchdog.md` — watchdog.py YAML-driven service monitor built 2026-04-26; TCP port + tasklist process checks; restart_cmd; --once/--dry-run
+
+Index was otherwise clean: 178/178 non-daily files matched, 0 broken links, 0 stale entries.

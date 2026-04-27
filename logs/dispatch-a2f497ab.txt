@@ -1,0 +1,3 @@
+Oracle passes. Done.
+
+**Summary:** Digested 2 unprocessed 2026-04-27 research clips into `research/2026-04-27-synthesis.md` — davila7/claude-code-templates (25.6k stars, K-Dense skills library, session analytics gap) and Koshy John leverage-vs-dependency framework (skill scope rule codified). HEARTBEAT.md logged. Oracle: OK.

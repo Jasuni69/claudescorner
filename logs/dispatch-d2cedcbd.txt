@@ -1,0 +1,3 @@
+Oracle passes. Done.
+
+**Summary:** Digested 2 unprocessed 2026-04-27 clips into synthesis Digest Run 2. CelestoAI SmolVM: Firecracker sandbox blocked on Windows, backlog for future Linux deploy. YourMemory: LoCoMo 59% Recall@5, adds `decay_category` + auto-prune + LoCoMo eval to memory-mcp backlog. Memory files created/confirmed, HEARTBEAT.md logged, oracle passes.

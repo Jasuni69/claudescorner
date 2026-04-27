@@ -60,6 +60,12 @@ Outbound proxy (2026-04-22, CrabTrap):
     provides audit trail for all worker outbound requests (pre-Fairford Phase 2 requirement).
     Deploy: go install github.com/brexhq/crabtrap@latest && crabtrap --port 8080
 
+Tier-aware wall-clock timeout (2026-04-26, Lynagh conservation-of-scope-creep):
+    Tier-1 (Haiku) = TIMEOUT_SECONDS (300s) — narrow tasks should never run longer.
+    Tier-2 (Sonnet) and Tier-3 (Opus) = TIMEOUT_SECONDS_TIER2 (14400s / 4h) — Lynagh's
+    empirically validated upper bound for agentic sessions; previously unlimited.
+    Timeout is inferred from the task's model alias via _infer_tier().
+
 Doom-loop guard (2026-04-23, ml-intern pattern):
     BUILD worker prompt includes a doom-loop clause: if the same tool call appears 3+ times
     in a row without progress, the agent outputs BLOCKED: doom-loop detected and halts.
@@ -79,6 +85,33 @@ Auto-worktree isolation (2026-04-23, pgrust/Conductor pattern):
     Eliminates shared-tree file conflicts when 2-3 workers touch overlapping paths.
     Workers currently use separate file domains (infra/research/memory) so conflicts are rare —
     this is a safety net for future workers with overlapping write targets.
+
+Rate Limits API startup check (2026-04-26, Anthropic changelog Apr 24):
+    Queries GET /v1/rate-limits at dispatch startup when ANTHROPIC_API_KEY is set.
+    Logs remaining token/request headroom; warns when any limit is ≤20% remaining.
+    Enables proactive backoff before 429 instead of reactive error handling.
+    Fail-open: if ANTHROPIC_API_KEY is unset, network is unavailable, or response is unexpected,
+    the warning is printed to stderr only and task execution continues normally.
+
+Available beta headers (2026-04-26, Anthropic changelog):
+    Pass via anthropic-beta HTTP header or SDK beta= kwarg. These are NOT used by dispatch.py
+    workers directly (claude.exe handles API calls internally), but are referenced here so
+    BUILD workers know what experimental APIs are available without a network lookup.
+
+    advisor-tool-2026-03-01 (public beta, Apr 9 2026):
+        Pairs a fast executor model (Haiku 4.5) with a high-intelligence advisor (Opus/Sonnet)
+        mid-generation. Advisor triggers at key decision points; bulk tokens at executor rates.
+        Target use case: long-horizon agentic tasks with unpredictable escalation points.
+        Prototype candidate: bi-agent DAX schema cross-ref (Opus-quality at Haiku throughput).
+
+    output-300k-2026-03-24 (public beta, Mar 30 2026):
+        Raises Message Batches API max_tokens limit to 300k for Opus 4.6 + Sonnet 4.6.
+        Relevant for batch research tasks where single outputs exceed the default 8192 limit.
+
+    managed-agents-2026-04-01 (public beta, Apr 23 2026):
+        Persistent cross-session memory for Claude Managed Agents harness.
+        memory-mcp differentiator: self-hosted (sqlite-vec, no Anthropic data retention),
+        Fabric/MCP-integrated, custom governance (Haiku write-gate, injection guard).
 """
 import argparse
 import json
@@ -87,6 +120,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import urllib.request
 import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -97,7 +131,8 @@ TASKS_FILE = BASE / "tasks.json"
 LOGS_DIR = BASE / "logs"
 CLAUDE = r"C:\Users\JasonNicolini\.local\bin\claude.exe"
 MAX_WORKERS = 3
-TIMEOUT_SECONDS = 300       # 5 min per task
+TIMEOUT_SECONDS = 300       # 5 min per task — Haiku tier-1 default
+TIMEOUT_SECONDS_TIER2 = 14400  # 4h cap for Sonnet/Opus (Lynagh 2026-04-26: empirically validated upper bound)
 MAX_CONTEXT_TOKENS = 8000   # soft cap per worker (context-engineering 5-component model)
 
 LOGS_DIR.mkdir(exist_ok=True)
@@ -136,6 +171,64 @@ def _check_claude_version() -> None:
             )
     except Exception as e:
         print(f"[dispatch] WARN: could not check claude version: {e}", file=sys.stderr)
+
+
+# ── Rate Limits API startup check (2026-04-26, Anthropic changelog Apr 24) ────
+_RATE_LIMITS_URL = "https://api.anthropic.com/v1/rate-limits"
+_RATE_LIMIT_WARN_THRESHOLD = 0.20  # warn if ≤20% remaining on any limit
+
+
+def _check_rate_limits() -> None:
+    """Query Anthropic /v1/rate-limits and log remaining headroom.
+
+    Warns when any limit (tokens or requests) is ≤20% remaining, enabling
+    proactive backoff before a 429. Fail-open: skipped silently when
+    ANTHROPIC_API_KEY is not set or any network/parse error occurs.
+    """
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        return
+    try:
+        req = urllib.request.Request(
+            _RATE_LIMITS_URL,
+            headers={
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read().decode())
+
+        # Response is a list of rate limit objects or a dict with a "data" key
+        limits = data if isinstance(data, list) else data.get("data", [])
+
+        warnings: list[str] = []
+        for entry in limits:
+            name = entry.get("name") or entry.get("type") or "unknown"
+            for field in ("input_tokens", "output_tokens", "requests"):
+                limit_val = entry.get(f"{field}_limit") or entry.get(f"{field}", {}).get("limit")
+                remaining_val = entry.get(f"{field}_remaining") or entry.get(f"{field}", {}).get("remaining")
+                if limit_val and remaining_val is not None and limit_val > 0:
+                    ratio = remaining_val / limit_val
+                    if ratio <= _RATE_LIMIT_WARN_THRESHOLD:
+                        warnings.append(
+                            f"{name}/{field}: {remaining_val}/{limit_val} remaining ({ratio:.0%})"
+                        )
+
+        if warnings:
+            print(
+                f"[dispatch] WARN: rate limits tight — {'; '.join(warnings)}. "
+                "Consider delaying dispatch or reducing MAX_WORKERS.",
+                file=sys.stderr,
+            )
+        else:
+            limit_count = len(limits)
+            print(
+                f"[dispatch] rate-limits OK ({limit_count} limit(s) checked, all >20% remaining)",
+                file=sys.stderr,
+            )
+    except Exception as e:
+        print(f"[dispatch] WARN: could not check rate limits: {e}", file=sys.stderr)
 
 
 # ── Inbound content scan (sunglasses — optional soft dependency) ──────────────
@@ -392,13 +485,15 @@ def run_task(task: dict) -> tuple[str, bool, str]:
             cmd += ["--max-budget-usd", max_budget]
         if task.get("bare"):
             cmd.insert(1, "--bare")
+        tier = _infer_tier(task.get("model"))
+        task_timeout = TIMEOUT_SECONDS if tier == 1 else TIMEOUT_SECONDS_TIER2
         proc = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
             encoding="utf-8",
             errors="replace",
-            timeout=TIMEOUT_SECONDS,
+            timeout=task_timeout,
             env=env,
             cwd=run_cwd,
         )
@@ -411,7 +506,9 @@ def run_task(task: dict) -> tuple[str, bool, str]:
             success = False
             output = f"[verify-gate: soft-fail detected]\n{output}"
     except subprocess.TimeoutExpired:
-        output = f"TIMEOUT after {TIMEOUT_SECONDS}s"
+        tier = _infer_tier(task.get("model"))
+        task_timeout = TIMEOUT_SECONDS if tier == 1 else TIMEOUT_SECONDS_TIER2
+        output = f"TIMEOUT after {task_timeout}s"
         success = False
     except ValueError as e:
         # Covers sunglasses injection block and other validation errors
@@ -534,6 +631,7 @@ DEFAULT_AUTONOMOUS_TASKS = [
         "category": "infrastructure",
         "priority": 1,
         "prompt": (
+            "concise\n\n"
             "You are running autonomously as a BUILD agent. Check E:\\2026\\ClaudesCorner\\core\\HEARTBEAT.md "
             "for any pending [ ] tasks. Pick the highest-priority one and execute it using this 3-step protocol:\n\n"
             "SPEC: Before writing any code, state in 4 bullet points: (1) what the task is, "
@@ -638,6 +736,7 @@ def main() -> None:
     args = parser.parse_args()
 
     _check_claude_version()
+    _check_rate_limits()
 
     if args.clear_done:
         tasks = load_tasks()

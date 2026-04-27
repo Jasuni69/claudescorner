@@ -1,0 +1,7 @@
+Done. Summary:
+
+**Source chosen:** HN front page (not clipped today) — post #24 "Open source memory layer so any AI agent can do what Claude.ai and ChatGPT do" (173pts/73 comments)
+
+**File written:** `research/2026-04-26-stash-persistent-memory-mcp-pgvector.md` — oracle passed (3418 bytes)
+
+**Top signal:** `alash3al/stash` is an Apache-2.0 Go MCP server (28 tools) with a 5-layer auto-consolidation pipeline (Episodes→Facts→Relationships→Patterns→Goals) on PostgreSQL+pgvector. Key insight for ClaudesCorner: its auto-consolidation approach (no write-gate) is exactly what HN critics attacked — directly validates memory-mcp's `MEMORY_WRITE_GATE=1` design. Its `/self` namespace (agent self-model) independently reinvents SOUL.md. The failure pattern storage layer it has is a genuine gap in memory-mcp worth backlogging as a `record_failure` tool.

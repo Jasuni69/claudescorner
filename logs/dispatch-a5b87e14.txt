@@ -1,0 +1,9 @@
+Both files written, both oracles passed, sources.md updated. Done.
+
+**Summary:**
+
+- **Source chosen:** GitHub Trending (Python, daily) — Willison had no new posts today; changelog 404'd; GitHub had fresh unclipped items.
+
+- **Files written (both oracle-verified):**
+  - `research/2026-04-27-composio-awesome-codex-skills.md` (3,151 bytes) — 5th org confirming SKILL.md de facto standard; Composio "connect" skill wiring 1000+ apps is the cross-app integration gap skill-manager-mcp currently lacks
+  - `research/2026-04-27-universal-commerce-protocol-ucp.md` (3,659 bytes) — Apache 2.0 agent commerce spec with MCP as native transport; higher-level than X402 (full B2C lifecycle vs micro-payment primitive); Fairford Phase 2 agent payment layer candidate

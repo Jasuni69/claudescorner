@@ -146,6 +146,7 @@ Output format (EXACTLY this structure, no deviations):
 
 -- ORACLE: PASS
 -- References: Table[Column], ...
+-- agent=bi-agent task=<the user's measure description verbatim>
 
 Oracle rules (self-validate before output):
 - If every Table[Column] reference in the DAX exists in the schema above → write "-- ORACLE: PASS"

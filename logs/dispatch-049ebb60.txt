@@ -1,0 +1,5 @@
+Both changes are clean. Summary:
+
+1. **`concise` prefix** — prepended to BUILD worker prompt in `scripts/dispatch.py`. George Liu benchmark: ~50% cost reduction, no accuracy loss on Sonnet 4.6.
+2. **`record_failure` tool** — added to `projects/memory-mcp/server.py`. Stores failure patterns to today's daily log `## Failures` section; fields: `description`, `failure_type`, `domain`, `prevention`. Fills the cross-session doom-loop blind spot identified from Stash /failures namespace.
+3. Synthesis table updated, HEARTBEAT log entry written, oracle: `OK: 13 done tasks, latest log=2026-04-26`.

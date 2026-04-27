@@ -1,0 +1,3 @@
+Task plan update was blocked (not critical — it's a temp file). The work is complete.
+
+**Done.** Added "Available beta headers" section to `scripts/dispatch.py` docstring documenting `advisor-tool-2026-03-01`, `output-300k-2026-03-24`, and `managed-agents-2026-04-01` with use-case notes. HEARTBEAT.md log entry written for 2026-04-26. Synthesis table updated to Done. Oracle: `OK: 13 done tasks, latest log=2026-04-26, today=2026-04-26`.

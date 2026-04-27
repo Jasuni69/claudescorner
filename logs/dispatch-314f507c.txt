@@ -1,0 +1,7 @@
+Done. Summary:
+
+- Added `TIMEOUT_SECONDS_TIER2 = 14400` to `scripts/dispatch.py`
+- `run_task()` now selects 300s for Haiku (tier-1) and 14400s (4h) for Sonnet/Opus (tier-2/3) via existing `_infer_tier()`
+- `TimeoutExpired` handler logs the actual timeout used
+- HEARTBEAT.md logged; synthesis table updated to Done
+- Oracle: `OK: 13 done tasks, latest log=2026-04-26, today=2026-04-26`

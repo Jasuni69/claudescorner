@@ -727,6 +727,38 @@ async def list_tools() -> list[types.Tool]:
                 "required": ["observation"],
             },
         ),
+        types.Tool(
+            name="record_failure",
+            description=(
+                "Record a cross-session failure pattern to today's daily log under ## Failures. "
+                "Use after doom-loops, oracle misses, constraint violations, or recurring errors "
+                "so future workers can avoid repeating them. "
+                "failure_type: 'doom-loop' | 'oracle-miss' | 'constraint-violation' | 'dependency-error' | 'other'."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "What failed and why — enough detail to prevent recurrence.",
+                    },
+                    "failure_type": {
+                        "type": "string",
+                        "description": "doom-loop | oracle-miss | constraint-violation | dependency-error | other",
+                        "default": "other",
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "Optional: which system/project this failure occurred in (e.g. 'dispatch.py', 'memory-mcp', 'bi-agent')",
+                    },
+                    "prevention": {
+                        "type": "string",
+                        "description": "Optional: what to do differently next time",
+                    },
+                },
+                "required": ["description"],
+            },
+        ),
     ]
 
 
@@ -870,6 +902,32 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
         bullet = f"- [{ts}] [{obs_type}]{attribution}{tag_str} {compressed}\n"
         log_file.write_text(existing + bullet, encoding="utf-8")
         return text(f"[observed → {log_file.name}: {compressed[:80]}…]")
+
+    if name == "record_failure":
+        desc = arguments.get("description", "").strip()
+        if not desc:
+            return text("[error: description is required]")
+        failure_type = arguments.get("failure_type", "other")
+        domain = arguments.get("domain", "").strip()
+        prevention = arguments.get("prevention", "").strip()
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        ts = datetime.now().strftime("%H:%M")
+        log_file = MEMORY_DIR / f"{today}.md"
+
+        if log_file.exists():
+            existing = log_file.read_text(encoding="utf-8")
+        else:
+            existing = f"# Daily Log — {today}\n\n"
+
+        if "## Failures" not in existing:
+            existing = existing.rstrip() + "\n\n## Failures\n"
+
+        domain_str = f" [{domain}]" if domain else ""
+        prevention_str = f" → {prevention}" if prevention else ""
+        bullet = f"- [{ts}] [failure:{failure_type}]{domain_str} {desc}{prevention_str}\n"
+        log_file.write_text(existing + bullet, encoding="utf-8")
+        return text(f"[failure recorded → {log_file.name}: {desc[:80]}]")
 
     return text(f"[unknown tool: {name}]")
 

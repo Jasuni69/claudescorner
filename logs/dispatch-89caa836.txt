@@ -1,0 +1,7 @@
+Oracle passed: **192 entries in MEMORY.md**.
+
+**What was done:**
+- Found 2 files on disk not in the MEMORY.md index: `reference_georgeliu_opus_prompt_steering.md` and `reference_stetskov_fogbank_skill_gap.md` — both are alternate-named duplicates of already-indexed canonical files, orphaned by a prior run
+- Added 2 index entries for the duplicate files (190 → 192 entries)
+- Created `memory/2026-04-27.md` daily log
+- No broken links, no true content gaps, no new HEARTBEAT.md activities to durable-ize (no 2026-04-27 entries exist yet)

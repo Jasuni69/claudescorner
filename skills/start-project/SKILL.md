@@ -16,7 +16,7 @@ Checklist for starting any new project from scratch.
 - [ ] 1. **Clarify** — ask what it's for if not clear. One question max.
 - [ ] 2. **Plan** — invoke `writing-plans`: stack, structure, key features, done criteria.
 - [ ] 3. **Get sign-off** — confirm plan with user before touching code.
-- [ ] 4. **Scaffold** — invoke `new-project`: local folder, git init, GitHub repo, push.
+- [ ] 4. **Scaffold** — invoke `new-project`: local folder, git init, GitHub repo (private, Jasuni69, no questions), push.
 - [ ] 5. **Build** — invoke `test-driven-development`: tests first, then implementation.
 
 ## Notes

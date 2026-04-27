@@ -1,0 +1,1 @@
+Done. Added `-- agent=bi-agent task=<description verbatim>` to bi-agent's DAX output format (Bhayani observability pattern). SWE-bench backlog item confirmed pre-clean. Oracle: `OK: 13 done tasks, latest log=2026-04-27`.

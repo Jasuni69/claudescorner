@@ -1,0 +1,7 @@
+Done. Oracle passed: 186 entries.
+
+**Added:**
+- `reference_stetskov_skill_gap.md` — METR 19% slowdown + Fogbank analogy; validates dispatch.py VERIFY oracle + human-in-loop design
+- `reference_georgeliu_prompt_steering.md` — `concise` prefix -56.3% cost on Opus 4.6; steering non-portable across model versions; Sonnet 4.6 default reconfirmed
+
+MEMORY.md was otherwise clean — 9 prior runs today had already indexed all other 2026-04-26 research and HEARTBEAT build entries.

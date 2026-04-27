@@ -1,0 +1,7 @@
+Oracle passes: **198 entries in MEMORY.md**.
+
+Added 2 new entries for previously unindexed 2026-04-27 research clips:
+- **Anthropic Project Deal** — Opus vs Haiku $3.64/item gap in agent negotiations; human asymmetric blindness to tier underperformance; validates dispatch.py tier enforcement discipline
+- **MCP Agent Mail** — FastMCP file-reservation leases + git+SQLite dual persistence; solves dispatch.py parallel worker race conditions; Beads-integrated; Backlog/Medium
+
+No stale or broken entries found. All prior MEMORY.md entries had corresponding files on disk. MEMORY.md: 196 → 198 entries.

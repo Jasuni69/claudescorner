@@ -1,0 +1,10 @@
+Done. Both files verified and digest log updated.
+
+**Summary:**
+
+- **Source chosen:** Hacker News front page (2026-04-27) — highest-signal aggregator; Reddit was used heavily yesterday
+- **Files written:**
+  1. `research/2026-04-27-koshyjohn-ai-elevate-thinking-not-replace.md` (3035 bytes) ✓ — Two-path leverage-vs-dependency framework (189pts HN); directly scopes dispatch.py worker decision boundaries and skill-manager-mcp scope rules
+  2. `research/2026-04-27-davila7-claude-code-templates.md` (3159 bytes) ✓ — 25.6k-star Claude Code template hub trending today; 100+ agents/MCPs/hooks with analytics dashboard; ENGRAM plugin bundle pattern independently validated
+- **Oracle:** Both pass (`OK: ... bytes`)
+- **Digest log:** `sources.md` updated with 2026-04-27 row

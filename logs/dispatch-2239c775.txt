@@ -1,0 +1,7 @@
+Oracle passed. 
+
+**Added:**
+- `reference_celestoai_smolvm.md` — CelestoAI SmolVM Firecracker sandbox (dispatch.py isolation candidate, Windows blocked)
+- `reference_yourmemory_decay_memory.md` — YourMemory Ebbinghaus decay memory MCP (LoCoMo 59% Recall@5, decay_category backlog for memory-mcp)
+
+Both indexed in MEMORY.md (196 entries confirmed). No broken entries found — prior morning run had already handled the 2026-04-27 HEARTBEAT sessions and duplicate file cleanup.

@@ -1,0 +1,1 @@
+Oracle passes. Digest Run 4 complete — 4 clips processed (DeepSeek-V4, Brunelle, Anthropic Managed Agents Memory, Anthropic Advisor Tool), 8 new rows added to the synthesis actionable table, HEARTBEAT.md logged.

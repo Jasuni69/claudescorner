@@ -1,0 +1,10 @@
+Oracle passed. Summary:
+
+**Added:**
+- `reference_trycua_cua.md` — trycua/cua 14.2k-star MIT CUA sandbox; MCP-native + Claude Code; strongest Windows-compatible dispatch.py browser worker candidate; Cua-Bench eval harness
+- `reference_beads_graph_taskqueue.md` — 21.4k-star MIT Dolt-backed graph task queue; atomic `bd claim`; memory decay compaction; structural dispatch.py tasks.json upgrade
+
+**Updated:**
+- `reference_deepseek_v4_pro.md` — added SGLang ShadowRadix inference architecture, flat 4K→900K throughput curve, Miles RL stack; index entry updated to mention flat throughput
+
+**MEMORY.md:** 182 → 184 entries. Oracle: `OK: 184 entries in MEMORY.md`.

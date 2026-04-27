@@ -1,0 +1,3 @@
+Oracle passes. 
+
+**Summary:** Digested 5 unprocessed research clips (trycua, beads, stash, stetskov-west, georgeliu) into `research/2026-04-26-synthesis.md` as Digest Run 5. Key actionable findings: `concise` prefix gives ~50% cost reduction on dispatch.py Sonnet 4.6 workers (Backlog/Medium), and adding a `record_failure` tool to memory-mcp fills the cross-session failure pattern gap (Backlog/Medium). HEARTBEAT.md logged, oracle green.

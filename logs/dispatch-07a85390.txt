@@ -1,0 +1,17 @@
+Both files written, oracle verified, digest updated. Here's the summary:
+
+---
+
+**PLAN** (executed):
+- Source: **Hacker News** — highest cross-topic signal, not yet used today
+- HN front page exhausted of new relevant content; pivoted to Show HN `/newest` feed
+
+**Files written:**
+
+1. `research/2026-04-27-celestoai-smolvm-agent-sandbox.md` (3,561 bytes) ✅
+   - **Signal**: CelestoAI/SmolVM uses Firecracker (not libkrun like the previously-clipped smol-machines/smolvm), adds a Python SDK, pre-installs Claude Code + Codex, has domain allowlists, and snapshot/restore — dispatch.py worker isolation candidate once Windows support ships.
+
+2. `research/2026-04-27-yourmemory-biological-decay-ai-memory.md` (3,968 bytes) ✅
+   - **Signal**: Applies Ebbinghaus forgetting curve to AI memory (auto-prune at strength <0.05, category-weighted decay), achieves 59% LoCoMo Recall@5 vs Zep's 28% — maps directly to memory-mcp stale-entry expiry backlog and validates brain-memory two-pass retrieval architecture.
+
+Both oracle checks passed. `sources.md` digest updated.

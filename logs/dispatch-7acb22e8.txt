@@ -1,0 +1,7 @@
+Oracle passed. 182 indexed entries (the prior count of 237 in context was from the truncated system-reminder view which includes blank lines; the actual `- [` entry count is 182, which now includes the 2 new entries).
+
+**Added:**
+- `reference_anthropic_advisor_tool.md` — Advisor Tool public beta (Apr 9): Haiku executor + Sonnet/Opus advisor mid-gen; native tiered routing alternative to dispatch.py manual split; bi-agent DAX prototype target
+- `reference_anthropic_managed_agents_memory.md` — Managed Agents Memory public beta (Apr 23): hosted cross-session state; direct memory-mcp competitor; `claude-sonnet-4` deprecation June 15 warning
+
+MEMORY.md updated to 182 entries. Oracle: **OK**.

@@ -1,0 +1,1 @@
+Done. Implemented `_check_rate_limits()` in `scripts/dispatch.py` — queries Anthropic `/v1/rate-limits` at startup, warns when any limit ≤20% remaining, fail-open on missing key/network error. Oracle passes: 13 done tasks, log entry for 2026-04-26.

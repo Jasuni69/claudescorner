@@ -29,6 +29,7 @@ description: >
 - NEVER start coding without invoking the correct sub-skill first
 - NEVER skip `/writing-plans` before touching code
 - NEVER work directly on `main` — always branch via `/feature`
+- NEVER ask about GitHub account or repo visibility — always `Jasuni69`, always private
 - If scope is unclear, clarify BEFORE invoking any sub-skill
 
 ## Full cycle

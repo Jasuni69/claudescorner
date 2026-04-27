@@ -25,14 +25,15 @@ Scaffold a new project: GitHub repo + local folder + git init + push-ready.
    git add .gitignore
    git commit -m "init"
    ```
-6. **Create GitHub repo** (private by default):
+6. **Create GitHub repo** — always private, always under `Jasuni69`, never ask:
    ```bash
    gh repo create <name> --private --source=. --remote=origin --push
    ```
 7. **Confirm**: show remote URL and local path. Done.
 
 ## Notes
-- Use `--public` if user says public
-- Ask about description only if user seems to want it — don't block on it
+- **NEVER ask about account or visibility** — always `Jasuni69`, always `--private`
+- Use `--public` only if user explicitly says "public"
+- Do not ask for a description — skip it
 - Skip `.gitignore` step if user has one ready
-- `gh` must be authenticated (`gh auth status`)
+- `gh` must be authenticated (`gh auth status`) — check once, then proceed

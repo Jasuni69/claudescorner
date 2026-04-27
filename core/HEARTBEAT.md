@@ -41,6 +41,113 @@
 
 ## Log
 
+### 2026-04-27 (autonomous heartbeat, BUILD agent — Digest Run 3: Anthropic Project Deal + MCP Agent Mail)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 2 unprocessed 2026-04-27 research clips into research/2026-04-27-synthesis.md (Digest Run 3):
+  - Anthropic Project Deal (Dec 2025, published Apr 2026): 69 employees, 186 deals, $4K real goods; Opus beat Haiku $3.64/item on negotiation tasks; humans with Haiku agents didn't perceive underperformance; validates dispatch.py tier routing + asymmetric-awareness governance gap (backlog/low: hard tier assertion in run_task()); memory file created (reference_anthropic_project_deal.md).
+  - MCP Agent Mail (1.9k stars, MIT, FastMCP): file reservation leases (exclusive/shared) + agent inbox + git+SQLite fabric for parallel coding agents; solves dispatch.py parallel-worker race condition (lighter than worktrees for cooperative tasks); mid-task worker signals gap; Beads task-prioritization complement; validates task_plan.md pattern; no semantic message search = memory-mcp moat holds; memory file created (reference_mcp_agent_mail.md).
+- Synthesis table: 4 new rows (2 Info/Done + 2 Backlog/Low).
+- Oracle: see below.
+
+### 2026-04-27 (autonomous heartbeat, BUILD agent — Digest Run 2: CelestoAI SmolVM + YourMemory decay)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 2 unprocessed 2026-04-27 research clips into research/2026-04-27-synthesis.md (Digest Run 2):
+  - CelestoAI SmolVM (446 stars, Apache-2.0, Firecracker): Python-SDK hardware-VM sandbox; snapshot/restore + domain allowlists + pre-installed Claude Code; dispatch.py worker isolation candidate; blocked: Windows not yet supported; memory file created (reference_celestoai_smolvm.md).
+  - YourMemory (79 stars, CC-BY-NC-4.0): Ebbinghaus decay MCP; LoCoMo Recall@5 59% (2× Zep); decay_category + auto-prune + LoCoMo eval = 3 memory-mcp backlog items; validates brain-memory two-pass retrieval; CC-BY-NC-4.0 blocks direct Fairford fork; memory file confirmed (reference_yourmemory_decay_memory.md).
+- Synthesis table: 5 new rows (2 Info/Done + 3 Low backlog items for memory-mcp decay/prune/eval).
+- Oracle: see below.
+
+### 2026-04-27 (autonomous heartbeat, BUILD agent — Digest Run 1: davila7 claude-code-templates + Koshy John AI leverage)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 2 unprocessed 2026-04-27 research clips into research/2026-04-27-synthesis.md (Digest Run 1):
+  - davila7/claude-code-templates (25.6k stars, GitHub Trending Python): CLI + web dashboard for Claude Code config discovery/install; 100+ pre-built agents/hooks/MCPs; K-Dense AI scientific skills library (139 items); real-time session analytics + Cloudflare Tunnel monitor; v1.28.3 plugin skill bundling = independent ENGRAM plugin bundle validation; closest public analog to skill-manager-mcp as discovery surface (no semantic search / write-gate / governance = differentiator holds); Backlog/Low: scan K-Dense for DAX oracle patterns + evaluate Cloudflare Tunnel monitor vs token-dashboard.
+  - Koshy John "AI Should Elevate Your Thinking" (189 HN pts): leverage vs. dependency two-path framework; skill scope rule codified: "executes what I've decided" = leverage, "answers what should I do?" = dependency; validates dispatch.py DENY clauses + one-task-one-session + VERIFY oracle intent-correspondence check; architectural confirmation only.
+- Synthesis table: 5 rows (2 Info/Done, 1 Reference/codified, 2 Backlog/Low).
+- Oracle: see below.
+
+### 2026-04-27 (autonomous heartbeat, BUILD agent — bi-agent DAX query tagging + SWE-bench backlog cleanup)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned 2 Low-priority backlog items from 2026-04-26-synthesis.md (Digest Run 6 table):
+  - **bi-agent DAX query tagging** (Bhayani observability pattern): added `-- agent=bi-agent task=<description verbatim>` line to SYSTEM_PROMPT output format in `projects/bi-agent/bi_agent.py`. Zero-cost audit trail — every generated DAX measure now carries the originating agent + task as a DAX line comment. Synthesis table: Done.
+  - **SWE-bench Verified comment removal from dispatch.py**: grep confirmed dispatch.py has no SWE-bench references — item was pre-emptively clean. Synthesis table: Done.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — Digest Run 6: defensive-databases + Work IQ + SWE-bench contamination)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 3 unprocessed 2026-04-26 research clips into research/2026-04-26-synthesis.md (Digest Run 6):
+  - Bhayani "Databases Were Not Designed for This" (26 HN pts): 5 broken DB assumptions for agent callers; mitigations = soft-delete/append-only/idempotency/RBAC/query-tagging; validates memory-mcp write-gate + dispatch.py append-only artifacts; gaps: bi-agent DAX query tagging + Fairford per-agent Entra service principal; Backlog/Low.
+  - Microsoft Work IQ (763 stars, EULA): Official M365 MCP (email/Teams/OneDrive/People/Calendar); fabric-mcp complement for complete Microsoft data stack; Fairford Phase 2 candidate; blocked by EULA review + tenant admin consent; public preview (46 open issues); Backlog/Low.
+  - SWE-bench Verified contamination (OpenAI audit, 152 HN pts): 59.4% flawed test cases + frontier contamination; Sonnet 4.6 (60.7%) within noise of Opus 4.6 (65.3%) — confirms default; K2VV ToolCall = canonical routing gate; SWE-bench Verified scores unreliable for dispatch.py routing decisions; Backlog/Low.
+- Memory files for all 3 clips already existed from prior hygiene runs — no new MEMORY.md writes.
+- Synthesis table: 4 new Backlog/Low rows added (Digest Run 6).
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — concise prefix + record_failure tool)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned 2 Medium-priority backlog items from 2026-04-26-synthesis.md (Digest Run 5 additions):
+  - **`concise` prefix on BUILD worker prompt** (George Liu Sonnet 4.6 benchmark): prepended `concise\n\n` to the BUILD agent prompt in `DEFAULT_AUTONOMOUS_TASKS` in `scripts/dispatch.py`. Expected: ~50% cost reduction on BUILD worker runs with no oracle regression. Steering is Sonnet 4.6-specific; do not copy to other model tiers without re-benchmarking.
+  - **`record_failure` tool in memory-mcp** (Stash /failures namespace pattern): added `record_failure` Tool definition and handler to `projects/memory-mcp/server.py`. Stores `[failure:type][domain] description → prevention` bullet to `## Failures` section of today's daily log. Fields: `description` (required), `failure_type` (doom-loop|oracle-miss|constraint-violation|dependency-error|other), `domain`, `prevention` (optional). Backward-compatible additive change.
+- Synthesis table (Digest Run 5): both Medium items marked Done.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — Digest Run 5: trycua + beads + stash + stetskov + georgeliu)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 5 unprocessed 2026-04-26 research clips into research/2026-04-26-synthesis.md (Digest Run 5):
+  - trycua/cua (14.2k stars, MIT): Windows-viable QEMU+cloud CUA sandbox; MCP-native + Claude Code plugin; Cua-Bench eval harness; trajectory export = resumable session artifacts; Backlog/Low.
+  - beads (21.4k stars, MIT Go): Dolt-backed atomic graph task queue; `bd claim` atomic; `bd ready` dependency-filtered; memory decay compaction; Dolt branching for risky ops; structural tasks.json upgrade candidate; Backlog/Low.
+  - Stash (267 stars, Apache 2.0, Go): 28-tool MCP; 5-layer consolidation (Episodes→Facts→Relationships→Patterns→Goals/Failures); `/failures` namespace = cross-session failure pattern gap in memory-mcp; HN critics confirm write-gate design correct; Backlog/Medium: add `record_failure` tool to memory-mcp.
+  - Stetskov "Fogbank" (740 HN pts): METR 19% slowdown confirmed; AI-mediated competence = can prompt, cannot verify; validates dispatch.py human-in-loop + VERIFY oracle + HEARTBEAT.md load-bearing; architectural confirmation only.
+  - George Liu Opus 4.6 vs 4.7 (200-session benchmark): `concise` prefix = -56.3% cost, 0 accuracy loss on 4.6; steering NOT portable between models; Sonnet 4.6 default confirmed; Backlog/Medium: apply `concise` to dispatch.py tier-2 worker prompts.
+- Synthesis table: 7 new rows (1 Confirmed-absent, 2 Medium backlog, 4 Low backlog) added (Digest Run 5).
+- Memory files: `reference_stetskov_skill_gap.md` + `reference_georgeliu_prompt_steering.md` confirmed existing (prior run); trycua/beads memory confirmed existing (run #8); stash existing.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — beta headers docstring)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Low) from 2026-04-26-synthesis.md: "Add `advisor-tool-2026-03-01` to dispatch.py available beta headers doc".
+  - Added "Available beta headers" section to `scripts/dispatch.py` module docstring.
+  - Documents `advisor-tool-2026-03-01` (Haiku+Advisor paired routing, bi-agent DAX prototype candidate).
+  - Documents `output-300k-2026-03-24` (300k max_tokens for Batches API on Opus/Sonnet 4.6).
+  - Documents `managed-agents-2026-04-01` (cross-session memory beta; memory-mcp differentiator noted).
+  - Docstring only — zero logic change; backward-compatible.
+  - Synthesis table: "Add advisor-tool-2026-03-01 to dispatch.py available beta headers doc" → Done.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — Rate Limits API startup check)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Low) from 2026-04-26-synthesis.md: Rate Limits API `/v1/rate-limits` wire-in to dispatch.py startup.
+  - Added `_check_rate_limits()` to `scripts/dispatch.py`: queries `GET /v1/rate-limits` when `ANTHROPIC_API_KEY` is set.
+  - Warns to stderr when any limit (input_tokens, output_tokens, requests) is ≤20% remaining.
+  - Logs `rate-limits OK` when all limits have >20% headroom.
+  - Added `import urllib.request` (stdlib; no new deps).
+  - Added Rate Limits API startup check section to module docstring.
+  - Wired in `main()` after `_check_claude_version()`.
+  - Fail-open: no key set / network down / unexpected response → stderr warning only, task execution continues.
+  - Synthesis table: Rate Limits API wire-in → Done.
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — Digest Run 4: DeepSeek-V4 + Brunelle + Anthropic changelog)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Digested 4 unprocessed 2026-04-26 research clips into research/2026-04-26-synthesis.md (Digest Run 4):
+  - DeepSeek-V4 Day-0 (lmsys.org, 37 HN pts): ShadowRadix prefix caching + flat 4K→900K decode throughput; V4-Flash at $0.14/M now viable for Haiku-tier if K2VV ToolCall quality gates pass; HiSparse Windows blocked; Miles RL pattern relevant if bi-agent DAX oracle evolves to reward-model; Backlog/Low.
+  - Brunelle AI coding revival (blog.matthewbrunelle.com, 249 HN pts): upfront convention setting + context clear between major implementations + external-client-as-oracle = independent convergence with dispatch.py one-task-one-session + VERIFY oracle design; deskilling warning aligns with Coding by Hand (2026-04-18); architectural validation only.
+  - Anthropic Changelog — Managed Agents Memory public beta (Apr 23): cross-session state for Managed Agents harness; Rate Limits API `/v1/rate-limits` (Apr 24); claude-sonnet-4 + claude-opus-4 deprecated Apr 14, retire June 15 → **verified dispatch.py uses `claude-sonnet-4-6` throughout (no deprecated strings)**; Backlog/Low: Rate Limits API startup check + Managed Agents memory storage audit + ENGRAM README differentiation.
+  - Anthropic Changelog — Advisor Tool public beta (Apr 9, `advisor-tool-2026-03-01`): Haiku executor + Opus/Sonnet advisor mid-generation; Haiku 3 retired Apr 20 (dispatch.py uses `claude-haiku-4-5-20251001`, correct); prefer over manual routing for unpredictable escalation tasks; keep manual routing for parallel worker pools + hard budgets + tool-scoped workers; bi-agent DAX schema cross-ref = prototype candidate; Backlog/Low.
+- Synthesis table: 8 new rows added (1 Done + 7 Backlog/Low) (Digest Run 4).
+- Oracle: see below.
+
+### 2026-04-26 (autonomous heartbeat, BUILD agent — tier-aware wall-clock timeout)
+- Only formal pending task (Fairford PoC Phase 2) needs Jason — skipped.
+- Actioned Backlog (Low) from 2026-04-26-synthesis.md: dispatch.py tier-2 worker wall-clock timeout (Lynagh 4-hour cap).
+  - Added `TIMEOUT_SECONDS_TIER2 = 14400` constant to `scripts/dispatch.py` (line 101).
+  - `run_task()` now selects timeout per tier: Haiku (tier-1) = 300s (unchanged), Sonnet/Opus (tier-2/3) = 14400s.
+  - Timeout selection via existing `_infer_tier()` — no new code paths.
+  - `TimeoutExpired` handler updated to log actual timeout used (not hardcoded 300s).
+  - Docstring updated with new section documenting the pattern.
+  - Backward-compatible: Haiku tasks see zero behavior change; Sonnet/Opus workers previously had 300s cap (functionally unlimited for fast tasks but a trap for long sessions) — now correctly bounded at 4h.
+  - Synthesis table row 110: "Add dispatch.py tier-2 worker wall-clock timeout (4h cap)" → Done.
+- Oracle: see below.
+
 ### 2026-04-26 (weekend build — watchdog)
 - Backlog was fully checked off; self-generated new item: `watchdog.py` process/port monitor.
 - Built `projects/watchdog/watchdog.py` (198 lines, stdlib only): YAML-driven service monitor, TCP port checks, process name checks (tasklist on Windows), DOWN/UP transition logging, optional restart_cmd via Popen, --once/--dry-run/--config flags.

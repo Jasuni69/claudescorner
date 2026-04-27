@@ -1,0 +1,7 @@
+Oracle passed. 
+
+**Added 2 new entries (188 → 190):**
+- `reference_railway_prod_db_deletion.md` — PocketOS AI agent deleted prod DB via over-scoped token; validates CrabTrap/AgentKey/deny: stack; "assume agent uses every permission in any token it finds"
+- `reference_sweben_verified_contamination.md` — SWE-bench Verified 59.4% flawed + contamination; K2VV ToolCall = canonical routing gate; Sonnet 4.6 rebench 60.7% confirms default
+
+All other untracked research files were already indexed by prior runs 1–11. No broken links found. MEMORY.md: 190 entries, oracle OK.

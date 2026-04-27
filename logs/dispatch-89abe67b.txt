@@ -1,0 +1,14 @@
+Both files written, oracle verified, digest log updated. Done.
+
+---
+
+**PLAN executed:**
+- Source: Simon Willison blog + Anthropic News (GitHub Trending and Reddit had no new unclipped items; HN showed only already-clipped stories)
+- Files written:
+  - `research/2026-04-26-willison-gpt55-codex-unified-no-separate-model.md` (2269 bytes) ✓
+  - `research/2026-04-26-anthropic-nec-japan-30k-employees-claude-code.md` (2895 bytes) ✓
+- Oracle: both pass (`OK: ... bytes`)
+
+**Top signals:**
+1. **GPT-5.5/Codex unification** — no separate OpenAI coding model exists; dispatch.py multi-provider routing has no "coding specialist" GPT endpoint to target; Sonnet 4.6 tiered architecture remains the right default
+2. **NEC 30k-employee Claude Code rollout** — first Japan global partner independently validates ENGRAM's org-scale thesis; NEC's BluStellar domain packages over Claude = direct Fairford Phase 2 pattern

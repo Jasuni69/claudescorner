@@ -1,0 +1,9 @@
+Done. Two clips written and verified:
+
+**`2026-04-26-trycua-computer-use-agent-infrastructure.md`** (3,299 bytes)
+- **trycua/cua** (14.2k stars, +204 today, MIT) — Cross-platform Computer-Use Agent sandbox with a native MCP server and Claude Code plugin baked in. QEMU/cloud backends cover Windows 11 without REST gateway overhead. Signal: strongest dispatch.py browser-worker isolation candidate that actually runs on Jason's machine, with trajectory export as a HEARTBEAT.md analog.
+
+**`2026-04-26-beads-agent-memory-dolt-graph-taskqueue.md`** (4,279 bytes)
+- **gastownhall/beads** (21.4k stars, +133 today, MIT, Go) — Dolt-backed dependency-aware graph task queue with atomic `bd claim` for multi-agent safety and "memory decay" semantic compaction of closed tasks. Signal: structural upgrade to `tasks.json` — atomic multi-worker claiming + dependency graph + compaction are all gaps in the current dispatch.py task queue. Complementary to memory-mcp (beads = structured task state, memory-mcp = semantic knowledge).
+
+Both passed oracle (`assert startswith('---') + len > 200`).

@@ -488,7 +488,16 @@
       "PowerShell(Get-ChildItem \"$env:APPDATA\\\\Claude\\\\claude-code\" -Force -Recurse -Depth 1 | Select-Object FullName | Format-Table -AutoSize)",
       "PowerShell(Get-Content \"$env:APPDATA\\\\Claude\\\\config.json\" -Raw)",
       "PowerShell(Get-Content \"$env:APPDATA\\\\Claude\\\\cowork-enabled-cli-ops.json\" -Raw -ErrorAction SilentlyContinue; Write-Output \"---\"; Get-Content \"$env:APPDATA\\\\Claude\\\\Preferences\" -Raw -ErrorAction SilentlyContinue | Select-String -Pattern \"model|opus|sonnet\" -AllMatches | Select-Object -First 20)",
-      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='claude.exe'\")"
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='claude.exe'\")",
+      "Bash(schtasks /query /fo CSV)",
+      "PowerShell(schtasks /query /fo CSV)",
+      "PowerShell(Select-String -i \"dispatch|claudescorner\")",
+      "PowerShell(Select-String -Pattern \"dispatch\" -CaseSensitive:$false)",
+      "PowerShell(schtasks /delete /tn \"\\\\ClaudeDispatch\" /f)",
+      "PowerShell(Select-String -Pattern \"claude|anthropic|dispatch|corner|autodream\" -CaseSensitive:$false)",
+      "PowerShell(schtasks /delete /tn \"\\\\ClaudeHeartbeat\" /f)",
+      "PowerShell(schtasks /delete /tn \"\\\\ClaudesCorner-ContextPack\" /f)",
+      "PowerShell(schtasks /delete /tn \"\\\\ClaudeWeekendBuild\" /f)"
     ],
     "defaultMode": "bypassPermissions"
   },

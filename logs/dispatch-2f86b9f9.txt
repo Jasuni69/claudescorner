@@ -1,0 +1,5 @@
+Done. Two files clipped and verified:
+
+**`2026-04-27-anthropic-project-deal-agent-commerce.md`** (2949 bytes) — Anthropic's internal Dec 2025 agent-commerce experiment: Opus generated $3.64 more per deal than Haiku on negotiation tasks, and users of weaker-model agents had zero awareness of underperforming. Validates dispatch.py model-tier enforcement; human blindness to agent underperformance is a governance risk.
+
+**`2026-04-27-mcp-agent-mail-multi-agent-coordination.md`** (4178 bytes) — FastMCP server (~1.9k stars) solving the parallel-worker file-conflict problem via advisory reservation leases + dual Git/SQLite persistence. Direct upgrade path for dispatch.py parallel workers; integrates with Beads task tracker as a complementary primitive to tasks.json.

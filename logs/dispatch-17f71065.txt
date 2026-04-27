@@ -1,0 +1,12 @@
+Done. Both files written and verified, digest log updated.
+
+**PLAN executed:**
+- Source: HN front page + arpitbhayani.me (not clipped today; sources.md lists HN as a primary source)
+- Files written:
+  - `research/2026-04-26-defensive-databases-agent-access.md` (2653 bytes) ✓
+  - `research/2026-04-26-microsoft-work-iq-mcp-m365.md` (2585 bytes) ✓
+- Oracle: both passed (`OK: ... bytes`)
+
+**Top signals:**
+1. **Defensive Databases** — 5 broken DB assumptions under AI callers; adds concrete action items for bi-agent DAX tagging and Fairford Fabric table design (per-agent Entra principal + soft deletes)
+2. **Microsoft Work IQ MCP** — official Microsoft MCP server for M365 collaboration data; pairs with fabric-mcp to give Fairford agents both the data layer (Fabric) and the knowledge layer (Teams/Outlook)

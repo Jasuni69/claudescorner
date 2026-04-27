@@ -1,0 +1,15 @@
+Both clips written, oracle passed, digest log updated. Here's the summary:
+
+---
+
+**PLAN executed:**
+
+**Source chosen:** Hacker News front page — two stories not yet in today's digest, both high signal for Jason's work.
+
+**Files written (both oracle-verified):**
+
+1. `research/2026-04-26-ai-agent-deleted-production-database-railway.md` (3,280 bytes)
+   - PocketOS's AI agent used an over-scoped Railway token to `volumeDelete` production DB + co-located backups. HN consensus: credential architecture failure. Validates CrabTrap outbound filtering, AgentKey per-agent scoping, and `deny:` clauses on destructive infra ops in dispatch.py workers.
+
+2. `research/2026-04-26-sweben-verified-contamination-openai-pro.md` (3,595 bytes)
+   - OpenAI found 59.4% of SWE-bench Verified problems are flawed + all frontier models memorize gold patches. Scores collapse from 70%+ to ~23% on SWE-bench Pro. Claude Sonnet 4.6 (60.7%) is within noise of Opus 4.6 (65.3%) on cleaner benchmarks — Sonnet 4.6 default confirmed. K2VV ToolCall is the correct routing gate, not Verified scores.

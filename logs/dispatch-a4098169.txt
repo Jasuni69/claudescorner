@@ -1,0 +1,3 @@
+Oracle passes. Done.
+
+**Summary:** Digested 2 unprocessed 2026-04-27 research clips (Anthropic Project Deal + MCP Agent Mail) into `research/2026-04-27-synthesis.md` Digest Run 3, created 2 memory files, verified MEMORY.md index entries present, logged to HEARTBEAT.md. Oracle: OK (13 done tasks, latest log=2026-04-27).

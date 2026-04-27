@@ -1,0 +1,12 @@
+Task plan write blocked by sandbox — acceptable, the work is complete. Both oracle verifications passed.
+
+---
+
+**PLAN executed:**
+
+- **Source**: HN front page (GitHub trending was fully covered already today)
+- **Clip 1** — `2026-04-26-stetskov-west-forgot-to-code-skill-gap.md` (2872 bytes, oracle PASS)
+  - techtrenches.dev, HN #8 740pts/444 comments
+  - Signal: METR 19% slowdown (AI tools made experienced devs *slower* on real tasks), Fogbank analogy for institutional memory, 0.18% hire rate on AI-mediated-competence juniors — validates dispatch.py human-in-loop and HEARTBEAT.md as load-bearing
+- **Clip 2** — `2026-04-26-georgeliu-opus-46-vs-47-prompt-steering-benchmarks.md` (2923 bytes, oracle PASS)
+  - 200 headless Claude Code sessions benchmark — `concise` prefix = -56.3% cost on Opus 4.6 with zero accuracy penalty; `think-step-by-step` = +22% cost increase on Opus 4.7 with no gain; steering prefixes are model-non-portable — directly actionable for dispatch.py worker prompt optimization and confirms Sonnet 4.6 default

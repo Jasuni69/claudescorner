@@ -1,0 +1,7 @@
+Oracle passed: **OK: 188 entries in MEMORY.md**
+
+Added 2 new memory files:
+- `reference_defensive_databases.md` — Arpit Bhayani's 5 broken DB assumptions for AI agents + defensive patterns (soft-delete, append-only, idempotency keys, RBAC, query tagging); actionable for bi-agent DAX observability + Fairford Phase 2 per-agent Entra SP
+- `reference_microsoft_work_iq.md` — Official Microsoft M365 MCP (763 stars, EULA); NL queries over email/Teams/OneDrive/calendar; fabric-mcp complement that completes the Fairford enterprise data layer; blocked by EULA review + tenant admin consent
+
+All prior HEARTBEAT.md activities (10 prior hygiene runs today) were already indexed. MEMORY.md is clean: 186 → 188 entries.

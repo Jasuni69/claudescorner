@@ -1,0 +1,12 @@
+Done. Here's the summary:
+
+---
+
+**PLAN executed:**
+- **Source:** Anthropic Docs Changelog — only upstream source not yet clipped today
+- **Files written (both oracle-verified):**
+  - `2026-04-26-anthropic-changelog-managed-agents-memory.md` (3,385 bytes) — **Managed Agents memory public beta** (Apr 23): cross-session memory now under existing `managed-agents-2026-04-01` header; positions ENGRAM memory-mcp as self-hosted alternative with Fabric integration advantage; Rate Limits API (Apr 24) enables proactive budget back-off in dispatch.py
+  - `2026-04-26-anthropic-changelog-advisor-tool.md` (4,277 bytes) — **Advisor Tool public beta** (Apr 9, `advisor-tool-2026-03-01`): Haiku executor + Sonnet/Opus advisor mid-generation = native API primitive replacing dispatch.py's manual tier routing; first prototype target is bi-agent DAX schema cross-ref step
+
+- **sources.md digest log** updated with one-line entry for both clips
+- **Oracle:** both files passed (`---` frontmatter, >200 bytes)

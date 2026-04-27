@@ -1,0 +1,8 @@
+Done. Both files written, oracle passed, digest log updated.
+
+**Summary:**
+
+- **Source:** HN front page (not swept today)
+- **File 1:** `research/2026-04-26-deepseek-v4-sglang-inference-rl.md` (3375 bytes) — DeepSeek-V4 + SGLang's ShadowRadix keeps decode flat 4K→900K tokens; V4-Flash at $0.14/M is now a credible dispatch.py Haiku-tier fallback pending K2VV ToolCall benchmark
+- **File 2:** `research/2026-04-26-brunelle-ai-coding-project-revival.md` (3820 bytes) — context-clear-between-phases + upfront conventions + external-client-as-oracle independently validates dispatch.py's one-task-one-session design and VERIFY oracle principle
+- Both oracles: `OK`
