@@ -29,7 +29,8 @@ Scaffold a new project: GitHub repo + local folder + git init + push-ready.
    ```bash
    gh repo create <name> --private --source=. --remote=origin --push
    ```
-7. **Confirm**: show remote URL and local path. Done.
+7. **Confirm**: show remote URL and local path.
+8. **Handoff** — invoke `session-handoff`: update `CLAUDE.md` with session state and push. Always.
 
 ## Notes
 - **NEVER ask about account or visibility** — always `Jasuni69`, always `--private`

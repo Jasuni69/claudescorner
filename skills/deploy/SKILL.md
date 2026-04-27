@@ -17,6 +17,7 @@ Use this skill when the user says: "deploy", "set up CI", "set up GitHub Actions
 - [ ] 4. **CI stub** — create `.github/workflows/ci.yml`: install, lint, test on push/PR.
 - [ ] 5. **Deploy workflow** — create `.github/workflows/deploy.yml`: trigger on merge to main.
 - [ ] 6. **Verify** — confirm workflow runs green on a test push.
+- [ ] 7. **Handoff** — invoke `session-handoff`: update `CLAUDE.md` with session state and push. Always.
 
 ## Notes
 - Always add `.env` to `.gitignore` before first commit

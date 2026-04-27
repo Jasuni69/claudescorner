@@ -18,6 +18,7 @@ Use this skill when the user says: "let's continue", "add a feature", "I want to
 - [ ] 5. **Build** — invoke `test-driven-development`: tests first, then implementation.
 - [ ] 6. **Review** — invoke `code-review` before merging.
 - [ ] 7. **Merge** — squash merge to main, delete branch.
+- [ ] 8. **Handoff** — invoke `session-handoff`: update `CLAUDE.md` with session state and push. Always.
 
 ## Notes
 - Never work directly on main
